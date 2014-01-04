@@ -1,1 +1,1 @@
-json.extract! @order, :name, :ship_street_address, :ship_city, :ship_state, :ship_country, :telephone, :email, :created_at, :updated_at
+json.extract! @order, :firstname, :lastname, :company, :street_address, :city, :zipcode, :state, :country, :email, :user_id, :status, :telephone, :email, :created_at, :updated_at

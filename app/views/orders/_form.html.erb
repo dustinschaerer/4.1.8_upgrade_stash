@@ -12,35 +12,50 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, size: 50 %>
+    <%= f.label :email, 'Email Address' %>
+    <%= f.text_field :email, size: 40 %>
   </div>
+  
   <div class="field">
-    <%= f.label :ship_street_address, 'Street Address' %>
-    <%= f.text_field :ship_street_address, size: 50 %>
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname, size: 35 %>
   </div>
-  <div class="field">
-    <%= f.label :ship_city, 'City' %>
-    <%= f.text_field :ship_city, size: 30 %>
-  </div>
-  <div class="field">
-    <%= f.label :ship_state, 'State' %>
-    <%= f.select :ship_state, Order::STATES, prompt: 'Select State' %>
 
+  <div class="field">
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname, size: 35 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company %>
+    <%= f.text_field :company, size: 50 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street_address, 'Street Address' %>
+    <%= f.text_field :street_address, size: 50 %>
   </div>
   <div class="field">
-    <%= f.label :ship_country, 'Country' %>
-    <%= select_tag(:ship_country, options_for_select([['United States', 'United States']] )) %>
-    
+    <%= f.label :city, 'City' %>
+    <%= f.text_field :city, size: 30 %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode, 'Zip Code' %>
+    <%= f.text_field :zipcode, size: 10 %>
+  </div>
+  <div class="field">
+    <%= f.label :state, 'State' %>
+    <%= f.select :state, Order::STATES, prompt: 'Select State' %>
+  </div>
+  <div class="field">
+    <%= f.label :country, 'Country' %>
+    <%= select_tag(:country, options_for_select([['United States', 'United States']] )) %>
   </div>
   <div class="field">
     <%= f.label :telephone, 'Telephone Number' %>
     <%= f.text_field :telephone %>
   </div>
-  <div class="field">
-    <%= f.label :email, 'Email Address' %>
-    <%= f.text_field :email, size: 40 %>
-  </div>
+  <!--  order.user_id and order.status are hidden fields -->
   <div class="actions">
     <%= f.submit %>
   </div>

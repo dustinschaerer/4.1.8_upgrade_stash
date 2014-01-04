@@ -32,10 +32,10 @@ class OrdersControllerTest < ActionController::TestCase
     assert_difference('Order.count') do
       post :create, order: { name: @order.name, 
                              email: @order.email, 
-                             ship_street_address: @order.ship_street_address, 
-                             ship_city: @order.ship_city, 
-                             ship_state: @order.ship_state,
-                             ship_country: @order.ship_country,
+                             street_address: @order.street_address, 
+                             city: @order.city, 
+                             state: @order.state,
+                             country: @order.country,
                              telephone: @order.telephone }
     end
     assert_redirected_to store_path
@@ -54,10 +54,10 @@ class OrdersControllerTest < ActionController::TestCase
   test "should update order" do
     patch :update, id: @order, order: { name: @order.name, 
                              email: @order.email, 
-                             ship_street_address: @order.ship_street_address, 
-                             ship_city: @order.ship_city, 
-                             ship_state: @order.ship_state,
-                             ship_country: @order.ship_country,
+                             street_address: @order.street_address, 
+                             city: @order.city, 
+                             state: @order.state,
+                             country: @order.country,
                              telephone: @order.telephone }
     assert_redirected_to order_path(assigns(:order))
   end

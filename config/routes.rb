@@ -1,6 +1,8 @@
 Americo::Application.routes.draw do
   
   
+  resources :shipping_profiles
+
   authenticated :user do
     root :to => 'store#index', :as => "authenticated_root"
   end
@@ -11,18 +13,25 @@ Americo::Application.routes.draw do
   ActiveAdmin.routes(self)
   
   resources :categories
-
   resources :line_items
- 
   resources :carts
-
+  resources :styles
+  resources :series
+  resources :colors
   resources :orders
-    
+
   get "store/index"
   resources :products do
     get :who_bought, on: :member
   end
-
+  resources :series do
+    get :who_bought, on: :member
+  end
+  
+  resources :colors do
+    get :who_bought, on: :member
+  end
+  
   get "users/new"
   
   match '/store',   to: 'store#index',          via: 'get'

@@ -1,0 +1,82 @@
+<h1><%= @style.name %></h1>
+
+  <div class="entry">
+    <div class="row-fluid">
+
+      <% @style.series.each do |swatch| %>
+
+        
+        <div class="span6">
+          <div class="well">
+            <%= link_to(swatch) do %>
+              <h4><%= swatch.name %></h4>
+            <% end %>
+            <div class="row-fluid">
+              <div class="span3">
+                <%= image_tag(swatch.image_url) %>
+              </div>
+              <div class="span9">
+                <%= sanitize(swatch.description) %>
+              </div>
+          
+            </div>
+
+            <div class="row-fluid">
+              
+              <% swatch.colors.each do |color| %>  
+              <div class="span2">
+                <%= link_to(color) do %>
+                  <%= color.name %>
+                <% end %>
+                <%= image_tag(color.image_url) %>
+
+                <%= button_to 'Add to Cart', line_items_path(series_id: swatch.id, color_id: color.id) %>    
+
+              </div>
+              <% end %>
+            </div>  
+
+
+          </div>
+        </div>
+        
+        
+      <% end %>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+<p>
+  <strong>Product:</strong>
+  <%= @style.product_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @style.title %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @style.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @style.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @style.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_style_path(@style) %> |
+<%= link_to 'Back', styles_path %>

@@ -3,8 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Product</th>
+      <th>Series</th>
+      <th>Color</th>
       <th>Cart</th>
+      <th>Order</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,8 +16,10 @@
   <tbody>
     <% @line_items.each do |line_item| %>
       <tr>
-        <td><%= line_item.product %></td>
+        <td><%= line_item.series %></td>
+        <td><%= line_item.color %></td>
         <td><%= line_item.cart %></td>
+        <td><%= line_item.order %></td>
         <td><%= link_to 'Show', line_item %></td>
         <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
         <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -19,7 +19,7 @@ class LineItemsControllerTest < ActionController::TestCase
 
   test "should create line_item" do
     assert_difference('LineItem.count') do
-      post :create, product_id: products(:vinyl).id
+      post :create, series_id: series(:vinyl).id
     end
 
     assert_redirected_to store_path
@@ -36,7 +36,7 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should update line_item" do
-    patch :update, id: @line_item, line_item: { cart_id: @line_item.cart_id, product_id: @line_item.product_id }
+    patch :update, id: @line_item, line_item: { cart_id: @line_item.cart_id, series_id: @line_item.series_id, color_id: @line_item.color_id }
     assert_redirected_to line_item_path(assigns(:line_item))
   end
 

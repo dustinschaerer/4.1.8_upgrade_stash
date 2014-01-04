@@ -1,8 +1,6 @@
 <h1>Store</h1>
 
-<% cache ['store', Product.latest] do %>
 	<% @products.each do |product| %>
-		<% cache ['entry', product] do %>
 
 			<div class="entry">
 				<div class="row-fluid">
@@ -32,7 +30,7 @@
 						<div class="row-fluid">
 					
 							<div class="span12 pull-right">
-								<%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+							
 							</div>
 						</div>	
 
@@ -41,6 +39,5 @@
 				</div>
 			</div>
 
-		<% end %>
+		
 	<% end %>
-<% end %>

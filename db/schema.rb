@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131226184414) do
+ActiveRecord::Schema.define(version: 20140104004209) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -70,13 +70,11 @@ ActiveRecord::Schema.define(version: 20131226184414) do
   add_index "colors", ["series_id"], name: "index_colors_on_series_id"
 
   create_table "line_items", force: true do |t|
-    t.integer  "product_id"
     t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity",   default: 1
     t.integer  "order_id"
-    t.integer  "style_id"
     t.integer  "series_id"
     t.integer  "color_id"
   end
@@ -84,21 +82,27 @@ ActiveRecord::Schema.define(version: 20131226184414) do
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
   add_index "line_items", ["color_id"], name: "index_line_items_on_color_id"
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
-  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
   add_index "line_items", ["series_id"], name: "index_line_items_on_series_id"
-  add_index "line_items", ["style_id"], name: "index_line_items_on_style_id"
 
   create_table "orders", force: true do |t|
-    t.string   "name"
-    t.string   "ship_street_address"
-    t.string   "ship_city"
-    t.string   "ship_state"
-    t.string   "ship_country"
+    t.string   "firstname"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
     t.string   "telephone"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "lastname",       default: "null"
+    t.integer  "user_id",        default: 1
+    t.string   "status",         default: "submitted"
+    t.string   "company",        default: "null"
+    t.string   "zipcode",        default: "null"
+    t.string   "contactby",      default: "email"
   end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: true do |t|
     t.string   "title"
@@ -123,15 +127,33 @@ ActiveRecord::Schema.define(version: 20131226184414) do
 
   add_index "series", ["style_id"], name: "index_series_on_style_id"
 
+  create_table "shipping_profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "company"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shipping_profiles", ["user_id"], name: "index_shipping_profiles_on_user_id"
+
   create_table "styles", force: true do |t|
     t.string   "title"
-    t.string   "category"
     t.string   "name"
     t.text     "description"
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_id"
   end
+
+  add_index "styles", ["product_id"], name: "index_styles_on_product_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

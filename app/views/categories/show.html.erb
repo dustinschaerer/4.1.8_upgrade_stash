@@ -1,19 +1,76 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @category.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+  <div class="entry">
+    <div class="row-fluid">
 
-<p>
-  <strong>Description:</strong>
-  <%= @category.description %>
-</p>
+      <% @category.products.each do |product| %>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @category.image_url %>
-</p>
+        
+        <div class="span6">
+          <div class="well">
+            <%= link_to(product) do %>
+              <h4><%= product.title %></h4>
+            <% end %>
+            <div class="row-fluid">
+              <div class="span3">
+                <%= image_tag(product.image_url) %>
+              </div>
+              <div class="span9">
+                <%= sanitize(product.description) %>
+              </div>
+            </div>
 
+            <div class="row-fluid">
+              
+              <% product.styles.each do |style| %>  
+              <div class="span4">
+                <%= link_to(style) do %>
+                  <%= style.name %>
+                  <%= image_tag(style.image_url) %>
+                <% end %>
+
+
+              </div>
+              <% end %>
+            </div>  
+
+
+          </div>
+        </div>
+        
+        
+      <% end %>
+
+    </div>
+  </div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <% @category.products.each do |product| %>
+      <tr>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.image_url %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_category_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Category', new_category_path %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

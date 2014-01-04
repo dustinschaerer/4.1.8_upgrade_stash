@@ -3,18 +3,18 @@
 
 one:
   name: Tim Smith
-  ship_street_address: 123 Way Street
-  ship_city: Vancouver
-  ship_state: Washington
-  ship_country: United States
+  street_address: 123 Way Street
+  city: Vancouver
+  state: Washington
+  country: United States
   email: tim@example.org
   telephone: 555-555-5555
 
 two:
   name: MyString
-  ship_street_address: MyText
-  ship_city: MyString
-  ship_state: MyString
-  ship_country: MyString
+  street_address: MyText
+  city: MyString
+  state: MyString
+  country: MyString
   email: MyString
   telephone: MyString

@@ -1,0 +1,43 @@
+<h1>Listing shipping_profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Company</th>
+      <th>Street address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+      <th>Country</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shipping_profiles.each do |shipping_profile| %>
+      <tr>
+        <td><%= shipping_profile.user_id %></td>
+        <td><%= shipping_profile.firstname %></td>
+        <td><%= shipping_profile.lastname %></td>
+        <td><%= shipping_profile.company %></td>
+        <td><%= shipping_profile.street_address %></td>
+        <td><%= shipping_profile.city %></td>
+        <td><%= shipping_profile.state %></td>
+        <td><%= shipping_profile.zipcode %></td>
+        <td><%= shipping_profile.country %></td>
+        <td><%= link_to 'Show', shipping_profile %></td>
+        <td><%= link_to 'Edit', edit_shipping_profile_path(shipping_profile) %></td>
+        <td><%= link_to 'Destroy', shipping_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shipping profile', new_shipping_profile_path %>

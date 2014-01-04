@@ -3,13 +3,18 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Ship street address</th>
-      <th>Ship city</th>
-      <th>Ship state</th>
-      <th>Ship country</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Company</th>
+      <th>Street address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
+      <th>Country</th>
       <th>Telephone</th>
       <th>Email</th>
+      <th>Status</th>
+      <th>User_id</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,13 +24,18 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.name %></td>
-        <td><%= order.ship_street_address %></td>
-        <td><%= order.ship_city %></td>
-        <td><%= order.ship_state %></td>
-        <td><%= order.ship_country %></td>
+        <td><%= order.firstname %></td>
+        <td><%= order.lastname %></td>
+        <td><%= order.company %></td>
+        <td><%= order.street_address %></td>
+        <td><%= order.city %></td>
+        <td><%= order.state %></td>
+        <td><%= order.zipcode %></td>
+        <td><%= order.country %></td>
         <td><%= order.telephone %></td>
         <td><%= order.email %></td>
+        <td><%= order.status %></td>
+        <td><%= order.user_id %></td>
         <td><%= link_to 'Show', order %></td>
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>

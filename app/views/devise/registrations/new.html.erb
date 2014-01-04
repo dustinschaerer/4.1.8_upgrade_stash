@@ -14,6 +14,51 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+
+  <% f.fields_for :shipping_profile do |profile|  %> 
+    
+    <div>
+      <%= profile.label :firstname %>
+      <%= profile.text_field :firstname %>
+    </div>
+    
+    <div>
+      <%= profile.label :lastname %>
+      <%= profile.text_field :lastname %>
+    </div>
+    
+    <div>
+      <%= profile.label :company %>
+      <%= profile.text_field :company %>
+    </div>
+    
+    <div>
+      <%= profile.label :street_address %>
+      <%= profile.text_field :street_address %>
+    </div>
+    
+<div>
+      <%= profile.label :city %>
+      <%= profile.text_field :city %>
+    </div>
+    
+    <div>
+      <%= profile.label :state %>
+      <%= profile.text_field :state %>
+    </div>
+
+    <div>
+      <%= profile.label :zipcode %>
+      <%= profile.text_field :zipcode %>
+    </div>
+
+    <div>
+      <%= profile.label :country %>
+      <%= profile.text_field :country %>
+    </div>
+    
+  <% end %>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 

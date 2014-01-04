@@ -24,10 +24,10 @@ describe OrdersController do
   # Order. As you add validations to Order, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { { "name" => "Joe Schmo",
-                             "ship_street_address" => "123 Way Street",
-                             "ship_city" => "Vancouver",
-                             "ship_state" => "Washington",
-                             "ship_country" => "United States",
+                             "street_address" => "123 Way Street",
+                             "city" => "Vancouver",
+                             "state" => "Washington",
+                             "country" => "United States",
                              "telephone" => "555-555-5555",
                              "email" => "dustin@gmail.com" } }
 
