@@ -8,6 +8,10 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username %></div>
+
+  
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
@@ -15,7 +19,7 @@
   <%= f.password_field :password_confirmation %></div>
 
 
-  <% f.fields_for :shipping_profile do |profile|  %> 
+  <% f.fields_for(:shipping_profile) do |profile|  %> 
     
     <div>
       <%= profile.label :firstname %>
@@ -37,7 +41,7 @@
       <%= profile.text_field :street_address %>
     </div>
     
-<div>
+     <div>
       <%= profile.label :city %>
       <%= profile.text_field :city %>
     </div>

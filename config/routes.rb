@@ -1,13 +1,11 @@
 Americo::Application.routes.draw do
   
-  
-  resources :shipping_profiles
-
   authenticated :user do
     root :to => 'store#index', :as => "authenticated_root"
   end
   root :to => "static_pages#home"
   devise_for :users
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -19,6 +17,7 @@ Americo::Application.routes.draw do
   resources :series
   resources :colors
   resources :orders
+  resources :shipping_profiles
 
   get "store/index"
   resources :products do
@@ -33,7 +32,9 @@ Americo::Application.routes.draw do
   end
   
   get "users/new"
+
   
+  match '/users/:id', to: 'users#show',         via: 'get' 
   match '/store',   to: 'store#index',          via: 'get'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'

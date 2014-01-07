@@ -31,6 +31,12 @@
             <li><a href="/colors">Colors</a></li>
             <li><a href="/orders">Orders</a></li>
             
+            <% if user_signed_in? %>
+            <li class="divider"></li>
+            <li><a href="/request_a_quote">Request a Quote</a></li>
+            <li><a href="/users/<%= current_user.id %>">Account Dashboard</a></li>
+            <% end %>
+
             
             <li class="divider"></li>
             <li><a href="/contact">Contact</a></li>
@@ -48,7 +54,7 @@
           <div class="pull-right">
             <p>Logged in as <strong><%= current_user.email %></strong>.
               <%= link_to 'Edit profile', edit_user_registration_path %></p>
-          </ul>  
+          </div>  
           <% end %>
 
           <%= yield %>

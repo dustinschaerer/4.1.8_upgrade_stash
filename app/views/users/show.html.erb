@@ -1,0 +1,30 @@
+<% provide(:title ,'User Profile') %>
+
+<h1>Hello, <%= @user.username %></h1>
+<p><%= @user.email %></p>
+
+<h3>Swatch Order History</h3>
+<table>
+	<tr>
+		<th>Order #</th>
+		<th>First and Last Name</th>
+		<th>Email Address</th>
+		<th>Street Address</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip</th>
+	</tr>
+	<% @orders.each do |order|%>
+	<tr>
+		<td><%= order.id %></td>
+		<td><%= order.firstname %> <%= order.lastname %></td>
+		<td><%= order.email %></td>
+		<td><%= order.street_address %></td>
+		<td><%= order.city %></td>
+		<td><%= order.state %></td>
+		<td><%= order.zipcode %></td>
+	</tr>
+	<% end %>
+</table>
+
+

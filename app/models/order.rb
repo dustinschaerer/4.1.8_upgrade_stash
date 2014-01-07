@@ -7,6 +7,7 @@ Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dak
 "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" ]
 
 	has_many :line_items, dependent: :destroy
+	belongs_to :user
 
 	validates :firstname, :lastname, :street_address, :city, :zipcode, :state, :country, :email, :user_id, :status, presence: true
 	validates :state, inclusion: STATES

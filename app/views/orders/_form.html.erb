@@ -49,7 +49,8 @@
   </div>
   <div class="field">
     <%= f.label :country, 'Country' %>
-    <%= select_tag(:country, options_for_select([['United States', 'United States']] )) %>
+    <%= f.select(:country, options_for_select(['United States'] )) %>
+
   </div>
   <div class="field">
     <%= f.label :telephone, 'Telephone Number' %>
