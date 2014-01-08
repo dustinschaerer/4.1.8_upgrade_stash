@@ -1,0 +1,25 @@
+<h1>Listing quotecarts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quotecarts.each do |quotecart| %>
+      <tr>
+        <td><%= link_to 'Show', quotecart %></td>
+        <td><%= link_to 'Edit', edit_quotecart_path(quotecart) %></td>
+        <td><%= link_to 'Destroy', quotecart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quotecart', new_quotecart_path %>

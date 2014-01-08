@@ -1,0 +1,49 @@
+<h1>Listing vinyls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Shape</th>
+      <th>Width</th>
+      <th>Length</th>
+      <th>Height</th>
+      <th>Drop</th>
+      <th>Series</th>
+      <th>Color</th>
+      <th>Umbrella</th>
+      <th>Velcro</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vinyls.each do |vinyl| %>
+      <tr>
+        <td><%= vinyl.cover %></td>
+        <td><%= vinyl.shape %></td>
+        <td><%= vinyl.width %></td>
+        <td><%= vinyl.length %></td>
+        <td><%= vinyl.height %></td>
+        <td><%= vinyl.drop %></td>
+        <td><%= vinyl.series %></td>
+        <td><%= vinyl.color %></td>
+        <td><%= vinyl.umbrella %></td>
+        <td><%= vinyl.velcro %></td>
+        <td><%= vinyl.quantity %></td>
+        <td><%= vinyl.price %></td>
+        <td><%= link_to 'Show', vinyl %></td>
+        <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
+        <td><%= link_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vinyl', new_vinyl_path %>

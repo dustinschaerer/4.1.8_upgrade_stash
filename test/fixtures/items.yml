@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quotecart_id: 
+  itemable_id: 1
+  itemable_type: MyString
+
+two:
+  quotecart_id: 
+  itemable_id: 1
+  itemable_type: MyString

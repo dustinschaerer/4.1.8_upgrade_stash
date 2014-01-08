@@ -53,6 +53,7 @@
           <% if user_signed_in? %>
           <div class="pull-right">
             <p>Logged in as <strong><%= current_user.email %></strong>.
+              <%= link_to 'My Dashboard', user_path(current_user) %>
               <%= link_to 'Edit profile', edit_user_registration_path %></p>
           </div>  
           <% end %>

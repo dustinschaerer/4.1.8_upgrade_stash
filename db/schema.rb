@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106212846) do
+ActiveRecord::Schema.define(version: 20140108002640) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -69,6 +69,16 @@ ActiveRecord::Schema.define(version: 20140106212846) do
 
   add_index "colors", ["series_id"], name: "index_colors_on_series_id"
 
+  create_table "items", force: true do |t|
+    t.integer  "quotecart_id"
+    t.integer  "itemable_id"
+    t.string   "itemable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["quotecart_id"], name: "index_items_on_quotecart_id"
+
   create_table "line_items", force: true do |t|
     t.integer  "cart_id"
     t.datetime "created_at"
@@ -115,6 +125,11 @@ ActiveRecord::Schema.define(version: 20140106212846) do
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id"
+
+  create_table "quotecarts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "series", force: true do |t|
     t.integer  "style_id"
@@ -174,5 +189,25 @@ ActiveRecord::Schema.define(version: 20140106212846) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vinyls", force: true do |t|
+    t.string   "cover"
+    t.string   "shape"
+    t.integer  "width"
+    t.integer  "length"
+    t.integer  "height"
+    t.integer  "drop"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.boolean  "umbrella"
+    t.boolean  "velcro"
+    t.integer  "quantity"
+    t.integer  "price",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vinyls", ["color_id"], name: "index_vinyls_on_color_id"
+  add_index "vinyls", ["series_id"], name: "index_vinyls_on_series_id"
 
 end

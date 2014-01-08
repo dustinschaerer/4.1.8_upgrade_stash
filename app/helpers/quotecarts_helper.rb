@@ -1,0 +1,2 @@
+module QuotecartsHelper
+end

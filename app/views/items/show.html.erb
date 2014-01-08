@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quotecart:</strong>
+  <%= @item.quotecart %>
+</p>
+
+<p>
+  <strong>Itemable:</strong>
+  <%= @item.itemable_id %>
+</p>
+
+<p>
+  <strong>Itemable type:</strong>
+  <%= @item.itemable_type %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

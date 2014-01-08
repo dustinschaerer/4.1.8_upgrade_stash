@@ -1,0 +1,17 @@
+<%= form_for(@quotecart) do |f| %>
+  <% if @quotecart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quotecart.errors.count, "error") %> prohibited this quotecart from being saved:</h2>
+
+      <ul>
+      <% @quotecart.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
