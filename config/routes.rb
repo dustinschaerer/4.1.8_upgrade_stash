@@ -1,5 +1,11 @@
 Americo::Application.routes.draw do
   
+  resources :laminaterolls
+
+  resources :laminates
+
+  resources :vinylrolls
+
   resources :items
 
   resources :quotecarts

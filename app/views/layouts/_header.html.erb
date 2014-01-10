@@ -1,25 +1,83 @@
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-      <div class="container">
-        <%= link_to "americo app", root_path, id: "logo" %>
-        <nav>
-            
-          <ul class="nav pull-right">
-            <li><%= link_to "Home",    root_path%></li>
-            <li><%= link_to "About",   about_path %></li>
-            <li><%= link_to "Help",    help_path %></li>
-
-             <% if user_signed_in? %>
+<header id="siteheader">
+  <div class="row-fluid">
+    <div class="span3">  
+      <%= link_to 'root_path', id: "logo" do %>
+        <%= image_tag('logo.png') %>
+      <% end %>
+    </div>
+    
+    <div class="span2">  
+      800-626-2350        
+    </div>
+    
+    <div class="span7">  
+      <div class="row-fluid">
+        <div class="span3 border-right">  
+          <ul>
+           
+            <% if user_signed_in? %>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <li><a class="dropdown-toggle" href="/users/<%= current_user.id %>">MY ACCOUNT </a></li>
+                <li>Logged in as <br /><%= current_user.email %></li>
             <% else %>
-              <li><%= link_to "Sign up", new_user_registration_path %></li>
-              <li><%= link_to "Login", new_user_session_path %></li>
-              
+              <li><%= link_to "SIGN IN", new_user_session_path %></li>
+              <li><%= link_to "CREATE ACCOUNT", new_user_registration_path %></li>
+            
             <% end %>
+          </ul>         
+        </div>
+        
+        <div class="span3 border-right top-link">  
+          <ul>
+            <li><a href="/request_a_quote">Request a Quote</a></li>
+            <li><a href="/request_a_quote">Place an Order</a></li>
+          </ul>    
+        </div>
+        
+        <div class="span3 border-right top-link">  
+          <ul>
+            <li><a href="/request_a_quote">How to Measure</a></li>
+            <li><a href="/request_a_quote">FREE Catalog</a></li>
+            <li><a href="/request_a_quote">FREE Swatches</a></li>
+          </ul>        
+        </div>
 
+        <div class="span3">  
+          <%= link_to 'carts/:id', id: "logo" do %>
+            <%= image_tag('header_cart.png') %>         
+          <% end %>  
+        </div>
+        
+      </div>    
+    </div>
+
+  </div>
+
+  <nav class="navbar navbar-default">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+      
+        <nav>
+          <ul class="nav">
+            <li><%= link_to "Vinyl Table Covers",     "/categories/1" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Vinyl Upholstery Fabric", "/categories/5" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Laminated Fabric", "/categories/1" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "No-Slip Padding",  "/categories/2" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Accessories",      "/categories/6" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Photo Gallery",    "#" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Markets",          "#" %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to "Customer Service", "#" %></li>
           </ul>
         </nav>
       </div>
     </div>
-  </header>
+  </nav>
+</header>
 

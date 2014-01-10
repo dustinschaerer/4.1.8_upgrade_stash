@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cover: MyString
+  shape: MyString
+  width: 1
+  length: 1
+  height: 1
+  drop: 1
+  series_id: 
+  color_id: 
+  umbrella: false
+  velcro: false
+  quantity: 1
+  price: 1
+
+two:
+  cover: MyString
+  shape: MyString
+  width: 1
+  length: 1
+  height: 1
+  drop: 1
+  series_id: 
+  color_id: 
+  umbrella: false
+  velcro: false
+  quantity: 1
+  price: 1

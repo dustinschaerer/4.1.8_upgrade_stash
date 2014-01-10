@@ -1,9 +1,14 @@
+
+
 @import "bootstrap";
 
 /* universal */
 
+
+
 html {
   overflow-y: scroll;
+  font-size: 10px;
 }
 
 body {
@@ -29,6 +34,34 @@ textarea {
   top:41px;
     position:fixed;
 }
+/* navbar */
+.navbar-inner {
+    background-color: transparent;
+    border: 0px;
+    border-radius: 0px;
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF);
+    background-repeat: repeat-x;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
+    min-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.navbar .nav > li > a {
+    color: #666666;
+    float: none;
+    padding: 6px 4px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+.navbar .divider-vertical {
+    border-left: 1px solid #666666;
+    border-right: 1px solid #FFFFFF;
+    height: 12px;
+    margin: 10px 9px 0px 9px;
+}
+
 
 
 /* typography */
@@ -53,13 +86,23 @@ h2 {
   color: $grayLight;
 }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+/* header */
+#siteheader ul {
+  list-style-type: none;
+}
+.border-right {
+  border-right: solid 1px #999999;
+}
+#siteheader a.top-link {
+  color: #999999;
+  text-decoration: none;
 }
 
-/* header */
 
+
+
+
+/*
 #logo {
   float: left;
   margin-right: 10px;
@@ -79,7 +122,12 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
-}
+} 
+*/
+
+
+
+
 
 /* footer */
 
@@ -143,6 +191,16 @@ footer {
   }
  /* END SIDE */
 
+
+ /* set a max-width for horizontal fluid layout and make it centered */
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px; /* or 950px */
+}
+
+
+
  /* Custom button style for bootstrap */
 .btn-custom { 
   background-color: hsl(0, 69%, 22%) !important;
@@ -155,3 +213,13 @@ footer {
 }
 
 
+
+
+/* Keep at bottom, this sets the padding for the fixed header top */
+
+@media (min-width: 980px) {
+  body {
+    padding-top: 30px;
+    padding-bottom: 42px;
+  }
+}

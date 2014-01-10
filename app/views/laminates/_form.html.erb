@@ -1,0 +1,65 @@
+<%= form_for(@laminate) do |f| %>
+  <% if @laminate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@laminate.errors.count, "error") %> prohibited this laminate from being saved:</h2>
+
+      <ul>
+      <% @laminate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cover %><br>
+    <%= f.text_field :cover %>
+  </div>
+  <div class="field">
+    <%= f.label :shape %><br>
+    <%= f.text_field :shape %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br>
+    <%= f.number_field :width %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.number_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :drop %><br>
+    <%= f.number_field :drop %>
+  </div>
+  <div class="field">
+    <%= f.label :series_id %><br>
+    <%= f.text_field :series_id %>
+  </div>
+  <div class="field">
+    <%= f.label :color_id %><br>
+    <%= f.text_field :color_id %>
+  </div>
+  <div class="field">
+    <%= f.label :umbrella %><br>
+    <%= f.check_box :umbrella %>
+  </div>
+  <div class="field">
+    <%= f.label :velcro %><br>
+    <%= f.check_box :velcro %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<h1>Listing vinylrolls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>References</th>
+      <th>References</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vinylrolls.each do |vinylroll| %>
+      <tr>
+        <td><%= vinylroll.quantity %></td>
+        <td><%= vinylroll.references %></td>
+        <td><%= vinylroll.references %></td>
+        <td><%= vinylroll.price %></td>
+        <td><%= link_to 'Show', vinylroll %></td>
+        <td><%= link_to 'Edit', edit_vinylroll_path(vinylroll) %></td>
+        <td><%= link_to 'Destroy', vinylroll, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vinylroll', new_vinylroll_path %>

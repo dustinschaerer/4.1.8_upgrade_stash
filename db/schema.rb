@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108002640) do
+ActiveRecord::Schema.define(version: 20140109221726) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -78,6 +78,38 @@ ActiveRecord::Schema.define(version: 20140108002640) do
   end
 
   add_index "items", ["quotecart_id"], name: "index_items_on_quotecart_id"
+
+  create_table "laminaterolls", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "laminaterolls", ["color_id"], name: "index_laminaterolls_on_color_id"
+  add_index "laminaterolls", ["series_id"], name: "index_laminaterolls_on_series_id"
+
+  create_table "laminates", force: true do |t|
+    t.string   "cover"
+    t.string   "shape"
+    t.integer  "width"
+    t.integer  "length"
+    t.integer  "height"
+    t.integer  "drop"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.boolean  "umbrella"
+    t.boolean  "velcro"
+    t.integer  "quantity"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "laminates", ["color_id"], name: "index_laminates_on_color_id"
+  add_index "laminates", ["series_id"], name: "index_laminates_on_series_id"
 
   create_table "line_items", force: true do |t|
     t.integer  "cart_id"
@@ -189,6 +221,15 @@ ActiveRecord::Schema.define(version: 20140108002640) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "vinylrolls", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "vinyls", force: true do |t|
     t.string   "cover"
