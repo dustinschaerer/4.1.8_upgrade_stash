@@ -1,18 +1,18 @@
 <header id="siteheader">
-  <div class="row-fluid">
-    <div class="span3">  
+  <div class="row">
+    <div class="col-sm-3 col-lg-3">  
       <%= link_to 'root_path', id: "logo" do %>
         <%= image_tag('logo.png') %>
       <% end %>
     </div>
     
-    <div class="span2">  
+    <div class="col-sm-2 col-lg-2">  
       800-626-2350        
     </div>
     
-    <div class="span7">  
-      <div class="row-fluid">
-        <div class="span3 border-right">  
+    <div class="col-sm-7 col-lg-7">   
+      <div class="row">
+        <div class="col-sm-3 col-lg-3 border-right">  
           <ul>
            
             <% if user_signed_in? %>
@@ -27,14 +27,14 @@
           </ul>         
         </div>
         
-        <div class="span3 border-right top-link">  
+        <div class="col-sm-3 col-lg-3 border-right top-link">  
           <ul>
             <li><a href="/request_a_quote">Request a Quote</a></li>
             <li><a href="/request_a_quote">Place an Order</a></li>
           </ul>    
         </div>
         
-        <div class="span3 border-right top-link">  
+        <div class="col-sm-3 col-lg-3 border-right top-link">  
           <ul>
             <li><a href="/request_a_quote">How to Measure</a></li>
             <li><a href="/request_a_quote">FREE Catalog</a></li>
@@ -42,7 +42,7 @@
           </ul>        
         </div>
 
-        <div class="span3">  
+        <div class="col-sm-3 col-lg-3">  
           <%= link_to 'carts/:id', id: "logo" do %>
             <%= image_tag('header_cart.png') %>         
           <% end %>  
@@ -55,10 +55,9 @@
 
   <nav class="navbar navbar-default">
     <div class="navbar-inner">
-      <div class="container-fluid">
       
         <nav>
-          <ul class="nav">
+          <ul class="nav navbar-nav">
             <li><%= link_to "Vinyl Table Covers",     "/categories/1" %></li>
             <li class="divider-vertical"></li>
             <li><%= link_to "Vinyl Upholstery Fabric", "/categories/5" %></li>
@@ -76,7 +75,7 @@
             <li><%= link_to "Customer Service", "#" %></li>
           </ul>
         </nav>
-      </div>
+      
     </div>
   </nav>
 </header>

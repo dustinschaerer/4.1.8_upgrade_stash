@@ -1,6 +1,6 @@
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
+ * listed below.git
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
@@ -48,8 +48,11 @@
   }
 }
 
+@import "bootstrap";
 @import "carts";
 @import "quotecarts";
 @import "scaffolds";
 @import "store";
 @import "custom";
+@import "nivo-slider";
+@import "nivo-theme";

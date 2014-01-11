@@ -1,9 +1,8 @@
 
 
-@import "bootstrap";
-
 /* universal */
-
+$grayLight: #999;
+$red: #ff0000;
 
 
 html {
@@ -35,6 +34,16 @@ textarea {
     position:fixed;
 }
 /* navbar */
+.navbar {
+    border: 0px;
+    margin-bottom: 0px;
+    
+    position: relative;
+    border-radius: 0px;
+}
+.navbar-default {
+    background-color: #FFFFFF;
+}
 .navbar-inner {
     background-color: transparent;
     border: 0px;
@@ -42,7 +51,7 @@ textarea {
     background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF);
     background-repeat: repeat-x;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
-    min-height: 20px;
+    
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -146,10 +155,9 @@ footer {
     float: left;
   }
   ul {
-    float: right;
     list-style: none;
     li {
-      float: left;
+      
       margin-left: 10px;
     }
   }
@@ -192,6 +200,17 @@ footer {
  /* END SIDE */
 
 
+/* home page only*/
+#home-made-usa {
+  border-left: solid 1px #666666;
+}
+#home-inspire {
+  border-top: solid 1px #666666;
+}
+
+
+/* end home page only*/
+
  /* set a max-width for horizontal fluid layout and make it centered */
 .container-fluid {
   margin-right: auto;
@@ -212,7 +231,10 @@ footer {
   background-image: linear-gradient(#b42121, #5e1111); border-color: #5e1111 #5e1111 hsl(0, 69%, 17%); color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33); -webkit-font-smoothing: antialiased; 
 }
 
-
+.hold-it {
+  background-color: #dedede;
+  border: solid 1px #333333;
+}
 
 
 /* Keep at bottom, this sets the padding for the fixed header top */

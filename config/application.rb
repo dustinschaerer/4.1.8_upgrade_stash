@@ -37,5 +37,9 @@ module Americo
     config. generators do |g|
         g.test_framework :test_unit
     end    
+
+    config.assets.paths << "#{Rails.root}/app/themes/default/"
+
+
   end
 end

@@ -15,77 +15,46 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
 
   <%= render 'layouts/header' %>
 
-  <div class="row">
-    <div class="col-sm-12 col-lg-12">
+  <div class="row-fluid">
+    <div class="span12">
 
       <div class="slider-wrapper theme-default">
-        <div id="slider" class="nivoSlider">
-          <%= image_tag("walle.jpg", alt: "slider1", :data => { :thumb => 'walle.jpg' } ) %>
-          <%= image_tag("up.jpg", alt: "slider2", :data => { :thumb => 'up.jpg' } ) %>
+          <div id="slider" class="nivoSlider">
+            <%= image_tag("walle.jpg", alt: "slider1", :data => { :thumb => 'walle.jpg' } ) %>
+            <%= image_tag("up.jpg", alt: "slider2", :data => { :thumb => 'up.jpg' } ) %>
             <!--
             <img src="images/walle.jpg" data-thumb="images/walle.jpg" alt="" />
             <img src="images/up.jpg" data-thumb="images/up.jpg" alt="" title="This is an example of a caption" />
             <img src="images/walle.jpg" data-thumb="images/walle.jpg" alt="" data-transition="slideInLeft" />
             <img src="images/up.jpg" data-thumb="images/up.jpg" alt="" title="#htmlcaption" />
           -->
+          </div>
+          <div id="htmlcaption" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+          </div>
         </div>
-        <div id="htmlcaption" class="nivo-html-caption">
-          <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
-        </div>
+
       </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
   </div>  
-  
-  <div class="row"> 
-    <div class="col-sm-7 col-lg-7">
-      <h3>Intro copy with keyword blah lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   
 
-    </div>
-    <div class="col-sm-5 col-lg-5" id="home-made-usa">
-       <p><strong>AMERICO NEWS</strong></p>
-       <p>Tradeshow Schedule</p>
-       <p>1000s of Satisfied Customers</p>
-       <p>40 Years Experience</p>
 
-    </div>
-  </div>  
 
-  <div class="row" id="home-inspire"> 
-    <div class="col-sm-4 col-lg-4 hold-it">
-      <p><span class="hl">Need More Inspiration?/</span>
-      <br>Our Photo Gallery is filled with design ideas for every decorating style and taste.</p>
-      <p><a href="#">View photo gallery</a></p>
-
-    </div>
-    <div class="col-sm-2 col-lg-2 hold-it">
-      &nbsp;
-    </div>
-    <div class="col-sm-2 col-lg-2 hold-it">
-    &nbsp;
-    </div>
-    <div class="col-sm-2 col-lg-2 hold-it">
-    &nbsp;
-    </div>
-    <div class="col-sm-2 col-lg-2 hold-it">
-    &nbsp;
-    </div>
-  </div>
-
-  <div class="row"> 
-    <div class="col-sm-6 col-lg-6">
-      <p class="stay-connect">Stay connected with Americo Inc. 800-626-2350</p>
-    </div>
-    <div class="col-sm-6 col-lg-6">
-      <p class="stay-connect">Enter email for Special Offers:</p>
-    </div>
-    
-  </div>
- 
 
 
 
@@ -96,7 +65,7 @@
 
 
     <div class="row-fluid">
-        <div class="col-sm-4 col-lg-4">
+      <div class="span4">
           <!--sidebar-->
           <div class="sidebar-nav-fixed" id="side">
             <% if @cart %>
@@ -140,7 +109,7 @@
           </ul>
           </div>
       </div><!--/span4-->
-      <div class="col-sm-8 col-lg-8">
+      <div class="span8">
          <!--2nd column-->
          <div id="rightCol">
               
