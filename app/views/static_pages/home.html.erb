@@ -1,15 +1,124 @@
+ <div id="statichome"> 
+  <div class="row">
+    <div class="col-sm-12 col-lg-12">
+
+      <div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+          <%= image_tag("slider-vinyl-table-covers.png", alt: "slider1", :title => "#vinylslidecaption", :data => { :thumb => 'slider-vinyl-table-covers.png' } ) %>
+          <%= image_tag("slider-upholstery-goods.png", alt: "slider2", :title => "#upholsteryslidecaption", :data => { :thumb => 'slider-upholstery-goods.png' } ) %>
+          <%= image_tag("slider-table-covers.png", alt: "slider3", :title => "#tableslidecaption", :data => { :thumb => 'slider-table-covers.png' } ) %>
+          <%= image_tag("slider-fabrics.png", alt: "slider4", :title => "#fabricslidecaption", :data => { :thumb => 'slider-fabrics.png' } ) %>
+        </div>
+        <div id="vinylslidecaption" class="nivo-html-caption" style="display:none">
+          <div class="nivo-1">
+            <strong>Vinyl Tablecloths</strong> 
+          </div>
+          <div class="nivo-1a">
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+          </div>
+        
+        </div>
+
+        <div id="upholsteryslidecaption" class="nivo-html-caption" style="display:none">
+        <div class="nivo-1">
+            <strong>Upholstery Goods</strong> 
+          </div>
+          <div class="nivo-1a">
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+          </div>
+        </div>
+        <div id="tableslidecaption" class="nivo-html-caption" style="display:none">
+           <div class="nivo-1">
+            <strong>Table Cloths</strong> 
+          </div>
+          <div class="nivo-1a">
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+          </div>
+         
+        </div>
+        <div id="fabricslidecaption" class="nivo-html-caption" style="display:none">
+          <div class="nivo-1">
+            <strong>Vinyl Fabrics</strong> 
+          </div>
+          <div class="nivo-1a">
+             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+  <div class="row"> 
+    <div class="col-sm-8 col-lg-8">
+      <h3>Intro copy with keyword blah lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</h3>
+      <span class="splashtext">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+
+    </div>
+    <div class="col-sm-4 col-lg-4" id="home-made-usa">
+       <h4>AMERICO NEWS</h4>
+       <p>Tradeshow Schedule</p>
+       <p>1000s of Satisfied Customers</p>
+       <p>40 Years Experience</p>
+       <p><a href="#">More</a></p>
+
+       <div class="row">
+       
+       <div class="col-sm-7 col-lg-7">
+        &nbsp;
+       </div>
+       
+       <div class="col-sm-5 col-lg-5">
+       <%= image_tag("made-in-usa.png", :class => "pull-right img-responsive", alt: "Made in the USA", :id => 'made-usa' ) %>
+        </div>
+
+        </div>  
 
 
 
 
+    </div>
+  </div>  
+
+  <div class="row" id="home-inspire"> 
+    <div class="col-sm-4 col-lg-4">
+      <h5><span class="hl">Need More Inspiration?</span></h5>
+      <p>Our Photo Gallery is filled with design ideas for every decorating style and taste.</p>
+      <p><a href="#">View photo gallery</a></p>
+
+    </div>
+    <div class="col-sm-2 col-lg-2">
+      <%= image_tag("vinyl-table-cloth-square.jpg", :class => "img-responsive" ) %>
+    </div>
+    <div class="col-sm-2 col-lg-2">
+      <%= image_tag("upholstery-goods-square.jpg", :class => "img-responsive" ) %>
+    </div>
+    <div class="col-sm-2 col-lg-2">
+      <%= image_tag("fabric-on-stools-square.jpg", :class => "img-responsive" ) %>
+    </div>
+    <div class="col-sm-2 col-lg-2">
+      <%= image_tag("table-cloth-square.jpg", :class => "img-responsive" ) %>
+    </div>
+  </div>
+
+  <div class="row" id="connect"> 
+    <div class="col-sm-6 col-lg-6">
+      <p class="stay-connect">Stay connected with Americo Inc. 800-626-2350 <%= link_to image_tag("pinterest-icon.png"), "https://.pinterest.com" %></p>
+    </div>
+    <div class="col-sm-6 col-lg-6">
+      <%= form_for @subscriber  do |f| %>
+    		<div class="field">
+    		  <%= f.label :email, 'Enter email for Special Offers' %> 
+    		  <%= f.email_field :email %>
+    		  <%= f.submit 'GO' %>
+    		</div>
+    		     
+  	  <% end -%>	
+       
+    </div>
+  </div>
 
 
-<div class="center hero-unit">
-  <h1>Welcome to the Americo App</h1>
 
-  <p>This is future home page for the Americo-inc.com website application.</p>
+  </div>
 
-  <%= link_to "Sign up", signup_path, class: "btn btn-large btn-primary btn-custom" %>
-</div>
-
-<%= link_to image_tag("logo.gif", alt: "Americo logo"), 'http://rubyonrails.org/' %>

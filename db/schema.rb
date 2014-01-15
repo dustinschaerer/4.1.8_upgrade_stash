@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140109221726) do
+ActiveRecord::Schema.define(version: 20140114002707) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -201,6 +201,16 @@ ActiveRecord::Schema.define(version: 20140109221726) do
   end
 
   add_index "styles", ["product_id"], name: "index_styles_on_product_id"
+
+  create_table "subscribers", force: true do |t|
+    t.integer  "user_id_id"
+    t.string   "email"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscribers", ["user_id_id"], name: "index_subscribers_on_user_id_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

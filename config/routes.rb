@@ -1,5 +1,7 @@
 Americo::Application.routes.draw do
   
+  resources :subscribers
+
   resources :laminaterolls
 
   resources :laminates
@@ -13,7 +15,7 @@ Americo::Application.routes.draw do
   resources :vinyls
 
   authenticated :user do
-    root :to => 'store#index', :as => "authenticated_root"
+    root :to => 'static_pages#home', :as => "authenticated_root"
   end
   root :to => "static_pages#home"
 
