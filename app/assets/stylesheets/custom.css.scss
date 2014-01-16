@@ -298,16 +298,17 @@ footer {
 }
 
 #made-usa {
-  margin-top:-40px;
+  margin-top:0px;
+
 }
 
 
 
 #home-inspire {
-  margin-top: 16px;
-  margin-bottom: 10px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding-top: 18px;
+  padding-bottom: 18px;
   border-top: solid 1px #bcbcbc;
   border-bottom: solid 1px #bcbcbc;
 }
@@ -316,6 +317,10 @@ footer {
   margin-bottom: 10px;
   padding-bottom: 2px;
   border-bottom: solid 1px #bcbcbc; 
+  vertical_align:middle;
+  .top5 {
+    margin-top:5px; 
+  }
 }
 
 /* end home page only*/
