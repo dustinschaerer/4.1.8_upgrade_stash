@@ -5,6 +5,9 @@ $grayLight: #666;
 $red: #BF2C37;
 
 
+
+$grid-float-breakpoint: 992px;
+
 html {
   overflow-y: scroll;
 }
@@ -132,18 +135,19 @@ a {
 
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
-
+/*
 .nav-justified {
   background-color: transparent;
   
 }
+*/
+
 .nav-justified > li > a {
-  margin-bottom: 0;
   padding: 6px 4px 6px 4px;
   color: #666;
   text-align: center;
   text-shadow: 0 1px 0 #FFFFFF;
-  text-decoration: none;
+
 }
 
 
@@ -154,7 +158,6 @@ a {
   background-image: none;
   box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
 }
-
 
 @media (min-width: 768px) {
   .nav-justified {
@@ -180,9 +183,10 @@ a {
 
 
 
-@grid-float-breakpoint {
-  @screen-md-min;
-}
+
+
+
+
 
 
 
