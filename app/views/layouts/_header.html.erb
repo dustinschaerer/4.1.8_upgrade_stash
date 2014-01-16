@@ -1,24 +1,24 @@
 <header id="siteheader">
   <div class="row">
-    <div class="col-sm-3 col-lg-3">  
+    <div class="col-xs-12 col-sm-6 col-md-3">  
       <%= link_to '/', id: "logo" do %>
         <%= image_tag('logo.png') %>
       <% end %>
     </div>
     
-    <div class="col-sm-2 col-lg-2">  
+    <div class="col-xs-12 col-sm-6 col-md-2">  
       800-626-2350        
     </div>
     
-    <div class="col-sm-7 col-lg-7">   
+    <div class="col-xs-12 col-sm-12  col-md-7">   
       <div class="row">
-        <div class="col-sm-3 col-lg-3 border-right hl-link no-left-pad">  
+        <div class="col-xs-6 col-sm-3 col-md-3 border-right hl-link no-left-pad">  
           <ul>
            
             <% if user_signed_in? %>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               <li><a class="dropdown-toggle" href="/users/<%= current_user.id %>">MY ACCOUNT </a></li>
-                <li>Logged in as <br /><%= current_user.email %></li>
+                <li>Loggcol-xs-6 ed in as <br /><%= current_user.email %></li>
             <% else %>
               <li><%= link_to "CREATE ACCOUNT", new_user_registration_path %></li>
               <li><%= link_to "SIGN IN", new_user_session_path %></li>
@@ -26,7 +26,7 @@
           </ul>         
         </div>
         
-        <div class="col-sm-3 col-lg-3 border-right">  
+        <div class="col-xs-6 col-sm-3 col-md-3 border-right">  
           <ul>
             <li><a href="/request_a_quote">Request a Quote</a></li>
             <li><a href="#" class="top-link">Place an Order</a></li>
@@ -34,7 +34,7 @@
           </ul>    
         </div>
         
-        <div class="col-sm-3 col-lg-3 border-right top-link">  
+        <div class="col-xs-6 col-sm-3 col-md-3 border-right top-link">  
           <ul>
             <li><a href="#" class="top-link">How to Measure</a></li>
             <li><a href="#" class="top-link">FREE Catalog</a></li>
@@ -42,7 +42,7 @@
           </ul>        
         </div>
 
-        <div class="col-sm-3 col-lg-3">  
+        <div class="col-xs-6 col-sm-3 col-md-3">  
           <%= link_to 'carts/:id', id: "logo" do %>
             <%= image_tag('header_cart.png') %>         
           <% end %>  
@@ -56,24 +56,61 @@
 </header>  
  
 
-<nav class="navbar navbar-default" role="navigation">
+<div class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
 
 
-
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <nav class="collapse navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">
-            <li><%= link_to "Vinyl Table Covers",     "/categories/1" %></li>
-            <li><%= link_to "Vinyl Upholstery Fabric", "/categories/5" %></li>
-            <li><%= link_to "Laminated Fabric", "/categories/1" %></li>
-            <li><%= link_to "No-Slip Pads",  "/categories/2" %></li>
-            <li><%= link_to "Accessories",      "/categories/6" %></li>
-            <li><%= link_to "Photo Gallery",    "#" %></li>
-            <li><%= link_to "Markets",          "#" %></li>
-            
-    </ul>
 
-  </div><!-- /.navbar-collapse -->
-</nav>
+
+      
+      <%= content_tag :li, :class => ('active' if current_page?(root_path)) do %>
+      <a href="/"><span class="glyphicon glyphicon-home"></span></a>
+      <% end %>
+            
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "1" )) do %>
+      <%= link_to "Vinyl Table Covers",     "/categories/1" %>
+      <% end %>
+     
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "5" )) do %>
+      <%= link_to "Vinyl Upholstery Fabric", "/categories/5" %>
+      <% end %>
+
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "1" )) do %>
+      <%= link_to "Laminated Fabric", "/categories/1" %>
+      <% end %>
+
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "2" )) do %>
+      <%= link_to "No-Slip Pads",  "/categories/2" %>    
+      <% end %>
+
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "6" )) do %>
+      <%= link_to "Accessories",      "/categories/6" %>
+      <% end %>
+
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "static_pages", :action => "photo_gallery" )) do %>
+      <%= link_to "Gallery",    "/photo_gallery" %>
+      <% end %>
+
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "static_pages", :action => "markets" )) do %>
+      <%= link_to "Markets",          "/markets" %>
+      <% end %>
+
+
+    </ul>
+  </nav>
+</div><!-- /.navbar-collapse -->
+
 
 
 
@@ -89,44 +126,8 @@
 
 
 <!--
-
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       
+-->      
 
 
-    <div class="navbar-inner">
-      
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-        <ul class="nav navbar-nav">
-            <li><%= link_to "Vinyl Table Covers",     "/categories/1" %></li>
-            <li class="divider-vertical"></li>
-            <li><%= link_to "Vinyl Upholstery Fabric", "/categories/5" %></li>
-            <li class="divider-vertical"></li>
-            <li><%= link_to "Laminated Fabric", "/categories/1" %></li>
-            <li class="divider-vertical"></li>
-            <li><%= link_to "No-Slip Pads",  "/categories/2" %></li>
-            <li class="divider-vertical"></li>
-            <li><%= link_to "Accessories",      "/categories/6" %></li>
-            <li class="divider-vertical"></li>
-            <li><%= link_to "Photo Gallery",    "#" %></li>
-            <li class="divider-vertical"></li>
-            <li><%= link_to "Markets",          "#" %></li>
-            <li class="divider-vertical"></li>
-            <li><%= link_to "Customer Service", "#" %></li>
-        </ul>
-        
-      </div>
-      
-    </div>
-  </nav>
--->
 

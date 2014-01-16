@@ -48,12 +48,18 @@ Americo::Application.routes.draw do
   
   get "users/new"
 
-  match '/users/:id', to: 'users#show',         via: 'get' 
-  match '/store',   to: 'store#index',          via: 'get'
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/help',    to: 'static_pages#help',    via: 'get'
-  match '/about',   to: 'static_pages#about',   via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/users/:id', to: 'users#show',           via: 'get' 
+  match '/store',     to: 'store#index',          via: 'get'
+  match '/signup',    to: 'users#new',            via: 'get'
+  match '/help',      to: 'static_pages#help',    via: 'get'
+  match '/about',     to: 'static_pages#about',   via: 'get'
+  match '/contact',   to: 'static_pages#contact', via: 'get'
+  match '/markets',   to: 'static_pages#markets', via: 'get'
+  match '/photo_gallery', to: 'static_pages#photo_gallery', via: 'get'
+  
+
+
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.

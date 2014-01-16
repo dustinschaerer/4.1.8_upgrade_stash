@@ -11,4 +11,15 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def photo_gallery
+  end
+
+  def markets
+  end
+
+
+
+
+
 end
