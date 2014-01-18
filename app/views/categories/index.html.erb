@@ -3,14 +3,14 @@
 <% @categories.in_groups_of(4, false).each do |group| %>  
 
   <div class="entry">
-    <div class="row-fluid">
+    <div class="row">
 
       <% group.each do |category| %>
 
         <%= link_to(category) do %>
-        <div class="span3">
+        <div class="col-sm-3">
           <div class="well">
-            <%= image_tag(category.image_url) %>
+            <%= image_tag(category.image_url, :class => "img-responsive") %>
             <h4><%= category.name %></h4>
             <%= sanitize(category.description) %>
           </div>

@@ -13,11 +13,13 @@
 
   <div class="field">
     <%= f.label :cover %><br>
-    <%= f.text_field :cover %>
+    <%= select_tag(:cover, options_for_select([['A. Regular Drape', 1], ['B. Fitted (Hat Box)', 2], ['C. Elastic Contour', 3], ['D. Fitted-to-Floor (Hat Box)', 4], ['E. Regular Drape-to-Floor', 5]   ]), { :prompt => "Please Choose"}) %>
+
   </div>
+
   <div class="field">
     <%= f.label :shape %><br>
-    <%= f.text_field :shape %>
+   <%= select_tag(:shape, options_for_select([['Round', 1], ['Rectangle', 2], ['Square', 3]   ]), { :prompt => "Please Choose"}) %>
   </div>
   <div class="field">
     <%= f.label :width %><br>

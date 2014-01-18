@@ -1,6 +1,6 @@
 class SeriesController < ApplicationController
   include CurrentCart
-  
+  before_action :set_cart
   before_action :set_series, only: [:show, :edit, :update, :destroy]
 
   # GET /series

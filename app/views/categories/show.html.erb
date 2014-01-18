@@ -1,32 +1,32 @@
 <h1><%= @category.name %></h1>
 
   <div class="entry">
-    <div class="row-fluid">
+    <div class="row">
 
       <% @category.products.each do |product| %>
 
         
-        <div class="span6">
+        <div class="col-sm-6">
           <div class="well">
             <%= link_to(product) do %>
               <h4><%= product.title %></h4>
             <% end %>
-            <div class="row-fluid">
-              <div class="span3">
-                <%= image_tag(product.image_url) %>
+            <div class="row">
+              <div class="col-sm-3">
+                <%= image_tag(product.image_url, :class => "img-responsive") %>
               </div>
-              <div class="span9">
+              <div class="col-sm-9">
                 <%= sanitize(product.description) %>
               </div>
             </div>
 
-            <div class="row-fluid">
+            <div class="row">
               
               <% product.styles.each do |style| %>  
-              <div class="span4">
+              <div class="col-sm-4">
                 <%= link_to(style) do %>
                   <%= style.name %>
-                  <%= image_tag(style.image_url) %>
+                  <%= image_tag(style.image_url, :class => "img-responsive") %>
                 <% end %>
 
 

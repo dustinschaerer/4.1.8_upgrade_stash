@@ -6,7 +6,7 @@ $red: #BF2C37;
 
 
 
-$grid-float-breakpoint: 992px;
+
 
 html {
   overflow-y: scroll;
@@ -126,6 +126,14 @@ a {
 .border-right {
   border-right: solid 1px #bcbcbc;
 }
+.border-left {
+  border-left: solid 1px #bcbcbc;
+}
+.add-bottom {
+  padding-bottom:20px;
+  border-bottom: solid 1px #bcbcbc;
+  margin-bottom:20px;
+}
 .top-link {
   color: #666;
   text-decoration: none;
@@ -182,15 +190,54 @@ a {
 }
 
 
+.addgreen {
+  color: #5E6923;
+}
+.addgray {
+  color: #757575;
+}
+.addblack {
+  color: #000;
+}
+.addgold {
+  color: #956127;
+}
+.series-attribute {
+  font-size: 24px;
+}
+.stylename {
+  font-size: 20px;
+}
+.styletype {
+  font-size: 38px;
+  line-height: 38px; 
+  letter-spacing:-1px
+}
+.weighty {
+  font-weight: 600;
+  
+}
+.stylesub {
+  font-size: 22px;
+}
+.styletext {
+  font-size: 16px;
+  color: #757575;
+}
+#styleinfobox {
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: solid 1px #bcbcbc;
+}
+.no-under {
+  text-decoration: none !important;
+}
 
-
-
-
-
-
-
-
-
+.shadow:hover {
+  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}  
 
 
 
@@ -305,6 +352,7 @@ footer {
 
   }  
 }
+
 
 #made-usa {
   margin-top:0px;

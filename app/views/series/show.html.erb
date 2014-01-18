@@ -1,5 +1,184 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row add-bottom">
+  <div class="col-sm-6">
+    <%= image_tag(@series.image_url, alt: @series.name , :title => @series.id ) %>
+  </div>
+  <div class="col-sm-6">
+  	<div class="stylename  weighty"><%= @series.style.name %></div>
+  	<div class="addgold series-attribute"><%= @series.name %> -- <%= @series.colors.count %>  colors available</div>
+  	<div class="stylename ">Subtle Sophistication</div>
+  	<p class="splashtext"><%= @series.description %></p>
+  	<div class="row">
+	  <div class="col-sm-6 border-right">
+        
+        <%= image_tag("swatches/6100/6111/6111-Oatmeal_lg.jpg", :class => "img-responsive" )  %>
+	  </div>
+
+	  <div class="col-sm-6 ">
+	  	
+	  	<div>
+	  	  <p>REPEAT INFORMATION</p>
+	  	    <div class="row">
+			  <div class="col-sm-6">
+			  	Vertical:
+			  </div>
+			  <div class="col-sm-6">
+			    4.5"
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			  	Horizontal:
+			  </div>
+			  <div class="col-sm-6">
+			  	9"
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			  	Side:
+			  </div>
+			  <div class="col-sm-6">
+			  	4.5" Half Step
+			  </div>
+			</div>
+		  <p>FOR INTERIOR USE ONLY</p>				  
+
+        </div>
+
+		<div class="top20">
+          <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p>	
+        </div>
+
+		
+		<div>
+          <p><a href="#">Also available for table covers. <span class="glyphicon glyphicon-play"></span></a></p>	
+        </div>
+
+	  </div>
+	</div>
+  </div>
+</div> 
+  
+
+
+<div class="row">
+  
+  <% @series.colors.each do |swatch| %>
+
+    <div class="col-xs-6 col-sm-3 shadow well">
+                
+        <%= image_tag(swatch.image_url, :class => "img-responsive" ) %>
+		        
+        <div class="row">
+			<div class="col-sm-9">
+				<div class="addblack"><%= swatch.series.name %> - <%= swatch.name %></div>
+				<div class="addblack">ORDER SWATCH</div>
+			</div>
+			<div class="col-sm-3 pull-right">
+                 
+
+
+
+ 
+            <!-- Button trigger modal -->
+			<button class="btn btn-default" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
+			  <span class="glyphicon glyphicon-zoom-in"></span>	
+			</button>
+</div>
+
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal<%= swatch.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        <h4 class="modal-title" id="myModalLabel"><%= swatch.series.name %> - <%= swatch.name %></h4>
+			      </div>
+			      <div class="modal-body">
+			        ...
+			        <div class="row">
+			        	<div class="col-xs-9">
+			        		<%= image_tag(swatch.image_url, :class => "img-responsive" )   %>
+		        		</div>
+		        		<div class="col-xs-3">
+		        			<div class="">MATERIAL</div>
+			        		<div class="">Upholstery</div>
+			        		<div class="">Vinyl</div>
+			        		<div class="">COLOR</div>
+			        		<div class=""><%= swatch.name %></div>
+		        		</div>
+			        </div>
+
+			        <div class="row">
+			        	<div class="col-xs-12">
+			        		<div class="">MATERIAL DESCRIPTION</div>
+			        		<div class=""></div>
+			        		<div class="">Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</div>
+		        	
+			        		<div class=""><%= swatch.name %></div>
+
+		        		</div>
+			        </div>
+
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        
+
+					<%= link_to('Order Swatch', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary", method: :post ) %>  
+			        
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <%=
+                # link_to(swatch, :class => "no-under") do 
+               	%>
+              	<%= 
+              	# image_tag(swatch.image_url, :class => "img-responsive" ) 
+              	%>
+              
+
+
+
+
+			
+
+
+	        
+        </div>
+    </div>    
+  <% end %>
+
+
+
+
+
+
+</div> 
+
+
 <p>
   <strong>Style:</strong>
   <%= @series.style_id %>
