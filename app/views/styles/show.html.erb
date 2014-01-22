@@ -62,32 +62,12 @@
               <%= image_tag(swatch.image_url, :class => "img-responsive" ) %>
                <p class="text-center addblack"><%= swatch.name %></p>
                <p class="text-center addblack"><%= swatch.colors.count %> Colors Available</p>
-               <% end %>
-            
-            
-            <div class="row">
-              <% swatch.colors.each do |color| %>  
-              <div class="col-sm-2">
-                <%= link_to(color) do %>
-                  <%= color.name %>
-                <% end %>
-                <%= image_tag(color.image_url, :class => "img-responsive" ) %>
-                <%= button_to 'Add to Cart', line_items_path(series_id: swatch.id, color_id: color.id) %>    
-              </div>
-              <% end %>
-            </div>
-
-                <%= 
-                #sanitize(swatch.description) 
-                %>
-
-             
+               <% end %>         
         
         </div>
       <% end %>
     </div>
   </div>
-
 
 
 <p>

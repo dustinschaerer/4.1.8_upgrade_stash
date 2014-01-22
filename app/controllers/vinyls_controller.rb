@@ -15,11 +15,11 @@ class VinylsController < ApplicationController
   # GET /vinyls/new
   def new
     @vinyl = Vinyl.new
+    @series = Series.all
+    @color = Color.all
   end
 
-  # GET /vinyls/1/edit
-  def edit
-  end
+  # GET /vinyls/1/ecolordefColor  end    
 
   # POST /vinyls
   # POST /vinyls.json

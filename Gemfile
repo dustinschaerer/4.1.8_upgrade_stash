@@ -7,9 +7,11 @@ gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '~>3.0.3.0'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'seed_dump'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
+  gem 'pg'
+  #gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
@@ -39,6 +41,6 @@ group :doc do
 end
 
 group :production do
-  gem 'pg', '0.15.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end

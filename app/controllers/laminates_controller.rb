@@ -15,6 +15,10 @@ class LaminatesController < ApplicationController
   # GET /laminates/new
   def new
     @laminate = Laminate.new
+    
+    # series that belong laminates
+    @series = Series.all
+    @color = Color.all
   end
 
   # GET /laminates/1/edit
