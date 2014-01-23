@@ -3,7 +3,7 @@ User.create!([
   {email: "dustinamerica1@comcast.net", password: "dustintest2", password_confirmation: "dustintest2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-01-06 21:57:12", last_sign_in_at: "2014-01-06 21:57:12", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", admin: nil, username: "dustin"}
 ])
 AdminUser.create!([
-  {email: "admin@example.com", encrypted_password: "$2a$10$T7ZiEa.xFVXGEYbLIp6AqeuG5LPPz2BTGNPouFGPJlGNFn2Sesno.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2014-01-10 21:22:20", last_sign_in_at: "2014-01-01 22:44:51", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
+  {email: "admin@example.com", password: "password123", password_confirmation: "password123", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2014-01-10 21:22:20", last_sign_in_at: "2014-01-01 22:44:51", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
 ])
 Product.create!([
   {title: "Vinyl Table Covers", description: "<p>Vinyl Table Covers</p>", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover-thumb.jpg", category_id: 1},
@@ -61,44 +61,7 @@ Category.create!([
   {name: "Upholstery", description: "Upholstery description text.", image_url: "upholstery.jpg"},
   {name: "Accessories", description: "Accessories description text.", image_url: "americlearmatte.jpg"}
 ])
-Cart.create!([
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
-  {}
-])
+
 LineItem.create!([
   {cart_id: 5, quantity: 1, order_id: nil, series_id: 1, color_id: 2},
   {cart_id: 5, quantity: 1, order_id: nil, series_id: 1, color_id: 2},
@@ -120,7 +83,6 @@ LineItem.create!([
   {cart_id: 43, quantity: 1, order_id: nil, series_id: 1, color_id: 4}
 ])
 Subscriber.create!([
-  {user_id_id: nil, email: "", active: nil},
   {user_id_id: nil, email: "drs@yo.com", active: nil},
   {user_id_id: nil, email: "dustinschaerer@gmail.com", active: nil},
   {user_id_id: nil, email: "dustinschaerer@tomsbarn.org", active: nil},
