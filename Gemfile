@@ -9,9 +9,9 @@ gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'seed_dump'
 gem 'acts-as-taggable-on'
+gem 'pg'
 
 group :development, :test do
-  gem 'pg'
   #gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'
   gem 'guard-rspec', '2.5.0'
@@ -42,6 +42,5 @@ group :doc do
 end
 
 group :production do
-  # gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
