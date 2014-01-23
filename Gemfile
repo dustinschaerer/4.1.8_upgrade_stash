@@ -8,6 +8,7 @@ gem 'bootstrap-sass', '~>3.0.3.0'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'seed_dump'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'pg'

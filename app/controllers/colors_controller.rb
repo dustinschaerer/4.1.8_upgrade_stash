@@ -56,6 +56,6 @@ class ColorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def color_params
-      params.require(:color).permit(:series_id, :name, :image_url)
+      params.require(:color).permit(:series_id, :name, :image_url, :tag_list)
     end
 end

@@ -3,16 +3,16 @@ User.create!([
   {email: "dustinamerica1@comcast.net", password: "dustintest2", password_confirmation: "dustintest2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2014-01-06 21:57:12", last_sign_in_at: "2014-01-06 21:57:12", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", admin: nil, username: "dustin"}
 ])
 AdminUser.create!([
-  {email: "admin@example.com", password: "password123", password_confirmation: "password123", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2014-01-10 21:22:20", last_sign_in_at: "2014-01-01 22:44:51", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
+  {email: "admin@example.com", encrypted_password: "$2a$10$T7ZiEa.xFVXGEYbLIp6AqeuG5LPPz2BTGNPouFGPJlGNFn2Sesno.", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2014-01-10 21:22:20", last_sign_in_at: "2014-01-01 22:44:51", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"}
 ])
 Product.create!([
   {title: "Vinyl Table Covers", description: "<p>Vinyl Table Covers</p>", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover-thumb.jpg", category_id: 1},
   {title: "Laminate Table Covers", description: "<p>Laminate Table Covers</p>", image_url: "laminatetablecover.jpg", thumbnail_url: "laminatetablecover-thumb.jpg", category_id: 1},
   {title: "Slip-Knot Padding", description: "<ul>\r\n\t<li>Stops the Slipping!</li>\r\n\t<li>The Best Non-Slip Product Available</li>\r\n\t<li>Cushions Elbows on the Table!</li>\r\n\t<li>Softens Room Noise</li>\r\n\t<li>Quiets Clearing Dishes</li>\r\n\t<li>Roll Length: 33 YDS</li>\r\n\t<li>Roll Widths: 36\" 48\" & 72\"</li>\r\n\t<li>Custom Cut Sizes Also Available to Your Specifications</li>\r\n\t<li>Flame Retardant: Meets or Exceeds</li>\r\n\t<li>Department of Commerce FF170 and FMVSS302</li>\r\n\t<li>We Recommend a 4\" Overhang on all Sides</li>\r\n\t<li>Cuts Easily with Scissors</li>\r\n</ul>", image_url: "slipknot-padding.jpg", thumbnail_url: "slipknot-padding-thumb.jpg", category_id: 2},
   {title: "White Vinyl Padding", description: "<ul>\r\n\t<li>Stops the Slipping!</li>\r\n\t<li>The Best Non-Slip Product Available</li>\r\n\t<li>Cushions Elbows on the Table!</li>\r\n\t<li>Softens Room Noise</li>\r\n\t<li>Quiets Clearing Dishes</li>\r\n\t<li>Roll Length: 33 YDS</li>\r\n\t<li>Roll Widths: 36\" 48\" & 72\"</li>\r\n\t<li>Custom Cut Sizes Also Available to Your Specifications</li>\r\n\t<li>Flame Retardant: Meets or Exceeds</li>\r\n\t<li>Department of Commerce FF170 and FMVSS302</li>\r\n\t<li>We Recommend a 4\" Overhang on all Sides</li>\r\n\t<li>Cuts Easily with Scissors</li>\r\n</ul>", image_url: "whitevinylpadding.jpg", thumbnail_url: "whitevinylpadding-thumb.jpg", category_id: 2},
-  {title: "Placemats", description: "Placemats description text.", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover.jpg", category_id: 6},
-  {title: "Overlays", description: "Overlays description text.", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover-thumb.jpg", category_id: 6},
-  {title: "Rug-Stop Padding", description: "Rug-Stop Padding description text.", image_url: "slipknot-padding.jpg", thumbnail_url: "slipknot-padding-thumb.jpg", category_id: 2}
+  {title: "Rug-Stop Padding", description: "Rug-Stop Padding description text.", image_url: "slipknot-padding.jpg", thumbnail_url: "slipknot-padding-thumb.jpg", category_id: 2},
+  {title: "Overlays", description: "Overlays description text.", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover-thumb.jpg", category_id: 5},
+  {title: "Placemats", description: "Placemats description text.", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover.jpg", category_id: 5}
 ])
 Color.create!([
   {series_id: 1, name: "Barley", image_url: "swatches/9800/9801/9801-Barley_med.jpg"},
@@ -25,7 +25,10 @@ Color.create!([
   {series_id: 4, name: "Midnight", image_url: "swatches/6100/6101/6101-Midnight_med.jpg"},
   {series_id: 4, name: "Sandstone", image_url: "swatches/6100/6101/6101-Sandstone_med.jpg"},
   {series_id: 4, name: "Noir", image_url: "swatches/6100/6101/6101-Noir_med.jpg"},
-  {series_id: 4, name: "Cypress", image_url: "swatches/6100/6101/6101-Cypress_med.jpg"}
+  {series_id: 4, name: "Cypress", image_url: "swatches/6100/6101/6101-Cypress_med.jpg"},
+  {series_id: 2, name: "Black & White", image_url: "swatches/9800/9801/9802-Black&White_med.jpg"},
+  {series_id: 2, name: "Hunter Green", image_url: "swatches/9800/9801/9802-Hunter-Green_med.jpg"},
+  {series_id: 2, name: "Cabernet", image_url: "swatches/9800/9801/9802-Cabernet_med.jpg"}
 ])
 Order.create!([
   {firstname: "Greg", street_address: "123 Way street", city: "Vancouver", state: "Rhode Island", country: "United States", telephone: "555-555-5555", email: "abc@example.com", lastname: "Sample", user_id: 1, status: "submitted", company: "Toys", zipcode: "55555", contactby: "email"},
@@ -36,10 +39,12 @@ Order.create!([
   {firstname: "Dustin", street_address: "333 Here Place", city: "Cityville", state: "Washington", country: "United States", telephone: "360944-5555", email: "dustinschaerer@gmail.com", lastname: "Schaerer", user_id: 1, status: "submitted", company: "Tomato Masters", zipcode: "98682", contactby: "email"}
 ])
 Series.create!([
-  {style_id: 1, name: "9801", description: "Tiny Starburst Designs Repeat On A Textured Background Make This Fabric Easy On The Eyes.", image_url: "swatches/9800/9801/9801_hl.jpg"},
-  {style_id: 1, name: "9802", description: "A Clover Print Checkerboard Creates a Strong Atmosphere For Cafes, Taverns, Bars, Patios, Or Theme-Type Restaurants.", image_url: "swatches/9800/9802/9802_hl.jpg"},
-  {style_id: 6, name: "9808 White Vinyl Padding", description: "White vinyl padding series description text.", image_url: "whitevinylpadding.jpg"},
-  {style_id: 2, name: "6101", description: "Fruits, Veggies & Wines Make Create Their Own Environment. Great Design For Cafes, Seafood, or Fine Dining Rooms. ", image_url: "swatches/6100/6101/6101_hl.jpg"}
+  {style_id: 6, name: "9808 White Vinyl Padding", description: "White vinyl padding series description text.", image_url: "whitevinylpadding.jpg", lead: "", callout: ""},
+  {style_id: 2, name: "6101", description: "Fruits, Veggies & Wines Make Create Their Own Environment. Great Design For Cafes, Seafood, or Fine Dining Rooms. ", image_url: "swatches/6100/6101/6101_hl.jpg", lead: "", callout: ""},
+  {style_id: 1, name: "9801", description: "This understated, traditional pattern is a soothing alternative to bolder fabrics.", image_url: "swatches/9800/9801/9801_hl.jpg", lead: "Perfect Blend", callout: "soothing alternative"},
+  {style_id: 1, name: "9802", description: "Cloverleaf checks never go out of style, setting a cheerful tone in casual eateries, both indoors and out.", image_url: "swatches/9800/9802/9802_hl.jpg", lead: "Timeless Touch", callout: "cheerful tone"},
+  {style_id: 1, name: "9803", description: "Random streaks of color give this tasteful design a playful, contemporay vibe.", image_url: "swatches/9800/9803/9803_hl.jpg", lead: "lead", callout: "callout"},
+  {style_id: 1, name: "9804", description: "A simple geometric motif....", image_url: "swatches/9800/9804/9804_hl.jpg", lead: "lead", callout: "callout"}
 ])
 Style.create!([
   {title: "Classic Series 9800", name: "Classic Series 9800", description: "Table covers in Style 9800 Classic Vinyl are 10-mil PVC film.", image_url: "vinyltablecover.jpg", product_id: 8},
@@ -57,6 +62,8 @@ Category.create!([
   {name: "Accessories", description: "Accessories description text.", image_url: "americlearmatte.jpg"}
 ])
 Cart.create!([
+  {},
+  {},
   {},
   {},
   {},

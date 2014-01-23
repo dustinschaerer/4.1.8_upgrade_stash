@@ -7,6 +7,8 @@
       <th>Name</th>
       <th>Description</th>
       <th>Image url</th>
+      <th>Lead</th>
+      <th>Callout</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,9 +18,11 @@
   <tbody>
     <% @series.each do |series| %>
       <tr>
-        <td><%= series.style_id %></td>
+        <td><%= series.style.name %>(<%= series.style_id %>)</td>
         <td><%= series.name %></td>
         <td><%= series.description %></td>
+        <td><%= series.lead %></td>
+        <td><%= series.callout %></td>
         <td><%= series.image_url %></td>
         <td><%= link_to 'Show', series %></td>
         <td><%= link_to 'Edit', edit_series_path(series) %></td>
