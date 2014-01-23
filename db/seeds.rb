@@ -84,7 +84,7 @@ LineItem.create!([
 ])
 Subscriber.create!([
   {user_id_id: nil, email: "drs@yo.com", active: nil},
-  {user_id_id: nil, email: "dustinschaerer@gmail.com", active: nil},
+  {user_id_id: nil, email: "dustinschaerer@yo.com", active: nil},
   {user_id_id: nil, email: "dustinschaerer@tomsbarn.org", active: nil},
   {user_id_id: nil, email: "jenny@example.org", active: false}
 ])
