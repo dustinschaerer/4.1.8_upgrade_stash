@@ -20,6 +20,7 @@ class ColorsController < ApplicationController
   def edit
     @color = Color.find(params[:id])
     @series = Series.all
+
   end
 
   # POST /colors
@@ -56,6 +57,6 @@ class ColorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def color_params
-      params.require(:color).permit(:series_id, :name, :image_url, :tag_list)
+      params.require(:color).permit(:series_id, :name, :image_url, :tags, :tag_list)
     end
 end
