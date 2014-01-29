@@ -1,0 +1,541 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote {
+	margin:0;
+	padding:0;
+	border-width:0;
+}
+td, th {
+	border-style:solid;
+	border-width:1px;
+}
+table {
+	border-collapse:collapse;
+}
+li {
+	display:block;
+}
+body {
+	font-size:12px;
+	-epub-hyphens:auto;
+}
+p.No-Paragraph-Style {
+	color:#000000;
+	font-family:Times, serif;
+	font-size:12px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.2;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0px;
+}
+p.Basic-Paragraph {
+	color:#000000;
+	font-family:Times, serif;
+	font-size:12px;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:1.2;
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	text-align:left;
+	text-decoration:none;
+	text-indent:0px;
+}
+p.para-style-override-1 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-2 {
+	font-family:"12 Avenir 45 Book   03173", sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-3 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-4 {
+	color:#666666;
+}
+p.para-style-override-5 {
+	font-family:Wingdings, sans-serif;
+	font-size:30px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-6 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+p.para-style-override-7 {
+	font-size:13px;
+}
+p.para-style-override-8 {
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:bold;
+}
+p.para-style-override-9 {
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-10 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:22px;
+	font-style:normal;
+	font-weight:bold;
+}
+p.para-style-override-11 {
+	-epub-hyphens:none;
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-12 {
+	-epub-hyphens:none;
+	font-family:Arial, sans-serif;
+	font-size:15px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-13 {
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-14 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:15px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-15 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:16px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-16 {
+	font-family:"12 Avenir 65 Medium   06173", sans-serif;
+	font-size:19px;
+	font-style:normal;
+	font-weight:500;
+}
+p.para-style-override-17 {
+	color:#666666;
+	font-family:"12 Avenir 45 Book   03173", sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-18 {
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+p.para-style-override-19 {
+	color:#ffffff;
+	font-family:"12 Avenir 85 Heavy   08173", sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:850;
+	text-align:center;
+}
+p.para-style-override-20 {
+	color:#bf2f38;
+	font-family:"Wingdings 3", sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-21 {
+	-epub-hyphens:none;
+}
+p.para-style-override-22 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:20px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-23 {
+	-epub-hyphens:none;
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+p.para-style-override-24 {
+	-epub-hyphens:none;
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:16px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+p.para-style-override-25 {
+	-epub-hyphens:none;
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:16px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-26 {
+	font-family:"12 Avenir 45 Book   03173", sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+}
+p.para-style-override-27 {
+	color:#696e2d;
+	font-family:Arial, sans-serif;
+	font-size:18px;
+	font-style:normal;
+	font-weight:bold;
+	text-align:justify;
+	text-transform:uppercase;
+}
+p.para-style-override-28 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:18px;
+	font-style:normal;
+	font-weight:bold;
+	text-align:justify;
+	text-transform:uppercase;
+}
+p.para-style-override-29 {
+	color:#bf2f38;
+	font-family:"Wingdings 3", sans-serif;
+	font-size:15px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-1 {
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+span.char-style-override-2 {
+	font-family:Arial, sans-serif;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+span.char-style-override-3 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-4 {
+	font-family:"12 Avenir 45 Book   03173", sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-5 {
+	font-family:Arial, sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-6 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-7 {
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-8 {
+	color:#666666;
+}
+span.char-style-override-9 {
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+span.char-style-override-10 {
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.char-style-override-11 {
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+span.char-style-override-12 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+span.char-style-override-13 {
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-14 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-15 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:31px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-16 {
+	font-family:Arial, sans-serif;
+	font-size:18px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-17 {
+	font-family:Arial, sans-serif;
+	font-size:29px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-18 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:16px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+span.char-style-override-19 {
+	font-family:Arial, sans-serif;
+	font-size:16px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-20 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:16px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-21 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:18px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.char-style-override-22 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:22px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.char-style-override-23 {
+	font-family:"12 Avenir 65 Medium   06173", sans-serif;
+	font-size:19px;
+	font-style:normal;
+	font-weight:500;
+}
+span.char-style-override-24 {
+	color:#666666;
+	font-family:"12 Avenir 45 Book   03173", sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-25 {
+	color:#bf2f38;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+span.char-style-override-26 {
+	color:#bf2f38;
+	font-family:"Wingdings 3", sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-27 {
+	color:#bf2f38;
+	font-family:"Wingdings 3", sans-serif;
+	font-size:13px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-28 {
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+span.char-style-override-29 {
+	color:#aa4b19;
+	font-family:Arial, sans-serif;
+	font-size:20px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-30 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:19px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-31 {
+	color:#bf2f38;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.char-style-override-32 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.char-style-override-33 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+span.char-style-override-34 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+span.char-style-override-35 {
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:bold;
+}
+span.char-style-override-36 {
+	color:#bf2f38;
+	font-family:Arial, sans-serif;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-37 {
+	color:#666666;
+	font-family:Arial, sans-serif;
+	font-size:15px;
+	font-style:normal;
+	font-weight:normal;
+}
+span.char-style-override-38 {
+	font-family:"12 Avenir 45 Book   03173", sans-serif;
+	font-size:14px;
+	font-style:normal;
+	font-weight:normal;
+}
+img.frame-1 {
+	height:114px;
+	width:326px;
+}
+div.frame-2 {
+	margin:0px auto 0px auto;
+	text-align:center;
+}
+img.frame-3 {
+	height:38px;
+	width:125px;
+}
+img.frame-4 {
+	height:38px;
+	width:159px;
+}
+img.frame-5 {
+	height:359px;
+	width:532px;
+}
+img.frame-6 {
+	height:214px;
+	width:161px;
+}
+img.frame-7 {
+	height:41px;
+	width:43px;
+}
+img.frame-8 {
+	height:243px;
+	width:242px;
+}
+img.frame-9 {
+	height:49px;
+	width:78px;
+}
+img.frame-10 {
+	height:88px;
+	width:125px;
+}
+img.frame-11 {
+	height:61px;
+	width:145px;
+}
+img.frame-12 {
+	height:38px;
+	width:91px;
+}

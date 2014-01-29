@@ -1,7 +1,4 @@
-<h1><%= @style.name %></h1>
-
-
-
+<h1><%= @style.name %> - <%= @style.title %></h1>
 
 <div class="row">
     <div class="col-sm-12">
@@ -23,52 +20,104 @@
   </div>  
   
   <div class="row" id="styleinfobox"> 
+    
+    <% if (params[:id] == '1') %>
+    <!-- Turn this into partials, one for each main category -->
     <div class="col-sm-8">
-      
-      <div class="stylename">6100 Series — 26 patterns and 270 colors</div>
+      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> patterns and <%= @style.colors.count %> colors</div>
+      <div class="styletype weighty">CLASSIC VINYL</div>
+      <div class="stylesub">Table Covers Or Roll Goods</div>
+      <div class="styletext">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</div>
+    </div>
+    <div class="col-sm-4" id="home-made-usa">
+      <div class="stylename  weighty">TECHNICAL SPECS</div>
+
+      <p class="addgray">9800 series vinyls ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.<br />
+      <a href="#">Additional specs.</a></p>
+
+      <p class="addgreen"><b>OTHER TEXT CAN GO HERE</b><br>
+      Other text can go here</p>
+    </div>
+    <!-- Turn this into a partial, one for each main category -->
+    <% elsif (params[:id] == '2') %>
+    <!-- Turn this into partials, one for each main category -->
+    <div class="col-sm-8">
+      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> patterns and <%= @style.colors.count %> colors</div>
       <div class="styletype weighty">PREMIUM VINYL</div>
       <div class="stylesub">Table Covers Or Roll Goods</div>
       <div class="styletext">When your situation requires fabrics with greater resiliency, we have the solution. Our Premium vinyl collection offers fabrics that are 30 percent heavier than our classic vinyls. So they last longer, even in the most demanding environments. In addition, many of our premium vinyls are also a part of our upholstery Distinctions Collection.</div>
-
     </div>
     <div class="col-sm-4" id="home-made-usa">
-       <div class="stylename  weighty">TECHNICAL SPECS</div>
+      <div class="stylename  weighty">TECHNICAL SPECS</div>
 
-       <p class="addgray">6100 series vinyls are 13-mil printed Pvc film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholsterygrade foam.<br />
-        <a href="#">Additional specs.</a></p>
+      <p class="addgray">6100 series vinyls are 13-mil printed Pvc film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholsterygrade foam.<br />
+      <a href="#">Additional specs.</a></p>
 
-       <p class="addgreen"><b>STYLES 6111—6126</b><br>
+      <p class="addgreen"><b>STYLES 6111—6126</b><br>
       are part of our Distinctions Collections and are suitable for upholstery.</p>
        
-       <p><a href="#">View Upholstery <span class="glyphicon glyphicon-play"></a></p>
-
+      <p><a href="/styles/5">View Upholstery <span class="glyphicon glyphicon-play"></a></p>
     </div>
+    <!-- Turn this into a partial, one for each main category -->
+    <% elsif (params[:id] == '3') %>
+    <!-- Turn this into partials, one for each main category -->
+    <div class="col-sm-8">
+      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> patterns and <%= @style.colors.count %> colors</div>
+      <div class="styletype weighty">LAMINATED VINYL</div>
+      <div class="stylesub">Table Covers Or Roll Goods</div>
+      <div class="styletext">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</div>
+    </div>
+    <div class="col-sm-4" id="home-made-usa">
+      <div class="stylename  weighty">TECHNICAL SPECS</div>
+
+      <p class="addgray">2000 series Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.<br />
+      <a href="#">Additional specs.</a></p>
+
+      <p class="addgreen"><b>OTHER TEXT</b><br>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+       
+    </div>
+    <!-- Turn this into a partial, one for each main category -->
+        <% elsif (params[:id] == '4') %>
+    <!-- Turn this into partials, one for each main category -->
+    <div class="col-sm-8">
+      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> patterns and <%= @style.colors.count %> colors</div>
+      <div class="styletype weighty">LAMINATED VINYL</div>
+      <div class="stylesub">Table Covers Or Roll Goods</div>
+      <div class="styletext">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</div>
+    </div>
+    <div class="col-sm-4" id="home-made-usa">
+      <div class="stylename  weighty">TECHNICAL SPECS</div>
+
+      <p class="addgray">1200 series Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.<br />
+      <a href="#">Additional specs.</a></p>
+
+      <p class="addgreen"><b>OTHER TEXT</b><br>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+       
+    </div>
+    <!-- Turn this into a partial, one for each main category -->
+
+    <% end %>
+
   </div>  
 
-  <div class="row">
-    
+  <div class="row">    
   </div>
-
 
   <div class="entry">
     <div class="row">
-
       <% @style.series.each do |swatch| %>
-
-        
-        <div class="col-xs-6 col-sm-3 shadow">
-          
+        <div class="col-xs-6 col-sm-3 shadow">   
             <%= link_to(swatch, :class => "no-under") do %>
-              <%= image_tag(swatch.image_url, :class => "img-responsive" ) %>
-               <p class="text-center addblack"><%= swatch.name %></p>
-               <p class="text-center addblack"><%= swatch.colors.count %> Colors Available</p>
-               <% end %>         
-        
+              <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
+               <p class="text-center addblack"><strong>STYLE <%= swatch.name %></strong></p>
+               <p class="text-center addblack"><%= pluralize swatch.colors.count, 'Color' %>  Available</p>
+               <% end %> 
         </div>
       <% end %>
     </div>
   </div>
-
 
 <p>
   <strong>Product:</strong>

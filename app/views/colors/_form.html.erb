@@ -16,7 +16,7 @@
     <%= # f.collection_select(:series_id, @series, :id, :name) 
     %>
 
-  <%= f.association :series %> 
+  <%= f.association :series, collection: Series.order('name') %> 
 
   <div class="field">
     <%= f.label :name %><br>
@@ -24,10 +24,14 @@
   </div>
   <div class="field">
     <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+    <%= f.text_field :image_url, :input_html => {:maxlength => 200, :size => 60} %>
+
+
   </div>
       
-      <%= f.input :tag_list, :as => :check_boxes, multiple: true, label_html: { class: 'color-checkbox' }, :collection => ActsAsTaggableOn::Tag.all.map(&:name)  %>
+  <%= f.input :tag_list %>
+      <%=# f.input :tag_list, :as => :check_boxes, multiple: true, label_html: { class: 'color-checkbox' }, :collection => ActsAsTaggableOn::Tag.all.map(&:name)  
+      %>
   
     <%= #f.check_box :tag_list, { :multiple => true }, 'Any', nil 
     %>

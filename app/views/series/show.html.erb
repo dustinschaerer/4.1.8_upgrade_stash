@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= link_to 'Edit', edit_series_path(@series) %> |
+<%= link_to 'Back', series_index_path %> | 
+<%= link_to 'New', new_series_path %></p>
+
 <div class="row add-bottom">
   <div class="col-sm-6">
     <%= image_tag(@series.image_url, alt: @series.name , :title => @series.id ) %>
@@ -54,7 +58,7 @@
 
 		
 		<div>
-          <p><a href="#">Also available for table covers. <span class="glyphicon glyphicon-play"></span></a></p>	
+          <!-- <p><a href="#">Also available for table covers. <span class="glyphicon glyphicon-play"></span></a></p> -->	
         </div>
 
 	  </div>
@@ -68,26 +72,28 @@
   
   <% @series.colors.each do |swatch| %>
 
-    <div class="col-xs-6 col-sm-3 shadow well">
-                
-        <%= image_tag(swatch.image_url, :class => "img-responsive" ) %>
-		        
+    <div class="col-xs-6 col-sm-3 bottom25">
+
+      
+
+                       
+        <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
+	  
         <div class="row">
-			<div class="col-sm-9">
-				<div class="addblack"><%= swatch.series.name %> - <%= swatch.name %></div>
-				<div class="addblack">ORDER SWATCH</div>
+			<div class="col-xs-9">
+				<div class="addblack"><strong><%= swatch.series.name %> - <%= swatch.name %></strong></div>
+				<div class="addblack">
+					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-xs", method: :post ) %>  
+					
+				</div>
 			</div>
-			<div class="col-sm-3 pull-right">
-                 
-
-
-
- 
-            <!-- Button trigger modal -->
-			<button class="btn btn-default" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
-			  <span class="glyphicon glyphicon-zoom-in"></span>	
-			</button>
-</div>
+			<div class="col-xs-3">
+            
+	            <!-- Button trigger modal -->
+				<button class="btn btn-default btn-med pullinleft10" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
+				  <span class="glyphicon glyphicon-zoom-in"></span>	
+				</button>
+	        </div>
 
 
 			<!-- Modal -->
@@ -99,29 +105,29 @@
 			        <h4 class="modal-title" id="myModalLabel"><%= swatch.series.name %> - <%= swatch.name %></h4>
 			      </div>
 			      <div class="modal-body">
-			        ...
+			      
 			        <div class="row">
 			        	<div class="col-xs-9">
 			        		<%= image_tag(swatch.image_url, :class => "img-responsive" )   %>
 		        		</div>
 		        		<div class="col-xs-3">
-		        			<div class="">MATERIAL</div>
-			        		<div class="">Upholstery</div>
-			        		<div class="">Vinyl</div>
-			        		<div class="">COLOR</div>
-			        		<div class=""><%= swatch.name %></div>
+		        		    <div class="addblack bottom15">MATERIAL</div>
+		        		    <div class="addblack bottom25"><%= swatch.series.style.name %></div>
+		        		    <div class="addblack bottom15">COLOR</div>
+		        		    <div class="addblack bottom25"><%= swatch.name %></div>
+			        		
 		        		</div>
+		        		
 			        </div>
 
 			        <div class="row">
 			        	<div class="col-xs-12">
-			        		<div class="">MATERIAL DESCRIPTION</div>
-			        		<div class=""></div>
+			        		<div class="bottom15"><%= swatch.series.callout %></div>
+			        		<div class="bottom15"><%= swatch.series.description %></div>
 			        		<div class="">Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</div>
-		        	
-			        		<div class=""><%= swatch.name %></div>
-
 		        		</div>
+		        		
+		        			
 			        </div>
 
 			      </div>
@@ -139,20 +145,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               <%=
                 # link_to(swatch, :class => "no-under") do 
                	%>
@@ -161,14 +153,12 @@
               	%>
               
 
-
-
-
-			
-
-
 	        
         </div>
+      
+
+      
+
     </div>    
   <% end %>
 
@@ -201,4 +191,5 @@
 </p>
 
 <%= link_to 'Edit', edit_series_path(@series) %> |
-<%= link_to 'Back', series_index_path %>
+<%= link_to 'Back', series_index_path %> | 
+<%= link_to 'New', new_series_path %>

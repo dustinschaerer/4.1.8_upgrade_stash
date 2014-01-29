@@ -232,6 +232,9 @@ a {
 .no-under {
   text-decoration: none !important;
 }
+.imgbottompad {
+  padding-bottom:12px;
+}
 
 .shadow:hover {
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -415,7 +418,9 @@ footer {
 .no-left-pad {
   padding-left: 0px;
 }
-
+.innerpad {
+  padding: 10px;
+}
 
 /* To be erased */
 .top200 {
@@ -424,7 +429,12 @@ footer {
 .top25 {
   margin-top: 25px;
 }
-
+.bottom25 {
+  margin-bottom: 25px;
+}
+.pullinleft10 {
+  margin-left: -8px;
+}
 
 
 
