@@ -1,7 +1,0 @@
-<table class="steprepeat">
-<tr><td colspan="2">REPEAT INFORMATION
-<tr><td>Vertical:</td><td>25.125"</td></tr>
-<tr><td>Horizontal:</td><td>13.25"</td></tr>
-<tr><td>Side:</td><td>13.5"1/4 Step</td></tr>
-<tr><td colspan="2">FOR INTERIOR USE ONLY</td></tr>
-</table>
