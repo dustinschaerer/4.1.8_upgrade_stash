@@ -791,10 +791,10 @@ Style.create!([
 ])
 Category.create!([
   {name: "Vinyl & Laminate Table Covers", description: "Vinyl & Laminate table cover description.", image_url: "laminatetablecover.jpg"},
-  {name: "Non-Slip Padding", description: "Non-Slip Padding", image_url: "slipknot-padding.jpg"}
+  {name: "Non-Slip Padding", description: "Non-Slip Padding", image_url: "slipknot-padding.jpg"},
   {name: "Americlear Laminations", description: "Americlear Laminations description text.", image_url: "americlearmatte.jpg"},
   {name: "Upholstery", description: "Upholstery description text.", image_url: "upholstery.jpg"},
-  {name: "Accessories", description: "Accessories description text.", image_url: "americlearmatte.jpg"},
+  {name: "Accessories", description: "Accessories description text.", image_url: "americlearmatte.jpg"}
 ])
 Cart.create!([
   {}
