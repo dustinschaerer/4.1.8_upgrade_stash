@@ -4,11 +4,14 @@
 
       <div class="slider-wrapper theme-default">
         <div id="slider" class="nivoSlider">
-          <%= image_tag("slider-vinyl-table-covers.png", alt: "slider1", :title => "#vinylslidecaption", :data => { :thumb => 'slider-vinyl-table-covers.png' } ) %>
-          <%= image_tag("slider-upholstery-goods.png", alt: "slider2", :title => "#upholsteryslidecaption", :data => { :thumb => 'slider-upholstery-goods.png' } ) %>
-          <%= image_tag("slider-table-covers.png", alt: "slider3", :title => "#tableslidecaption", :data => { :thumb => 'slider-table-covers.png' } ) %>
-          <%= image_tag("slider-fabrics.png", alt: "slider4", :title => "#fabricslidecaption", :data => { :thumb => 'slider-fabrics.png' } ) %>
+          <%= image_tag("sliders/slider-vinyl-table-covers.png", alt: "slider1", :title => "#vinylslidecaption", :data => { :thumb => 'slider-vinyl-table-covers.png' } ) %>
+          <%= image_tag("sliders/slider-upholstery.png", alt: "slider2", :title => "#upholsteryslidecaption", :data => { :thumb => 'slider-upholstery-goods.png' } ) %>
+          <%= image_tag("sliders/slider-laminate-table-covers.png", alt: "slider3", :title => "#tableslidecaption", :data => { :thumb => 'slider-table-covers.png' } ) %>
+          <%= image_tag("sliders/slider-fabrics.png", alt: "slider4", :title => "#fabricslidecaption", :data => { :thumb => 'slider-fabrics.png' } ) %>
+          <%= image_tag("sliders/slider-mix-match.png", alt: "slider5", :title => "#mixslidecaption", :data => { :thumb => 'slider-mix-match.png' } ) %>
         </div>
+        
+        <!--     
         <div id="vinylslidecaption" class="nivo-html-caption" style="display:none">
           <div class="nivo-1">
             <strong>Vinyl Tablecloths</strong> 
@@ -45,14 +48,16 @@
           </div>
         
         </div>
+        -->
+        
       </div>
     </div>
   </div>  
   
   <div class="row"> 
     <div class="col-sm-8">
-      <h3>Intro copy with keyword blah lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</h3>
-      <span class="splashtext">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+      <h3>Your Source for Quality Vinyl Table Covers, Vinyl Upholstery and Laminated Fabrics</h3>
+      <span class="splashtext">Americo has been manufacturing top-quality vinyl and laminated fabrics for table covers and upholstery projects at competitive prices for more than half a century....</span>
 
     </div>
     <div class="col-sm-4" id="home-made-usa">
@@ -61,6 +66,7 @@
        <p>1000s of Satisfied Customers</p>
        <p>40 Years Experience</p>
        <p><a href="#">More</a></p>
+       <div><%= image_tag("swatch-image.png", :class => "img-responsive", alt: "Free Swatches", :id => 'home-swatches' ) %></div>
 
 
        <div class="row">
@@ -83,9 +89,9 @@
 
   <div class="row" id="home-inspire"> 
     <div class="col-sm-4">
-      <h4><span class="hl">Need More Inspiration?</span></h4>
+      <h4><span class="hl">Need Inspiration?</span></h4>
       <p>Our Photo Gallery is filled with design ideas for every decorating style and taste.</p>
-      <p><a href="#">View photo gallery</a></p>
+      <p><a href="#">View Photo Gallery</a></p>
 
     </div>
     <div class="col-sm-2">
@@ -102,37 +108,8 @@
     </div>
   </div>
 
-  <div class="row" id="connect"> 
 
-    <div class="col-md-5">
-        <p class="top5"><b>Stay connected with Americo Inc. 800-626-2350</b> <%= link_to image_tag("pinterest-icon24.png"), "https://.pinterest.com" %></p>
-    </div>
-    <div class="col-md-7">
-      <div class="row"> 
-          <%= form_for(@subscriber, :html => { :class => "form-horizontal"} )  do |f| %>
-            <div class="field form-group">
-              
-              <%= f.label :email, 'Enter email for Special Offers', :class => "col-sm-4 col-lg-4 control-label" %> 
-              
-              <div class="col-sm-6 col-lg-6">
-                <%= f.email_field :email, :class => "form-control", :placeholder => "Enter email"%>
-              </div>
-              <div class="col-sm-2 col-lg-2">
-              <%= f.submit 'GO', :class => "btn btn-danger btn" %>
-              </div>
-          	</div>
-        		
-
-
-
-
-
-      	  <% end -%>	
-           
-        </div>
-       </div>
-    </div>
-  </div>
+</div>
 
 
 

@@ -5,7 +5,7 @@ class ColorsController < ApplicationController
 
   # GET /colors
   def index
-    @colors = Color.all
+    @colors = Color.all.order("id")
   end
 
   # GET /colors/1
@@ -59,6 +59,6 @@ class ColorsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def color_params
-      params.require(:color).permit(:series_id, :name, :image_url, :tags, :tag_list)
+      params.require(:color).permit(:series_id, :name, :image_url, :tags, :tag_list, :notforupholstery)
     end
 end

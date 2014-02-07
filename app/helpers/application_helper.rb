@@ -11,10 +11,15 @@ module ApplicationHelper
   end
 
   def hidden_div_if(condition, attributes = {}, &block)
-	if condition
-	  attributes["style"] = "display: none"
-	end
-	content_tag("div", attributes, &block)
+  	if condition
+  	  attributes["style"] = "display: none"
+  	end
+  	content_tag("div", attributes, &block)
   end
-
+  
+   def subscriber_form
+    subscriber = Subscriber.new
+    raw render 'shared/subscriber_form', :subscriber => subscriber
+  end
+  
 end

@@ -1,5 +1,9 @@
-<footer class="footer">
-  <div class="row">
+<%= subscriber_form %>
+
+<footer>
+
+  <div class="row footer">
+    
     <div class="col-sm-6 col-md-3  footer-border">
       <ul>
         <li class="dark"><strong>OUR PRODUCTS</strong></li>
@@ -16,22 +20,21 @@
         <li class="dark"><strong>WAYS TO BUY</strong></li>
         <li><%= link_to "Request Swatches",   "#" %></li>
         <li><%= link_to "Request A Quote",   "#" %></li>
+        <li><%= link_to "Request A Catalog",   "#" %></li>
         <li><%= link_to "Place An Order",   "#" %></li>
-        <li><%= link_to "e-Catalog",   "#" %></li>
         <li><%= link_to "Measuring Instructions",   "#" %></li>
-        <li><%= link_to "Laminate or Vinyl",   "#" %></li>
-        <li><%= link_to "How to Order",   "#" %></li>
+        <li><%= link_to "e-Catalog",   "#" %></li>
+        
       </ul>
     </div>
     <div class="col-sm-6 col-md-3 footer-border">
       <ul>
         <li class="dark"><strong>LET US HELP YOU</strong></li>
-        <li><%= link_to "Customer Service",   "#" %></li>
-        <li><%= link_to "Contact Us",   "#" %></li>
-        <li><%= link_to "Request A Catalog",   "#" %></li>
-        <li><%= link_to "Free Samples",   "#" %></li>
-        <li><%= link_to "Shipping + Delivery",   "#" %></li>
-        <li><%= link_to "Order Information",   "#" %></li>
+        <li><%= link_to "Contact Us",   contact_path  %></li>
+        <li><%= link_to "How to Order",   "#" %></li>
+        <li><%= link_to "Terms and Conditions",   "#" %></li>
+        <li><%= link_to "Cleaning Instructions", "#" %></li>
+        <li><%= link_to "Frequently Asked Questions",   "#" %></li>
       </ul>
     </div>
     <div class="col-sm-6 col-md-3">
@@ -39,19 +42,19 @@
         <li class="dark"><strong>ABOUT AMERICO</strong></li>
         <li><%= link_to "About Us",   about_path %></li>
         <li><%= link_to "Satisfied Customers", "#" %></li>
-        <li><%= link_to "Site Map", "#" %></li>
-        <li><%= link_to "Safety and Technical Specs", "#" %></li>
-        <li><%= link_to "Cleaning Instructions", "#" %></li>
+        <li><%= link_to "Technical Specs", "#" %></li>
         <li><%= link_to "Privacy Policy", "#" %></li>
+        <li><%= link_to "Site Map", "#" %></li>
       </ul>
     </div>
    
   </div>
-  <div class="row top25">
-    <div class="col-sm-12 col-lg-12">
-      <span class="dark">Hours of Operation: 7:30 - 5:00 CST Monday - Friday</span><br />
-      Call Toll Free: 800-626-2350 | 870-735-4848 | Fax: 870-735-4129<br />
-      601 East Barton, West Memphis, AR 72301 |  &copy; 2014 Americo Inc. All rights Reserved. 
+  <div class="row footer">
+    <div class="col-xs-12">
+      <ul>
+        <li><span class="dark">Hours of Operation: 7:30 - 5:00 CST Monday - Friday</span></li>
+        <li>Call Toll Free: 800-626-2350 | 870-735-4848 | Fax: 870-735-4129</li>
+        <li>601 East Barton, West Memphis, AR 72301 |  &copy; 2014 Americo Inc. All rights Reserved. </li>
     </div>
   </div>
   

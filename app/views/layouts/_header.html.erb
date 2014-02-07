@@ -1,5 +1,5 @@
-<header id="siteheader">
-  <div class="row">
+<header>
+  <div class="row" id="siteheader">
     <div class="col-xs-12 col-sm-6 col-md-3">  
       <%= link_to '/', id: "logo" do %>
         <%= image_tag('logo.png') %>
@@ -74,36 +74,36 @@
 
 
       
-      <%= content_tag :li, :class => ('active' if current_page?(root_path)) do %>
-      <a href="/"><span class="glyphicon glyphicon-home"></span></a>
-      <% end %>
+      <%= 
+      #content_tag :li, :class => ('active' if current_page?(root_path)) do 
+      %>
             
       <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "1" )) do %>
       <%= link_to "Vinyl Table Covers",     "/categories/1" %>
       <% end %>
      
-      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "5" )) do %>
-      <%= link_to "Vinyl Upholstery Fabric", "/categories/5" %>
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "styles", :action => "show", :id => "7" )) do %>
+      <%= link_to "Vinyl Upholstery Fabric", "/styles/7" %>
       <% end %>
 
-      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "1" )) do %>
-      <%= link_to "Laminated Fabric", "/categories/1" %>
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "3" )) do %>
+      <%= link_to "Laminated Fabric", "/categories/3" %>
       <% end %>
 
       <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "2" )) do %>
-      <%= link_to "No-Slip Pads",  "/categories/2" %>    
+      <%= link_to "Non-Slip Padding",  "/categories/2" %>    
       <% end %>
 
-      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "6" )) do %>
-      <%= link_to "Accessories",      "/categories/6" %>
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "categories", :action => "show", :id => "5" )) do %>
+      <%= link_to "Accessories",      "/categories/5" %>
       <% end %>
 
       <%= content_tag :li, :class => ('active' if current_page?(:controller => "static_pages", :action => "photo_gallery" )) do %>
-      <%= link_to "Gallery",    "/photo_gallery" %>
+      <%= link_to "Photo Gallery",    "/photo_gallery" %>
       <% end %>
 
-      <%= content_tag :li, :class => ('active' if current_page?(:controller => "static_pages", :action => "markets" )) do %>
-      <%= link_to "Markets",          "/markets" %>
+      <%= content_tag :li, :class => ('active' if current_page?(:controller => "static_pages", :action => "contact" )) do %>
+      <%= link_to "Aboutt Us",          "/about" %>
       <% end %>
 
 

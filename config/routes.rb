@@ -58,10 +58,6 @@ Americo::Application.routes.draw do
   match '/photo_gallery', to: 'static_pages#photo_gallery', via: 'get'
   
 
-
-
-  
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

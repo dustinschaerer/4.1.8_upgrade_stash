@@ -1,0 +1,24 @@
+<div class="row" id="connect"> 
+
+    <div class="col-md-5">
+        <p class="top5"><b>Stay connected with Americo Inc. 800-626-2350</b> <%= link_to image_tag("pinterest-icon24.png"), "https://.pinterest.com" %></p>
+    </div>
+    <div class="col-md-7">
+      <div class="row"> 
+        <%= form_for(subscriber, :html => { :class => "form-horizontal"} )  do |f| %>
+          <div class="field form-group">
+              
+            <%= f.label :email, 'Enter email for Special Offers', :class => "col-sm-4 col-lg-4 control-label" %> 
+              
+            <div class="col-sm-6 col-lg-6">
+            <%= f.email_field :email, :class => "form-control", :placeholder => "Enter email"%>
+            </div>
+        
+            <div class="col-sm-2 col-lg-2">
+            <%= f.submit 'GO', :class => "btn btn-danger btn" %>
+            </div>
+          </div>
+        <% end -%>  
+      </div>
+    </div>
+</div>

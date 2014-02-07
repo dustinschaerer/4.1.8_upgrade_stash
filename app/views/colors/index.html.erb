@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Style</th>
       <th>Series</th>
       <th>Name</th>
       <th>Image url</th>
@@ -15,7 +16,8 @@
   <tbody>
     <% @colors.each do |color| %>
       <tr>
-        <td><%= color.series_id %></td>
+        <td><%= color.series.style.name %></td>
+        <td><%= color.series.name %></td>
         <td><%= color.name %></td>
         <td><%= color.image_url %></td>
         <td><%= link_to 'Show', color %></td>

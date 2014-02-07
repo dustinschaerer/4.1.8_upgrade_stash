@@ -28,6 +28,9 @@
 
 
   </div>
+  <div class="field">
+    <%= f.input :notforupholstery, :as => :boolean %>
+  </div>
       
   <%= f.input :tag_list %>
       <%=# f.input :tag_list, :as => :check_boxes, multiple: true, label_html: { class: 'color-checkbox' }, :collection => ActsAsTaggableOn::Tag.all.map(&:name)  

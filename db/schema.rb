@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123171443) do
+ActiveRecord::Schema.define(version: 20140205223524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140123171443) do
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "notforupholstery", default: false
   end
 
   add_index "colors", ["series_id"], name: "index_colors_on_series_id", using: :btree
@@ -175,6 +176,9 @@ ActiveRecord::Schema.define(version: 20140123171443) do
     t.datetime "updated_at"
     t.text     "lead",        default: ""
     t.text     "callout",     default: ""
+    t.string   "vertical",    default: "nil"
+    t.string   "horizontal",  default: "nil"
+    t.string   "side",        default: "nil"
   end
 
   add_index "series", ["style_id"], name: "index_series_on_style_id", using: :btree

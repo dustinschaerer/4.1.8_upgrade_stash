@@ -1,5 +1,6 @@
 class Style < ActiveRecord::Base
-	has_many :series, :order => 'series.name' 
+	has_many :series 
+
 	has_many :colors, through: :series
 
 	has_many :line_items

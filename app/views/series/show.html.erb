@@ -1,27 +1,105 @@
 <p id="notice"><%= notice %></p>
 
-<p><%= link_to 'Edit', edit_series_path(@series) %> |
+<%= link_to 'Edit', edit_series_path(@series) %> |
 <%= link_to 'Back', series_index_path %> | 
-<%= link_to 'New', new_series_path %></p>
+<%= link_to 'New', new_series_path %>
 
-<div class="row add-bottom">
+<div class="row">
+  <div class="col-sm-12">
+    <div><span class="addgold seriesname"><%= @series.name %></span> <span class="twoem">&ndash; <%= @series.colors.count %>  colors available </div>
+    <div class="seriessub addgray"><%= @series.style.name %> <%= @series.style.title %></div>   
+  </div>
+</div>
+
+<div class="row add-bottom top10">
   <div class="col-sm-6">
-    <%= image_tag(@series.image_url, alt: @series.name , :title => @series.id ) %>
+    <%= image_tag(@series.image_url, alt: @series.name, :title => @series.id, :class => "img-responsive" ) %>
   </div>
   <div class="col-sm-6">
-  	<div class="stylename  weighty"><%= @series.style.name %></div>
-  	<div class="addgold series-attribute"><%= @series.name %> -- <%= @series.colors.count %>  colors available</div>
-  	<div class="stylename "><%= @series.lead %></div>
-  	<div class="splashtext"><%= @series.description %></div>
-  	<div class="splashtext"><%= @series.callout %></div>
-  	<div class="row">
+  	<div class="serieslead addgold"><%= @series.lead %></div>
+  	<div class="splashtext styledesc addgrey top10 seriesdesc"><%= @series.description %></div>
+  	
+	<div class="row">
+  	
 	  <div class="col-sm-6 border-right">
-        
-        <%= image_tag("swatches/6100/6111/6111-Oatmeal_lg.jpg", :class => "img-responsive" )  %>
-	  </div>
+            
+            <% if (@series.style.id == 7) %>
+           	  <div class="splashtext upcallout"><%= @series.callout %></div>
+           	  <div class="pull-right top10">
+	           	  <div id="upholimage"><%= image_tag("upholstery/chair_6111_saffron_sm.jpg", :class => "img-responsive" )  %></div>
+	           	  <div><a href="#">VIEW LARGER  <span class="glyphicon glyphicon-zoom-in"></span></a></div>
+           	  </div>
+            <% elsif (@series.style.id == 2) %>
+           	  <% if (@series.id > 56) %>
+           	    <% if (@series.id < 73) %>
+        	   	  <div class="splashtext callout"><%= @series.callout %></div>
+		          <div class="noforget"><strong>Don't Forget</strong> the<br>Non-Slip Padding</div>        	
+           	    <% end %> 
+           	  <% end %>
+            <% else %>
+           	<div class="splashtext callout top25"><%= @series.callout %></div>
+        	<div class="noforget"><strong>Don't Forget</strong> the<br>Non-Slip Padding</div>        	
+            <% end %>
+
+
+			<% if (@series.style.id == 2) %>
+           	  <% if (@series.id > 56) %>
+           	    <% if (@series.id < 73) %>
+           	  	  <div class="distinctions addgreen">DISTINCTIONS COLLECTION</div>
+           	  	  <div class="suitable-uphol addgreen">This style suitable for upholstery.</div>
+           	  	  <div class="not-uphol"><span class="glyphicon glyphicon-exclamation-sign"></span>  Not recommended for upholstery.</div>
+           	    <% end %> 
+           	  <% end %>
+           	<% end %>
+			
+
+
+      </div>
+
+
+	  
 
 	  <div class="col-sm-6 ">
-	  	
+        <!-- if this is the 6100 page -->
+	    <% if (@series.style.id == 1) %>
+	  	<div>
+	  	  <ul class="sideseries">
+	  	  	<li>Easy care vinyls – simply wipe and go.</li>
+	  	  	<li>Custom cuts. Table covers are cut to finished size any shape. (see types below)</li>
+	  	  	<li>Minimum order is just 5 yards.</li>
+	  	  	<li>Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</li>
+	  	  	<li>Finished edge sewn with 1⁄4” single turn helm</li>
+	  	  </ul>
+          
+          <p><a href="#" class="addgray underline">Technical specs.</a></p>
+
+        </div>
+
+		<div class="top20">
+          <a href="/styles/1"><span class="addblack"><strong>Back to ALL CLASSIC Vinyls</strong></span> <span class="glyphicon glyphicon-play"></span></a> 
+        </div>        
+	    <% elsif (@series.style.id == 2) %>
+	  	<div>
+	  	  <ul class="sideseries">
+	  	  	<li>Easy care vinyls – simply wipe and go.</li>
+	  	  	<li>Custom cuts. Table covers are cut to finished size any shape. (see types below)</li>
+	  	  	<li>Minimum order is just 5 yards.</li>
+	  	  	<li>Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</li>
+	  	  	<li>Finished edge sewn with 1⁄4” single turn helm</li>
+	  	  </ul>
+          
+          <p><a href="#" class="addgray underline">Technical specs.</a></p>
+
+        </div>
+
+		<div class="top20">
+          <a href="/styles/2"><span class="addblack"><strong>Back to ALL PREMIUM Vinyls</strong></span> <span class="glyphicon glyphicon-play"></span></a> 
+        </div>   
+
+		<div>
+          <!-- <p><a href="#">Also available for table covers. <span class="glyphicon glyphicon-play"></span></a></p> -->	
+        </div> 
+	    <% elsif (@series.style.id == 3) %>
 	  	<div>
 	  	  <p>REPEAT INFORMATION</p>
 	  	    <div class="row">
@@ -55,46 +133,93 @@
 		<div class="top20">
           <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p>	
         </div>
+	    <% elsif (@series.style.id == 7)  %>
+
+	    <% if (@series.id != 23)  %>
+        <!-- 6111-6126 -->
+	  	<div>
+	  	  <p>REPEAT INFORMATION</p>
+	  	    <div class="row">
+			  <div class="col-sm-6">
+			  	Vertical:
+			  </div>
+			  <div class="col-sm-6">
+			    <%= (@series.vertical)  %>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			  	Horizontal:
+			  </div>
+			  <div class="col-sm-6">
+			  	<%= (@series.horizontal)  %>
+			  </div>
+			</div>
+			<div class="row">
+			  <div class="col-sm-6">
+			  	Side:
+			  </div>
+			  <div class="col-sm-6">
+			  	<%= (@series.side)  %>
+			  </div>
+			</div>
+		  <p>FOR INTERIOR USE ONLY</p>				  
+
+        </div>
+        <% end %> 
+		<div class="top20">
+          <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p>	
+        </div>
 
 		
 		<div>
           <!-- <p><a href="#">Also available for table covers. <span class="glyphicon glyphicon-play"></span></a></p> -->	
         </div>
+        
+	    <% end %> <!-- end of ID=7 --> 
 
 	  </div>
+
+
 	</div>
   </div>
 </div> 
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="row">
-  
-  <% @series.colors.each do |swatch| %>
-
-    <div class="col-xs-6 col-sm-3 bottom25">
-
-      
-
-                       
-        <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
-	  
-        <div class="row">
+  <div class="col-xs-9 col-sm-10">   
+    <div class="row">  
+  	  <% color_array = @series.colors.order("name") %>
+  	  <% color_array.each do |swatch| %>
+  	  
+        <div class="col-xs-6 col-sm-3 bottom25">
+          <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
+          <div class="row">
 			<div class="col-xs-9">
-				<div class="addblack"><strong><%= swatch.series.name %> - <%= swatch.name %></strong></div>
+				<div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-exclamation-sign"></span> <% end %><% swatch.series.name %>  <%= swatch.name %></strong></div>
 				<div class="addblack">
-					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-xs", method: :post ) %>  
-					
+					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-xs", method: :post ) %> 
 				</div>
 			</div>
 			<div class="col-xs-3">
-            
-	            <!-- Button trigger modal -->
+                <!-- Button trigger modal -->
 				<button class="btn btn-default btn-med pullinleft10" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
 				  <span class="glyphicon glyphicon-zoom-in"></span>	
 				</button>
 	        </div>
-
 
 			<!-- Modal -->
 			<div class="modal fade" id="myModal<%= swatch.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -141,30 +266,19 @@
 			    </div><!-- /.modal-content -->
 			  </div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
-
-
-
-
-              <%=
-                # link_to(swatch, :class => "no-under") do 
-               	%>
-              	<%= 
-              	# image_tag(swatch.image_url, :class => "img-responsive" ) 
-              	%>
-              
-
-	        
+          </div> 
         </div>
-      
-
-      
-
-    </div>    
-  <% end %>
-
-
-
-
+      <% end %>
+     
+    </div> 
+  </div> 
+	  
+    
+  <div class="col-xs-3 col-sm-2">   
+    <div id="freeswatches"><%= image_tag("swatch-image.jpg", alt:"Free Swatches") %></div>
+    <div id="freecatalog"><%= image_tag("free-catalog.jpg", alt:"Free Catalog") %></div>
+    <div></div>
+  </div>     
 
 
 </div> 
@@ -193,3 +307,4 @@
 <%= link_to 'Edit', edit_series_path(@series) %> |
 <%= link_to 'Back', series_index_path %> | 
 <%= link_to 'New', new_series_path %>
+

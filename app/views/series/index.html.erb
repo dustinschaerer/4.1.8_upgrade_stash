@@ -8,9 +8,12 @@
       <th>Style</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Image url</th>
       <th>Lead</th>
       <th>Callout</th>
+      <th>Image url</th>
+      <th>Vertical</th>
+      <th>Horizontal</th>
+      <th>Side</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,6 +29,10 @@
         <td><%= series.lead %></td>
         <td><%= series.callout %></td>
         <td><%= series.image_url %></td>
+        <td><%= series.vertical %></td>
+        <td><%= series.horizontal %></td>
+        <td><%= series.side %></td>
+        
         <td><%= link_to 'Show', series %></td>
         <td><%= link_to 'Edit', edit_series_path(series) %></td>
         <td><%= link_to 'Destroy', series, method: :delete, data: { confirm: 'Are you sure?' } %></td>

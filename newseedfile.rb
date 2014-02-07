@@ -214,6 +214,7 @@ Color.create!([
   {series_id: 56, name: "Sapphire", image_url: "swatches/6100/6110/6110-Sapphire_med.jpg"}, 
   {series_id: 56, name: "Slate", image_url: "swatches/6100/6110/6110-Slate_med.jpg"}, 
   {series_id: 56, name: "Sourdough", image_url: "swatches/6100/6110/6110-Sourdough_med.jpg"}, 
+  
   {series_id: 57, name: "Acorn", image_url: "swatches/6100/6111/6111-Acorn_med.jpg"}, 
   {series_id: 57, name: "Almond", image_url: "swatches/6100/6111/6111-Almond_med.jpg"}, 
   {series_id: 57, name: "Bamboo", image_url: "swatches/6100/6111/6111-Bamboo_med.jpg"}, 

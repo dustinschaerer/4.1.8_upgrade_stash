@@ -8,13 +8,21 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require galleria.classic
  
-
  */
  
 
 /* BEGIN SIDE */
-
+ 
+#galleria { 
+  
+  width:100%;
+  position: relative;
+  z-index: 9999;
+  top:0px;
+  bottom: 0px;
+}
 
 .depot_form {
   fieldset {
@@ -59,3 +67,4 @@ $grid-float-breakpoint: 992px;
 @import "custom";
 @import "nivo-slider";
 @import "nivo-theme";
+
