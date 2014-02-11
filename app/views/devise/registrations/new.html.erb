@@ -1,69 +1,21 @@
-<% provide(:title, 'Sign Up') %>
+<div class="border-form-div">
 
-<h2>Sign up</h2>
+	<h1>Sign up</h1>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+	<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= f.error_notification %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+	  <div class="form-inputs">
+	    <%= f.input :email, :placeholder => "Email", :required => true, :autofocus => true %>
+	    <%= f.input :password,  :placeholder => "Password", :required => true %>
+	    <%= f.input :password_confirmation,  :placeholder => "Password Confirmation", :required => true %>
+	  </div>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username %></div>
+	  <div class="form-actions">
+	    <%= f.button :submit, "Sign up", class: "btn btn-primary btn-lg btn-block" %>
+	  </div>
 
-  
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	  <%= render "devise/shared/links" %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-
-  <% f.fields_for(:shipping_profile) do |profile|  %> 
-    
-    <div>
-      <%= profile.label :firstname %>
-      <%= profile.text_field :firstname %>
-    </div>
-    
-    <div>
-      <%= profile.label :lastname %>
-      <%= profile.text_field :lastname %>
-    </div>
-    
-    <div>
-      <%= profile.label :company %>
-      <%= profile.text_field :company %>
-    </div>
-    
-    <div>
-      <%= profile.label :street_address %>
-      <%= profile.text_field :street_address %>
-    </div>
-    
-     <div>
-      <%= profile.label :city %>
-      <%= profile.text_field :city %>
-    </div>
-    
-    <div>
-      <%= profile.label :state %>
-      <%= profile.text_field :state %>
-    </div>
-
-    <div>
-      <%= profile.label :zipcode %>
-      <%= profile.text_field :zipcode %>
-    </div>
-
-    <div>
-      <%= profile.label :country %>
-      <%= profile.text_field :country %>
-    </div>
-    
-  <% end %>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+	<% end %>
+</div>

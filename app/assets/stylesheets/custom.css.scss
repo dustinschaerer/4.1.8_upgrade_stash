@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 40px;
   overflow-x: hidden;
 }
 
@@ -36,16 +36,23 @@ textarea {
   top:41px;
     position:fixed;
 }
-/* navbar
+/* navbar */
+
 .navbar {
+   background-color: transparent;
+   background: transparent;
+   border: 0px;
+   margin-bottom: 15px;
+   border-radius: 0px;
+}
+.navbar-default {
+    
     border: 0px;
-    margin-bottom: 0px;
-    border-radius: 0px;
+    background-color: transparent;
+    background: transparent;
 }
 
-.navbar-default {
-    background-color: #FFFFFF;
-}
+/*
 .navbar-inner {
     background-color: transparent;
     border: 0px;
@@ -53,18 +60,18 @@ textarea {
     background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF);
     background-repeat: repeat-x;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.0);
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 9px;
+    padding-right: 9px;
 }
-
+*/
 
 .navbar .nav > li > a {
-    color: #666666;
-    float: none;
-    padding: 6px 4px;
-    text-decoration: none;
+    padding-left: 12px;
+    padding-right: 12px;
+    
     text-shadow: 0 1px 0 #FFFFFF;
 }
+/*
 .navbar .divider-vertical {
     border-left: 1px solid #666666;
     border-right: 1px solid #FFFFFF;
@@ -117,15 +124,41 @@ a {
 
 
 /* header */
+
+#userheader {
+  padding: 12px 0px 12px 0px;
+  margin-bottom:0px;
+  background-color: #BCBCBC;
+  text-align: right;
+   
+} 
+
+
 #siteheader {
-  padding: 15px 0px 15px 0px;
+  padding: 30px 0px 20px 0px;
   margin-bottom:14px;
   background-color: #EFEFEF;
   ul {
     list-style-type: none;
     padding: 0;
   }
+  .userlink {
+    font-weight:700;
+
+  }
+  .cart_title {
+    font-weight: bold;
+    margin-bottom:10px;
+  } 
 } 
+
+
+.homephone {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #666;
+  padding-top:26px;
+}
 .border-right {
   border-right: solid 1px #bcbcbc;
 }
@@ -262,15 +295,14 @@ footer {
 
 #side {
     padding: 1em 2em;
-    background: $red;
+    /* background: $red; */
   
     input {
       font-size: small;
     }
 
     #cart {
-      font-size: smaller;
-      color:     white;
+      color:     #333;
 
       table {
         border-top:    1px solid #fff;
@@ -514,11 +546,42 @@ p .up10 {
  max-height:200px; 
 }
 
+
+
+/* User sign in and sign forms. */
+.border-form-div {
+  max-width: 340px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+.border-form-div input[type="text"],
+.border-form-div input[type="email"],
+.border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+
+
 /* Keep at bottom, this sets the padding for the fixed header top */
 
 @media (min-width: 980px) {
   body {
-    padding-top: 30px;
+    padding-top: 0px;
     padding-bottom: 42px;
   }
 }

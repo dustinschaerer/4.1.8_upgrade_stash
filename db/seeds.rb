@@ -780,14 +780,14 @@ Series.create!([
   {style_id: 7, name: "6116", description: "Realistic graining, a soft hand, and versatile hues make this a designer’s favorite.", image_url: "upholstery/6116_buckskin_h.jpg", lead: "Leather-Like Luxury", callout: "realistic graining", vertical: "18\"", horizontal: "27\"", side: "27\" Square"}
 ])
 Style.create!([
-  {title: "Slip-Knot Padding Sample", name: "Slip-Knot Padding Series", description: "Slip-Knot Padding Series description text.", image_url: "slipknot-padding.jpg", product_id: 10},
-  {title: "White Vinyl Padding Sample Swatch", name: "White Vinyl Padding Series", description: "White Vinyl Padding Series description text.", image_url: "whitevinylpadding.jpg", product_id: 11},
-  {title: "Value Vinyl Table Covers or Roll Goods", name: "7000 Series", description: "value vinyl description", image_url: "laminatetablecover.jpg", product_id: 1},
-  {title: "Upholstery Vinyls 6111-6126", name: "6111-6126 Series", description: "Upholstery Style Description", image_url: "6111_dustyrost_granite__fmt.png", product_id: 8},
   {title: "Classic Vinyl Table Covers or Roll Goods", name: "9800 Series", description: "Table covers in Style 9800 Classic Vinyl are 10-mil PVC film.", image_url: "vinyltablecover.jpg", product_id: 1},
   {title: "Premium Vinyl Table Covers or Roll Goods", name: "6100 Series", description: "Style 6100 Premium Vinyl table covers are 30% thicker for even better wear and comfort!", image_url: "vinyltablecover.jpg", product_id: 1},
+  {title: "Designer Laminate Table Covers or Roll Goods", name: "Series 1200/2000", description: "Laminated Vinyl Series 1200/2000 description sample text.", image_url: "laminatetablecover.jpg", product_id: 2},
   {title: "Designer Laminate Table Covers or Roll Goods", name: "Series 1200", description: "Laminated Vinyl Series 1200 description sample text.", image_url: "laminatetablecover.jpg", product_id: 2},
-  {title: "Designer Laminate Table Covers or Roll Goods", name: "Series 1200/2000", description: "Laminated Vinyl Series 1200/2000 description sample text.", image_url: "laminatetablecover.jpg", product_id: 2}
+  {title: "Slip-Knot Padding Sample", name: "Slip-Knot Padding Series", description: "Slip-Knot Padding Series description text.", image_url: "slipknot-padding.jpg", product_id: 10},
+  {title: "White Vinyl Padding Sample Swatch", name: "White Vinyl Padding Series", description: "White Vinyl Padding Series description text.", image_url: "whitevinylpadding.jpg", product_id: 11},
+  {title: "Upholstery Vinyls 6111-6126", name: "6111-6126 Series", description: "Upholstery Style Description", image_url: "6111_dustyrost_granite__fmt.png", product_id: 8},
+  {title: "Value Vinyl Table Covers or Roll Goods", name: "7000 Series", description: "value vinyl description", image_url: "laminatetablecover.jpg", product_id: 1} 
 ])
 Category.create!([
   {name: "Vinyl & Laminate Table Covers", description: "Vinyl & Laminate table cover description.", image_url: "laminatetablecover.jpg"},

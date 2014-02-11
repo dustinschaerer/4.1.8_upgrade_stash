@@ -51,13 +51,13 @@
       margin-left: 4em;
     }
     br {
-      display: none
+      display: none;
     }
   }
 }
 
-$grid-float-breakpoint: 992px;
 
+$grid-float-breakpoint: 992px;
 
 @import "bootstrap";
 @import "carts";
