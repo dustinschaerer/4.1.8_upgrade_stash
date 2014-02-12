@@ -1,6 +1,6 @@
 *.psd
 *.pdf
-test
-spec
-features
-doc
+/test
+/spec
+/features
+/doc
