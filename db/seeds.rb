@@ -109,11 +109,11 @@ Product.create!([
   {title: "Vinyl Table Covers", description: "<p>Vinyl Table Covers</p>", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover-thumb.jpg", category_id: 1},
   {title: "Laminate Table Covers", description: "<p>Laminate Table Covers</p>", image_url: "laminatetablecover.jpg", thumbnail_url: "laminatetablecover-thumb.jpg", category_id: 1},
   {title: "Slip-Knot Padding", description: "<ul>\r\n\t<li>Stops the Slipping!</li>\r\n\t<li>The Best Non-Slip Product Available</li>\r\n\t<li>Cushions Elbows on the Table!</li>\r\n\t<li>Softens Room Noise</li>\r\n\t<li>Quiets Clearing Dishes</li>\r\n\t<li>Roll Length: 33 YDS</li>\r\n\t<li>Roll Widths: 36\" 48\" & 72\"</li>\r\n\t<li>Custom Cut Sizes Also Available to Your Specifications</li>\r\n\t<li>Flame Retardant: Meets or Exceeds</li>\r\n\t<li>Department of Commerce FF170 and FMVSS302</li>\r\n\t<li>We Recommend a 4\" Overhang on all Sides</li>\r\n\t<li>Cuts Easily with Scissors</li>\r\n</ul>", image_url: "slipknot-padding.jpg", thumbnail_url: "slipknot-padding-thumb.jpg", category_id: 2},
-  {title: "White Vinyl Padding", description: "<ul>\r\n\t<li>Stops the Slipping!</li>\r\n\t<li>The Best Non-Slip Product Available</li>\r\n\t<li>Cushions Elbows on the Table!</li>\r\n\t<li>Softens Room Noise</li>\r\n\t<li>Quiets Clearing Dishes</li>\r\n\t<li>Roll Length: 33 YDS</li>\r\n\t<li>Roll Widths: 36\" 48\" & 72\"</li>\r\n\t<li>Custom Cut Sizes Also Available to Your Specifications</li>\r\n\t<li>Flame Retardant: Meets or Exceeds</li>\r\n\t<li>Department of Commerce FF170 and FMVSS302</li>\r\n\t<li>We Recommend a 4\" Overhang on all Sides</li>\r\n\t<li>Cuts Easily with Scissors</li>\r\n</ul>", image_url: "whitevinylpadding.jpg", thumbnail_url: "whitevinylpadding-thumb.jpg", category_id: 2},
   {title: "Rug-Stop Padding", description: "Rug-Stop Padding description text.", image_url: "slipknot-padding.jpg", thumbnail_url: "slipknot-padding-thumb.jpg", category_id: 2},
   {title: "Overlays", description: "Overlays description text.", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover-thumb.jpg", category_id: 5},
   {title: "Placemats", description: "Placemats description text.", image_url: "vinyltablecover.jpg", thumbnail_url: "vinyltablecover.jpg", category_id: 5},
-  {title: "Upholstery Vinyls", description: "Upholstery description text.", image_url: "chair_6111_saffron_sm_fmt.png", thumbnail_url: "6111_dustyrost_granite__fmt.png", category_id: 4}
+  {title: "Upholstery Vinyls", description: "Upholstery description text.", image_url: "chair_6111_saffron_sm_fmt.png", thumbnail_url: "6111_dustyrost_granite__fmt.png", category_id: 4},
+  {title: "Classic Vinyl Pad", description: "<ul>\r\n\t<li>Stops the Slipping!</li>\r\n\t<li>The Best Non-Slip Product Available</li>\r\n\t<li>Cushions Elbows on the Table!</li>\r\n\t<li>Softens Room Noise</li>\r\n\t<li>Quiets Clearing Dishes</li>\r\n\t<li>Roll Length: 33 YDS</li>\r\n\t<li>Roll Widths: 36\" 48\" & 72\"</li>\r\n\t<li>Custom Cut Sizes Also Available to Your Specifications</li>\r\n\t<li>Flame Retardant: Meets or Exceeds</li>\r\n\t<li>Department of Commerce FF170 and FMVSS302</li>\r\n\t<li>We Recommend a 4\" Overhang on all Sides</li>\r\n\t<li>Cuts Easily with Scissors</li>\r\n</ul>", image_url: "whitevinylpadding.jpg", thumbnail_url: "whitevinylpadding-thumb.jpg", category_id: 2}
 ])
 Color.create!([
   {series_id: 1, name: "Lapis", image_url: "swatches/9800/9801/9801-Lapis_med.jpg", notforupholstery: false},
@@ -690,14 +690,6 @@ Color.create!([
   {series_id: 66, name: "Fruit Punch", image_url: "swatches/6100/6120/6120-Fruit-Punch_med.jpg", notforupholstery: false},
   {series_id: 16, name: "Purple Haze", image_url: "swatches/6100/6119/6119-Purple-Haze_med.jpg", notforupholstery: false}
 ])
-Order.create!([
-  {firstname: "Greg", street_address: "123 Way street", city: "Vancouver", state: "Rhode Island", country: "United States", telephone: "555-555-5555", email: "abc@example.com", lastname: "Sample", user_id: 1, status: "submitted", company: "Toys", zipcode: "55555", contactby: "email"},
-  {firstname: "Thomas Two", street_address: "222 two ave", city: "Twoville", state: "Texas", country: "United States", telephone: "555-555-5555", email: "dustinamerica1@comcast.net", lastname: "null", user_id: 1, status: "submitted", company: "null", zipcode: "null", contactby: "email"},
-  {firstname: "Three T", street_address: "333 way street", city: "Threetown", state: "Washington", country: "United States", telephone: "555-555-5678", email: "dustinamerica1@comcast.net", lastname: "null", user_id: 1, status: "submitted", company: "null", zipcode: "null", contactby: "email"},
-  {firstname: "Fighty Four", street_address: "444 Fourth Street", city: "Fourthtown", state: "Oregon", country: "United States", telephone: "555-555-5555", email: "dustinamerica1@comcast.net", lastname: "null", user_id: 1, status: "submitted", company: "null", zipcode: "null", contactby: "email"},
-  {firstname: "Dustin", street_address: "333 Here Place", city: "Cityville", state: "Washington", country: "United States", telephone: "360944-5555", email: "dustinschaerer@gmail.com", lastname: "Schaerer", user_id: 1, status: "submitted", company: "Tomato Masters", zipcode: "98682", contactby: "email"},
-  {firstname: "Dustin", street_address: "333 Here Place", city: "Cityville", state: "Washington", country: "United States", telephone: "360944-5555", email: "dustinschaerer@gmail.com", lastname: "Schaerer", user_id: 1, status: "submitted", company: "Tomato Masters", zipcode: "98682", contactby: "email"}
-])
 Series.create!([
   {style_id: 6, name: "9808 White Vinyl Padding", description: "White vinyl padding series description text.", image_url: "whitevinylpadding.jpg", lead: "", callout: "", vertical: "nil", horizontal: "nil", side: "nil"},
   {style_id: 1, name: "9801", description: "This understated, traditional pattern is a soothing alternative to bolder fabrics.", image_url: "swatches/9800/9801/9801_hl.jpg", lead: "Perfect Blend", callout: "soothing alternative", vertical: "nil", horizontal: "nil", side: "nil"},
@@ -780,20 +772,20 @@ Series.create!([
   {style_id: 7, name: "6116", description: "Realistic graining, a soft hand, and versatile hues make this a designer’s favorite.", image_url: "upholstery/6116_buckskin_h.jpg", lead: "Leather-Like Luxury", callout: "realistic graining", vertical: "18\"", horizontal: "27\"", side: "27\" Square"}
 ])
 Style.create!([
-  {title: "Classic Vinyl Table Covers or Roll Goods", name: "9800 Series", description: "Table covers in Style 9800 Classic Vinyl are 10-mil PVC film.", image_url: "9828-lasagna_vinyl-table-cover.jpg", product_id: 1, sort: 2},
-  {title: "Premium Vinyl Table Covers or Roll Goods", name: "6100 Series", description: "Style 6100 Premium Vinyl table covers are 30% thicker for even better wear and comfort!", image_url: "6125_black-mocha_vinyl-table-cover.jpg", product_id: 1, sort: 3},
-  {title: "Designer Laminate Table Covers or Roll Goods", name: "Series 1200/2000", description: "Laminated Vinyl Series 1200/2000 description sample text.", image_url: "2013-white_laminated-table-cover.jpg", product_id: 2, sort: 4},
-  {title: "Slip-Knot Padding Sample", name: "Slip-Knot Padding Series", description: "Slip-Knot Padding Series description text.", image_url: "slipknot-padding.jpg", product_id: 10, sort: 1},
-  {title: "White Vinyl Padding Sample Swatch", name: "White Vinyl Padding Series", description: "White Vinyl Padding Series description text.", image_url: "whitevinylpadding.jpg", product_id: 11, sort: 2},
-  {title: "Upholstery Vinyls 6111-6126", name: "6111-6126 Series", description: "Upholstery Style Description", image_url: "6111_dustyrost_granite__fmt.png", product_id: 8, sort: 1},
-  {title: "Value Vinyl Table Covers or Roll Goods", name: "7000 Series", description: "value vinyl description", image_url: "9828-lasagna_vinyl-table-cover.jpg", product_id: 1, sort: 1} 
+  {title: "Slip-Knot Padding Sample", name: "Slip-Knot Padding Series", description: "Slip-Knot Padding Series description text.", image_url: "slipknot-padding.jpg", product_id: 10, sort: nil},
+  {title: "White Vinyl Padding Sample Swatch", name: "White Vinyl Padding Series", description: "White Vinyl Padding Series description text.", image_url: "whitevinylpadding.jpg", product_id: 11, sort: nil},
+  {title: "CLASSICS COLLECTION", name: "9800 Series", description: "\r\n<div class=\"stylebox\">\r\n\t<div class=\"style-title addgold\">CLASSIC COLLECTION</div>\r\n\t<div class=\"style-made\">Custom-Made Table Covers</div>\r\n\t<div class=\"style-series\">SERIES 9800</div>\r\n\t<div class=\"style-design\">29 Designs | 152 Colors</div>\r\n</div>\r\n\r\n<ul class=\"style-list\">\r\n  <li>Hard-working, but affordable</li>\r\n  <li>10-mil PVC vinyl</li>\r\n  <li>Good for commercial use</li>\r\n</ul>", image_url: "9828-lasagna_vinyl-table-cover.jpg", product_id: 1, sort: 2},
+  {title: "Designer Laminate Table Covers or Roll Goods", name: "Series 1200/2000", description: "<div class=\"stylebox\">\r\n\t<div class=\"style-title addpurple\">DESIGN COLLECTION</div>\r\n\t<div class=\"style-made\">Custom-Made Table Covers</div>\r\n\t<div class=\"style-series\">SERIES 1200/2000</div>\r\n\t<div class=\"style-design\">7 Designs | 24 Colors</div>\r\n</div>\r\n\r\n<ul class=\"style-list\">\r\n  <li>Long-lasting, easy care fabric</li>\r\n  <li>6-mil film laminated to fabric</li>\r\n  <li>Good for upholstery, too</li>\r\n</ul>\r\n", image_url: "2013-white_laminated-table-cover.jpg", product_id: 2, sort: 4},
+  {title: "Upholstery Vinyls 6111-6126", name: "6111-6126 Series", description: "Upholstery Style Description", image_url: "6111_dustyrost_granite__fmt.png", product_id: 8, sort: nil},
+  {title: "Premium Vinyl Table Covers or Roll Goods", name: "6100 Series", description: "<div class=\"stylebox\">\r\n\t<div class=\"style-title addarmy\">PREMIUM COLLECTION</div>\r\n\t<div class=\"style-made\">Custom-Made Table Covers</div>\r\n\t<div class=\"style-series\">SERIES 6100</div>\r\n\t<div class=\"style-design\">29 Designs | 152 Colors</div>\r\n</div>\r\n\r\n<ul class=\"style-list\">\r\n  <li>Heavy duty, versatile fabric</li>\r\n  <li>13-mil PVC vinyl</li>\r\n  <li>Some designs good for <u>upholstery</u></li>\r\n</ul>", image_url: "6125_black-mocha_vinyl-table-cover.jpg", product_id: 1, sort: 3},
+  {title: "Value Vinyl Table Covers or Roll Goods", name: "7000 Series", description: "<div class=\"stylebox\">\r\n\t<div class=\"style-title addmaroon\">VALUE COLLECTION</div>\r\n\t<div class=\"style-made\">Ready-Made Table Covers</div>\r\n\t<div class=\"style-series\">SERIES 7000</div>\r\n\t<div class=\"style-design\">5 Designs | 25 Colors</div>\r\n</div>\r\n\r\n<ul class=\"style-list\">\r\n  <li>Our most cost- effective option</li>\r\n  <li>6-mil PVC plastic</li>\r\n  <li>Good for light wear, home use</li>\r\n</ul>", image_url: "9828-lasagna_vinyl-table-cover.jpg", product_id: 1, sort: 1}
 ])
 Category.create!([
   {name: "Vinyl & Laminate Table Covers", description: "Vinyl & Laminate table cover description.", image_url: "laminatetablecover.jpg"},
-  {name: "Non-Slip Padding", description: "Non-Slip Padding", image_url: "slipknot-padding.jpg"},
-  {name: "Americlear Laminations", description: "Americlear Laminations description text.", image_url: "americlearmatte.jpg"},
   {name: "Upholstery", description: "Upholstery description text.", image_url: "upholstery.jpg"},
-  {name: "Accessories", description: "Accessories description text.", image_url: "americlearmatte.jpg"}
+  {name: "Accessories", description: "Accessories description text.", image_url: "americlearmatte.jpg"},
+  {name: "Non-Slip Padding", description: "Non-Slip Padding", image_url: "slipknot-padding.jpg"},
+  {name: "Americlear Laminations", description: "Americlear Laminations description text.", image_url: "americlear-lam-2068.png"}
 ])
 Cart.create!([
   {}
@@ -804,20 +796,21 @@ LineItem.create!([
   {cart_id: 20, quantity: 1, order_id: nil, series_id: 1, color_id: 2},
   {cart_id: 15, quantity: 2, order_id: nil, series_id: 1, color_id: 3},
   {cart_id: 15, quantity: 1, order_id: nil, series_id: 1, color_id: 5},
-  {cart_id: 15, quantity: 1, order_id: nil, series_id: 3, color_id: 6},
   {cart_id: 16, quantity: 1, order_id: nil, series_id: 1, color_id: 4},
   {cart_id: 16, quantity: 1, order_id: nil, series_id: 1, color_id: 3},
   {cart_id: 16, quantity: 1, order_id: nil, series_id: 1, color_id: 5},
   {cart_id: 16, quantity: 2, order_id: nil, series_id: 1, color_id: 1},
-  {cart_id: 17, quantity: 1, order_id: 5, series_id: 1, color_id: 1},
   {cart_id: 28, quantity: 1, order_id: nil, series_id: 1, color_id: 1},
-  {cart_id: 40, quantity: 1, order_id: nil, series_id: 1, color_id: 3},
   {cart_id: 43, quantity: 1, order_id: nil, series_id: 1, color_id: 4},
   {cart_id: 43, quantity: 1, order_id: nil, series_id: 6, color_id: 21},
-  {cart_id: 55, quantity: 1, order_id: nil, series_id: 8, color_id: 436}
+  {cart_id: 55, quantity: 1, order_id: nil, series_id: 8, color_id: 436},
+  {cart_id: 65, quantity: 1, order_id: nil, series_id: 53, color_id: 179},
+  {cart_id: 66, quantity: 1, order_id: nil, series_id: 69, color_id: 352}
 ])
 Subscriber.create!([
-  {user_id_id: nil, email: "dustinschaerer@gmail.com", active: true},
-  {user_id_id: nil, email: "dustinschaerer@tomsbarn.org", active: true},
-  {user_id_id: nil, email: "jenny@example.org", active: false}
+  {user_id_id: nil, email: "", active: nil},
+  {user_id_id: nil, email: "drs@yo.com", active: nil},
+  {user_id_id: nil, email: "dustinschaerer@gmail.com", active: nil},
+  {user_id_id: nil, email: "tornado@weather.com", active: nil},
+  {user_id_id: nil, email: "jenny@example.com", active: nil}
 ])
