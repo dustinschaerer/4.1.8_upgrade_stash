@@ -783,7 +783,6 @@ Style.create!([
   {title: "Classic Vinyl Table Covers or Roll Goods", name: "9800 Series", description: "Table covers in Style 9800 Classic Vinyl are 10-mil PVC film.", image_url: "9828-lasagna_vinyl-table-cover.jpg", product_id: 1, sort: 2},
   {title: "Premium Vinyl Table Covers or Roll Goods", name: "6100 Series", description: "Style 6100 Premium Vinyl table covers are 30% thicker for even better wear and comfort!", image_url: "6125_black-mocha_vinyl-table-cover.jpg", product_id: 1, sort: 3},
   {title: "Designer Laminate Table Covers or Roll Goods", name: "Series 1200/2000", description: "Laminated Vinyl Series 1200/2000 description sample text.", image_url: "2013-white_laminated-table-cover.jpg", product_id: 2, sort: 4},
-  {title: "Designer Laminate Table Covers or Roll Goods", name: "Series 1200", description: "Laminated Vinyl Series 1200 description sample text.", image_url: "2013-white_laminated-table-cover.jpg", product_id: 2, sort: 10},
   {title: "Slip-Knot Padding Sample", name: "Slip-Knot Padding Series", description: "Slip-Knot Padding Series description text.", image_url: "slipknot-padding.jpg", product_id: 10, sort: 1},
   {title: "White Vinyl Padding Sample Swatch", name: "White Vinyl Padding Series", description: "White Vinyl Padding Series description text.", image_url: "whitevinylpadding.jpg", product_id: 11, sort: 2},
   {title: "Upholstery Vinyls 6111-6126", name: "6111-6126 Series", description: "Upholstery Style Description", image_url: "6111_dustyrost_granite__fmt.png", product_id: 8, sort: 1},
