@@ -1,5 +1,3 @@
-<h1><%= @style.name %> - <%= @style.title %></h1>
-
 <div class="row">
     <div class="col-sm-12">
 
@@ -70,20 +68,24 @@
     
     <% if (params[:id] == '1') %>
     <!-- Turn this into partials, one for each main category -->
-    <div class="col-sm-8">
-      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> patterns and <%= @style.colors.count %> colors</div>
-      <div class="styletype weighty">CLASSIC VINYL</div>
-      <div class="stylesub">Table Covers Or Roll Goods</div>
-      <div class="styletext">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</div>
+    <div class="col-sm-9 border-right">
+      <div class="styletype weighty addgold">Classic Vinyls Only Look Expensive</div>
+      <div class="stylesub bottom20">Custom Table Covers and Accessories without Custom Pricing</div>
+      <div class="styletext">
+        <p>Americo's Classic vinyl table covers series are a great alternative to buying or renting woven table linens. You get a designer look, but without the upkeep—vinyl wipes clean with soapy water. Bye-bye laundry bills!</p>
+        <p>No minimums. Our Classic (9800 series) Vinyl table covers are available in 7 styles and are custom sewn to your exact specifications. Order as many or as few as you like. (See Measuring Instructions for details.)</p>
+        <p><strong>Available by the piece or the roll.</strong> We sell custom cuts of 5 yards or more. Or you can order a 25-yard roll. (Fabric is 54” wide). Most roll goods are in stock and ship within 1 business day.</p>
+      </div>
+
+
     </div>
-    <div class="col-sm-4" id="home-made-usa">
+    <div class="col-sm-3" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">9800 series vinyls are 10-mil printed Pvc film laminated to a 4 oz. per square yard non-woven polyester.<br />
-      <a href="#" class="addgray underline">Additional specs.</a></p>
+      <a href="#" class="addgray underline top10">Additional specs.</a></p>
 
-      <p class="addgreen"><b>OTHER TEXT CAN GO HERE</b><br>
-      Other text can go here</p>
+      <p class="addgreen larger bold top25">Also Available as Placemats, Table Runners and Overlays</p>
     </div>
     <!-- Turn this into a partial, one for each main category -->
     <% elsif (params[:id] == '2') %>
@@ -94,7 +96,7 @@
       <div class="stylesub">Table Covers Or Roll Goods</div>
       <div class="styletext">When your situation requires fabrics with greater resiliency, we have the solution. Our Premium vinyl collection offers fabrics that are 30 percent heavier than our classic vinyls. So they last longer, even in the most demanding environments. In addition, many of our premium vinyls are also a part of our upholstery Distinctions Collection.</div>
     </div>
-    <div class="col-sm-4" id="home-made-usa">
+    <div class="col-sm-4" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">6100 series vinyls are 13-mil printed Pvc film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholsterygrade foam.<br />
@@ -116,7 +118,7 @@
       <div class="styletext top10">Americo’s Designer Laminates come in 7 wonderful patterns, each in a variety of colors. Like vinyls, laminated fabrics are low maintenance – just wipe clean. and, of course, all laminate table linens are made to order so they fit tables perfectly, including those that require umbrella holes, elastic, or velcro for booth ends. Laminates can also be used for upholstery fabic.</div>
       <div class="styletext top10"><strong>For your convenience, laminates are also available by the roll. Each 54”-wide roll holds 25 yards of fabric.</strong></div>
     </div>
-    <div class="col-sm-4" id="home-made-usa">
+    <div class="col-sm-4" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">1200 and 2000 series decorative printed fabrics are laminated with a 6-mil matte finish on 100% cotton fabric.<br />
@@ -138,7 +140,7 @@
       <div class="styletext top10">Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</div>
       
     </div>
-    <div class="col-sm-4" id="home-made-usa">
+    <div class="col-sm-4" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">Distinctions vinyls are13-mil printed PVC film laminated to a 4 oz. per square yard non-woven polyester with a 30-mil upholstery grade foam.<br />
@@ -173,11 +175,18 @@
   </div>  
 
   <div class="row">    
+    <div class="col-xs-6 col-sm-7"> 
+      <div class="style-title addgold"><%= @style.name %> | <%= @style.series.count %> designs | <%= @style.colors.count %> colors</div>
+      <div class="stylename weighty addblack"><%= @style.title %></div>
+    </div>
+    <div class="col-xs-6 col-sm-5"> 
+      <div class="choices top25">Click on a style to see all your color choices.</div>
+    </div>
   </div>
 
   <div class="entry">
    
-    <div class="row">
+    <div class="row top10">
       <div class="col-xs-9 col-sm-10">   
    
 
@@ -194,8 +203,8 @@
 
       </div>
       <div class="col-xs-3 col-sm-2">   
-        <div><%= image_tag("swatch-image.jpg", alt:"Free Swatches") %></div>
-        <div><%= image_tag("free-catalog.jpg", alt:"Free Catalog") %></div>
+        <div><%= image_tag("swatch-image.png", alt:"Free Swatches") %></div>
+        <div><%= image_tag("free-catalog.png", alt:"Free Catalog") %></div>
         <div></div>
       </div>
         
@@ -227,6 +236,11 @@
 <p>
   <strong>Image url:</strong>
   <%= @style.image_url %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @style.sort %>
 </p>
 
 <%= link_to 'Edit', edit_style_path(@style) %> |

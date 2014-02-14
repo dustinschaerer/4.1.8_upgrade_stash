@@ -1,11 +1,182 @@
-<h1><%= @category.name %></h1>
+<h1><!-- <%= @category.name %> --></h1>
 
   <div class="entry">
     <div class="row">
 
-      <% @category.products.each do |product| %>
+    <% if (params[:id] == '1') %>
+    
+      <div class="row">
+        <div class="col-sm-9">
+          <h1 class="addbrown"><span class="cat-title">Custom-Made Table Covers are our Specialty</span></h1>
+          <div class="stylename bold">Beautiful Vinyl and Laminated Fabrics in Hundreds of Colors </div>
+          <div>
+            <p class="splashtext top20">Yes, you can get tablecloths, runners, and toppers sewn to the exact size and shape you need without spending a fortune. Simply hose your patterns from our Premium, Classic or Designer collections and supply us with table measurements. Welll stitch up perfect-fitting coverings   for every table—and even add umbrella holes, elastic, or Velcro, if needed. No minimums are required for custom work, and most orders ship in 2-3 weeks. Roll goods ship in 24 hours.</p>
+            <p class="splashtext">Looking for ready-made vinyl table covers? Check out our Value line. <span class="bold">For do-it-yourselfers, fabrics are also available by the <u>roll</u> or by the <u>cut</u>.</span></p>
+          </div>
+        </div>
+        <div id="vinyl-land" class="col-sm-3 border-left">
+          <ul>
+            <li class="addgold">Low or No Minimums</li>
+            <li class="addgold">Custom-Made Options</li>
+            <li class="addgold">Free Catalog</li>
+            <li class="addgold">Fast Delivery</li>
+            <li class="addgold">Free Quotes</li>
+          </ul>
 
+
+          <%= image_tag("swatch-image.png", :class => "img-responsive pull-right", alt: "Free Swatches", :id => 'home-swatches' ) %>
+
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="cat-title"></div>
+          <div class="cat-subtitle"></div>
+          <div>
+            <p class="splashtext"></p>
+            <p class="splashtext"s></p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+      </div>
+
+
+
+
+      <div class="row">
+
+      <% @category.products.order(:id).each do |product| %>
+ 
         
+          
+              <% product.styles.order(:sort).each do |style| %>  
+            
+              <div class="col-md-3">  
+
+                  <div class="style-link">
+                  <%= link_to(style, :class => "no-under") do %>
+                    
+                    <%= image_tag(style.image_url, :class => "img-responsive") %>
+
+                  <% end %>
+
+                  <%= style.description.html_safe %>
+
+                  </div>
+
+              </div>
+              <% end %>
+            
+        
+      <% end %> <!-- end category/product loop -->  
+      
+      </div>
+
+
+
+<div class="border-top add-bottom">
+  <div id="covers"><%= image_tag('tablecover_styles.png') %></div>
+</div>
+
+
+
+
+
+
+
+    <!-- end if cat 1 -->  
+    <% elsif (params[:id] == '2') %>
+
+          <div class="row">
+        <div class="col-sm-8  border-right">
+          <h1 class="addmaroon"><span class="cat-title">Non-Slip Pads Keep Table Covers and Rugs in Place</span></h1>
+          <div class="stylename">Cushioned Padding Increases Comfort and Safety</div>
+          <div>
+            <p class="splashtext top20">Americo non-slip padding can be used under table covers or rugs to keep prevent slippage and add cushioning. Available by the piece (no minimums) or by the roll, non-slip pads offer:</p>
+            <ul class="splashtext">
+              <li>Superior slip protection</li>
+              <li>Luxurious feel</li>
+              <li>Noise reduction</li>  
+              <li>Less dish breakage on tables</li>
+            </ul>
+            
+            <p class="splashtext"><strong>Vinyl Padding is Ideal Under Woven Table Linens</strong></p>
+</p>
+            <p class="splashtext">To give linen table cloths a soft underlayment and slip resistance, try our 9808 vinyl. This heavy-duty vinyl can be custom-sewn to your specifications. Or, order it by the piece or by the roll.</p>
+          </div>
+          
+          <hr>
+
+          <div class="row top10 splashtext">
+            <div class="col-xs-3"><a href="#" class=""><%= image_tag('http://www.placehold.it/300x300', :class => "img-responsive") %></a></div>
+            <div class="col-xs-4">
+              <div class="addmaroon bold">NON-SLIP PAD</div>
+              <p>Flame Retardant 
+                <br>Cuts with Scissors 
+                <br>Will not Fray or Roll</p>
+            </div>
+            
+            <div class="col-xs-5">
+              <div class="addmaroon bold">TECHNICAL SPECS</div>
+              <p>Roll Length: 33 yards
+                <br>Roll Widths: 36” 48” &amp; 72”
+                <br>Flame Retardant
+                <br><br><a href="#">Additional specs</a></p>
+              </p>
+            </div>
+
+          </div>  
+
+          <hr>
+
+          <div class="row top10 splashtext">
+            <div class="col-xs-3"><a href="#" class=""><%= image_tag('http://www.placehold.it/300x300', :class => "img-responsive") %></a></div>
+            <div class="col-xs-4">
+              <div class="addmaroon bold">CLASSIC VINYL PAD</div>
+              <p><u>9808-White</u>
+                <br>Cuts with Scissors 
+                <br>Will not Fray or Roll</p>
+            </div>
+            
+            <div class="col-xs-5">
+              <div class="addmaroon bold">TECHNICAL SPECS</div>
+              <p>Roll Length: 25 yards
+                <br>Roll Widths: 54”
+                <br>10-mil PVC vinyl
+                <br><a href="#">Additional specs</a></p>
+            </div>
+
+          </div>  
+
+
+
+
+        </div>
+        <div id="" class="col-sm-4">
+
+          <%= image_tag("no-slip-padding.png", :class => "img-responsive", alt: "Free Swatches", :id => 'non-slip' ) %>
+          <div class="addmaroon top10 bold">ORDERING TIP</div>
+          <div class="">For your convenience, Americo non-slip padding can be custom cut to any length or purchased by the roll. To determine how much ou need, calculate a 4” overhang on all sides of the table. Padding is easily cut with scissors and edges will not roll or fray.</div>
+          <ul class="top10">
+            <li class="addgold">Roll Length: 33 yards</li>
+            <li class="addgold">Roll Widths: 36", 48" &amp; 72"</li>
+          </ul>
+
+
+          <%= image_tag("swatch-image.png", :class => "img-responsive pull-left", alt: "Free Swatches", :id => 'home-swatches' ) %>
+          <%= image_tag("free-catalog.png", :class => "img-responsive pull-right", alt: "Free Catalog" ) %>
+        </div>
+      </div>
+
+
+
+      <% @category.products.each do |product| %>
+ 
         <div class="col-sm-6">
           <div class="well">
             <%= link_to(product) do %>
@@ -20,29 +191,104 @@
               </div>
             </div>
 
-            <div class="row">
-              
+            <div class="row">         
               <% product.styles.each do |style| %>  
               <div class="col-sm-4">
                 <%= link_to(style) do %>
                   <%= style.name %>
                   <%= image_tag(style.image_url, :class => "img-responsive") %>
                 <% end %>
-
-
               </div>
               <% end %>
             </div>  
-
-
           </div>
         </div>
         
+      <% end %> <!-- end category/product loop -->  
+
+    <!-- end if cat 2 -->  
+    <% elsif (params[:id] == '3') %>
+
+       <div class="row">
+        <div class="col-sm-9  border-right">
+          <h1 class="addmaroon"><span class="cat-title">Laminating Makes Woven Fabrics Virtually Carefree</span></h1>
+          <div class="stylename bold">Americlear Fabric Lamination Provides Ultimate Protection</div>
+          <div>
+            <p class="splashtext top20">Don't shy away from using decorator fabrics in high-use areas. Instead, protect favorite fabrics with Americlear lamination. This superior, heat-set technique applies a translucent film to woven material to create a long-lasting laminated fabric that never needs washing. Spot cleaning with soapy water removes everyday grime and most stains.</p>
+            <p class="splashtext">Americlear lamination comes in matte or glossy finishes that can make fabric colors appear richer and more vibrant. For greatest stain resistance, laminate the front of the fabric. Back of fabric lamination is also available for creating a good moisture barrier. As for durability, in abrasion tests Americlear lamination exceeds the highest standards for heavy duty textiles with no wear-through of the film.</p>
+            <p class="splashtext">Lamination may not be suitable for certain weaves, textures and patterns. We recommend ordering a sample Americlear lamination to ensure you like the results.</p>
+          </div>
+          
+          <div class="row top10">
+            <div class="col-xs-4"><a href="#" class="">Ordering Information</a></div>
+            <div class="col-xs-4"><a href="#" class="">Techinical Specs</a></div>
+            <div class="col-xs-4"><a href="#" class="">Request A Quote</a></div>
+          </div>  
+
+          <div class="row top10 bottom ">
+            <div class="col-xs-2 col-xs-offset-1"><%= image_tag('americlear-lam-2068.png', :class => "img-responsive") %></div>
+            <div class="col-xs-8 addgreen top10 lamtext"><p><strong>Americo's Pre-Laminated Designer</strong> fabrics can help you achieve your creative vision. These striking fabrics are great for table coverings, upholstery project or drapes. Available by the roll or as custom-sewn tablecloths, overlays or runners.<br>
+            <a href="#" class="">View swatches and specs <span class="glyphicon glyphicon-play"></span></a></p></div>
+            
+          </div>  
+
+
+
+        </div>
+        <div id="vinyl-land" class="col-sm-3">
+          <ul>
+            <li class="addgold">Custom or Pre-laminated</li>
+            <li class="addgold">Matte and Glossy Finishes</li>
+            <li class="addgold">Easy, Laundry-Free Care</li>
+            <li class="addgold">Free Samples</li>
+            <li class="addgold">Free Quotes</li>
+          </ul>
+
+
+          <%= image_tag("swatch-image.png", :class => "img-responsive pull-right", alt: "Free Swatches", :id => 'home-swatches' ) %>
+
+        </div>
+      </div>
+
+
+      <% @category.products.each do |product| %>
+ 
+        <div class="col-sm-6">
+          <div class="well">
+            <%= link_to(product) do %>
+              <h4><%= product.title %></h4>
+            <% end %>
+            <div class="row">
+              <div class="col-sm-3">
+                <%= image_tag(product.image_url, :class => "img-responsive") %>
+              </div>
+              <div class="col-sm-9">
+                <%= sanitize(product.description) %>
+              </div>
+            </div>
+
+            <div class="row">         
+              <% product.styles.each do |style| %>  
+              <div class="col-sm-4">
+                <%= link_to(style) do %>
+                  <%= style.name %>
+                  <%= image_tag(style.image_url, :class => "img-responsive") %>
+                <% end %>
+              </div>
+              <% end %>
+            </div>  
+          </div>
+        </div>
         
-      <% end %>
+      <% end %> <!-- end category/product loop -->  
+
+    <% end %>  <!-- end if cat 3 -->  
 
     </div>
   </div>
+
+
+<div></div>
 
 <table>
   <thead>

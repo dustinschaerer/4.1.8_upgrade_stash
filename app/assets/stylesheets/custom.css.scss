@@ -88,11 +88,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+  font-size: 2.2em;
+  text-align: left;
+  margin-bottom: 0.1em;
 }
+
 
 h2 {
   font-size: 1.2em;
@@ -165,6 +165,11 @@ a {
 .border-left {
   border-left: solid 1px #bcbcbc;
 }
+.border-top {
+  border-top: solid 1px #bcbcbc;
+  padding-top: 15px;
+}
+
 .add-bottom {
   padding-bottom:20px;
   border-bottom: solid 1px #bcbcbc;
@@ -174,7 +179,9 @@ a {
   color: #666;
   text-decoration: none;
 }
-
+#covers {
+  background-color:#efefef;
+}
 
 
 
@@ -214,7 +221,7 @@ a {
   
 }
 
-/* Responsive: Portrait tablets and up */
+/* Responsive//: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
   .masthead,
@@ -333,9 +340,12 @@ footer {
 
 .splashtext {
   font-size:1.2em;
+  line-height: 1.4em;
+}
+.lamtext {
+  font-size: 1.2em;
   line-height: 1.2em;
 }
-
 #home-made-usa {
   border-left: solid 1px #bcbcbc;
   p {
@@ -402,6 +412,9 @@ footer {
 .addgreen {
   color: #5E6923;
 }
+.addarmy {
+  color: #696E2D;
+}
 .addgray {
   color: #757575;
 }
@@ -415,13 +428,21 @@ footer {
 .addbrown {
  color: #996633; 
 }
-
+.addmaroon {
+  color: #8A1921;
+}
+.addpurple {
+  color: #50334E; 
+}
+.choices {
+  color: #D1C3C8;
+  font-size:1.2em;
+}
 .stylename {
   font-size: 20px;
 }
 .styletype {
-  font-size: 38px;
-  line-height: 38px; 
+  font-size: 2.2em;
   letter-spacing:-1px
 }
 .weighty {
@@ -429,12 +450,39 @@ footer {
   
 }
 .stylesub {
-  font-size: 22px;
+  font-size: 1.6em;
+  color:#000;
+  line-height: 1.2em;
 }
 .styletext {
   font-size: 16px;
   color: #757575;
 }
+
+.style-title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.style-made {
+  font-size: 1.3em;
+  color: #666;
+  margin-top: -0.2em;
+}
+.style-series {
+  font-size: 1.2em;
+  color: #666;
+  font-weight: bold;
+  margin-top: 5px;
+}
+.style-design {
+  color: #666;
+  padding-bottom:10px;
+}
+
+
+
+
+
 #styleinfobox {
   margin-bottom: 18px;
   padding-bottom: 18px;
@@ -457,6 +505,9 @@ footer {
 .hl {
   color: $red;
 }
+.bold {
+  font-weight: bold;
+}
 .footer-border {
   border-right: solid 1px #BCBCBC;
 }
@@ -467,24 +518,32 @@ footer {
   padding: 10px;
 }
 
-/* To be erased */
-.top200 {
-  margin-top: 200px;
-}
-.top25 {
-  margin-top: 25px;
-}
-.bottom25 {
-  margin-bottom: 25px;
-}
-.pullinleft10 {
-  margin-left: -8px;
-}
+/* Positioning */
 p .up10 {
   margin-top: -10px;
 }
 .top10 {
   margin-top: 10px;
+}
+.top20 {
+  margin-top: 20px;
+}
+.top25 {
+  margin-top: 25px;
+}
+.bottom20 {
+  margin-bottom: 20px;
+}
+.bottom25 {
+  margin-bottom: 25px;
+}
+.top200 {
+  margin-top: 200px;
+}
+
+
+.pullinleft10 {
+  margin-left: -8px;
 }
 .callout {
   letter-spacing: 0.2em;
@@ -511,6 +570,9 @@ p .up10 {
 .seriessub {
   line-height: 1.0em; 
   font-size: 1.2em;  
+}
+.larger {
+  font-size:1.3em;
 }
 
 .serieslead {
@@ -575,6 +637,26 @@ p .up10 {
   padding: 7px 9px;
 }
 
+
+
+#vinyl-land {
+  font-size:1.2em;
+ ul {
+    padding-top: 10px;
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 2px;
+    li {
+      padding-left: 2px;
+      margin-left: 0px;
+      font-weight: bold;
+    }
+
+  }
+}
+.stylebox {
+   text-align: center;
+ }
 
 
 /* Keep at bottom, this sets the padding for the fixed header top */

@@ -58,6 +58,6 @@ class StylesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def style_params
-      params.require(:style).permit(:product_id, :title, :name, :description, :image_url)
+      params.require(:style).permit(:product_id, :title, :name, :description, :image_url, :sort)
     end
 end

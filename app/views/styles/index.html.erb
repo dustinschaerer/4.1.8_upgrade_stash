@@ -41,6 +41,7 @@
       <th>Name</th>
       <th>Description</th>
       <th>Image url</th>
+      <th>Sort Order</th>
       <th></th>
       <th></th>
       <th></th>
@@ -55,6 +56,7 @@
         <td><%= style.name %></td>
         <td><%= style.description %></td>
         <td><%= style.image_url %></td>
+        <td><%= style.sort %></td>
         <td><%= link_to 'Show', style %></td>
         <td><%= link_to 'Edit', edit_style_path(style) %></td>
         <td><%= link_to 'Destroy', style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
