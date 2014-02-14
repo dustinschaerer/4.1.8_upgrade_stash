@@ -657,6 +657,16 @@ p .up10 {
 .stylebox {
    text-align: center;
  }
+ #faq {
+   li {
+         font-size: 1.4em;
+         line-height:1.0em;
+         padding-bottom: 17px;
+     .answer {
+       font-size: 0.8em;
+     }
+   }
+ }
 
 
 /* Keep at bottom, this sets the padding for the fixed header top */

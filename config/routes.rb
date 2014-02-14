@@ -56,7 +56,7 @@ Americo::Application.routes.draw do
   match '/contact',   to: 'static_pages#contact', via: 'get'
   match '/markets',   to: 'static_pages#markets', via: 'get'
   match '/photo_gallery', to: 'static_pages#photo_gallery', via: 'get'
-  
+  match '/frequently_asked_questions',  to: 'static_pages#frequently_asked_questions',   via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

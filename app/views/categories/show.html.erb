@@ -77,22 +77,14 @@
       
       </div>
 
-
-
-<div class="border-top add-bottom">
-  <div id="covers"><%= image_tag('tablecover_styles.png') %></div>
-</div>
-
-
-
-
-
-
+    <div class="border-top add-bottom">
+      <div id="covers"><%= image_tag('tablecover_styles.png') %></div>
+    </div>
 
     <!-- end if cat 1 -->  
     <% elsif (params[:id] == '2') %>
 
-          <div class="row">
+      <div class="row">
         <div class="col-sm-8  border-right">
           <h1 class="addmaroon"><span class="cat-title">Non-Slip Pads Keep Table Covers and Rugs in Place</span></h1>
           <div class="stylename">Cushioned Padding Increases Comfort and Safety</div>
@@ -105,8 +97,7 @@
               <li>Less dish breakage on tables</li>
             </ul>
             
-            <p class="splashtext"><strong>Vinyl Padding is Ideal Under Woven Table Linens</strong></p>
-</p>
+            <p class="splashtext larger"><strong>Vinyl Padding is Ideal Under Woven Table Linens</strong></p>
             <p class="splashtext">To give linen table cloths a soft underlayment and slip resistance, try our 9808 vinyl. This heavy-duty vinyl can be custom-sewn to your specifications. Or, order it by the piece or by the roll.</p>
           </div>
           
@@ -124,9 +115,9 @@
             <div class="col-xs-5">
               <div class="addmaroon bold">TECHNICAL SPECS</div>
               <p>Roll Length: 33 yards
-                <br>Roll Widths: 36” 48” &amp; 72”
+                <br>Roll Widths: 36”, 48” &amp; 72”
                 <br>Flame Retardant
-                <br><br><a href="#">Additional specs</a></p>
+                <br><a href="#">Additional specs</a></p>
               </p>
             </div>
 
@@ -142,7 +133,6 @@
                 <br>Cuts with Scissors 
                 <br>Will not Fray or Roll</p>
             </div>
-            
             <div class="col-xs-5">
               <div class="addmaroon bold">TECHNICAL SPECS</div>
               <p>Roll Length: 25 yards
@@ -150,61 +140,21 @@
                 <br>10-mil PVC vinyl
                 <br><a href="#">Additional specs</a></p>
             </div>
-
           </div>  
-
-
-
-
         </div>
-        <div id="" class="col-sm-4">
 
+        <div id="" class="col-sm-4">
           <%= image_tag("no-slip-padding.png", :class => "img-responsive", alt: "Free Swatches", :id => 'non-slip' ) %>
           <div class="addmaroon top10 bold">ORDERING TIP</div>
-          <div class="">For your convenience, Americo non-slip padding can be custom cut to any length or purchased by the roll. To determine how much ou need, calculate a 4” overhang on all sides of the table. Padding is easily cut with scissors and edges will not roll or fray.</div>
-          <ul class="top10">
+          <div class="">For your convenience, Americo non-slip padding can be custom cut to any length or purchased by the roll. To determine how much you need, calculate a 4” overhang on all sides of the table. Padding is easily cut with scissors and edges will not roll or fray.</div>
+          <ul class="top20 bold bottom25">
             <li class="addgold">Roll Length: 33 yards</li>
             <li class="addgold">Roll Widths: 36", 48" &amp; 72"</li>
           </ul>
-
-
           <%= image_tag("swatch-image.png", :class => "img-responsive pull-left", alt: "Free Swatches", :id => 'home-swatches' ) %>
           <%= image_tag("free-catalog.png", :class => "img-responsive pull-right", alt: "Free Catalog" ) %>
         </div>
       </div>
-
-
-
-      <% @category.products.each do |product| %>
- 
-        <div class="col-sm-6">
-          <div class="well">
-            <%= link_to(product) do %>
-              <h4><%= product.title %></h4>
-            <% end %>
-            <div class="row">
-              <div class="col-sm-3">
-                <%= image_tag(product.image_url, :class => "img-responsive") %>
-              </div>
-              <div class="col-sm-9">
-                <%= sanitize(product.description) %>
-              </div>
-            </div>
-
-            <div class="row">         
-              <% product.styles.each do |style| %>  
-              <div class="col-sm-4">
-                <%= link_to(style) do %>
-                  <%= style.name %>
-                  <%= image_tag(style.image_url, :class => "img-responsive") %>
-                <% end %>
-              </div>
-              <% end %>
-            </div>  
-          </div>
-        </div>
-        
-      <% end %> <!-- end category/product loop -->  
 
     <!-- end if cat 2 -->  
     <% elsif (params[:id] == '3') %>
@@ -290,6 +240,8 @@
 
 <div></div>
 
+<!--
+
 <table>
   <thead>
     <tr>
@@ -320,3 +272,5 @@
 <%= link_to 'New Category', new_category_path %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+
+-->

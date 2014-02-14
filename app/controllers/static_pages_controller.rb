@@ -18,8 +18,8 @@ class StaticPagesController < ApplicationController
   def markets
   end
 
-
-
+  def frequently_asked_questions
+  end
 
 
 end
