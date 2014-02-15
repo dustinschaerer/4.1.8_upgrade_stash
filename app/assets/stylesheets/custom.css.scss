@@ -667,7 +667,13 @@ p .up10 {
      }
    }
  }
-
+#stain {
+  background-color: #EFEFEF;
+  padding: 10px 16px 10px 16px;
+  li {
+  margin-bottom: 10px;
+  }
+}
 
 /* Keep at bottom, this sets the padding for the fixed header top */
 

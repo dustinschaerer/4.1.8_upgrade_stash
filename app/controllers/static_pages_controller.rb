@@ -21,5 +21,18 @@ class StaticPagesController < ApplicationController
   def frequently_asked_questions
   end
 
+  def cleaning_instructions
+  end
 
+  def how_to_measure
+  end
+
+  def how_to_order
+  end
+
+  def technical_specs
+  end
+  
+  def terms_and_conditions
+  end
 end
