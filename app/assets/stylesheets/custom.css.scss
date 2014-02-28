@@ -32,6 +32,12 @@ textarea {
   }
 }
 
+
+
+.form-inline div { display: inline-block }
+
+
+
 .affix-top {
   top:41px;
     position:fixed;
@@ -301,7 +307,7 @@ footer {
 }
 
 #side {
-    padding: 1em 2em;
+    padding: 1em 1em;
     /* background: $red; */
   
     input {
@@ -317,6 +323,7 @@ footer {
         margin-bottom: 10px;
       }
     }
+   
     ul {
       padding: 0;
 
@@ -334,6 +341,41 @@ footer {
     }
   }
  /* END SIDE */
+ #sidequote {
+    padding: 1em 1em;
+     background: $red;
+  
+    input {
+      font-size: small;
+    }
+
+    #quotecart {
+      color:     #333;
+
+      table {
+        border-top:    1px solid #fff;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 10px;
+      }
+    }
+   
+    ul {
+      padding: 0;
+
+      li {
+        list-style: none;
+
+        a {
+          color: #fff;
+          font-size: small;
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+ /* END SIDEQUOTE */
 
 
 /* home page only*/
@@ -435,7 +477,7 @@ footer {
   color: #50334E; 
 }
 .choices {
-  color: #D1C3C8;
+  
   font-size:1.2em;
 }
 .stylename {
@@ -443,7 +485,7 @@ footer {
 }
 .styletype {
   font-size: 2.2em;
-  letter-spacing:-1px
+  letter-spacing:-1px;
 }
 .weighty {
   font-weight: 600;
@@ -461,10 +503,14 @@ footer {
 
 .style-title {
   font-weight: bold;
-  font-size: 1.5em;
-}
-.style-made {
   font-size: 1.3em;
+}
+.style-head {
+  font-weight: bold;
+  font-size: 1.5em;
+} 
+.style-made {
+  font-size: 1.1em;
   color: #666;
   margin-top: -0.2em;
 }
@@ -607,12 +653,16 @@ p .up10 {
 #freecatalog {
  max-height:200px; 
 }
-
+.nolist li {
+  list-style-type:none;
+}
 
 
 /* User sign in and sign forms. */
 .border-form-div {
+  /*
   max-width: 340px;
+  */
   padding: 19px 29px 29px;
   margin: 0 auto 20px;
   background-color: #fff;
@@ -639,6 +689,37 @@ p .up10 {
 
 
 
+
+
+
+#contact-form {
+  
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+#contact-form .border-form-div .form-signin-heading,
+.border-form-div .checkbox {
+  margin-bottom: 10px;
+}
+#contact-form .border-form-div input[type="text"],
+#contact-form .border-form-div input[type="email"],
+#contact-form .border-form-div input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+
+
 #vinyl-land {
   font-size:1.2em;
  ul {
@@ -657,16 +738,7 @@ p .up10 {
 .stylebox {
    text-align: center;
  }
- #faq {
-   li {
-         font-size: 1.4em;
-         line-height:1.0em;
-         padding-bottom: 17px;
-     .answer {
-       font-size: 0.8em;
-     }
-   }
- }
+
 #stain {
   background-color: #EFEFEF;
   padding: 10px 16px 10px 16px;
@@ -674,6 +746,33 @@ p .up10 {
   margin-bottom: 10px;
   }
 }
+
+
+
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #8A1921;
+    color: #FFFFFF;
+}
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+
+.nav > li > a {
+    display: block;
+    padding: 10px 15px;
+    position: relative;
+    color: #333;
+}
+.nav > li > a:hover {
+    
+    background-color: #D6676F;
+}
+
+
+
+
+
 
 /* Keep at bottom, this sets the padding for the fixed header top */
 

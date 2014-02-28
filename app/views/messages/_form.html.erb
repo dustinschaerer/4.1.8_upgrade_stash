@@ -1,0 +1,68 @@
+<div id="contact-form">
+
+<%= simple_form_for(@message, :html => { :class => "form-horizontal" }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-xs-12 col-lg-8">
+        <%= f.input :reason, collection: ['General Product Question', 'Question about a Previous Order', 'Question about a Previous Quote', 'Billing Issues', 'Other reason'], :include_blank => "Choose One" , :input_html => { :id => "message_reason" }, :label => "Please select a Reason for Contacting Us" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Order">
+        <%= f.input :order_id, :label => "Order Number" %>
+      </div>
+      
+      <div class="col-xs-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Quote">
+        <%= f.input :quote_id, :label => "Quote Number" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-8">
+        <%= f.input :email %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-8">
+        <%= f.input :name %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-xs-12 col-lg-8">
+        <%= f.input :message, :input_html => {:rows => 7} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-lg-8 js-dependent-fields">
+        <%= f.input :phone %>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="form-actions">
+     <div class="row">
+      <div class="col-xs-12 col-lg-8">
+        <%= button_tag(type: 'submit', class: "btn btn-lg btn-danger btn-block") do %>
+    Send Message <i class="icon-ok icon-white"></i>
+  <% end %>
+    </div>
+    
+  </div>
+<% end %>
+
+</div>
+
+    <%= 
+    # f.button :submit, : => "Send Message", :class => "btn btn-lg btn-danger btn-block" 
+    %> 
+</div>
+
+
+
+
+
+
+

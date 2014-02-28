@@ -1,4 +1,5 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
 
-<%= link_to 'Edit', edit_quotecart_path(@quotecart) %> |
-<%= link_to 'Back', quotecarts_path %>
+ <%= render(@quotecart) %>

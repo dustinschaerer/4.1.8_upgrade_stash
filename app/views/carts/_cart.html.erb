@@ -2,32 +2,39 @@
 
 	<div class="cart_title">Shopping Cart</div> 
 
-	<table>
-	  <% if (@cart.line_items.empty?) %>
-	  <tr class="total_line">
-	    
-	    <td colspan="5">You cart is empty!</td>
-	  </tr>
-	  <% end %>	
-	  
-	  <tr>
-	    <td>Qty</td>
-	    <td>Style</td>
-	    <td>Color</td>
-	    <td></td>
-	    <td>Remove</td>
-	  </tr>
+    	 <% if (@cart.line_items.empty?) %>
+    	<div class="row">
+        	<div class="col-xs-12">
+				You cart is empty!
+	    	</div>
+    	</div>
+        <% end %>
 
-	  <%= render(cart.line_items) %>
+    	<div class="row">
+        	<div class="col-xs-2">
+				Image
+	    	</div>
+	
+	    	<div class="col-xs-3">
+				Style
+	    	</div>
 
-	  <tr class="total_line">
-	    
-	    <td colspan="3"></td>
-	    <td></td>
-	    <td class="total_cell"></td>
-	  </tr>
+	    	<div class="col-xs-3">
+				Color
+	    	</div>
+	
+	    	<div class="col-xs-2">
+				Qty
+	    	</div>
 
-	</table>
+	    	<div class="col-xs-2">
+				Remove
+	    	</div>
+
+    	</div>
+
+        <%= render(cart.line_items) %>
+
 </div>
 
 <div class="btn-group">

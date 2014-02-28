@@ -1,6 +1,9 @@
 class StoreController < ApplicationController
   include CurrentCart
-  before_action :set_cart
+  include CurrentQuotecart
+  before_action :set_cart, only: [:create]
+  before_action :set_quotecart, only: [:create]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   
   def index
   	@categories = Category.order(:name)

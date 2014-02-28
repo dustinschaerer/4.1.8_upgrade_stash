@@ -1,4 +1,8 @@
 class VinylrollsController < ApplicationController
+  include CurrentCart
+  include CurrentQuotecart
+  before_action :set_cart
+  before_action :set_quotecart
   before_action :set_vinylroll, only: [:show, :edit, :update, :destroy]
 
   # GET /vinylrolls
@@ -15,6 +19,8 @@ class VinylrollsController < ApplicationController
   # GET /vinylrolls/new
   def new
     @vinylroll = Vinylroll.new
+    @series = Series.where("style_id = 1 OR style_id = 2").order("name")
+    @color = Color.all
   end
 
   # GET /vinylrolls/1/edit
@@ -28,7 +34,11 @@ class VinylrollsController < ApplicationController
 
     respond_to do |format|
       if @vinylroll.save
-        format.html { redirect_to @vinylroll, notice: 'Vinylroll was successfully created.' }
+        
+        @item = @quotecart.add_quoteitem(@vinylroll.id, "vinylroll")  
+        @item.save
+
+        format.html { redirect_to @item, notice: 'Vinylroll Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vinylroll }
       else
         format.html { render action: 'new' }
@@ -69,6 +79,6 @@ class VinylrollsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vinylroll_params
-      params.require(:vinylroll).permit(:quantity, :references, :references, :price)
+      params.require(:vinylroll).permit(:quantity, :color_id, :series_id, :price)
     end
 end

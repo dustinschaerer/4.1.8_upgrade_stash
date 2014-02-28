@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213204141) do
+ActiveRecord::Schema.define(version: 20140227195713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 20140213204141) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "americlears", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "yards"
+    t.integer  "wide"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "carts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -73,6 +82,13 @@ ActiveRecord::Schema.define(version: 20140213204141) do
 
   add_index "colors", ["series_id"], name: "index_colors_on_series_id", using: :btree
 
+  create_table "frogs", force: true do |t|
+    t.string   "name"
+    t.string   "size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "items", force: true do |t|
     t.integer  "quotecart_id"
     t.integer  "itemable_id"
@@ -82,6 +98,19 @@ ActiveRecord::Schema.define(version: 20140213204141) do
   end
 
   add_index "items", ["quotecart_id"], name: "index_items_on_quotecart_id", using: :btree
+
+  create_table "laminatecuts", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "yards_long"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "laminatecuts", ["color_id"], name: "index_laminatecuts_on_color_id", using: :btree
+  add_index "laminatecuts", ["series_id"], name: "index_laminatecuts_on_series_id", using: :btree
 
   create_table "laminaterolls", force: true do |t|
     t.integer  "quantity"
@@ -101,7 +130,7 @@ ActiveRecord::Schema.define(version: 20140213204141) do
     t.integer  "width"
     t.integer  "length"
     t.integer  "height"
-    t.integer  "drop"
+    t.string   "drop"
     t.integer  "series_id"
     t.integer  "color_id"
     t.boolean  "umbrella"
@@ -110,6 +139,7 @@ ActiveRecord::Schema.define(version: 20140213204141) do
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "diameter"
   end
 
   add_index "laminates", ["color_id"], name: "index_laminates_on_color_id", using: :btree
@@ -129,6 +159,35 @@ ActiveRecord::Schema.define(version: 20140213204141) do
   add_index "line_items", ["color_id"], name: "index_line_items_on_color_id", using: :btree
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
   add_index "line_items", ["series_id"], name: "index_line_items_on_series_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.integer  "order_id"
+    t.integer  "quote_id"
+    t.string   "phone"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "reason"
+  end
+
+  create_table "nonslipcuts", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "inches_wide"
+    t.integer  "inches_long"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nonslippads", force: true do |t|
+    t.integer  "quantity"
+    t.string   "width"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "orders", force: true do |t|
     t.string   "firstname"
@@ -199,6 +258,15 @@ ActiveRecord::Schema.define(version: 20140213204141) do
 
   add_index "shipping_profiles", ["user_id"], name: "index_shipping_profiles_on_user_id", using: :btree
 
+  create_table "simple_captcha_data", force: true do |t|
+    t.string   "key",        limit: 40
+    t.string   "value",      limit: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
+
   create_table "styles", force: true do |t|
     t.string   "title"
     t.string   "name"
@@ -213,14 +281,14 @@ ActiveRecord::Schema.define(version: 20140213204141) do
   add_index "styles", ["product_id"], name: "index_styles_on_product_id", using: :btree
 
   create_table "subscribers", force: true do |t|
-    t.integer  "user_id_id"
+    t.integer  "user_id"
     t.string   "email"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "subscribers", ["user_id_id"], name: "index_subscribers_on_user_id_id", using: :btree
+  add_index "subscribers", ["user_id"], name: "index_subscribers_on_user_id", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -239,6 +307,31 @@ ActiveRecord::Schema.define(version: 20140213204141) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+  create_table "upholsterycuts", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.integer  "price"
+    t.integer  "yards_long"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "upholsterycuts", ["color_id"], name: "index_upholsterycuts_on_color_id", using: :btree
+  add_index "upholsterycuts", ["series_id"], name: "index_upholsterycuts_on_series_id", using: :btree
+
+  create_table "upholsteryrolls", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "upholsteryrolls", ["color_id"], name: "index_upholsteryrolls_on_color_id", using: :btree
+  add_index "upholsteryrolls", ["series_id"], name: "index_upholsteryrolls_on_series_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -260,6 +353,26 @@ ActiveRecord::Schema.define(version: 20140213204141) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "vinylcuts", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "yards_long"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vinylcuts", ["color_id"], name: "index_vinylcuts_on_color_id", using: :btree
+  add_index "vinylcuts", ["series_id"], name: "index_vinylcuts_on_series_id", using: :btree
+
+  create_table "vinylpads", force: true do |t|
+    t.integer  "quantity"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "vinylrolls", force: true do |t|
     t.integer  "quantity"
     t.integer  "series_id"
@@ -269,13 +382,16 @@ ActiveRecord::Schema.define(version: 20140213204141) do
     t.datetime "updated_at"
   end
 
+  add_index "vinylrolls", ["color_id"], name: "index_vinylrolls_on_color_id", using: :btree
+  add_index "vinylrolls", ["series_id"], name: "index_vinylrolls_on_series_id", using: :btree
+
   create_table "vinyls", force: true do |t|
     t.string   "cover"
     t.string   "shape"
     t.integer  "width"
     t.integer  "length"
     t.integer  "height"
-    t.integer  "drop"
+    t.string   "drop"
     t.integer  "series_id"
     t.integer  "color_id"
     t.boolean  "umbrella"
@@ -284,6 +400,7 @@ ActiveRecord::Schema.define(version: 20140213204141) do
     t.integer  "price",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "diameter"
   end
 
   add_index "vinyls", ["color_id"], name: "index_vinyls_on_color_id", using: :btree

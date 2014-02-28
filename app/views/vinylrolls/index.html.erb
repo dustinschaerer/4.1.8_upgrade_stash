@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Quantity</th>
-      <th>References</th>
-      <th>References</th>
+      <th>Series ID</th>
+      <th>Color ID</th>
       <th>Price</th>
       <th></th>
       <th></th>
@@ -17,8 +17,8 @@
     <% @vinylrolls.each do |vinylroll| %>
       <tr>
         <td><%= vinylroll.quantity %></td>
-        <td><%= vinylroll.references %></td>
-        <td><%= vinylroll.references %></td>
+        <td><%= vinylroll.series.name %></td>
+        <td><%= vinylroll.color.name %></td>
         <td><%= vinylroll.price %></td>
         <td><%= link_to 'Show', vinylroll %></td>
         <td><%= link_to 'Edit', edit_vinylroll_path(vinylroll) %></td>

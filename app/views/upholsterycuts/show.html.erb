@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @upholsterycut.quantity %>
+</p>
+
+<p>
+  <strong>Series:</strong>
+  <%= @upholsterycut.series.name %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @upholsterycut.color.name %>
+</p>
+
+<p>
+  <strong>Yards long:</strong>
+  <%= @upholsterycut.yards_long %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @upholsterycut.price %>
+</p>
+<%= link_to 'Edit', edit_upholsterycut_path(@upholsterycut) %> |
+<%= link_to 'Back', upholsterycuts_path %>

@@ -1,0 +1,64 @@
+<%= form_for(@americlear, :html => { :class => "form-horizontal" }) do |f| %>
+   <% if @americlear.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@americlear.errors.count, "error") %> prohibited this americlear lamination quote item from being saved:</h2>
+
+      <ul>
+      <% @americlear.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="row">
+
+    <div class="form-inputs">
+      
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="field">
+            <%= f.label :quantity %>
+            <%= f.number_field :quantity %>
+          </div>
+        </div>
+      </div>  
+
+
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="field">
+            <%= f.label :yards %>
+            <%= f.number_field :yards %>
+          </div>
+        </div>
+      </div>  
+
+      
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="field">
+            <%= f.label :wide, "Width" %>
+            <%= f.number_field :wide %>
+            <p>Width MUST be between 48 inches and 54 inches</p>
+          </div>
+        </div>
+      </div>  
+      
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <div class="field">
+            <%= f.hidden_field :price, :value => 0  %>
+          </div>
+        </div>   
+      </div>
+
+
+    </div>
+  
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

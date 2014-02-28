@@ -1,0 +1,44 @@
+	  <% if line_item == @current_item %>
+     <div class="row" id="current_item">
+    <% else %>
+     <div class="row">
+    <% end %>  
+
+        <div class="col-xs-2">
+          <%= image_tag(line_item.color.image_url, :class => "img-responsive") %>
+        </div>
+  
+        <div class="col-xs-3">
+          <%= line_item.series.name %>
+        </div>
+
+        <div class="col-xs-3">
+          <%= line_item.color.name %>
+        </div>
+  
+        <div class="col-xs-2">
+          <%= line_item.quantity %>&times;
+        </div>
+
+        <div class="col-xs-2">
+          <%= button_to 'X', line_item, method: :delete, 
+            data: { confirm: 'Are you sure?' } %>
+        </div>
+
+    </div>
+
+<!--
+    <% if line_item == @current_item %>
+     <tr id="current_item">
+    <% else %>
+     <tr>
+    <% end %>	 	
+      <td style="width: 30px;"><%= image_tag(line_item.color.image_url, :class => "img-responsive") %></td>
+      <td><%= line_item.series.name %></td>
+      <td><%= line_item.color.name %></td>
+      <td><%= line_item.quantity %>&times;</td>
+      <td></td>
+      <td><%= button_to 'X', line_item, method: :delete, 
+						data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+-->

@@ -20,7 +20,27 @@
   <%= render 'layouts/header' %>
  
     <div class="row">
-      <div class="col-sm-12 col-lg-12">
+      
+
+      <div class="col-sm-3">
+          <!--sidebar-->
+          <div class="sidebar-nav-fixed" id="sidequote">
+
+            <div id="quotecart">
+            <% if @quotecart %>
+              <%= 
+              #hidden_div_if(@quotecart.items.empty?, id: 'quotecart') do 
+              %>
+                <%= render @quotecart %>   
+              <% 
+              #end 
+              %>
+            <% end %> 
+            </div>
+          </div>
+      </div>
+
+      <div class="col-sm-9">
          <!--2nd column-->
          <div id="rightCol">
               

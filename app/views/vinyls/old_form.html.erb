@@ -1,0 +1,87 @@
+<%= simple_form_for(@vinyl, :html => { :class => "form-horizontal" }) do |f| %>
+  <%= f.error_notification %>
+
+  <% if @vinyl.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vinyl.errors.count, "error") %> prohibited this vinyl from being saved:</h2>
+
+      <ul>
+      <% @vinyl.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="form-inputs">
+
+
+  <div class="row">
+    
+      
+        <%= f.input :cover, collection: ['A. Regular Drape', 'B. Fitted (Hat Box)', 'C. Elastic Contour', 'D. Fitted-to-Floor (Hat Box)', 'E. Regular Drape-to-Floor'], :prompt => "Please Choose", :input_html => { :class => "col-xs-4" } %>
+      
+<!--    <div class="field">
+      <%= f.label :cover %><br>
+      <%= select_tag(:cover, options_for_select([['A. Regular Drape', 1], ['B. Fitted (Hat Box)', 2], ['C. Elastic Contour', 3], ['D. Fitted-to-Floor (Hat Box)', 4], ['E. Regular Drape-to-Floor', 5]   ]), { :prompt => "Please Choose"}) %>
+    </div>
+-->
+  </div>
+
+
+
+
+  <div class="field">
+    <%= f.label :shape %><br>
+    <%= select_tag(:shape, options_for_select([['Round', 1], ['Rectangle', 2], ['Square', 3]   ]), { :prompt => "Please Choose"}) %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br>
+    <%= f.number_field :width %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.number_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :drop %><br>
+    <%= f.number_field :drop %>
+  </div>
+  <div class="field">
+    <%= f.label :series_id %><br>
+    <%= f.collection_select(:series_id, @series, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :color_id %><br>
+    <%= f.collection_select(:color_id, @color, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :umbrella %><br>
+    <%= f.check_box :umbrella %>
+  </div>
+  <div class="field">
+    <%= f.label :velcro %><br>
+    <%= f.check_box :velcro %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+
+
+</div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
+  include CurrentQuotecart
   include CurrentCart
+  before_action :set_quotecart
   before_action :set_cart
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
@@ -13,6 +15,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
+
+    @accessories = Style.where(:id => 1..3).order('sort ASC')
   end
 
   # GET /categories/new

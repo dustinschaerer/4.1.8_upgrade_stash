@@ -1,4 +1,6 @@
-<%= form_for(@vinyl) do |f| %>
+<%= form_for(@vinyl, :html => { :class => "form-horizontal" }) do |f| %>
+ 
+
   <% if @vinyl.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vinyl.errors.count, "error") %> prohibited this vinyl from being saved:</h2>
@@ -11,55 +13,155 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cover %><br>
-    <%= select_tag(:cover, options_for_select([['A. Regular Drape', 1], ['B. Fitted (Hat Box)', 2], ['C. Elastic Contour', 3], ['D. Fitted-to-Floor (Hat Box)', 4], ['E. Regular Drape-to-Floor', 5]   ]), { :prompt => "Please Choose"}) %>
+<div class="form-inputs">  
+ 
+  <div class="row">
+
+    <div class="col-sm-12 col-md-5">
+      <div class="field">
+          <%= f.label :cover %>
+          <%= f.select(:cover, options_for_select([['Regular Drape'], ['Fitted (Hat Box)'], ['Elastic Contour'], ['Fitted-to-Floor (Hat Box)'], ['Regular Drape-to-Floor']  ]), { :prompt => "Please Choose"})           %>       
+      </div>
+    </div>
+  
   </div>
-  <div class="field">
-    <%= f.label :shape %><br>
-    <%= select_tag(:shape, options_for_select([['Round', 1], ['Rectangle', 2], ['Square', 3]   ]), { :prompt => "Please Choose"}) %>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-5">
+      <div class="field">
+        <%= f.label :shape %>
+        <%= f.select(:shape, options_for_select([['Round', 'Round'],  ['Rectangle', 'Rectangle'], ['Square', 'Square']]), { :prompt => "Please Choose"}) %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :width %><br>
-    <%= f.number_field :width %>
+
+  <div class="row">
+    <div class="js-dependent-fields" data-select-id="vinyl_shape" data-option-value="Rectangle|Square">
+      <div class="col-sm-12 col-md-5">
+        <div class="field">
+          <%= f.label :width %>
+          <%= f.number_field :width %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :length %><br>
-    <%= f.number_field :length %>
+
+  <div class="row">
+    <div class="js-dependent-fields" data-select-id="vinyl_shape" data-option-value="Rectangle">
+      <div class="col-sm-12 col-md-5">
+        <div class="field">
+          <%= f.label :length %>
+          <%= f.number_field :length %>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="js-dependent-fields" data-select-id="vinyl_shape" data-option-value="Round">
+      <div class="col-sm-12 col-md-5">
+        <div class="field">
+          <%= f.label :diameter %>
+          <%= f.number_field :diameter %>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+
+  <div class="row">
+  <div class="js-dependent-fields" data-select-id="vinyl_cover" data-option-value="Fitted-to-Floor (Hat Box)|Regular Drape-to-Floor">
+    <div class="col-sm-12 col-md-5">
+      <div class="field">
+        <%= f.label :height %>
+        <%= f.number_field :height %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :height %><br>
-    <%= f.number_field :height %>
+  </div>  
+
+  <div class="row">
+
+    <div class="js-dependent-fields" data-select-id="vinyl_cover" data-option-value="Regular Drape|Fitted (Hat Box)">
+      <div class="col-sm-12 col-md-5">
+        <div class="field">
+          <%= f.label :drop %>        
+          <% grouped_options = [
+  ['Regular Drape',  
+     ['6 inch', '8 inch (We Recommend this length for this Regular Drape Cover)', '10 inch'], '8 inch (We Recommend this length for this Regular Drape Cover)'],
+  ['Fitted (Hat Box)',  
+     ['4 inch', '6 inch (We Recommend this length for the Fitted (Hat Box) Cover)', '8 inch']]
+  ] %>
+          <%= f.select("drop", grouped_options_for_select(grouped_options)) %>
+        </div>
+      </div>
+    </div>
+
+  </div>  
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="field">
+        <%= f.label :series_id %>
+        <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {include_blank: true} ) %>
+      </div>
+    </div>
+  </div>  
+
+  <div class="row"> 
+    
+    <div class="col-sm-12 col-md-6">
+      <div class="field">
+        <%= f.label :color_id %>
+        <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, include_blank: true ) %>
+      </div>
+    </div>
+  
+  </div>  
+
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6">
+      <div class="field">
+        <%= f.label :umbrella %>
+        <%= f.check_box :umbrella %>
+      </div>
+    </div>
+
+  </div>  
+
+  <div class="row">
+
+    <div class="col-sm-12 col-md-6">
+      <div class="field">
+        <%= f.label :velcro %>
+        <%= f.check_box :velcro %>
+      </div>
+    </div>
+  
+  </div>  
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="field">
+        <%= f.label :quantity %>
+        <%= f.number_field :quantity %>
+      </div>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="field">
+        <%= f.hidden_field :price, :value => 0  %>
+      </div>
+    </div>  
   </div>
-  <div class="field">
-    <%= f.label :drop %><br>
-    <%= f.number_field :drop %>
-  </div>
-  <div class="field">
-    <%= f.label :series_id %><br>
-    <%= f.collection_select(:series_id, @series, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :color_id %><br>
-    <%= f.collection_select(:color_id, @color, :id, :name) %>
-  </div>
-  <div class="field">
-    <%= f.label :umbrella %><br>
-    <%= f.check_box :umbrella %>
-  </div>
-  <div class="field">
-    <%= f.label :velcro %><br>
-    <%= f.check_box :velcro %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
+
+</div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

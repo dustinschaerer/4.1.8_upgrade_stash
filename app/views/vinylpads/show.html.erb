@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @vinylpad.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @vinylpad.price %>
+</p>
+
+<%= link_to 'Edit', edit_vinylpad_path(@vinylpad) %> |
+<%= link_to 'Back', vinylpads_path %>

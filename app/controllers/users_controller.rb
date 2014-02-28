@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  include CurrentQuotecart
+  include CurrentCart
+  before_action :set_quotecart
+  before_action :set_cart
+  
   before_filter :authenticate_user!
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_user
 

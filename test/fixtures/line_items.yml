@@ -2,9 +2,9 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  product: vinyl
-  order: one
+  cart_id: 1
+  order: 1
 
 two:
-  product: vinyl
-  cart: one
+  cart_id: 1
+  order: 1

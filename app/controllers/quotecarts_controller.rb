@@ -1,5 +1,9 @@
 class QuotecartsController < ApplicationController
+  include CurrentCart
+  include CurrentQuotecart
+  before_action :set_cart
   before_action :set_quotecart, only: [:show, :edit, :update, :destroy]
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /quotecarts
   # GET /quotecarts.json
@@ -54,9 +58,11 @@ class QuotecartsController < ApplicationController
   # DELETE /quotecarts/1
   # DELETE /quotecarts/1.json
   def destroy
-    @quotecart.destroy
+    @quotecart.destroy if @quotecart.id == session[:quotecart_id]
+    session[:quotecart_id] = nil
+
     respond_to do |format|
-      format.html { redirect_to quotecarts_url }
+      format.html { redirect_to store_url, notice: 'Your Quote Cart is now Empty, You no longer have a quote to submit.' }
       format.json { head :no_content }
     end
   end

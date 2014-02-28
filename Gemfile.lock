@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/galetahub/simple-captcha.git
+  revision: 2602bf19a63df25929960b5a7721a9d265281ec1
+  specs:
+    simple_captcha (0.1.6)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: c9e7774c0768dadac82681d2d233b89d012b8dc5
   branch: master
@@ -53,6 +59,7 @@ GEM
     bcrypt-ruby (3.1.2)
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
+    bootstrap_forms (4.0.1)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -79,6 +86,10 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     country-select (1.1.1)
+    dependent-fields-rails (0.4.2)
+      coffee-rails
+      jquery-rails
+      railties (>= 3.1)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -254,6 +265,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    underscore-rails (1.5.2)
     warden (1.2.3)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -267,10 +279,12 @@ DEPENDENCIES
   activeadmin!
   acts-as-taggable-on
   bootstrap-sass (~> 3.0.3.0)
+  bootstrap_forms
   capybara (= 2.1.0)
   childprocess (= 0.3.6)
   coffee-rails (= 4.0.1)
   country-select
+  dependent-fields-rails
   devise
   guard-rspec (= 2.5.0)
   guard-spork (= 1.5.0)
@@ -287,7 +301,9 @@ DEPENDENCIES
   seed_dump
   selenium-webdriver (= 2.35.1)
   shoulda
+  simple_captcha!
   simple_form
   spork-rails (= 4.0.0)
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
+  underscore-rails

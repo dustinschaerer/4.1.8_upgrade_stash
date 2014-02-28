@@ -1,0 +1,60 @@
+<%= simple_form_for(@upholsteryroll) do |f| %>
+  <%= f.error_notification %>
+  
+  <% if @upholsteryroll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upholsteryroll.errors.count, "error") %> prohibited this upholsteryroll from being saved:</h2>
+
+      <ul>
+      <% @upholsteryroll.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+   
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="field">
+          <%= f.label :quantity %>
+          <%= f.number_field :quantity %>
+        </div>
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="field">
+          <%= f.label :series_id %>
+          <%= f.collection_select(:series_id, Series.where("style_id = 7").order("name"), :id, :name, {prompt: 'Select'} ) %>
+        </div>
+      </div>
+    </div>  
+
+    <div class="row"> 
+      <div class="col-sm-12 col-md-6">
+        <div class="field">
+          <%= f.label :color_id %>
+          <%= #f.collection_select(:color_id, @color, :id, :name) 
+          %>
+          <%= f.grouped_collection_select(:color_id, Series.where("style_id = 7").order(:name), :colors, :name, :id, :name, {prompt: 'Select Series first'} ) %>
+        </div>
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="field">
+          <%= f.hidden_field :price, :value => 0  %>
+        </div>
+      </div>        
+    </div>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

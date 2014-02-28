@@ -1,20 +1,14 @@
 <header>
   <% if user_signed_in? %>
    <div class="row" id="userheader">
-
-
     <div class="col-xs-12">  
       Logged in as <strong><%= current_user.email %></strong>. 
       <%= link_to 'My Dashboard', user_path(current_user), :class => "btn btn-primary btn-xs" %>
       <%= link_to 'Edit profile settings', edit_user_registration_path, :class => "btn btn-info btn-xs" %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-xs" %>     
      </div>
-
    </div>
-   
    <% end %>
-
-
 
 
   <div class="row" id="siteheader">
@@ -50,7 +44,7 @@
             <% else %>
               <li><%= link_to "Create Account", new_user_registration_path, class: "userlink" %></li>
             <% end %>
-            <li><%= link_to "Request a Quote", "#", class: "top-link" %></li>
+            <li><%= link_to "Request a Quote", "/request_quote", class: "top-link" %></li>
             <li><%= link_to "Place an Order", "#", class: "top-link" %></li>
           </ul>    
         </div>
@@ -63,7 +57,8 @@
           </ul>        
         </div>
 
-        <div class="col-xs-6 col-sm-3 col-md-3 dropdown pull-right">  
+        <div class="col-xs-6 col-sm-3 col-md-3">
+          <div class="dropdown pull-right">  
           <%= link_to '#', id: "minidropcart", :class => "dropdown-toggle", data: { toggle: "dropdown" } do 
              # link_to 'carts/:id', id: "minidropcart", class: "dropdown-toggle", data: { toggle: "dropdown", target: "#" } do 
             %>
@@ -72,20 +67,18 @@
             <div class="dropdown-menu" role="menu" style="padding: 10px;min-width:320px;" aria-labelledby="minidropcart" id="side">
               <% if @cart %>
                 <%=
-                #- hidden_div_if(@cart.line_items.empty?, id: 'cart') do 
+                 hidden_div_if(@cart.line_items.empty?, id: 'cart') do 
                 %>
                   <%= render @cart %>   
                 <%
-                # end 
+                 end 
                 %>
-
               <% end %> 
-
-
             </div>
-         
+          </div>
+          
         </div>
-        
+
       </div>    
     </div>
 
@@ -137,7 +130,7 @@
       <% end %>
 
       <%= content_tag :li, :class => ('active' if current_page?(:controller => "/static_pages", :action => "photo_gallery" )) do %>
-      <%= link_to "Photo Gallery",    "/photo_gallery" %>
+      <%= link_to "Photo Gallery",    "/gallery" %>
       <% end %>
 
       <%= content_tag :li, :class => ('active' if current_page?(:controller => "/static_pages", :action => "about" )) do %>

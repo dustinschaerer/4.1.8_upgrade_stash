@@ -1,4 +1,8 @@
 class LaminatesController < ApplicationController
+  include CurrentCart
+  include CurrentQuotecart
+  before_action :set_cart
+  before_action :set_quotecart
   before_action :set_laminate, only: [:show, :edit, :update, :destroy]
 
   # GET /laminates
@@ -15,9 +19,8 @@ class LaminatesController < ApplicationController
   # GET /laminates/new
   def new
     @laminate = Laminate.new
-    
     # series that belong laminates
-    @series = Series.all
+    @series = Series.where("style_id = 3").order("name")
     @color = Color.all
   end
 
@@ -31,8 +34,14 @@ class LaminatesController < ApplicationController
     @laminate = Laminate.new(laminate_params)
 
     respond_to do |format|
+      # if this new vinyl object is saved
       if @laminate.save
-        format.html { redirect_to @laminate, notice: 'Laminate was successfully created.' }
+        # add this laminate quoteitem to quotecart
+        @item = @quotecart.add_quoteitem(@laminate.id, "laminate")
+        # save item in quotecart
+        @item.save
+
+        format.html { redirect_to @item, notice: 'Laminate Item for Quote was successfully created.' }
         format.json { render action: 'show', status: :created, location: @laminate }
       else
         format.html { render action: 'new' }
@@ -73,6 +82,6 @@ class LaminatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def laminate_params
-      params.require(:laminate).permit(:cover, :shape, :width, :length, :height, :drop, :series_id, :color_id, :umbrella, :velcro, :quantity, :price)
+      params.require(:laminate).permit(:cover, :shape, :width, :length, :height, :diameter, :drop, :series_id, :color_id, :umbrella, :velcro, :quantity, :price)
     end
 end

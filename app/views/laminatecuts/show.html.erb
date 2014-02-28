@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @laminatecut.quantity %>
+</p>
+
+<p>
+  <strong>Yards long:</strong>
+  <%= @laminatecut.yards_long %>
+</p>
+
+<p>
+  <strong>Series:</strong>
+  <%= @laminatecut.series.name %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @laminatecut.color.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @laminatecut.price %>
+</p>
+
+<%= link_to 'Edit', edit_laminatecut_path(@laminatecut) %> |
+<%= link_to 'Back', laminatecuts_path %>

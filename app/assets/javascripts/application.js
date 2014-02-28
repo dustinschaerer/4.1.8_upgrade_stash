@@ -17,6 +17,10 @@
 //= require turbolinks
 //= require galleria-1.3.5
 //= require galleria.classic
+//= require underscore
+//= require dependent-fields
 //= require_tree .
 
-
+$(document).ready(function() {
+    DependentFields.bind()
+});

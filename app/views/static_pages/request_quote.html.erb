@@ -1,0 +1,49 @@
+<% provide(:title, 'Request a Quote') %>
+<div class="row border-top">
+  <div class="col-sm-12 col-md-2 hidden-xs">
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="/terms_and_conditions">Terms and Conditions</a></li>
+      <li><a href="/technical_specs">Technical Specs</a></li>
+      <li><a href="/cleaning_instructions">Cleaning Instructions</a></li>
+      <li><a href="/frequently_asked_questions">Frequent Question</a></li>
+      <li><a href="/privacy_policy">Privacy Policy</a></li>
+      <li><a href="/how_to_measure">How to Measure</a></li>
+      <li><a href="/how_to_order">Place an Order</a></li>
+      <li class="active"><a href="/request_quote">Request a Quote</a></li>
+      <li><a href="/request_catalog">Request a Catalog</a></li>
+    </ul>
+    <div>
+      <%= image_tag("swatch-image.png") %>
+      <%= image_tag("free-catalog.png") %>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
+    <h1 class="addmaroon"><span class="cat-title">Request a Quote</span></h1>
+    
+  <ul>  
+    <li><%= link_to "Vinyl Table Covers", "vinyls/new", class: "" %></li> 
+    <li><%= link_to "Vinyl Roll Goods", "vinylrolls/new", class: "" %></li>   
+    <li><%= link_to "Vinyl Custom Cuts", "vinylcuts/new", class: "" %></li>
+    <li><%= link_to "Laminate Table Covers", "laminates/new", class: "" %></li> 
+    <li><%= link_to "Laminate Roll Goods", "laminaterolls/new", class: "" %></li>   
+    <li><%= link_to "Laminate Custom Cuts", "laminatecuts/new", class: "" %></li>
+    <li><%= link_to "Upholstery Roll Goods", "upholsteryrolls/new", class: "" %></li>  
+    <li><%= link_to "Upholstery Custom Cut", "upholsterycuts/new", class: "" %></li>  
+    <li><%= link_to "Non-Slip Padding Roll Goods", "nonslippads/new", class: "" %></li>  
+    <li><%= link_to "Non-Slip Padding Custom Cuts", "nonslipcuts/new", class: "" %></li> 
+    <li><%= link_to "Vinyl Padding", "/vinylpads/new", class: "" %></li> 
+    <li><%= link_to "Americlear Lamination", "/americlears/new", class: "" %></li>
+  </ul>
+
+    <p>Coming Soon</p>
+    <p>Value Vinyls</p>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>    
+
+  
+</div>   

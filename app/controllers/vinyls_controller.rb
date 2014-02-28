@@ -1,4 +1,8 @@
 class VinylsController < ApplicationController
+  include CurrentCart
+  include CurrentQuotecart
+  before_action :set_cart
+  before_action :set_quotecart
   before_action :set_vinyl, only: [:show, :edit, :update, :destroy]
 
   # GET /vinyls
@@ -14,12 +18,18 @@ class VinylsController < ApplicationController
 
   # GET /vinyls/new
   def new
-    @vinyl = Vinyl.new
-    @series = Series.all
-    @color = Color.all
+    if session[:vinyl]
+      @vinyl = Vinyl.new(params[:vinyl])
+    else 
+      @vinyl = Vinyl.new
+      @series = Series.where("style_id = 1 OR style_id = 2").order("name")
+      @color = Color.all  
+    end 
   end
 
-  # GET /vinyls/1/ecolordefColor  end    
+  # GET /vinyls/1/edit
+  def edit
+  end    
 
   # POST /vinyls
   # POST /vinyls.json
@@ -27,8 +37,13 @@ class VinylsController < ApplicationController
     @vinyl = Vinyl.new(vinyl_params)
 
     respond_to do |format|
+      # if this new vinyl object is saved
       if @vinyl.save
-        format.html { redirect_to @vinyl, notice: 'Vinyl was successfully created.' }
+        # add this vinyl quoteitem to quotecart
+        @item = @quotecart.add_quoteitem(@vinyl.id, "vinyl")
+        @item.save
+        
+        format.html { redirect_to '/request_quote', notice: 'Vinyl Item for Quote was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vinyl }
       else
         format.html { render action: 'new' }
@@ -69,6 +84,6 @@ class VinylsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vinyl_params
-      params.require(:vinyl).permit(:cover, :shape, :width, :length, :height, :drop, :series_id, :color_id, :umbrella, :velcro, :quantity, :price)
+      params.require(:vinyl).permit(:cover, :shape, :width, :length, :diameter, :height, :drop, :series_id, :color_id, :umbrella, :velcro, :quantity, :price)
     end
 end

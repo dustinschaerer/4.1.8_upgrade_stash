@@ -1,0 +1,15 @@
+	<% if item == @current_quote_item %>
+      <div class="row" id="current_quote_item">
+    <% else %>
+      <div class="row">
+    <% end %> 
+        <div class="row">
+        	<div class="col-xs-5">
+				<%= item.itemable_id %>
+	    	</div>
+	
+	    	<div class="col-xs-5">
+				<%= item.itemable_type %>
+	    	</div>
+	    </div>
+     </div>

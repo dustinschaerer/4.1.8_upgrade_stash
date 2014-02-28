@@ -1,0 +1,34 @@
+<div class="well">
+
+	<div class="cart_title">Quote Cart ID = <%= @quotecart.id %></div> 
+
+    	 <% if (@quotecart.items.empty?) %>
+    	<div class="row">
+        	<div class="col-xs-12">
+				You Quote cart is empty!
+	    	</div>
+    	</div>
+        <% end %>
+
+        <div class="row">
+        	<div class="col-xs-5">
+				Item ID#
+	    	</div>
+	
+	    	<div class="col-xs-5">
+				Item Type
+	    	</div>
+
+	    </div>
+
+
+    <%= render(@quotecart.items) %>
+	
+	<li class="totals_line">Number of Items in Quote <%= @quotecart.items.count %></li>
+
+</div>
+
+<%= button_to 'Remove All Quote Items', @quotecart, method: :delete, data: { confirm: 'Are you Sure?' } %>
+
+<%= link_to 'Edit', edit_quotecart_path(@quotecart) %> |
+<%= link_to 'Back', quotecarts_path %>

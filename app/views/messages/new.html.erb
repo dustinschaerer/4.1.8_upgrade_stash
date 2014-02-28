@@ -1,0 +1,52 @@
+<% provide(:title, 'Contact Us') %>
+
+<div class="row border-top">
+
+  <div class="col-sm-12 col-md-2 hidden-xs">
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="/about">About Us</a></li>
+      <li class="active"><a href="/contact">Contact Us</a></li>
+      <li><a href="/terms_and_conditions">Terms and Conditions</a></li>
+      <li><a href="/technical_specs">Technical Specs</a></li>
+      <li><a href="/cleaning_instructions">Cleaning Instructions</a></li>
+      <li><a href="/frequently_asked_questions">Frequent Question</a></li>
+      <li><a href="/privacy_policy">Privacy Policy</a></li>
+      <li><a href="/how_to_measure">How to Measure</a></li>
+      <li><a href="/how_to_order">Place an Order</a></li>
+      <li><a href="/request_quote">Request a Quote</a></li>
+      <li><a href="/request_catalog">Request a Catalog</a></li>
+    </ul>
+    <div>
+      <%= image_tag("swatch-image.png") %>
+      <%= image_tag("free-catalog.png") %>
+    </div>
+  </div>
+
+
+  <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
+    <div class="row">
+      <div class="col-md-8 addgray">
+  	    <h1>Contact Us</h1>
+
+    		<p>At Americo, customers are our top priority. We've made many of the questions customers frequently ask just a click away. However we, understand you may need additional assistance.</p>
+
+    		<p>Please give us a call or send us an email through the selection below. Our hours of operation are Monday - Friday 8:00 am - 5:00 pm CST. If you contact us outside of these times, we will get back to you within 48 hours.</p>
+
+    		<p>Call Toll Free: 800-626-2350 | 870-735-4848 | Fax: 870-735-4129</p>
+
+    		<p>Please select a reason for contacting us:</p>
+  	  </div> 
+        
+      <div class="col-md-4 addgray hidden-xs hidden-sm" id="">
+        <%= image_tag("contact-americo.png", :class => "img-responsive") %> 
+      </div>
+	</div>
+	    <%= render 'form' %>
+
+  </div>
+</div>
+
+
+
+
+

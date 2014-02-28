@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @nonslippad.quantity %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @nonslippad.width %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @nonslippad.price %>
+</p>
+
+<%= link_to 'Edit', edit_nonslippad_path(@nonslippad) %> |
+<%= link_to 'Back', nonslippads_path %>

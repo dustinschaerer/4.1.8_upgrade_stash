@@ -1,0 +1,35 @@
+<h1>Listing upholsterycuts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Series</th>
+      <th>Color</th>
+      <th>Yards long</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @upholsterycuts.each do |upholsterycut| %>
+      <tr>
+        <td><%= upholsterycut.quantity %></td>
+        <td><%= upholsterycut.series.name %></td>
+        <td><%= upholsterycut.color.name %></td>
+        <td><%= upholsterycut.yards_long %></td>
+        <td><%= upholsterycut.price %></td>
+        <td><%= link_to 'Show', upholsterycut %></td>
+        <td><%= link_to 'Edit', edit_upholsterycut_path(upholsterycut) %></td>
+        <td><%= link_to 'Destroy', upholsterycut, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Upholsterycut', new_upholsterycut_path %>

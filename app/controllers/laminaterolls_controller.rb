@@ -1,4 +1,8 @@
 class LaminaterollsController < ApplicationController
+  include CurrentCart
+  include CurrentQuotecart
+  before_action :set_cart
+  before_action :set_quotecart
   before_action :set_laminateroll, only: [:show, :edit, :update, :destroy]
 
   # GET /laminaterolls
@@ -15,6 +19,8 @@ class LaminaterollsController < ApplicationController
   # GET /laminaterolls/new
   def new
     @laminateroll = Laminateroll.new
+    @series = Series.where("style_id = 3").order("name")
+    @color = Color.all
   end
 
   # GET /laminaterolls/1/edit
@@ -28,7 +34,12 @@ class LaminaterollsController < ApplicationController
 
     respond_to do |format|
       if @laminateroll.save
-        format.html { redirect_to @laminateroll, notice: 'Laminateroll was successfully created.' }
+        # add this vinyl quoteitem to quotecart
+        @item = @quotecart.add_quoteitem(@laminateroll.id, "laminateroll")  
+        #save the item
+        @item.save
+
+        format.html { redirect_to @item, notice: 'Laminateroll Item for Quote was successfully created.' }
         format.json { render action: 'show', status: :created, location: @laminateroll }
       else
         format.html { render action: 'new' }
@@ -70,5 +81,6 @@ class LaminaterollsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def laminateroll_params
       params.require(:laminateroll).permit(:quantity, :series_id, :color_id, :price)
+                                            
     end
 end

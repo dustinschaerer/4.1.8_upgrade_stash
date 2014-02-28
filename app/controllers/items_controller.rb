@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+  include CurrentCart
+  include CurrentQuotecart
+  before_action :set_cart
+  before_action :set_quotecart
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -28,7 +32,8 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to '/request_quote', notice: 'Item was successfully created.' }
+        format.js { @current_item = @item }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }

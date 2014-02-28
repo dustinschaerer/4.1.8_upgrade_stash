@@ -15,7 +15,7 @@
           <% elsif (params[:id] == '3') %>
             <%= image_tag("sliders/designer-2013-white-laminated-table-cover-slider.jpg", alt: "sliderimg", :title => "#designercaption", :data => { :thumb => 'sliders/designer-2013-white-laminated-table-cover-slider.jpg' } ) %>  
           <% elsif (params[:id] == '7') %>
-            <%= image_tag("sliders/vinyl-upholstry_6124-cherokee_slider.jpg", alt: "sliderimg", :title => "#upholsterycaption", :data => { :thumb => 'slider-vinyl-upholstery.png' } ) %> 
+            <%= image_tag("vinyl-upholstry_1621-g_opt.jpeg", alt: "sliderimg", :title => "#upholsterycaption", :data => { :thumb => 'vinyl-upholstry_1621-g_opt.jpeg' } ) %> 
           <% elsif (params[:id] == '8') %>
             <%= image_tag("umbrella-drape-1170.png", alt: "sliderimg", :title => "#upholsterycaption" ) %> 
           <% end %>
@@ -26,38 +26,37 @@
         </div>
         <div id="classiccaption" class="nivo-html-caption" style="display:none">
           <div class="nivo-1">
-            <strong>Vinyl Tablecloths</strong> 
           </div>
           <div class="nivo-1a">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+             <strong>Classic vinyl table</strong> covers are ideal for restaurants, cafeterias, healthcare facilities,  convention centers, hotels and more
           </div>
         </div>
 
          <div id="premiumcaption" class="nivo-html-caption" style="display:none">
           <div class="nivo-1">
-            <strong>Premium Vinyl Tablecloths</strong> 
+            <strong></strong> 
           </div>
           <div class="nivo-1a">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+             <strong>Premium vinyl table covers</strong> last and last, even in high-traffic restaurants, cafeterias, healthcare facilities and hotels.
           </div>
         </div>
 
          <div id="designercaption" class="nivo-html-caption" style="display:none">
           <div class="nivo-1">
-            <strong>Laminated Tablecloths</strong> 
+            <strong></strong> 
           </div>
           <div class="nivo-1a">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
+             <strong>Laminated Designer</strong> table covers are right at home in casual or upscale restaurants,cafeterias, healthcare facilities and hotels.
           </div>
         </div>
 
          <div id="upholsterycaption" class="nivo-html-caption" style="display:none">
           <div class="nivo-1">
-            <strong>Vinyl Upholstery Fabric</strong> 
+            <strong></strong> 
           </div>
           <div class="nivo-1a">
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. 
-          </div>
+             <strong>The Distinctions Collection</strong> of vinyl upholstery fabric is an Americo exclusive. Discover wonderful designs, textures and leather-like finishes.
+           </div>
         </div>
 
       </div>
@@ -73,11 +72,9 @@
       <div class="stylesub bottom20">Custom Table Covers and Accessories without Custom Pricing</div>
       <div class="styletext">
         <p>Americo's Classic vinyl table covers series are a great alternative to buying or renting woven table linens. You get a designer look, but without the upkeep—vinyl wipes clean with soapy water. Bye-bye laundry bills!</p>
-        <p>No minimums. Our Classic (9800 series) Vinyl table covers are available in 7 styles and are custom sewn to your exact specifications. Order as many or as few as you like. (See Measuring Instructions for details.)</p>
+        <p><strong>No minimums.</strong> Our Classic (9800 series) Vinyl table covers are available in 7 styles and are custom sewn to your exact specifications. Order as many or as few as you like. (See <a href="/how_to_measure">Measuring Instructions</a> for details.)</p>
         <p><strong>Available by the piece or the roll.</strong> We sell custom cuts of 5 yards or more. Or you can order a 25-yard roll. (Fabric is 54” wide). Most roll goods are in stock and ship within 1 business day.</p>
       </div>
-
-
     </div>
     <div class="col-sm-3" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
@@ -88,68 +85,94 @@
       <p class="addgreen larger bold top25">Also Available as Placemats, Table Runners and Overlays</p>
     </div>
     <!-- Turn this into a partial, one for each main category -->
+   
+
     <% elsif (params[:id] == '2') %>
-    <!-- Turn this into partials, one for each main category -->
-    <div class="col-sm-8">
-      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> patterns and <%= @style.colors.count %> colors</div>
-      <div class="styletype weighty">PREMIUM VINYL</div>
-      <div class="stylesub">Table Covers Or Roll Goods</div>
-      <div class="styletext">When your situation requires fabrics with greater resiliency, we have the solution. Our Premium vinyl collection offers fabrics that are 30 percent heavier than our classic vinyls. So they last longer, even in the most demanding environments. In addition, many of our premium vinyls are also a part of our upholstery Distinctions Collection.</div>
+    <div class="col-sm-9 border-right">
+      <div class="styletype weighty addgreen">Striking Premium Vinyls Offer Maximum Durability</div>
+      <div class="stylesub bottom20">Custom Table Covers and Accessories are Budget Friendly</div>
+      <div class="styletext">
+        <p>Americo's Premium vinyl table covers are 30% heavier than our Classic series for longer lasting beauty. Enjoy decorator style along with easy maintenance and lower replacement costs over time. What's not to love?</p>
+        <p><strong>No minimums. </strong> Vinyl table covers are available in 7 styles that are custom sewn to your exact specifications. Order as many or as few as you like. (See Measuring Instructions for details.)</p>
+
+        <p><strong>Available by the piece or the roll.</strong> We sell custom cuts of 5 yards or more, as well as 25-yard rolls. Fabric is 54” wide and some styles are suitable for upholstery. Most roll goods are in stock and ship within 1 business day.</p>
+      </div>
     </div>
-    <div class="col-sm-4" id="techspecs">
+    <div class="col-sm-3" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
-      <p class="addgray">6100 series vinyls are 13-mil printed Pvc film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholsterygrade foam.<br />
-      <a href="#" class="addgray underline">Additional specs.</a></p>
+      <p class="addgray">6100 Series Classic Vinyls are13-mil printed PVC film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholstery grade foam.<br />
+      <a href="#" class="addgray underline top10">Additional specs.</a></p>
 
-      <p class="addgreen"><b>STYLES 6111—6126</b><br>
-      are part of our Distinctions Collections and are suitable for upholstery.</p>
-       
-      <p><a href="/styles/5">View Upholstery <span class="glyphicon glyphicon-play"></a></p>
+      <p class="addpurple larger bold top25">Also Available as Placemats, Table Runners and Overlays</p>
     </div>
-    <!-- Turn this into a partial, one for each main category -->
+
     <% elsif (params[:id] == '3') %>
-    <!-- Turn this into partials, one for each main category -->
-    <div class="col-sm-8">
-      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> designs and <%= @style.colors.count %> colors</div>
-      <div class="styletype weighty">DESIGNER LAMINATES</div>
-      <div class="styletype weighty">Table Covers or Roll Goods</div>
-      <div class="stylesub">Laminated Fabrics Make Tables Shine</div>
-      <div class="styletext top10">Americo’s Designer Laminates come in 7 wonderful patterns, each in a variety of colors. Like vinyls, laminated fabrics are low maintenance – just wipe clean. and, of course, all laminate table linens are made to order so they fit tables perfectly, including those that require umbrella holes, elastic, or velcro for booth ends. Laminates can also be used for upholstery fabic.</div>
-      <div class="styletext top10"><strong>For your convenience, laminates are also available by the roll. Each 54”-wide roll holds 25 yards of fabric.</strong></div>
+
+     <div class="col-sm-9 border-right">
+      <div class="styletype weighty addpurple">Designer Laminates Expand Decorating Options</div>
+      <div class="stylesub bottom20">Custom Table Covers are Just the Beginning</div>
+      <div class="styletext">
+        <p>Americo’s laminated Designer table covers make woven fabrics a snap to maintain. No laundering necessary. Plus, laminates are suitable for upholstery projects. Don’t see a design you like? No problem. We also can laminate your decorator fabric with our exclusive Americlear process.</p>
+        <p><strong>No minimums. </strong> Vinyl table covers are available in 7 styles that are custom sewn to your exact specifications. Order as many or as few as you like. (See Measuring Istructions for details.)</p>
+        <p><strong>Available by the piece or the roll.</strong> We sell custom cuts of 5 yards or more, as well as 25-yard rolls. Fabric is 54” wide and some styles are suitable for upholstery. Most roll goods are in stock and ship within 1 business day.</p>
+      </div>
     </div>
-    <div class="col-sm-4" id="techspecs">
+    <div class="col-sm-3" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
-      <p class="addgray">1200 and 2000 series decorative printed fabrics are laminated with a 6-mil matte finish on 100% cotton fabric.<br />
-      <a href="#" class="addgray underline">Additional specs.</a></p>
+      <p class="addgray">6100 Series Classic Vinyls are13-mil printed PVC film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholstery grade foam.<br />
+      <a href="#" class="addgray underline top10">Additional specs.</a></p>
 
-      <p><a href="/categories/3">Laminate your own fabric <span class="glyphicon glyphicon-play"></span></a></p>
+      <p class="addgreen larger bold top25">Also Suitable for Upholstery Projects!</p>
+       <p><a href="/categories/3">Custom<br>
+Lamination<br>
+With Americlear<br>
+Also Available.
+ <span class="glyphicon glyphicon-play"></span></a></p>
+   
 
-      <p><a href="/categories/3">We Can<br>CUSTOM<br>LAMINATE<br>your fabric, too. </a></p>
+
+
+
+
+
+
+
+   
 
     </div>
     <!-- Turn this into a partial, one for each main category -->
     <% elsif (params[:id] == '7') %>
-    <!-- Turn this into partials, one for each main category -->
-    <div class="col-sm-8">
-      <div class="stylename"><%= @style.name %> — <%= @style.series.count %> patterns and <%= @style.colors.count %> colors</div>
-      <div class="styletype weighty">DISTINCTIONS Upholstery Vinyl Fabric</div>
-      <div class="stylesub">Practical and Gorgeous Upholstery Vinyls</div>
-      <div class="styletext top10">Looking for exciting new design options for your upholstery projects? Let Americo inspire you with our Distinctions Collection. This exclusive line of premium upholstery vinyl features 16 unique patterns in 149 color choices.</div>
-      <div class="styletext top10">Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</div>
-      
+    
+ <div class="col-sm-9 border-right">
+      <div class="styletype weighty addbrown">Vinyl Upholstery Fabric is Practical and Beautiful</div>
+      <div class="stylesub bottom20">Your Projects Will Look Great for Years!</div>
+      <div class="styletext">
+        <p>Americo's premium upholstery vinyls are ideal for commercial upholstery applications—chairs, booths, barstools, cushions, sofas and more. Top designers, contractors and architects trust Americo because our upholstery fabrics are stylish, versatile, low-maintenance and highly abrasion resistant.</p>
+        <p><strong>Low minimums. </strong> Upholstery vinyls are available in custom cuts, starting at just 5 yards. Or you can order by the 25-yard roll. (Fabric is 54” wide). Most roll goods are in stock and ship within 1 business day.</p>
+      </div>
     </div>
-    <div class="col-sm-4" id="techspecs">
+    <div class="col-sm-3" id="techspecs">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
-      <p class="addgray">Distinctions vinyls are13-mil printed PVC film laminated to a 4 oz. per square yard non-woven polyester with a 30-mil upholstery grade foam.<br />
-      <a href="#" class="addgray underline">Additional specs.</a></p>
+      <p class="addgray">Distinctions vinyls are 13-mil printed PVC film laminated to a 4 oz. per square yard non-woven polyester with a 30-mil upholstery grade foam.<br />
+      <a href="#" class="addgray underline top10">Additional specs.</a></p>
+
 
       <p class="addbrown top25"><b>EASY MAINTENANCE.</b><br>
       No fabric is easier to clean. Most spills are easily removed with soap and water.</p>
+
     </div>
-    <!-- Turn this into a partial, one for each main category -->
+
+
+
+
+
+
+    
+
+
     <% elsif (params[:id] == '8') %>
     <!-- Turn this into partials, one for each main category -->
     <div class="col-sm-8">
@@ -176,11 +199,35 @@
 
   <div class="row">    
     <div class="col-xs-6 col-sm-7"> 
-      <div class="style-title addgold"><%= @style.name %> | <%= @style.series.count %> designs | <%= @style.colors.count %> colors</div>
+      <div class="style-head">
+        <% if (params[:id] == '1') %>
+        <div class="addgold">
+      <% elsif (params[:id] == '2') %>
+        <div class="addgreen">
+      <% elsif (params[:id] == '3') %>
+        <div class="addpurple">
+      <% elsif (params[:id] == '7') %>
+        <div class="addbrown">
+      <% elsif (params[:id] == '8') %>
+        <div class="addmaroon">
+      <% end %>
+      <%= @style.name %> | <%= @style.series.count %> designs | <%= @style.colors.count %> colors</div></div>
       <div class="stylename weighty addblack"><%= @style.title %></div>
     </div>
     <div class="col-xs-6 col-sm-5"> 
-      <div class="choices top25">Click on a style to see all your color choices.</div>
+      <div class="choices top25">
+      <% if (params[:id] == '1') %>
+        <div class="addgold">
+      <% elsif (params[:id] == '2') %>
+        <div class="addgreen">
+      <% elsif (params[:id] == '3') %>
+        <div class="addpurple">
+      <% elsif (params[:id] == '7') %>
+        <div class="addbrown">
+      <% elsif (params[:id] == '8') %>
+        <div class="addmaroon">
+      <% end %>
+        Click on a style to see all your color choices.</div>
     </div>
   </div>
 

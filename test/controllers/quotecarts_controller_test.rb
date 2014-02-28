@@ -41,6 +41,7 @@ class QuotecartsControllerTest < ActionController::TestCase
 
   test "should destroy quotecart" do
     assert_difference('Quotecart.count', -1) do
+      session[:quotecart_id] = @quotecart.id
       delete :destroy, id: @quotecart
     end
 

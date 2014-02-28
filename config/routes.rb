@@ -1,18 +1,6 @@
 Americo::Application.routes.draw do
   
-  resources :subscribers
-
-  resources :laminaterolls
-
-  resources :laminates
-
-  resources :vinylrolls
-
-  resources :items
-
-  resources :quotecarts
-
-  resources :vinyls
+ 
 
   authenticated :user do
     root :to => 'static_pages#home', :as => "authenticated_root"
@@ -34,6 +22,24 @@ Americo::Application.routes.draw do
   resources :orders
   resources :shipping_profiles
 
+  resources :laminatecuts
+  resources :vinylcuts
+  resources :upholsterycuts
+  resources :upholsteryrolls
+  resources :vinylpads
+  resources :nonslipcuts
+  resources :nonslippads
+  resources :americlears
+  resources :frogs
+  resources :messages
+  resources :subscribers
+  resources :laminaterolls
+  resources :laminates
+  resources :vinylrolls
+  resources :items
+  resources :quotecarts
+  resources :vinyls
+
   get "store/index"
   resources :products do
     get :who_bought, on: :member
@@ -49,24 +55,31 @@ Americo::Application.routes.draw do
   get "users/new"
 
   match '/users/:id', to: 'users#show',           via: 'get' 
+  match '/contact',   to: 'messages#new',         via: 'get'
   match '/store',     to: 'store#index',          via: 'get'
   match '/signup',    to: 'users#new',            via: 'get'
   match '/help',      to: 'static_pages#help',    via: 'get'
   match '/about',     to: 'static_pages#about',   via: 'get'
-  match '/contact',   to: 'static_pages#contact', via: 'get'
-  match '/markets',   to: 'static_pages#markets', via: 'get'
-  match '/photo_gallery', to: 'static_pages#photo_gallery', via: 'get'
+ # match '/contact',   to: 'static_pages#contact', via: 'get'
+  match '/americlear_laminations_sample',   to: 'static_pages#americlear_laminations_sample', via: 'get'
+  match '/cleaning_instructions',   to: 'static_pages#cleaning_instructions', via: 'get'
+  match '/credit_application',   to: 'static_pages#credit_application', via: 'get'
   match '/frequently_asked_questions',  to: 'static_pages#frequently_asked_questions',   via: 'get'
+  match '/gallery', to: 'static_pages#gallery', via: 'get'
   match '/how_to_measure',   to: 'static_pages#how_to_measure', via: 'get'
   match '/how_to_order',   to: 'static_pages#how_to_order', via: 'get'
+  match '/markets',   to: 'static_pages#markets', via: 'get'
+  match '/photo_gallery', to: 'static_pages#photo_gallery', via: 'get'
   match '/technical_specs',   to: 'static_pages#technical_specs', via: 'get'
-  match '/cleaning_instructions',   to: 'static_pages#cleaning_instructions', via: 'get'
   match '/privacy_policy',   to: 'static_pages#privacy_policy', via: 'get'
+  match '/request_catalog',   to: 'static_pages#request_catalog', via: 'get'
+  match '/request_quote',   to: 'static_pages#request_quote', via: 'get'
   match '/satisfied_customers',   to: 'static_pages#satisfied_customers', via: 'get'
   match '/sitemap',   to: 'static_pages#sitemap', via: 'get'
+  match '/table_cover_gallery', to: 'static_pages#table_cover_gallery', via: 'get'
   match '/terms_and_conditions',   to: 'static_pages#terms_and_conditions', via: 'get'
   
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

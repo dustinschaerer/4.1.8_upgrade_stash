@@ -7,6 +7,7 @@
       <th>Shape</th>
       <th>Width</th>
       <th>Length</th>
+      <th>Diameter</th>
       <th>Height</th>
       <th>Drop</th>
       <th>Series</th>
@@ -28,14 +29,15 @@
         <td><%= vinyl.shape %></td>
         <td><%= vinyl.width %></td>
         <td><%= vinyl.length %></td>
+        <td><%= vinyl.diameter %></td>
         <td><%= vinyl.height %></td>
         <td><%= vinyl.drop %></td>
-        <td><%= vinyl.series %></td>
-        <td><%= vinyl.color %></td>
+        <td><%= vinyl.series.name %></td>
+        <td><%= vinyl.color.id %></td>
         <td><%= vinyl.umbrella %></td>
         <td><%= vinyl.velcro %></td>
-        <td><%= vinyl.quantity %></td>
         <td><%= vinyl.price %></td>
+        <td><%= vinyl.quantity %></td>
         <td><%= link_to 'Show', vinyl %></td>
         <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
         <td><%= link_to 'Destroy', vinyl, method: :delete, data: { confirm: 'Are you sure?' } %></td>

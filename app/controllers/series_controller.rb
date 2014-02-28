@@ -1,5 +1,7 @@
 class SeriesController < ApplicationController
+  include CurrentQuotecart
   include CurrentCart
+  before_action :set_quotecart
   before_action :set_cart
   before_action :set_series, only: [:show, :edit, :update, :destroy]
 

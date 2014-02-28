@@ -17,8 +17,8 @@
     <% @laminaterolls.each do |laminateroll| %>
       <tr>
         <td><%= laminateroll.quantity %></td>
-        <td><%= laminateroll.series %></td>
-        <td><%= laminateroll.color %></td>
+        <td><%= laminateroll.series.name %></td>
+        <td><%= laminateroll.color.name %></td>
         <td><%= laminateroll.price %></td>
         <td><%= link_to 'Show', laminateroll %></td>
         <td><%= link_to 'Edit', edit_laminateroll_path(laminateroll) %></td>

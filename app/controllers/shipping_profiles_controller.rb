@@ -1,4 +1,8 @@
 class ShippingProfilesController < ApplicationController
+  include CurrentQuotecart
+  include CurrentCart
+  before_action :set_quotecart
+  before_action :set_cart
   before_action :set_shipping_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /shipping_profiles

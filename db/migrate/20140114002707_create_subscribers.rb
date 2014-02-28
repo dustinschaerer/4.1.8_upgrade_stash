@@ -1,7 +1,7 @@
 class CreateSubscribers < ActiveRecord::Migration
   def change
     create_table :subscribers do |t|
-      t.references :user_id, index: true
+      t.references :user, index: true
       t.string :email
       t.boolean :active
 

@@ -1,0 +1,33 @@
+<h1>Listing nonslipcuts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Inches wide</th>
+      <th>Inches long</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nonslipcuts.each do |nonslipcut| %>
+      <tr>
+        <td><%= nonslipcut.quantity %></td>
+        <td><%= nonslipcut.inches_wide %></td>
+        <td><%= nonslipcut.inches_long %></td>
+        <td><%= nonslipcut.price %></td>
+        <td><%= link_to 'Show', nonslipcut %></td>
+        <td><%= link_to 'Edit', edit_nonslipcut_path(nonslipcut) %></td>
+        <td><%= link_to 'Destroy', nonslipcut, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nonslipcut', new_nonslipcut_path %>
