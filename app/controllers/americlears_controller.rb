@@ -38,7 +38,7 @@ class AmericlearsController < ApplicationController
         #save the item
         @item.save
 
-        format.html { redirect_to @americlear, notice: 'Americlear Quote Item was successfully created.' }
+        format.html { redirect_to '/request_quote', notice: 'Americlear Quote Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @americlear }
       else
 

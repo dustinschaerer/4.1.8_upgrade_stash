@@ -38,7 +38,7 @@ class VinylrollsController < ApplicationController
         @item = @quotecart.add_quoteitem(@vinylroll.id, "vinylroll")  
         @item.save
 
-        format.html { redirect_to @item, notice: 'Vinylroll Item was successfully created.' }
+        format.html { redirect_to '/request_quote', notice: 'Vinylroll Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vinylroll }
       else
         format.html { render action: 'new' }

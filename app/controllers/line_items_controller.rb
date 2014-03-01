@@ -36,7 +36,6 @@ class LineItemsController < ApplicationController
 
     @line_item = @cart.add_swatch(series.id, color.id)
 
-
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to :back }

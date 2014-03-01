@@ -32,7 +32,12 @@ class NonslipcutsController < ApplicationController
 
     respond_to do |format|
       if @nonslipcut.save
-        format.html { redirect_to @nonslipcut, notice: 'Nonslipcut was successfully created.' }
+
+         # add this quoteitem to quotecart
+        @item = @quotecart.add_quoteitem(@nonslipcut.id, "nonslipcut")  
+        @item.save
+        
+        format.html { redirect_to '/request_quote', notice: 'Nonslipcut was successfully created.' }
         format.json { render action: 'show', status: :created, location: @nonslipcut }
       else
         format.html { render action: 'new' }

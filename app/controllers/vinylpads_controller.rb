@@ -35,8 +35,8 @@ class VinylpadsController < ApplicationController
 
         @item = @quotecart.add_quoteitem(@vinylpad.id, "vinylpad")
         @item.save
-
-        format.html { redirect_to @vinylpad, notice: 'Vinylpad item was successfully created.' }
+        
+        format.html { redirect_to '/request_quote', notice: 'Vinylpad item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vinylpad }
       else
         format.html { render action: 'new' }

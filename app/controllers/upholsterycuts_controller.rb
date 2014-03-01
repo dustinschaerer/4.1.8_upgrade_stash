@@ -34,7 +34,12 @@ class UpholsterycutsController < ApplicationController
 
     respond_to do |format|
       if @upholsterycut.save
-        format.html { redirect_to @upholsterycut, notice: 'Upholsterycut was successfully created.' }
+        
+        @item = @quotecart.add_quoteitem(@upholsterycut.id, "upholsterycut")  
+        #save the item
+        @item.save
+
+        format.html { redirect_to '/request_quote', notice: 'Upholsterycut was successfully created.' }
         format.json { render action: 'show', status: :created, location: @upholsterycut }
       else
         format.html { render action: 'new' }

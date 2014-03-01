@@ -44,6 +44,10 @@ class VinylsController < ApplicationController
         @item.save
         
         format.html { redirect_to '/request_quote', notice: 'Vinyl Item for Quote was successfully created.' }
+        ####################################
+        # NEEDED: if ajax call rerender current page
+        ####################################
+        format.js {}
         format.json { render action: 'show', status: :created, location: @vinyl }
       else
         format.html { render action: 'new' }

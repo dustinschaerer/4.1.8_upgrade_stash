@@ -37,7 +37,7 @@ class NonslippadsController < ApplicationController
         #save the item
         @item.save 
 
-        format.html { redirect_to @nonslippad, notice: 'Nonslippad was successfully created.' }
+        format.html { redirect_to '/request_quote', notice: 'Nonslippad was successfully created.' }
         format.json { render action: 'show', status: :created, location: @nonslippad }
       else
         format.html { render action: 'new' }

@@ -38,7 +38,7 @@ class LaminatecutsController < ApplicationController
         @item = @quotecart.add_quoteitem(@laminatecut.id, "laminatecut")  
         @item.save
 
-        format.html { redirect_to @laminatecut, notice: 'Laminatecut was successfully created.' }
+        format.html { redirect_to '/request_quote', notice: 'Laminatecut was successfully created.' }
         format.json { render action: 'show', status: :created, location: @laminatecut }
       else
         format.html { render action: 'new' }

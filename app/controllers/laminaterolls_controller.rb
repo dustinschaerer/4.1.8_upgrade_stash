@@ -39,7 +39,7 @@ class LaminaterollsController < ApplicationController
         #save the item
         @item.save
 
-        format.html { redirect_to @item, notice: 'Laminateroll Item for Quote was successfully created.' }
+        format.html { redirect_to '/request_quote', notice: 'Laminateroll Item for Quote was successfully created.' }
         format.json { render action: 'show', status: :created, location: @laminateroll }
       else
         format.html { render action: 'new' }

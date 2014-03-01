@@ -34,7 +34,11 @@ class VinylcutsController < ApplicationController
 
     respond_to do |format|
       if @vinylcut.save
-        format.html { redirect_to @vinylcut, notice: 'Vinylcut was successfully created.' }
+        
+        @item = @quotecart.add_quoteitem(@vinylcut.id, "vinylcut")
+        @item.save
+
+        format.html { redirect_to '/request_quote', notice: 'Vinylcut was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vinylcut }
       else
         format.html { render action: 'new' }
