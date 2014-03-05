@@ -760,10 +760,6 @@ Item.create!([
   {quotecart_id: nil, itemable_id: 4, itemable_type: "laminateroll", purchase_id: nil, quote_id: 1}
 ])
 Laminate.create!([
-  {cover: nil, shape: nil, width: nil, length: nil, height: nil, drop: "8", series_id: 73, color_id: 409, umbrella: true, velcro: false, quantity: 2, price: 0, diameter: nil},
-  {cover: nil, shape: nil, width: 32, length: 32, height: nil, drop: "8", series_id: 78, color_id: 425, umbrella: false, velcro: true, quantity: 1, price: 0, diameter: nil},
-  {cover: nil, shape: nil, width: nil, length: nil, height: nil, drop: "8", series_id: 77, color_id: 422, umbrella: false, velcro: false, quantity: 2, price: 0, diameter: 12},
-  {cover: nil, shape: nil, width: nil, length: nil, height: nil, drop: "6", series_id: 73, color_id: 407, umbrella: true, velcro: true, quantity: 22, price: 0, diameter: 20},
   {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 73, color_id: 416, umbrella: true, velcro: true, quantity: 4, price: 0, diameter: 4}
 ])
 Laminatecut.create!([
@@ -826,10 +822,6 @@ Quote.create!([
   {user_id: 1, firstname: "Dust", lastname: "Ball", telephone: "555-555-5555", contactby: "Email", ship_street_address: "123 way street", ship_city: "Vancouver", ship_state: "Washington", ship_zipcode: "98682", ship_country: "United States", subtotal: "0.0", shipping: "0.0", sales_tax: "0.0", total: "0.0", pay_type: "credit card", company: nil, status: nil, email: nil}
 ])
 Quotecart.create!([
-  {},
-  {},
-  {},
-  {},
   {},
   {},
   {}
