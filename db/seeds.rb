@@ -698,10 +698,10 @@ Category.create!([
   {name: "Catalog", description: "Americo Design Catalog", image_url: "americo-design-catalog.jpg"}
 ])
 Americlear.create!([
-  {quantity: 2, yards: 5, wide: 5, price: 0},
-  {quantity: 2, yards: 2, wide: 22, price: 0},
-  {quantity: 2, yards: 34, wide: 24, price: 0},
-  {quantity: 3, yards: 3, wide: 15, price: 0}
+  {quantity: 2, yards: 5, wide: 45, price: 0},
+  {quantity: 2, yards: 2, wide: 58, price: 0},
+  {quantity: 2, yards: 34, wide: 50, price: 0},
+  {quantity: 3, yards: 3, wide: 52, price: 0}
 ])
 Cart.create!([
   {},
