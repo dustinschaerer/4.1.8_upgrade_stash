@@ -1,6 +1,6 @@
-<div class="well">
 
-	<div class="cart_title">Quote Cart ID = <%= @quotecart.id %></div> 
+
+	<div class="cart_title"><h4>Your Current Quote<h4></div> 
 
     	 <% if (@quotecart.items.empty?) %>
     	<div class="row">
@@ -9,26 +9,40 @@
 	    	</div>
     	</div>
         <% end %>
-
+<!--
         <div class="row">
-        	<div class="col-xs-5">
-				Item ID#
+        	<div class="col-xs-2 col-md-1">
+				#
 	    	</div>
 	
-	    	<div class="col-xs-5">
-				Item Type
+	    	<div class="col-xs-6 col-md-4">
+				Quote Item Type
 	    	</div>
-
+    
+        	<div class="col-xs-2 col-md-1">
+				Remove
+	    	</div>
+	    	<div class="col-xs-2 col-md-1">
+				Edit
+	    	</div>
 	    </div>
-
+-->
 
     <%= render(@quotecart.items) %>
 	
-	<li class="totals_line">Number of Items in Quote <%= @quotecart.items.count %></li>
+	<div class="totals_line">Number of Items in Quote <%= @quotecart.items.count %></div>
 
+
+<%= 
+#button_to 'Remove All Quote Items', @quotecart, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you Sure?' } 
+%>
+<%= link_to 'Remove All Quote Items', @quotecart, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you Sure?' } %>
+
+<%= link_to "Add Another Item to Quote", "/request_quote#add", class: "btn btn-primary" %>
+
+<%= link_to "Checkout", new_quote_path, class: "btn btn-success" %>
+<%= link_to "Review Quote Now", @quotecart, class: "btn btn-success" %>
+<div>
+	<%= link_to 'Edit', edit_quotecart_path(@quotecart) %> |
+	<%= link_to 'Back', quotecarts_path %>
 </div>
-
-<%= button_to 'Remove All Quote Items', @quotecart, method: :delete, data: { confirm: 'Are you Sure?' } %>
-
-<%= link_to 'Edit', edit_quotecart_path(@quotecart) %> |
-<%= link_to 'Back', quotecarts_path %>

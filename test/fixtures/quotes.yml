@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  firstname: MyString
+  lastname: MyString
+  telephone: MyString
+  contactby: MyString
+  ship_street_address: MyString
+  ship_city: MyString
+  ship_state: MyString
+  ship_zipcode: MyString
+  ship_country: MyString
+  pay_street_address: MyString
+  pay_city: MyString
+  pay_state: MyString
+  pay_zipcode: MyString
+  pay_country: MyString
+  subtotal: 9.99
+  shipping: 9.99
+  sales_tax: 9.99
+  total: 9.99
+  pay_type: MyString
+
+two:
+  user_id: 
+  firstname: MyString
+  lastname: MyString
+  telephone: MyString
+  contactby: MyString
+  ship_street_address: MyString
+  ship_city: MyString
+  ship_state: MyString
+  ship_zipcode: MyString
+  ship_country: MyString
+  pay_street_address: MyString
+  pay_city: MyString
+  pay_state: MyString
+  pay_zipcode: MyString
+  pay_country: MyString
+  subtotal: 9.99
+  shipping: 9.99
+  sales_tax: 9.99
+  total: 9.99
+  pay_type: MyString

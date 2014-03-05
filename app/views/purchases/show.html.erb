@@ -1,0 +1,104 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @purchase.user %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @purchase.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @purchase.lastname %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @purchase.telephone %>
+</p>
+
+<p>
+  <strong>Contactby:</strong>
+  <%= @purchase.contactby %>
+</p>
+
+<p>
+  <strong>Ship street address:</strong>
+  <%= @purchase.ship_street_address %>
+</p>
+
+<p>
+  <strong>Ship city:</strong>
+  <%= @purchase.ship_city %>
+</p>
+
+<p>
+  <strong>Ship state:</strong>
+  <%= @purchase.ship_state %>
+</p>
+
+<p>
+  <strong>Ship zipcode:</strong>
+  <%= @purchase.ship_zipcode %>
+</p>
+
+<p>
+  <strong>Ship country:</strong>
+  <%= @purchase.ship_country %>
+</p>
+
+<p>
+  <strong>Pay street address:</strong>
+  <%= @purchase.pay_street_address %>
+</p>
+
+<p>
+  <strong>Pay city:</strong>
+  <%= @purchase.pay_city %>
+</p>
+
+<p>
+  <strong>Pay state:</strong>
+  <%= @purchase.pay_state %>
+</p>
+
+<p>
+  <strong>Pay zipcode:</strong>
+  <%= @purchase.pay_zipcode %>
+</p>
+
+<p>
+  <strong>Pay country:</strong>
+  <%= @purchase.pay_country %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @purchase.subtotal %>
+</p>
+
+<p>
+  <strong>Shipping:</strong>
+  <%= @purchase.shipping %>
+</p>
+
+<p>
+  <strong>Sales tax:</strong>
+  <%= @purchase.sales_tax %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @purchase.total %>
+</p>
+
+<p>
+  <strong>Pay type:</strong>
+  <%= @purchase.pay_type %>
+</p>
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>

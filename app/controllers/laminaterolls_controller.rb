@@ -4,7 +4,8 @@ class LaminaterollsController < ApplicationController
   before_action :set_cart
   before_action :set_quotecart
   before_action :set_laminateroll, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  
   # GET /laminaterolls
   # GET /laminaterolls.json
   def index

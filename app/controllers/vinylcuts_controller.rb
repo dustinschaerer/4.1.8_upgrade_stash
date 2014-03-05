@@ -4,6 +4,8 @@ class VinylcutsController < ApplicationController
   before_action :set_quotecart
   before_action :set_cart
   before_action :set_vinylcut, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  
 
   # GET /vinylcuts
   # GET /vinylcuts.json

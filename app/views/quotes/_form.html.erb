@@ -1,0 +1,38 @@
+<%= simple_form_for(@quote) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :company %>
+    <%= f.input :telephone %>
+   
+    <div class="field">
+        <%= f.label :contactby, 'Contact By' %>
+        <%= f.select(:contactby, options_for_select(['Email', 'Telephone'] )) %>
+    </div>
+   
+
+    <%= f.input :ship_street_address %>
+    <%= f.input :ship_city %>
+    <%= f.input :ship_zipcode %>
+    <div class="field">
+        <%= f.label :ship_state, 'State' %>
+        <%= f.select :ship_state, Order::STATES, prompt: 'Select State' %>
+    </div>
+    <div class="field">
+        <%= f.label :ship_country, 'Country' %>
+        <%= f.select(:ship_country, options_for_select(['United States'] )) %>
+    </div>
+   
+    <%= f.input :subtotal, :as => :hidden, :input_html => { :value => 0 } %>
+    <%= f.input :shipping, :as => :hidden, :input_html => { :value => 0 } %>
+    <%= f.input :sales_tax, :as => :hidden, :input_html => { :value => 0 } %>
+    <%= f.input :total, :as => :hidden, :input_html => { :value => 0 } %>
+    <%= f.input :pay_type, :as => :hidden, :input_html => { :value => 'credit card' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

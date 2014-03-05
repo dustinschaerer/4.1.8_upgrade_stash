@@ -2,6 +2,10 @@ Americo::Application.routes.draw do
   
  
 
+  resources :quotes
+
+  resources :purchases
+
   authenticated :user do
     root :to => 'static_pages#home', :as => "authenticated_root"
   end

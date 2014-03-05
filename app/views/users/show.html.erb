@@ -1,68 +1,78 @@
 <% provide(:title ,'User Profile') %>
 
-<h1>Hello, <%= @user.username %></h1>
-<p>Your email address: <%= @user.email %> <%= link_to 'Change', edit_user_registration_path %></p>
+<h1>Hello, <%= @user.username %></h1> 
+<p>Your email address: <strong><%= @user.email %></strong> <%= link_to 'Change', edit_user_registration_path %></p>
 
 <h3>My Swatch Order History</h3>
-<table>
-	<tr>
-		<th>Order #</th>
-		<th>First and Last Name</th>
-		<th>Email Address</th>
-		<th>Street Address</th>
-		<th>City</th>
-		<th>State</th>
-		<th>Zip</th>
-	</tr>
-	<% @orders.each do |order|%>
-	<tr>
-		<td><%= order.id %></td>
-		<td><%= order.firstname %> <%= order.lastname %></td>
-		<td><%= order.email %></td>
-		<td><%= order.street_address %></td>
-		<td><%= order.city %></td>
-		<td><%= order.state %></td>
-		<td><%= order.zipcode %></td>
-	</tr>
-	<% end %>
-</table>
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>Order #</th>
+			<th>Name</th>
+			<th>Email Address</th>
+			<th>Street Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip</th>
+			<th>Status</th>
+			<th></th>
+		</tr>
+		<% @orders.each do |order|%>
+		<tr>
+			<td><%= order.id %></td>
+			<td><%= order.firstname %> <%= order.lastname %></td>
+			<td><%= order.email %></td>
+			<td><%= order.street_address %></td>
+			<td><%= order.city %></td>
+			<td><%= order.state %></td>
+			<td><%= order.zipcode %></td>
+			<td><%= order.status %></td>
+			<td><%= link_to 'Show Order Details', order_path(order) %></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
 
 <h3>My Quote Request History</h3>
-<table>
-	<tr>
-		<th>Quote #</th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>	
-	
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	
-</table>
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>Quote #</th>
+			<th>Date Submitted</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>	
+		<% @quotes.each do |quote|%>
+		<tr>
+			<td><%= quote.id %></td>
+			<td><%= quote.created_at %></td>
+	        <td><%= link_to 'Show Quote Details', quote %></td>
+			<td></td>
+	        <td><!--<%= link_to 'Edit', edit_quote_path(quote) %>--></td>
+		</tr>
+		<% end %>
+	</table>
+</div>
 
 <h3>My Purchases</h3>
-<table>
-	<tr>
-		<th>Purchase #</th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>	
-	
-	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-	
-</table>
+<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>Purchase #</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>	
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</table>
+</div>

@@ -4,6 +4,7 @@ class UpholsteryrollsController < ApplicationController
   before_action :set_cart
   before_action :set_quotecart
   before_action :set_upholsteryroll, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /upholsteryrolls
   # GET /upholsteryrolls.json

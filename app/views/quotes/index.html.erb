@@ -1,0 +1,55 @@
+<h1>Listing quotes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Telephone</th>
+      <th>Contactby</th>
+      <th>Ship street address</th>
+      <th>Ship city</th>
+      <th>Ship state</th>
+      <th>Ship zipcode</th>
+      <th>Ship country</th>
+      <th>Subtotal</th>
+      <th>Shipping</th>
+      <th>Sales tax</th>
+      <th>Total</th>
+      <th>Pay type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quotes.each do |quote| %>
+      <tr>
+        <td><%= quote.user.id %></td>
+        <td><%= quote.firstname %></td>
+        <td><%= quote.lastname %></td>
+        <td><%= quote.telephone %></td>
+        <td><%= quote.contactby %></td>
+        <td><%= quote.ship_street_address %></td>
+        <td><%= quote.ship_city %></td>
+        <td><%= quote.ship_state %></td>
+        <td><%= quote.ship_zipcode %></td>
+        <td><%= quote.ship_country %></td>
+        <td><%= quote.subtotal %></td>
+        <td><%= quote.shipping %></td>
+        <td><%= quote.sales_tax %></td>
+        <td><%= quote.total %></td>
+        <td><%= quote.pay_type %></td>
+        <td><%= link_to 'Show', quote %></td>
+        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+        <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quote', new_quote_path %>

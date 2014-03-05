@@ -1,0 +1,194 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
+  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+<% end %>
+</p>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+
+    <div class="panel panel-info">
+      
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-sm-12 col-md-8">     
+            <h1>QUOTE ID #<%= @quote.id %></h1>
+          </div>
+        </div>  
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="col-sm-4 col-md-4">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                CUSTOMER DETAILS
+              </div>
+              <div class="panel-body">
+                <% if @quote.company %>
+                <strong><%= @quote.company %></strong><br>
+                <% end %>
+                
+                <%= @quote.firstname %><%= @quote.lastname %>
+                <br><%= @quote.ship_street_address %>
+                <br><%= @quote.ship_city %>, <%= @quote.ship_state %>  <%= @quote.ship_zipcode %> 
+                <br><%= @quote.ship_country %>
+              </div>
+            </div>  
+          </div>
+          <div class="col-sm-4 col-md-4 pull-right">
+             <p><strong>Quote Date:</strong> <%= @quote.created_at.strftime("%B %d, %Y") %></p>
+             <p><strong>Quote Status:</strong> <%= @quote.status %></p>
+             <p><strong>Customer Phone:</strong> <%= @quote.telephone %></p>
+             <p><strong>Email:</strong> <%= @quote.email %></p>
+          </div>
+ 
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">     
+            Items in this Quote are listed below. Click on the individual quote items to see details for each one.
+          </div>  
+          
+        </div>  
+        <hr>
+        <% @quote.items.each do |t| %>
+
+        <%= if t.itemable_type == 'americlear'
+                  kind = 'AmeriClear Lamination'
+                elsif t.itemable_type == 'laminatecut' 
+                  kind =  'Laminate Custom Cut' 
+                elsif t.itemable_type == 'laminateroll' 
+                  kind = 'Laminate Roll Goods' 
+                elsif t.itemable_type == 'laminate' 
+                  kind = 'Laminate Table Cover' 
+                elsif t.itemable_type == 'nonslipcuts' 
+                  kind = 'Non-Slip Pad Custom Cut' 
+                elsif t.itemable_type == 'nonslippad' 
+                  kind = 'Non-Slip Pad Roll Goods' 
+                elsif t.itemable_type == 'uphlsterycut' 
+                  kind = 'Upholstery Custom Cut' 
+                elsif t.itemable_type == 'upholsteryroll' 
+                  kind = 'Upholstery Roll Goods' 
+                elsif t.itemable_type == 'value' 
+                  kind = 'Value Vinyl Table Cover' 
+                elsif t.itemable_type == 'vinyl'
+                  kind = 'Vinyl Table Cover' 
+                elsif t.itemable_type == 'vinylcut' 
+                  kind = 'Vinyl Custom Cut' 
+                elsif t.itemable_type == 'vinylroll' 
+                  kind = 'Vinyl Roll Goods' 
+              end %>
+        
+        <div class="row">
+          <div class="col-xs-4 "><%= t.itemable_type %></div>
+          <div class="col-xs-4"><%= t.itemable_id %></div>
+         
+          <div class="col-xs-4"><a href="/<%= t.itemable_type %>s/<%= t.itemable_id %>">View Quote Item</a></div>
+        </div>
+        <hr>
+        <% end %>
+
+        </div>  
+
+      </div>
+    
+    </div>
+
+  </div>
+</div>
+
+
+<p>
+  <strong>Items:</strong>
+  <% @quote.items.each do |t| %>
+  <%= t.itemable_type %>
+  <%= t.itemable_id %>
+  <% end %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @quote.user.id %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @quote.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @quote.lastname %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @quote.telephone %>
+</p>
+
+<p>
+  <strong>Contactby:</strong>
+  <%= @quote.contactby %>
+</p>
+
+<p>
+  <strong>Ship street address:</strong>
+  <%= @quote.ship_street_address %>
+</p>
+
+<p>
+  <strong>Ship city:</strong>
+  <%= @quote.ship_city %>
+</p>
+
+<p>
+  <strong>Ship state:</strong>
+  <%= @quote.ship_state %>
+</p>
+
+<p>
+  <strong>Ship zipcode:</strong>
+  <%= @quote.ship_zipcode %>
+</p>
+
+<p>
+  <strong>Ship country:</strong>
+  <%= @quote.ship_country %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @quote.subtotal %>
+</p>
+
+<p>
+  <strong>Shipping:</strong>
+  <%= @quote.shipping %>
+</p>
+
+<p>
+  <strong>Sales tax:</strong>
+  <%= @quote.sales_tax %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @quote.total %>
+</p>
+
+<p>
+  <strong>Pay type:</strong>
+  <%= @quote.pay_type %>
+</p>
+
+<%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
+  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+<% end %>
+<p></p>
+
+<%= link_to 'Edit', edit_quote_path(@quote) %> |
+<%= link_to 'Back', quotes_path %>

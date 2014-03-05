@@ -1,5 +1,75 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= link_to user_path(current_user), :class => "btn btn-primary btn-med"  do %>
+  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+<% end %></p>
+
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+
+    <div class="panel panel-info">
+      
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-sm-12 col-md-8">     
+            SWATCH ORDER #<%= @order.id %>
+          </div>
+        </div>  
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+
+          <div class="col-sm-4 col-md-4">
+            <p>CUSTOMER DETAILS</p>
+            <p><strong><%= @order.company %></strong>
+            <br><%= @order.firstname %><%= @order.lastname %>
+            <br><%= @order.street_address %>
+            <br><%= @order.city %>, <%= @order.state %>  <%= @order.zipcode %> 
+            <br><%= @order.country %>
+      
+          </div>
+          <div class="col-sm-4 col-md-4 pull-right">
+             <p><strong>Order Date:</strong> <%= @order.created_at.strftime("%B %d, %Y") %></p>
+             <p><strong>Order Status:</strong> <%= @order.status %></p>
+             <p><strong>Customer Phone:</strong> <%= @order.telephone %></p>
+             <p><strong>Email:</strong> <%= @order.email %></p>
+          </div>
+ 
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-4 col-md-2 col-md-offset-1">     
+            Swatch
+          </div>
+          <div class="col-xs-4">     
+            Series
+          </div>  
+          <div class="col-xs-4">     
+            Color
+          </div>  
+        </div>  
+        <hr>
+        <% @order.line_items.each do |li| %>
+        
+        <div class="row">
+          <div class="col-xs-4 col-md-2 col-md-offset-1"><%= image_tag(li.color.image_url, class: "img-responsive") %></div>
+          <div class="col-xs-4 "><%= li.series.name %></div>
+          <div class="col-xs-4"><%= li.color.name %></div>
+        </div>
+        <hr>
+        <% end %>
+
+        </div>  
+
+      </div>
+    
+    </div>
+
+  </div>
+</div>
+
+<!--
 <p>
   <strong>First Name:</strong>
   <%= @order.firstname %>
@@ -59,5 +129,8 @@
   <strong>User ID:</strong>
   <%= @order.user_id %>
 </p>
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+-->
+
+<%= link_to user_path(current_user), :class => "btn btn-primary btn-med"  do %>
+  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+<% end %>

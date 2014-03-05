@@ -4,6 +4,7 @@ class LaminatesController < ApplicationController
   before_action :set_cart
   before_action :set_quotecart
   before_action :set_laminate, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /laminates
   # GET /laminates.json

@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   before_action :set_quotecart
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /orders
   # GET /orders.json
@@ -24,6 +25,7 @@ class OrdersController < ApplicationController
     end
       
     @order = Order.new
+    #@order.email = current_user.email
   end
 
   # GET /orders/1/edit
@@ -41,7 +43,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderNotifier.received(@order).deliver
-        format.html { redirect_to store_url, notice: 'Your order was successfully created. Thank You for choosing Americo!' }
+        format.html { redirect_to user_path(current_user), notice: 'Your order was successfully created. Thank You for choosing Americo! We will send you an email when your order is ready to ship.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.html { render action: 'new' }

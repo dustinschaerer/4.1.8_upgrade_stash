@@ -4,6 +4,7 @@ class NonslippadsController < ApplicationController
   before_action :set_cart
   before_action :set_quotecart
   before_action :set_nonslippad, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /nonslippads
   # GET /nonslippads.json

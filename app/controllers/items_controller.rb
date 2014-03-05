@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.save
         format.html { redirect_to '/request_quote', notice: 'Item was successfully created.' }
-        format.js { @current_item = @item }
+        format.js { @current_quote_item = @item }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }

@@ -1,42 +1,74 @@
 <div id="contact-form">
 
-<%= simple_form_for(@message, :html => { :class => "form-horizontal" }) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@message, :html => { :class => "form-horizontal" }) do |f| %>
+
+ <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="form-inputs">
+   
     <div class="row">
       <div class="col-xs-12 col-lg-8">
-        <%= f.input :reason, collection: ['General Product Question', 'Question about a Previous Order', 'Question about a Previous Quote', 'Billing Issues', 'Other reason'], :include_blank => "Choose One" , :input_html => { :id => "message_reason" }, :label => "Please select a Reason for Contacting Us" %>
+        <div class="field">
+          <%= f.label :reason %>
+
+
+          <%= f.select :reason, Message::CONTACT_REASONS, prompt: "Please select a Reason for Contacting Us", :input_html => { :id => "message_reason" } %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-sm-12 col-md-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Order">
+        <div class="field">
+          <%= f.label :order_id %>
+          <%= f.number_field :order_id, :label => "Order Number" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-12 col-md-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Quote">
+        
+        <%= f.label :quote_id, :label => "Quote Number" %>
+        <%= f.number_field :quote_id%>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Order">
-        <%= f.input :order_id, :label => "Order Number" %>
-      </div>
-      
-      <div class="col-xs-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Quote">
-        <%= f.input :quote_id, :label => "Quote Number" %>
+      <div class="col-xs-12 col-lg-8">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-lg-8">
-        <%= f.input :email %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-lg-8">
-        <%= f.input :name %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
       </div>
     </div>
     
     <div class="row">
       <div class="col-xs-12 col-lg-8">
-        <%= f.input :message, :input_html => {:rows => 7} %>
+        <%= f.label :message %>
+        <%= f.text_area :message, rows: 7, cols: 70 %>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-lg-8 js-dependent-fields">
-        <%= f.input :phone %>
+        <%= f.label :phone %>
+        <%= f.text_field :phone %>
       </div>
     </div>
     

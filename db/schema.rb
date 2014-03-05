@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227195713) do
+ActiveRecord::Schema.define(version: 20140305213752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,8 +95,12 @@ ActiveRecord::Schema.define(version: 20140227195713) do
     t.string   "itemable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "purchase_id"
+    t.integer  "quote_id"
   end
 
+  add_index "items", ["purchase_id"], name: "index_items_on_purchase_id", using: :btree
+  add_index "items", ["quote_id"], name: "index_items_on_quote_id", using: :btree
   add_index "items", ["quotecart_id"], name: "index_items_on_quotecart_id", using: :btree
 
   create_table "laminatecuts", force: true do |t|
@@ -199,12 +203,12 @@ ActiveRecord::Schema.define(version: 20140227195713) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "lastname",       default: "null"
-    t.integer  "user_id",        default: 1
-    t.string   "status",         default: "submitted"
-    t.string   "company",        default: "null"
-    t.string   "zipcode",        default: "null"
-    t.string   "contactby",      default: "email"
+    t.string   "lastname"
+    t.integer  "user_id"
+    t.string   "status"
+    t.string   "company"
+    t.string   "zipcode"
+    t.string   "contactby"
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
@@ -221,10 +225,62 @@ ActiveRecord::Schema.define(version: 20140227195713) do
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
+  create_table "purchases", force: true do |t|
+    t.integer  "user_id"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "telephone"
+    t.string   "contactby"
+    t.string   "ship_street_address"
+    t.string   "ship_city"
+    t.string   "ship_state"
+    t.string   "ship_zipcode"
+    t.string   "ship_country"
+    t.string   "pay_street_address"
+    t.string   "pay_city"
+    t.string   "pay_state"
+    t.string   "pay_zipcode"
+    t.string   "pay_country"
+    t.decimal  "subtotal"
+    t.decimal  "shipping"
+    t.decimal  "sales_tax"
+    t.decimal  "total"
+    t.string   "pay_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree
+
   create_table "quotecarts", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "quotes", force: true do |t|
+    t.integer  "user_id"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "telephone"
+    t.string   "contactby"
+    t.string   "ship_street_address"
+    t.string   "ship_city"
+    t.string   "ship_state"
+    t.string   "ship_zipcode"
+    t.string   "ship_country"
+    t.decimal  "subtotal"
+    t.decimal  "shipping"
+    t.decimal  "sales_tax"
+    t.decimal  "total"
+    t.string   "pay_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "company"
+    t.string   "status"
+    t.string   "email"
+  end
+
+  add_index "quotes", ["user_id"], name: "index_quotes_on_user_id", using: :btree
 
   create_table "series", force: true do |t|
     t.integer  "style_id"

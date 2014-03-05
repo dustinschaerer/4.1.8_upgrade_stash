@@ -4,6 +4,7 @@ class NonslipcutsController < ApplicationController
   before_action :set_quotecart
   before_action :set_cart
   before_action :set_nonslipcut, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /nonslipcuts
   # GET /nonslipcuts.json

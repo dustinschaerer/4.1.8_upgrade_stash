@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :email, 'Email Address' %>
-    <%= f.text_field :email, size: 40 %>
+    <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %>
   </div>
   
   <div class="field">
@@ -56,7 +56,18 @@
     <%= f.label :telephone, 'Telephone Number' %>
     <%= f.text_field :telephone %>
   </div>
+  
+  <div class="field">
+    <%= f.hidden_field :status, value: "Submitted"  %>
+  </div>
+  
+  <div class="field">
+    <%= f.hidden_field :user_id, value: current_user.id  %>
+  </div>
+
   <!--  order.user_id and order.status are hidden fields -->
+  
+
   <div class="actions">
     <%= f.submit %>
   </div>

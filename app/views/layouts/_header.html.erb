@@ -1,14 +1,14 @@
 <header>
   <% if user_signed_in? %>
-   <div class="row" id="userheader">
+  <div class="row" id="userheader">
     <div class="col-xs-12">  
       Logged in as <strong><%= current_user.email %></strong>. 
       <%= link_to 'My Dashboard', user_path(current_user), :class => "btn btn-primary btn-xs" %>
       <%= link_to 'Edit profile settings', edit_user_registration_path, :class => "btn btn-info btn-xs" %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-xs" %>     
-     </div>
-   </div>
-   <% end %>
+    </div>
+  </div>
+  <% end %>
 
 
   <div class="row" id="siteheader">

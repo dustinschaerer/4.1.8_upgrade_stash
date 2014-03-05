@@ -1,0 +1,65 @@
+<h1>Listing purchases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Telephone</th>
+      <th>Contactby</th>
+      <th>Ship street address</th>
+      <th>Ship city</th>
+      <th>Ship state</th>
+      <th>Ship zipcode</th>
+      <th>Ship country</th>
+      <th>Pay street address</th>
+      <th>Pay city</th>
+      <th>Pay state</th>
+      <th>Pay zipcode</th>
+      <th>Pay country</th>
+      <th>Subtotal</th>
+      <th>Shipping</th>
+      <th>Sales tax</th>
+      <th>Total</th>
+      <th>Pay type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchases.each do |purchase| %>
+      <tr>
+        <td><%= purchase.user %></td>
+        <td><%= purchase.firstname %></td>
+        <td><%= purchase.lastname %></td>
+        <td><%= purchase.telephone %></td>
+        <td><%= purchase.contactby %></td>
+        <td><%= purchase.ship_street_address %></td>
+        <td><%= purchase.ship_city %></td>
+        <td><%= purchase.ship_state %></td>
+        <td><%= purchase.ship_zipcode %></td>
+        <td><%= purchase.ship_country %></td>
+        <td><%= purchase.pay_street_address %></td>
+        <td><%= purchase.pay_city %></td>
+        <td><%= purchase.pay_state %></td>
+        <td><%= purchase.pay_zipcode %></td>
+        <td><%= purchase.pay_country %></td>
+        <td><%= purchase.subtotal %></td>
+        <td><%= purchase.shipping %></td>
+        <td><%= purchase.sales_tax %></td>
+        <td><%= purchase.total %></td>
+        <td><%= purchase.pay_type %></td>
+        <td><%= link_to 'Show', purchase %></td>
+        <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+        <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Purchase', new_purchase_path %>

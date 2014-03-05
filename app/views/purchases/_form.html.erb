@@ -1,0 +1,45 @@
+<%= simple_form_for(@purchase) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :firstname %>
+    <%= f.input :lastname %>
+    <%= f.input :telephone %>
+    <%= f.input :contactby %>
+    <%= f.input :ship_street_address %>
+    <%= f.input :ship_city %>
+    <%= f.input :ship_zipcode %>
+    
+    <div class="field">
+        <%= f.label :ship_state, 'State' %>
+        <%= f.select :ship_state, Order::STATES, prompt: 'Select State' %>
+    </div>
+    <div class="field">
+        <%= f.label :ship_country, 'Country' %>
+        <%= f.select(:ship_country, options_for_select(['United States'] )) %>
+    </div>
+    <%= f.input :pay_street_address %>
+    <%= f.input :pay_city %>
+    <%= f.input :pay_zipcode %>
+    <div class="field">
+        <%= f.label :pay_state, 'State' %>
+        <%= f.select :pay_state, Order::STATES, prompt: 'Select State' %>
+    </div>
+    
+    
+    <div class="field">
+        <%= f.label :pay_country, 'Country' %>
+        <%= f.select(:pay_country, options_for_select(['United States'] )) %>
+    </div>
+    <%= f.input :subtotal %>
+    <%= f.input :shipping %>
+    <%= f.input :sales_tax %>
+    <%= f.input :total %>
+    <%= f.input :pay_type %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

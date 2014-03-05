@@ -4,6 +4,7 @@ class VinylrollsController < ApplicationController
   before_action :set_cart
   before_action :set_quotecart
   before_action :set_vinylroll, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /vinylrolls
   # GET /vinylrolls.json

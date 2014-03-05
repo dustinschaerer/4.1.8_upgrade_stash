@@ -343,7 +343,7 @@ footer {
  /* END SIDE */
  #sidequote {
     padding: 1em 1em;
-     background: $red;
+  
   
     input {
       font-size: small;
@@ -563,7 +563,9 @@ footer {
 .innerpad {
   padding: 10px;
 }
-
+.tenpad {
+  padding: 10px;
+}
 /* Positioning */
 p .up10 {
   margin-top: -10px;
@@ -656,6 +658,11 @@ p .up10 {
 .nolist li {
   list-style-type:none;
 }
+.noindent {
+  padding-left: 0px;
+  margin-left: 10px;
+}
+
 
 
 /* User sign in and sign forms. */
@@ -770,27 +777,46 @@ p .up10 {
 }
 
 
-
 #orangeback {
-  background-color: #962B00;
+  background-color: #AA4B19;
   color:white;
+  padding: 10px 10px 10px 10px;
 }
 #blueback {
-  background-color: #962B00;
+  background-color: #728A99;
   color:white; 
+  padding: 10px 10px 10px 10px;
 }
 #greenback {
-  background-color: #962B00;
+  background-color: #9E7523;
   color:white; 
+  padding: 10px 10px 10px 10px;
 }
 #redback {
-  background-color: #962B00;
+  background-color: #8A1921;
   color:white;
+  padding: 10px 10px 10px 10px;
 }
 #grayback {
-  background-color: #962B00;
+  background-color: #805B3D;
   color:white;
+  padding: 10px 10px 10px 10px;
 }
+.backed {
+  background-color: #F0EADE;
+}
+.grayback {
+  background-color: #F2F2F2;
+}
+.whitelink {
+  color: white;
+  text-decoration: underline;
+}
+.blacklink {
+  color: black;
+  text-decoration: underline;
+}
+
 
 
 /* Keep at bottom, this sets the padding for the fixed header top */
