@@ -699,9 +699,9 @@ Category.create!([
 ])
 Americlear.create!([
   {quantity: 2, yards: 5, wide: 5, price: 0},
-  {quantity: 2, yards: 2, wide: 2, price: 0},
-  {quantity: 2, yards: 34, wide: 48, price: 0},
-  {quantity: 3, yards: 3, wide: 50, price: 0}
+  {quantity: 2, yards: 2, wide: 22, price: 0},
+  {quantity: 2, yards: 34, wide: 24, price: 0},
+  {quantity: 3, yards: 3, wide: 15, price: 0}
 ])
 Cart.create!([
   {},
