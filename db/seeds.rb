@@ -836,31 +836,6 @@ Upholsteryroll.create!([
   {quantity: 2, series_id: 4, color_id: 8, price: 0}
 ])
 Vinyl.create!([
-  {cover: "Regular Drape", shape: "1", width: nil, length: nil, height: nil, drop: nil, series_id: 49, color_id: 165, umbrella: true, velcro: true, quantity: 33, price: 0, diameter: nil},
-  {cover: "Fitted (Hat Box)", shape: "Rectangle", width: 48, length: 48, height: nil, drop: nil, series_id: 66, color_id: 521, umbrella: true, velcro: true, quantity: 55, price: 0, diameter: 6},
-  {cover: "Fitted-to-Floor (Hat Box)", shape: "Rectangle", width: 24, length: 24, height: 30, drop: "1.5 inch (This is standard for Elastic Contour Fit)", series_id: 27, color_id: 57, umbrella: true, velcro: true, quantity: 99, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Rectangle", width: 2, length: 3, height: nil, drop: "1.5 inch (This is standard for Elastic Contour Fit)", series_id: 4, color_id: 7, umbrella: false, velcro: false, quantity: 23, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Rectangle", width: 2, length: 6, height: nil, drop: "6 inch (Recommended for this Table Cover Fit)", series_id: 66, color_id: 520, umbrella: false, velcro: false, quantity: 26, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Rectangle", width: 12, length: 12, height: nil, drop: "6 inch (Recommended for this Table Cover Fit)", series_id: 65, color_id: 513, umbrella: true, velcro: true, quantity: 22, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "6 inch", series_id: 4, color_id: 7, umbrella: true, velcro: true, quantity: 22, price: 0, diameter: 22},
-  {cover: "Fitted-to-Floor (Hat Box)", shape: "Rectangle", width: 1, length: 1, height: 10, drop: "6 inch", series_id: 49, color_id: 164, umbrella: true, velcro: true, quantity: 1, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 66, color_id: 334, umbrella: true, velcro: true, quantity: 12, price: 0, diameter: 24},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 66, color_id: 336, umbrella: false, velcro: false, quantity: 1, price: 0, diameter: nil},
-  {cover: "Regular Drape-to-Floor", shape: "Round", width: nil, length: nil, height: 4, drop: nil, series_id: 66, color_id: 334, umbrella: true, velcro: true, quantity: 4, price: 0, diameter: 4},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "6 inch", series_id: 66, color_id: 334, umbrella: false, velcro: false, quantity: 65, price: 0, diameter: 4},
-  {cover: "Fitted-to-Floor (Hat Box)", shape: "Round", width: nil, length: nil, height: nil, drop: nil, series_id: 66, color_id: 334, umbrella: false, velcro: false, quantity: 1, price: 0, diameter: 6},
-  {cover: "Regular Drape", shape: "Rectangle", width: 24, length: 16, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 66, color_id: 334, umbrella: false, velcro: false, quantity: 1, price: 0, diameter: 6},
-  {cover: "Fitted-to-Floor (Hat Box)", shape: "Rectangle", width: 24, length: 16, height: nil, drop: nil, series_id: 66, color_id: 334, umbrella: false, velcro: false, quantity: 1, price: 0, diameter: 6},
-  {cover: "Regular Drape", shape: "Rectangle", width: 4, length: 4, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 65, color_id: 503, umbrella: false, velcro: false, quantity: 4, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Rectangle", width: 36, length: 36, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 52, color_id: 175, umbrella: true, velcro: true, quantity: 6, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Rectangle", width: 36, length: 36, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 52, color_id: 175, umbrella: true, velcro: true, quantity: 6, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Rectangle", width: 12, length: 16, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 66, color_id: 334, umbrella: true, velcro: true, quantity: 12, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Rectangle", width: 12, length: 16, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 66, color_id: 334, umbrella: true, velcro: true, quantity: 12, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 66, color_id: 334, umbrella: true, velcro: true, quantity: 11, price: 0, diameter: 48},
-  {cover: "Fitted (Hat Box)", shape: "Rectangle", width: 24, length: 24, height: nil, drop: "6 inch (We Recommend this length for the Fitted (Hat Box) Cover)", series_id: 46, color_id: 150, umbrella: true, velcro: true, quantity: 2, price: 0, diameter: nil},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 49, color_id: 165, umbrella: true, velcro: true, quantity: 10, price: 0, diameter: 50},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 49, color_id: 165, umbrella: true, velcro: true, quantity: 10, price: 0, diameter: 50},
-  {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 49, color_id: 165, umbrella: true, velcro: true, quantity: 10, price: 0, diameter: 50},
   {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 49, color_id: 165, umbrella: true, velcro: true, quantity: 10, price: 0, diameter: 50},
   {cover: "Regular Drape", shape: "Round", width: nil, length: nil, height: nil, drop: "8 inch (We Recommend this length for this Regular Drape Cover)", series_id: 49, color_id: 165, umbrella: true, velcro: true, quantity: 10, price: 0, diameter: 50},
   {cover: "Elastic Contour", shape: "Round", width: nil, length: nil, height: nil, drop: nil, series_id: 50, color_id: 166, umbrella: true, velcro: true, quantity: 4, price: 0, diameter: 4},
@@ -876,8 +851,8 @@ Vinylcut.create!([
   {quantity: 1, yards_long: 5, series_id: 4, color_id: 8, price: 0}
 ])
 Vinylpad.create!([
-  {quantity: 2, price: nil},
-  {quantity: 3, price: nil}
+  {quantity: 2, price: 0 },
+  {quantity: 3, price: 0 }
 ])
 Vinylroll.create!([
   {quantity: 1, series_id: 54, color_id: 190, price: 0},

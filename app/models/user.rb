@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_one :shipping_profile, dependent: :destroy
   accepts_nested_attributes_for :shipping_profile, allow_destroy: true
   has_many :orders
+  has_many :quotes
+  has_many :purchases
+  
 
 
 
