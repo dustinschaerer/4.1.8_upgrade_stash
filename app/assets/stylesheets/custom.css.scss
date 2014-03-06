@@ -477,7 +477,6 @@ footer {
   color: #50334E; 
 }
 .choices {
-  
   font-size:1.2em;
 }
 .stylename {
@@ -567,8 +566,11 @@ footer {
   padding: 10px;
 }
 /* Positioning */
-p .up10 {
+p .up10, .up10 {
   margin-top: -10px;
+}
+.up5 {
+  margin-top: -5px;  
 }
 .top10 {
   margin-top: 10px;
@@ -579,6 +581,10 @@ p .up10 {
 .top25 {
   margin-top: 25px;
 }
+.top40 {
+  margin-top: 40px;
+}
+
 .bottom20 {
   margin-bottom: 20px;
 }
@@ -588,7 +594,9 @@ p .up10 {
 .top200 {
   margin-top: 200px;
 }
-
+.shortline {
+  line-height: 1.6em
+}
 
 .pullinleft10 {
   margin-left: -8px;
@@ -636,6 +644,9 @@ p .up10 {
   color: #AD5224;
   font-size:1.6em;
 
+}
+.onesix {
+  font-size: 1.6em; 
 }
 .distinctions {
   font-weight: bold;

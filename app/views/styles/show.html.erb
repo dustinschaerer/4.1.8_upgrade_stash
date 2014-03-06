@@ -80,7 +80,7 @@
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">9800 series vinyls are 10-mil printed Pvc film laminated to a 4 oz. per square yard non-woven polyester.<br />
-      <a href="#" class="addgray underline top10">Additional specs.</a></p>
+      <a href="/technical_specs" class="addgray underline top10">Additional specs.</a></p>
 
       <p class="addgreen larger bold top25">Also Available as Placemats, Table Runners and Overlays</p>
     </div>
@@ -102,7 +102,7 @@
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">6100 Series Classic Vinyls are13-mil printed PVC film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholstery grade foam.<br />
-      <a href="#" class="addgray underline top10">Additional specs.</a></p>
+      <a href="/technical_specs" class="addgray underline top10">Additional specs.</a></p>
 
       <p class="addpurple larger bold top25">Also Available as Placemats, Table Runners and Overlays</p>
     </div>
@@ -122,30 +122,20 @@
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">6100 Series Classic Vinyls are13-mil printed PVC film laminated to a 4 oz. per square yard non-woven, with a 30-mil upholstery grade foam.<br />
-      <a href="#" class="addgray underline top10">Additional specs.</a></p>
+      <a href="/technical_specs" class="addgray underline top10">Additional specs.</a></p>
 
       <p class="addgreen larger bold top25">Also Suitable for Upholstery Projects!</p>
        <p><a href="/categories/3">Custom<br>
-Lamination<br>
-With Americlear<br>
-Also Available.
- <span class="glyphicon glyphicon-play"></span></a></p>
-   
-
-
-
-
-
-
-
-
-   
+      Lamination<br>
+      With Americlear<br>
+      Also Available.
+       <span class="glyphicon glyphicon-play"></span></a></p>
 
     </div>
     <!-- Turn this into a partial, one for each main category -->
     <% elsif (params[:id] == '7') %>
     
- <div class="col-sm-9 border-right">
+    <div class="col-sm-9 border-right">
       <div class="styletype weighty addbrown">Vinyl Upholstery Fabric is Practical and Beautiful</div>
       <div class="stylesub bottom20">Your Projects Will Look Great for Years!</div>
       <div class="styletext">
@@ -157,21 +147,10 @@ Also Available.
       <div class="stylename  weighty">TECHNICAL SPECS</div>
 
       <p class="addgray">Distinctions vinyls are 13-mil printed PVC film laminated to a 4 oz. per square yard non-woven polyester with a 30-mil upholstery grade foam.<br />
-      <a href="#" class="addgray underline top10">Additional specs.</a></p>
-
-
+      <a href="/technical_specs" class="addgray underline top10">Additional specs.</a></p>
       <p class="addbrown top25"><b>EASY MAINTENANCE.</b><br>
       No fabric is easier to clean. Most spills are easily removed with soap and water.</p>
-
     </div>
-
-
-
-
-
-
-    
-
 
     <% elsif (params[:id] == '8') %>
     <!-- Turn this into partials, one for each main category -->
@@ -183,36 +162,35 @@ Also Available.
     </div>
     <div class="col-sm-4" id="home-made-usa">
       <div class="stylename  weighty">TECHNICAL SPECS</div>
-
       <p class="addgray">7000 series vinyls are 6-mil printed Pvc film laminated to a 2.5 oz. per square yard non-woven polyester.<br />
-      <a href="#" class="addgray underline">Additional specs.</a></p>
-
+      <a href="/technical_specs" class="addgray underline">Additional specs.</a></p>
       <p class="addgreen"><b>OTHER TEXT</b><br>
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
-       
     </div>
-    <!-- Turn this into a partial, one for each main category -->
-    
     <% end %>
 
-  </div>  
+  </div>  <!-- end styleinfo box -->
 
   <div class="row">    
     <div class="col-xs-6 col-sm-7"> 
       <div class="style-head">
         <% if (params[:id] == '1') %>
         <div class="addgold">
-      <% elsif (params[:id] == '2') %>
+        <% elsif (params[:id] == '2') %>
         <div class="addgreen">
-      <% elsif (params[:id] == '3') %>
+         <% elsif (params[:id] == '3') %>
         <div class="addpurple">
-      <% elsif (params[:id] == '7') %>
+        <% elsif (params[:id] == '7') %>
         <div class="addbrown">
-      <% elsif (params[:id] == '8') %>
+        <% elsif (params[:id] == '8') %>
         <div class="addmaroon">
-      <% end %>
-      <%= @style.name %> | <%= @style.series.count %> designs | <%= @style.colors.count %> colors</div></div>
-      <div class="stylename weighty addblack"><%= @style.title %></div>
+        <% end %>
+          <%= @style.name %> | <%= @style.series.count %> designs | <%= @style.colors.count %> colors
+        </div>
+      </div>
+      <div class="stylename weighty addblack bold">
+        <%= @style.title %>
+      </div>
     </div>
     <div class="col-xs-6 col-sm-5"> 
       <div class="choices top25">
@@ -227,68 +205,43 @@ Also Available.
       <% elsif (params[:id] == '8') %>
         <div class="addmaroon">
       <% end %>
-        Click on a style to see all your color choices.</div>
+          Click on a style to see all your color choices.
+        </div>
+      </div>  
     </div>
   </div>
 
   <div class="entry">
-   
     <div class="row top10">
       <div class="col-xs-9 col-sm-10">   
-   
-
         <div class="row">
-        <% @style.series.each do |swatch| %>
+          <% @style.series.order("name").each do |swatch| %>
           <div class="col-xs-6 col-sm-3">   
               <%= link_to(swatch, :class => "no-under") do %>
-                <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
-                 <p class="text-center addblack"><strong>STYLE <%= swatch.name %></strong><br><small><%= pluralize swatch.colors.count, 'Color' %>  Available</small></p>
-                 <% end %> 
+                <%= image_tag(swatch.image_url, :class => "img-responsive" ) %>
+                 <div class="addblack"><strong>STYLE <%= swatch.name %></strong></div>
+                 <div class="addblack bottom20 up5"><small><%= pluralize swatch.colors.count, 'Color' %>  Available</small></div>
+              <% end %> 
           </div>
-        <% end %>
+          <% end %>
         </div>
-
       </div>
       <div class="col-xs-3 col-sm-2">   
-        <div><%= image_tag("swatch-image.png", alt:"Free Swatches") %></div>
-        <div><%= image_tag("free-catalog.png", alt:"Free Catalog") %></div>
-        <div></div>
+        <div>
+          <%= link_to('/how_to_order', :class => "no-under") do %>
+            <%= image_tag("swatch-image.png", :class => "top40", alt:"Free Swatches") %>
+          <% end %>
+        </div>
+        <div>
+           <%= link_to('/request_catalog', :class => "no-under") do %>
+            <%= image_tag("free-catalog.png", :class => "top40", alt:"Free Catalog") %>
+          <% end %>
+        </div>  
+        <div class="top40">
+           <%= link_to('/categories/2', :class => "no-under onesix addarmy") do %>
+            <strong>Don't Forget</strong><br>to order the<br>Non-Slip Pads
+          <% end %>
+        </div>  
       </div>
-        
-
     </div>
-  
   </div>
-
-<p>
-  <strong>Product:</strong>
-  <%= @style.product_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @style.title %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @style.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @style.description %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @style.image_url %>
-</p>
-
-<p>
-  <strong>Sort:</strong>
-  <%= @style.sort %>
-</p>
-
-<%= link_to 'Edit', edit_style_path(@style) %> |
-<%= link_to 'Back', styles_path %>

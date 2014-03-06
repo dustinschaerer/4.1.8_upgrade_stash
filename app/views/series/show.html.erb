@@ -184,20 +184,6 @@
 	</div>
   </div>
 </div> 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <div class="row">
   <div class="col-xs-9 col-sm-10">   
@@ -275,9 +261,21 @@
 	  
     
   <div class="col-xs-3 col-sm-2">   
-    <div id="freeswatches"><%= image_tag("swatch-image.jpg", alt:"Free Swatches") %></div>
-    <div id="freecatalog"><%= image_tag("free-catalog.jpg", alt:"Free Catalog") %></div>
-    <div></div>
+    <div>
+	  <%= link_to('/how_to_order', :class => "no-under") do %>
+	    <%= image_tag("swatch-image.png", :class => "top40", alt:"Free Swatches") %>
+	  <% end %>
+	</div>
+	<div>
+	   <%= link_to('/request_catalog', :class => "no-under") do %>
+	    <%= image_tag("free-catalog.png", :class => "top40", alt:"Free Catalog") %>
+	  <% end %>
+	</div>  
+	<div class="top40">
+	   <%= link_to('/categories/2', :class => "no-under onesix addarmy") do %>
+	    <strong>Don't Forget</strong><br>to order the<br>Non-Slip Pads
+	  <% end %>
+	</div>  
   </div>     
 
 
