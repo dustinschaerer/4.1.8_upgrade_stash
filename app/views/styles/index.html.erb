@@ -36,6 +36,7 @@
 <table>
   <thead>
     <tr>
+      <th>StyleID</th>
       <th>Product</th>
       <th>Title</th>
       <th>Name</th>
@@ -51,6 +52,7 @@
   <tbody>
     <% @styles.each do |style| %>
       <tr>
+        <td><%= style.id %></td>
         <td><%= style.product_id %></td>
         <td><%= style.title %></td>
         <td><%= style.name %></td>
