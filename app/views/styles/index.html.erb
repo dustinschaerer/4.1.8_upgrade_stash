@@ -50,7 +50,7 @@
   </thead>
 
   <tbody>
-    <% @styles.each do |style| %>
+    <% @styles.order(:id).each do |style| %>
       <tr>
         <td><%= style.id %></td>
         <td><%= style.product_id %></td>

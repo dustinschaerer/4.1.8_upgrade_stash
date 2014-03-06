@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Series ID</th>
+      <th>Style ID</th>
       <th>Style</th>
       <th>Name</th>
       <th>Description</th>
@@ -23,7 +25,9 @@
   <tbody>
     <% @series.each do |series| %>
       <tr>
-        <td><%= series.style.name %>(<%= series.style_id %>)</td>
+        <td><%= series.id %></td>
+        <td><%= series.style_id %></td>
+        <td><%= series.style.name %></td>
         <td><%= series.name %></td>
         <td><%= series.description %></td>
         <td><%= series.lead %></td>

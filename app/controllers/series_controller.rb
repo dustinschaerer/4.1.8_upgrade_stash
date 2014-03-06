@@ -8,7 +8,7 @@ class SeriesController < ApplicationController
   # GET /series
   def index
    # @series = Series.where("style_id = '7'").order("name")
-   @series = Series.all.order("name")
+   @series = Series.all.order(:id)
   end
 
   # GET /series/1

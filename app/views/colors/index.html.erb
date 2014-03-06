@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Color ID</th>
       <th>Style</th>
       <th>Series</th>
       <th>Name</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @colors.each do |color| %>
       <tr>
+        <td><%= color.id %></td>
         <td><%= color.series.style.name %></td>
         <td><%= color.series.name %></td>
         <td><%= color.name %></td>
