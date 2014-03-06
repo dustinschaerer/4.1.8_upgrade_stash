@@ -676,7 +676,7 @@ Series.create!([
   {style_id: 3, name: "1291", description: "Favorite fruits and nuts are artistically reproduced in a refined, faux needlepoint. Gorgeous", image_url: "swatches/1200/1291/1291_hl.jpg", lead: "Lovely Sampler", callout: "faux needlepoint", vertical: "nil", horizontal: "nil", side: "nil"},
   {style_id: 3, name: "1290", description: "The basic checkerboard gets a soothing, toned down color scheme.", image_url: "swatches/1200/1290/1290_hl.jpg", lead: "A Softer Square", callout: "soothing colors", vertical: "nil", horizontal: "nil", side: "nil"},
   {style_id: 7, name: "6111", description: "A tone-on-tone diamond pattern adds a touch of panache to these versatile hues.", image_url: "upholstery/6111_dustyrose_granite_h.jpg", lead: "Subtle Sophistication", callout: "tone-on-tone diamonds", vertical: "4.5\"", horizontal: "9\"", side: "4.5\" Half Step"},
-  {style_id: 7, name: "6116", description: "Realistic graining, a soft hand, and versatile hues make this a designer’s favorite.", image_url: "upholstery/6116_buckskin_h.jpg", lead: "Leather-Like Luxury", callout: "realistic graining", vertical: "18\"", horizontal: "27\"", side: "27\" Square"}
+  {style_id: 7, name: "6116", description: "Realistic graining, a soft hand, and versatile hues make this a designer’s favorite.", image_url: "upholstery/6116_buckskin_h.jpg", lead: "Leather-Like Luxury", callout: "realistic graining", vertical: "18\"", horizontal: "27\"", side: "27\" Square"},
   {style_id: 9, name: "Free Catalog", description: "Free Catalog of all products Americo offers.", image_url: "americo-design-catalog.jpg", lead: "lead", callout: "callout", vertical: "nil", horizontal: "nil", side: "nil"}
 ])
 Style.create!([
