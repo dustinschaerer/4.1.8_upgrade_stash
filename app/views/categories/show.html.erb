@@ -10,7 +10,7 @@
           <h1 class="addbrown"><span class="cat-title">Custom-Made Table Covers are our Specialty</span></h1>
           <div class="stylename bold">Beautiful Vinyl and Laminated Fabrics in Hundreds of Colors </div>
           <div>
-            <p class="splashtext top20">Yes, you can get tablecloths, runners, and toppers sewn to the exact size and shape you need without spending a fortune. Simply hose your patterns from our Premium, Classic or Designer collections and supply us with table measurements. Welll stitch up perfect-fitting coverings   for every table—and even add umbrella holes, elastic, or Velcro, if needed. No minimums are required for custom work, and most orders ship in 2-3 weeks. Roll goods ship in 24 hours.</p>
+            <p class="splashtext top20">Yes, you can get tablecloths, <u>runners</u>, and <u>toppers</u> sewn to the exact size and shape you need without spending a fortune. Simply hose your patterns from our Premium, Classic or Designer collections and supply us with table measurements. Welll stitch up perfect-fitting coverings   for every table—and even add umbrella holes, elastic, or Velcro, if needed. No minimums are required for custom work, and most orders ship in 2-3 weeks. Roll goods ship in 24 hours.</p>
             <p class="splashtext">Looking for ready-made vinyl table covers? Check out our Value line. <span class="bold">For do-it-yourselfers, fabrics are also available by the <u>roll</u> or by the <u>cut</u>.</span></p>
           </div>
         </div>
@@ -23,8 +23,11 @@
             <li class="addgold">Free Quotes</li>
           </ul>
 
-
-          <%= image_tag("swatch-image.png", :class => "img-responsive pull-right", alt: "Free Swatches", :id => 'home-swatches' ) %>
+          <div>
+          <%= link_to('/how_to_order', :class => "no-under") do %>
+            <%= image_tag("swatch-image.png", :class => "img-responsive pull-right", alt:"Free Swatches", :id => 'home-swatches') %>
+          <% end %>
+          </div>
 
         </div>
       </div>

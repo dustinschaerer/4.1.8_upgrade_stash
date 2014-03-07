@@ -476,6 +476,9 @@ footer {
 .addpurple {
   color: #50334E; 
 }
+.addorange {
+  color: #AA4B19;
+}
 .choices {
   font-size:1.2em;
 }
@@ -584,6 +587,9 @@ p .up10, .up10 {
 .top40 {
   margin-top: 40px;
 }
+.padtop40 {
+  padding-top: 40px;
+}
 
 .bottom20 {
   margin-bottom: 20px;
@@ -630,31 +636,31 @@ p .up10, .up10 {
 .larger {
   font-size:1.3em;
 }
-
+.smaller {
+  font-size:0.8em;
+}
 .serieslead {
   font-size: 2.2em;
 }
 .seriesdesc {
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 
 .noforget {
-  padding-top: 95px;
   color: #AD5224;
   font-size:1.6em;
 
 }
 .onesix {
   font-size: 1.6em; 
+  line-height: 1.2em; 
 }
 .distinctions {
   font-weight: bold;
 
 }
-.suitable-uphol {
-  font-weight: bold;  
-}
+
 .not-uphol {
   font-weight: bold;
   
@@ -839,7 +845,7 @@ p .up10, .up10 {
   }
 }
 .sideseries {
-  padding:5px 8px 0px 18px;
+  padding:0px 8px 0px 18px;
   font-size: 1.0em;
 }
 body .galleria-thumbnails-container {

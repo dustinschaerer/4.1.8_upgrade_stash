@@ -8,6 +8,7 @@
       <th>Series</th>
       <th>Name</th>
       <th>Image url</th>
+      <th>Not for Upholstery?</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,6 +23,7 @@
         <td><%= color.series.name %></td>
         <td><%= color.name %></td>
         <td><%= color.image_url %></td>
+        <td><%= color.notforupholstery %></td>
         <td><%= link_to 'Show', color %></td>
         <td><%= link_to 'Edit', edit_color_path(color) %></td>
         <td><%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>

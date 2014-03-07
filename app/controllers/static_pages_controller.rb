@@ -13,7 +13,12 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+  end
 
+  def americlear_laminations_sample
+  end
+
+  def cleaning_instructions
   end
 
   def contact
@@ -22,22 +27,10 @@ class StaticPagesController < ApplicationController
   def credit_application
   end
 
-  def quote_system
-  end
-  
-  def photo_gallery
-  end
-
-  def table_cover_gallery
-  end
-
-  def markets
+  def free_swatches
   end
 
   def frequently_asked_questions
-  end
-
-  def cleaning_instructions
   end
 
   def how_to_measure
@@ -46,19 +39,28 @@ class StaticPagesController < ApplicationController
   def how_to_order
   end
 
+  def markets
+  end
+
+  def photo_gallery
+  end
+
+  def quote_system
+  end
+
+  def request_catalog
+  end  
+  
+  def request_quote
+  end
+
+  def table_cover_gallery
+  end
+
   def technical_specs
   end
   
   def terms_and_conditions
   end
-
-  def americlear_laminations_sample
-  end
-
-  def request_quote
-  end
-
-  def request_catalog
-  end  
 
 end
