@@ -11,14 +11,15 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery.ui.effect-blind
 //= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
 //= require galleria-1.3.5
 //= require galleria.classic
 //= require underscore
 //= require dependent-fields
+//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
