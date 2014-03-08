@@ -59,7 +59,7 @@ class QuotecartsController < ApplicationController
   # DELETE /quotecarts/1
   # DELETE /quotecarts/1.json
   def destroy
-    @quotecart.destroy if @quotecart.id == session[:quotecart_id]
+    @quotecart.destroy#if @quotecart.id == session[:quotecart_id]
     session[:quotecart_id] = nil
 
     respond_to do |format|
