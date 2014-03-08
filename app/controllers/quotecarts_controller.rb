@@ -59,11 +59,11 @@ class QuotecartsController < ApplicationController
   # DELETE /quotecarts/1
   # DELETE /quotecarts/1.json
   def destroy
-    @quotecart.destroy#if @quotecart.id == session[:quotecart_id]
+    @quotecart.destroy if @quotecart.id == session[:quotecart_id]
     session[:quotecart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to store_url, notice: 'Your Quote Cart is now Empty, You no longer have a quote to submit.' }
+      format.html { redirect_to root_path, notice: 'Your Quote Cart is now Empty, You no longer have a quote to submit.' }
       format.json { head :no_content }
     end
   end
