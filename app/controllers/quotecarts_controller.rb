@@ -14,6 +14,7 @@ class QuotecartsController < ApplicationController
   # GET /quotecarts/1
   # GET /quotecarts/1.json
   def show
+    @quotecart if @quotecart.id == session[:quotecart_id]
   end
 
   # GET /quotecarts/new
