@@ -61,6 +61,6 @@ class SeriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def series_params
-      params.require(:series).permit(:style_id, :name, :description, :image_url, :swapimage, :lead, :callout, :vertical, :horizontal, :side )
+      params.require(:series).permit(:style_id, :name, :description, :image_url, :swapimage, :smallimage, :lead, :callout, :vertical, :horizontal, :side )
     end
 end
