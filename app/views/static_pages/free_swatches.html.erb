@@ -18,90 +18,31 @@
       <li><a href="/request_quote">Request a Quote</a></li>
       <li><a href="/request_catalog">Request a Catalog</a></li>
     </ul>
-    <div>
-      <%= image_tag("swatch-image.png") %>
-      <%= image_tag("free-catalog.png") %>
-    </div>
   </div>
 
   <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
     <h1 class="addmaroon"><span class="cat-title">Free Trial Swatches</span></h1>
+    <p class="stylename addblack">Order As Many As You Like</p>
     <div class="row">
-        
-      <div class="col-xs-12 col-sm-7">
-        <div class="stylename addmaroon">We offer Free Trial Swatches With FREE SHIPPING!</div>
-        
-          <div class="row">
-            <div class="col-xs-1 twoem bold">1 
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Blah blah blah</strong> blah blah blah.......
-            </div> 
-          </div> 
-        <!--
-        <div id="blueback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">2 
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Choose table cover types from the illustrations <span class="glyphicon glyphicon-play"></span></strong>
-              <br>Note which tables, if any, need umbrella holes or Velcro (for booths attached to walls)
-            </div> 
-          </div></div>
-        <div id="greenback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">3   
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Measure your table tops in inches.</strong><br>
-              <ul class="noindent">
-                <li class="noindent">For square or rectangular tables, measure width first, then length (example: 32” x 42”) For standard drape covers, we add an 8” drop on all sides, unless you specify otherwise.</li>
-                <li class="noindent">For round tables, measure the diameter of table from edge to edge across the center (example: 60”)</li>
-                <li class="noindent">For floor length covers, measure from top of table to the floor.</li>
-              </ul>
-          <div class="pull-right"><a href="how_to_measure" class="whitelink">Measuring Instructions</a></div>
-            </div> 
-          </div>
-        </div>
-        <div id="redback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">4  
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Request a quote.</strong><br>
-              <ul class="noindent">
-                <li class="noindent">Provide us with the style number, color choice, and all your table measurements, and let us do the math.</li>
-                <li class="noindent">For standard drape covers, we add an 8” drop on all sides, unless you specify otherwise.</li>
-                <li class="noindent">Table runners come in 3 widths: 12”, 16” and 24”.</li>
-              </ul>
-            </div> 
-          </div>
-        </div>
-        <div id="grayback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">5  
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Place your order.</strong><br> 
-              <ul class="noindent">
-                <li class="noindent">All table covers are precision-cut and constructed to your exact specifications. Edges are finished with a 1/4" single-turn hem.</li>
-                <li class="noindent">Finished table covers are delivered within 5 to 15 days.</li>
-              </ul>
-            </div> 
-          </div>
-        </div>
--->
-       
-        
+      <div class="col-xs-12 col-sm-9">        
+        <p>8”x 10” swatches are free and ship within 1 busness day, via express mail.</p>
+            <p>24”x24” and 54”x54” cuts are also availabe ant not charge, if needed to make you final selection.</p> 
       </div>
-
-      <div class="col-xs-12 col-sm-5">
-       
+      <div class="col-xs-12 col-sm-3">
+          <div>
+              <%= image_tag("swatch-image.png", :class => "top10", alt:"Free Swatches") %>
+          </div>
+          <div>
+             <%= link_to('/request_catalog', :class => "no-under") do %>
+              <%= image_tag("free-catalog.png", :class => "top20", alt:"Free Catalog") %>
+            <% end %>
+          </div>  
+          <div class="top40">
+             <%= link_to('/categories/2', :class => "no-under onesix addarmy") do %>
+              <strong>Don't Forget</strong><br>to order the<br>Non-Slip Pads
+            <% end %>
+          </div>  
       </div>    
     </div>    
-  
-
-  	<p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-  </div>    
-
-  
+  </div>
 </div>   
