@@ -26,13 +26,16 @@
     <div class="row">
       <div class="col-xs-7 splashtext top20">
     
-        <p>Your space is unique. Special. And you want the fabrics in your décor to reflect that personality. At Americo, we not only understand the drive to create one-of-a-kind ambience, we provide both the products and service needed to achieve your dream.</p>
-        <p>Whether your décor is contemporary, traditional, upscale, casual, or ethnic, Americo has a wide selection of high quality vinyl and laminated fabrics to choose from.</p>
-        <p>Keep all our chooses in hand with our 98 page catalog or <a href="#">download a pdf of catalog</a> to take along with you on your favorite device.</p>
-          <%= link_to('Add to Cart', '/line_items?series_id=80&color_id=581', :class => "btn btn-primary", method: :post ) %> 
+        <p>Whether your décor is contemporary, traditional, upscale, casual, or ethnic, Americo has a wide selection of high-performance table vinyl and laminated table covers and upholstery fabrics to make your space look fantastic.</p>
+        <p>With so many choices, we know it can be hard to make up your mind. That’s why we produce a 98-page catalog that's yours free for the asking.</p>
+        
+        <p>This beautifully photographed catalog makes it easy to browse our collections whenever and wherever you choose. See and show all our fabrics, placemats, and other table accessories. Every style.  Every color.</p>
+        <p>Plus, you’ll find decorating tips, product specs, and complete ordering and measuring instructions. Order yours today or download a pdf to print now.</p>
+         <center>
+          <%= link_to('Add to Cart', '/line_items?series_id=80&color_id=581', :class => "btn btn-lg btn-primary", method: :post ) %> </center>
       </div>  
       <div class="col-xs-5">
-        <%= image_tag('americo-catalog.jpg')  %>
+        <%= image_tag('americo-catalog.jpg', class: "img-responsive")  %>
       </div>
     </div>    
 
