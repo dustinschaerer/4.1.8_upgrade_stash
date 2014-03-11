@@ -54,6 +54,9 @@ class StaticPagesController < ApplicationController
   def request_quote
   end
 
+  def satisfied_customers
+  end 
+    
   def table_cover_gallery
   end
 

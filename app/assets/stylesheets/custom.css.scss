@@ -1,12 +1,6 @@
-
-
 /* universal */
 $grayLight: #666;
 $red: #BF2C37;
-
-
-
-
 
 html {
   overflow-y: scroll;
@@ -32,11 +26,7 @@ textarea {
   }
 }
 
-
-
 .form-inline div { display: inline-block }
-
-
 
 .affix-top {
   top:41px;
@@ -139,7 +129,6 @@ a {
    
 } 
 
-
 #siteheader {
   padding: 30px 0px 20px 0px;
   margin-bottom:14px;
@@ -157,7 +146,6 @@ a {
     margin-bottom:10px;
   } 
 } 
-
 
 .homephone {
   font-size: 1.4em;
@@ -189,13 +177,10 @@ a {
   background-color:#efefef;
 }
 
-
-
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 /*
 .nav-justified {
-  background-color: transparent;
-  
+  background-color: transparent;  
 }
 */
 
@@ -206,7 +191,6 @@ a {
   text-shadow: 0 1px 0 #FFFFFF;
 
 }
-
 
 .nav-justified > .active > a,
 .nav-justified > .active > a:hover,
@@ -237,41 +221,6 @@ a {
     padding-right: 0;
   }
 }
-
-
-
-
-
-
-
-
-
-
-/*
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-  &:hover {
-    color: #fff;
-    text-decoration: none;
-  }
-}
-
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-} 
-*/
-
-
-
 
 
 /* footer */
@@ -819,6 +768,17 @@ p .up10, .up10 {
   color:white;
   padding: 10px 10px 10px 10px;
 }
+#lightgreenback  {
+  background-color: #696E2D;
+  color:white; 
+  padding: 20px 10px 20px 15px;
+}
+#lightorangeback {
+  background-color: #AA4B19;
+  color:white;
+  padding: 20px 10px 25px 15px;
+}
+
 .backed {
   background-color: #F0EADE;
 }
