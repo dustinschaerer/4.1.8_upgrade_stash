@@ -20,8 +20,6 @@
 
 <% end %>
 
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <div class="col-sm-12">
     <div class="<%= thiscolor %>"><span class="seriesname"><%= @series.name %></span> <span class="twoem">&ndash; <%= @series.colors.count %>  colors available </div>
@@ -30,7 +28,7 @@
     	<% if (@series.style.id == 2) %>
           <% if (@series.id > 56) %>
             <% if (@series.id < 73) %>
-		      | <span class="distinctions addorange">DISTINCTIONS COLLECTION</span>
+		     <!-- | <span class="distinctions addorange">DISTINCTIONS COLLECTION</span> -->
        	    <% end %> 
        	  <% end %>  
         <% end  %>
@@ -105,7 +103,7 @@
        	  	  	This Style Also Suitable<br>for <u>Upholstery</u> Projects!
        	  	  </div>
        	  	  <div class="bold">
-       	  	  	<span class="glyphicon glyphicon-exclamation-sign"></span>
+       	  	  	<span class="glyphicon glyphicon-remove-sign"></span>
        	  	  	<span class="addorange">Color Not recommended for upholstery.</span>
        	  	  </div>    	
        	  	</div>
@@ -118,11 +116,15 @@
 
 	  <div class="col-sm-6">
         <% if (@series.style.id == 7) %>
-          <div class="splashtext upcallout"><%= @series.callout %></div>
-          <div class="pull-right top10">
+          <div class="pull-right top40">
 	        <div id="upholimage"><%= image_tag(@series.smallimage, :class => "img-responsive" )  %></div>
 	        <div><a href="#", id="linkswapper" class="linkswapper">VIEW LARGER  <span class="glyphicon glyphicon-zoom-in"></span></a></div>
           </div>
+          <div class="clearfix">
+          </div>	
+          <div class="top20">
+            <a href="/styles/7"><span class="addblack"><strong>Back to ALL UPHOLSTERY Fabrics</strong></span> <span class="glyphicon glyphicon-play"></span></a> 
+          </div>  
             
         <% elsif (@series.style.id == 1) %>
           
@@ -257,7 +259,7 @@
           <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
           <div class="row">
 			<div class="col-xs-9">
-				<div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-exclamation-sign"></span> <% end %><% swatch.series.name %>  <%= swatch.name %></strong></div>
+				<div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-remove-sign"></span> <% end %><% swatch.series.name %>  <%= swatch.name %></strong></div>
 				<div class="addblack">
 					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-xs", method: :post ) %> 
 				</div>
@@ -295,7 +297,7 @@
 
 			        <div class="row">
 			        	<div class="col-xs-12">
-			        		<div class="bottom15"><%= swatch.series.callout %></div>
+			        		<div class="bottom15"><%= swatch.name %></div>
 			        		<div class="bottom15"><%= swatch.series.description %></div>
 			        		<div class="">Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</div>
 		        		</div>

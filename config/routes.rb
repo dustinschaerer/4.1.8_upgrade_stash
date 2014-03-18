@@ -1,10 +1,8 @@
 Americo::Application.routes.draw do
-  
- 
 
-  resources :quotes
+  resources :shapes
 
-  resources :purchases
+  resources :covers
 
   authenticated :user do
     root :to => 'static_pages#home', :as => "authenticated_root"
@@ -25,7 +23,6 @@ Americo::Application.routes.draw do
   resources :colors
   resources :orders
   resources :shipping_profiles
-
   resources :laminatecuts
   resources :vinylcuts
   resources :upholsterycuts
@@ -43,6 +40,8 @@ Americo::Application.routes.draw do
   resources :items
   resources :quotecarts
   resources :vinyls
+  resources :quotes
+  resources :purchases
 
   get "store/index"
   resources :products do

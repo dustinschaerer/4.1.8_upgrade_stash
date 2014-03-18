@@ -87,6 +87,10 @@ h1 {
   font-size: 2.2em;
   text-align: left;
   margin-bottom: 0.1em;
+  letter-spacing: -1px;
+  font-weight: 600;
+  line-height: 1.2em;
+
 }
 
 
@@ -130,7 +134,7 @@ a {
 } 
 
 #siteheader {
-  padding: 30px 0px 20px 0px;
+  padding: 30px 0px 15px 0px;
   margin-bottom:14px;
   background-color: #EFEFEF;
   ul {
@@ -174,7 +178,24 @@ a {
   text-decoration: none;
 }
 #covers {
-  background-color:#efefef;
+  background-color: #efefef;
+}
+.bgimg {
+  z-index: 0;
+  padding: 16px;
+}
+.bgtext {
+  z-index:100;
+  position:relative;
+  top:20px;
+  left: 30px;
+  font-weight: 700;
+}
+.cartcount {
+  z-index:10;
+  position: relative;
+  left:17%;
+  top:20px;
 }
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
@@ -399,6 +420,9 @@ footer {
 
 .underline {
   text-decoration: underline;
+}
+.addred {
+  color: #BF2C37;
 }
 .addgreen {
   color: #5E6923;
@@ -793,6 +817,8 @@ p .up10, .up10 {
   color: black;
   text-decoration: underline;
 }
+
+
 
 
 

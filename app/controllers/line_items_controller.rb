@@ -38,6 +38,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        flash[:notice] = "Swatch was successfully Added to your Cart."
         format.html { redirect_to :back }
         format.js { @current_item = @line_item }
         format.json { render action: 'show', status: :created, location: @line_item }

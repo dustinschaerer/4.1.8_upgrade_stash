@@ -19,17 +19,24 @@ class VinylsController < ApplicationController
 
   # GET /vinyls/new
   def new
-    if session[:vinyl]
-      @vinyl = Vinyl.new(params[:vinyl])
-    else 
+    #if session[:vinyl]
+    #  @vinyl = Vinyl.new(params[:vinyl])
+    #else 
       @vinyl = Vinyl.new
       @series = Series.where("style_id = 1 OR style_id = 2").order("name")
       @color = Color.all  
-    end 
+      @cover = Cover.all
+      @shape = Shape.all
+    #end 
   end
 
   # GET /vinyls/1/edit
   def edit
+      @cover = Cover.all
+      @shape = Shape.all
+      @series = Series.where("style_id = 1 OR style_id = 2").order("name")
+      @color = Color.all  
+
   end    
 
   # POST /vinyls
@@ -89,6 +96,6 @@ class VinylsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vinyl_params
-      params.require(:vinyl).permit(:cover, :shape, :width, :length, :diameter, :height, :drop, :series_id, :color_id, :umbrella, :velcro, :quantity, :price)
+      params.require(:vinyl).permit(:cover_id, :shape_id, :width, :length, :diameter, :height, :drop, :series_id, :color_id, :umbrella, :velcro, :quantity, :price)
     end
 end

@@ -16,27 +16,25 @@
 <div class="form-inputs">  
  
   <div class="row">
-
     <div class="col-sm-12 col-md-5">
       <div class="field">
-          <%= f.label :cover %>
-          <%= f.select(:cover, options_for_select([['Regular Drape'], ['Fitted (Hat Box)'], ['Elastic Contour'], ['Fitted-to-Floor (Hat Box)'], ['Regular Drape-to-Floor']  ]), { :prompt => "Please Choose"})           %>       
-      </div>
-    </div>
-  
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12 col-md-5">
-      <div class="field">
-        <%= f.label :shape %>
-        <%= f.select(:shape, options_for_select([['Round', 'Round'],  ['Rectangle', 'Rectangle'], ['Square', 'Square']]), { :prompt => "Please Choose"}) %>
+          <%= f.label :cover_id %>
+          <%= collection_select(:vinyl, :cover_id, Cover.all.order("id"), :id, :name ) %>
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="js-dependent-fields" data-select-id="vinyl_shape" data-option-value="Rectangle|Square">
+    <div class="col-sm-12 col-md-5">
+      <div class="field">
+        <%= f.label :shape_id %>
+        <%= f.collection_select(:shape_id, Shape.all.order("id"), :id, :name ) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="js-dependent-fields" data-select-id="vinyl_shape_id" data-option-value="2|3">
       <div class="col-sm-12 col-md-5">
         <div class="field">
           <%= f.label :width %>
@@ -47,7 +45,7 @@
   </div>
 
   <div class="row">
-    <div class="js-dependent-fields" data-select-id="vinyl_shape" data-option-value="Rectangle">
+    <div class="js-dependent-fields" data-select-id="vinyl_shape_id" data-option-value="2">
       <div class="col-sm-12 col-md-5">
         <div class="field">
           <%= f.label :length %>
@@ -58,7 +56,7 @@
   </div>  
 
   <div class="row">
-    <div class="js-dependent-fields" data-select-id="vinyl_shape" data-option-value="Round">
+    <div class="js-dependent-fields" data-select-id="vinyl_shape_id" data-option-value="1">
       <div class="col-sm-12 col-md-5">
         <div class="field">
           <%= f.label :diameter %>
@@ -70,7 +68,7 @@
 
 
   <div class="row">
-  <div class="js-dependent-fields" data-select-id="vinyl_cover" data-option-value="Fitted-to-Floor (Hat Box)|Regular Drape-to-Floor">
+  <div class="js-dependent-fields" data-select-id="vinyl_cover_id" data-option-value="4|5">
     <div class="col-sm-12 col-md-5">
       <div class="field">
         <%= f.label :height %>
@@ -79,10 +77,10 @@
     </div>
   </div>
   </div>  
-
+<!--
   <div class="row">
 
-    <div class="js-dependent-fields" data-select-id="vinyl_cover" data-option-value="Regular Drape|Fitted (Hat Box)">
+    <div class="js-dependent-fields" data-select-id="vinyl_cover_id" data-option-value="Regular Drape|Fitted (Hat Box)">
       <div class="col-sm-12 col-md-5">
         <div class="field">
           <%= f.label :drop %>        
@@ -93,6 +91,44 @@
      ['4 inch', '6 inch (We Recommend this length for the Fitted (Hat Box) Cover)', '8 inch']]
   ] %>
           <%= f.select("drop", grouped_options_for_select(grouped_options)) %>
+        </div>
+      </div>
+    </div>
+
+  </div>  
+-->
+
+  <div class="row">
+
+    <div class="js-dependent-fields" data-select-id="vinyl_cover_id" data-option-value="1">
+      <div class="col-sm-12 col-md-5">
+        <div class="field">
+          <%= f.label :drop %>        
+          <% grouped_options = [
+  ['Regular Drape',  
+     ['6 inch', '8 inch (We Recommend this length for the Regular Drape Cover)', '10 inch'], '8 inch (We Recommend the length for the Regular Drape Cover)']
+  ] %>
+          <%= f.select("drop", grouped_options_for_select(grouped_options, "8 inch (We Recommend this length for the Regular Drape Cover)")) %>
+        </div>
+      </div>
+    </div>
+
+  </div>  
+
+
+
+
+  <div class="row">
+
+    <div class="js-dependent-fields" data-select-id="vinyl_cover_id" data-option-value="2">
+      <div class="col-sm-12 col-md-5">
+        <div class="field">
+          <%= f.label :drop %>        
+          <% grouped_options = [
+  ['Fitted (Hat Box)',  
+     ['4 inch', '6 inch (We Recommend this length for the Fitted (Hat Box) Cover)', '8 inch'], '6 inch (We Recommend this length for the Fitted (Hat Box) Cover)']
+  ] %>
+          <%= f.select("drop", grouped_options_for_select(grouped_options, "6 inch (We Recommend this length for the Fitted (Hat Box) Cover)")) %>
         </div>
       </div>
     </div>

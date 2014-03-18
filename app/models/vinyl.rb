@@ -1,14 +1,17 @@
 class Vinyl < ActiveRecord::Base
   belongs_to :series
   belongs_to :color
+  belongs_to :cover
+  belongs_to :shape
+  
   has_many :items, :as => :itemable
 
   before_destroy :ensure_not_referenced_by_any_item
 
   validates :series_id, presence: true 
   validates :color_id, presence: true
-  validates :cover, presence: true
-  validates :shape, presence: true
+  validates :cover_id, presence: true
+  validates :shape_id, presence: true
   validates :quantity, presence: true, numericality: {greater_than_or_equal_to: 1}
   
   validates :diameter, presence: true, if: :is_round?

@@ -58,22 +58,44 @@
         </div>
 
         <div class="col-xs-6 col-sm-3 col-md-3">
+          
           <div class="dropdown pull-right">  
+            <div class="cartcount styledesc bold addred"><%= @cart.line_items.count %></div>
           <%= link_to '#', id: "minidropcart", :class => "dropdown-toggle", data: { toggle: "dropdown" } do 
              # link_to 'carts/:id', id: "minidropcart", class: "dropdown-toggle", data: { toggle: "dropdown", target: "#" } do 
             %>
             <%= image_tag('header_cart.png') %>         
              <% end %>  
             <div class="dropdown-menu" role="menu" style="padding: 10px;min-width:320px;" aria-labelledby="minidropcart" id="side">
+              <% if user_signed_in? %>
+                  <% if @cart %>
+                    <% if (@cart.line_items.empty?) %>
+                      Your Shopping Cart is Currently Empty
+                    <% end %>
+                  <% end %> 
+              <% end %>
+
               <% if @cart %>
-                <%=
-                 hidden_div_if(@cart.line_items.empty?, id: 'cart') do 
-                %>
+                <div id="cart">
+                <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
                   <%= render @cart %>   
-                <%
-                 end 
-                %>
-              <% end %> 
+                <% end %>
+                </div> <!-- end cart id div -->
+              <% end %>               
+            </div>
+
+            <div class="addblack top10">
+            
+              <% if @cart %>
+
+                <% if (@cart.line_items.empty?) %>
+                  Your cart is Empty
+                <% else %>              
+                  Your cart has <%= @cart.line_items.count %>   <%= "item".pluralize(@cart.line_items.count) %> 
+                <% end %>
+              
+              <% end %>  
+
             </div>
           </div>
           

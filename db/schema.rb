@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310210230) do
+ActiveRecord::Schema.define(version: 20140318030335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,12 @@ ActiveRecord::Schema.define(version: 20140310210230) do
   end
 
   add_index "colors", ["series_id"], name: "index_colors_on_series_id", using: :btree
+
+  create_table "covers", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "frogs", force: true do |t|
     t.string   "name"
@@ -300,6 +306,12 @@ ActiveRecord::Schema.define(version: 20140310210230) do
 
   add_index "series", ["style_id"], name: "index_series_on_style_id", using: :btree
 
+  create_table "shapes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "shipping_profiles", force: true do |t|
     t.integer  "user_id"
     t.string   "firstname"
@@ -444,8 +456,6 @@ ActiveRecord::Schema.define(version: 20140310210230) do
   add_index "vinylrolls", ["series_id"], name: "index_vinylrolls_on_series_id", using: :btree
 
   create_table "vinyls", force: true do |t|
-    t.string   "cover"
-    t.string   "shape"
     t.integer  "width"
     t.integer  "length"
     t.integer  "height"
@@ -459,9 +469,13 @@ ActiveRecord::Schema.define(version: 20140310210230) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "diameter"
+    t.integer  "cover_id"
+    t.integer  "shape_id"
   end
 
   add_index "vinyls", ["color_id"], name: "index_vinyls_on_color_id", using: :btree
+  add_index "vinyls", ["cover_id"], name: "index_vinyls_on_cover_id", using: :btree
   add_index "vinyls", ["series_id"], name: "index_vinyls_on_series_id", using: :btree
+  add_index "vinyls", ["shape_id"], name: "index_vinyls_on_shape_id", using: :btree
 
 end

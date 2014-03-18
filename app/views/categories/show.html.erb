@@ -7,32 +7,30 @@
     
       <div class="row">
         <div class="col-sm-9">
-          <h1 class="addbrown"><span class="cat-title">Custom-Made Table Covers are our Specialty</span></h1>
-          <div class="stylename bold">Beautiful Vinyl and Laminated Fabrics in Hundreds of Colors </div>
+          <h1 class="addorange styletype">Custom-Made Table Covers are our Specialty</h1>
+          <div class="stylesub">Beautiful Vinyl and Laminated Fabrics in Hundreds of Colors </div>
           <div>
             <p class="splashtext top20">Yes, you can get tablecloths, <u>runners</u>, and <u>toppers</u> sewn to the exact size and shape you need without spending a fortune. Simply hose your patterns from our Premium, Classic or Designer collections and supply us with table measurements. Welll stitch up perfect-fitting coverings   for every table—and even add umbrella holes, elastic, or Velcro, if needed. No minimums are required for custom work, and most orders ship in 2-3 weeks. Roll goods ship in 24 hours.</p>
-            <p class="splashtext">Looking for ready-made vinyl table covers? Check out our Value line. <span class="bold">For do-it-yourselfers, fabrics are also available by the <u>roll</u> or by the <u>cut</u>.</span></p>
+            <p class="splashtext">Looking for ready-made vinyl table covers? Check out our Value line. <span class="bold">For do-it-yourselfers, fabrics are also available by the roll or by the cut.</span></p>
           </div>
         </div>
-        <div id="vinyl-land" class="col-sm-3 border-left">
+        <div id="vinyl-land" class="col-sm-3 border-left addorange">
           <ul>
-            <li class="addgold">Low or No Minimums</li>
-            <li class="addgold">Custom-Made Options</li>
-            <li class="addgold">Free Catalog</li>
-            <li class="addgold">Fast Delivery</li>
-            <li class="addgold">Free Quotes</li>
+            <li>Low or No Minimums</li>
+            <li>Custom-Made Options</li>
+            <li>Free Catalog</li>
+            <li>Fast Delivery</li>
+            <li>Free Quotes</li>
           </ul>
 
           <div>
           <%= link_to('/how_to_order', :class => "no-under") do %>
-            <%= image_tag("swatch-image.png", :class => "img-responsive pull-right", alt:"Free Swatches", :id => 'home-swatches') %>
+            <%= image_tag("swatch-image.jpg", :class => "img-responsive pull-right", alt:"Free Swatches", :id => 'home-swatches') %>
           <% end %>
           </div>
 
         </div>
       </div>
-
-
 
       <div class="row">
         <div class="col-sm-9">
@@ -47,9 +45,6 @@
 
         </div>
       </div>
-
-
-
 
       <div class="row">
 
@@ -79,7 +74,8 @@
       </div>
 
     <div class="border-top">
-      <div id="covers"><%= image_tag('tablecover_styles.png', :class => "img-responsive") %></div>
+      <div id="covers">
+        <div><span class="bgtext">TABLE COVER TYPES &nbsp; <a href="/how_to_measure" class="lefty">Measuring Instructions  <span class="glyphicon glyphicon-play"></span></a></span>   </div><%= image_tag('vertical-illustrations.png', :class => "img-responsive bgimg") %></div>
     </div>
 
     <!-- end if cat 1 -->  
@@ -165,8 +161,8 @@
             <li class="bold">Roll Length: 33 yards</li>
             <li class="bold">Roll Widths: 36", 48" &amp; 72"</li>
           </ul>
-          <%= image_tag("swatch-image.png", :class => "img-responsive pull-left", alt: "Free Swatches", :id => 'home-swatches' ) %>
-          <%= image_tag("free-catalog.png", :class => "img-responsive pull-right", alt: "Free Catalog" ) %>
+          <%= image_tag("swatch-image.jpg", :class => "img-responsive pull-left", alt: "Free Swatches", :id => 'home-swatches' ) %>
+          <%= image_tag("free-catalog.jpg", :class => "img-responsive pull-right", alt: "Free Catalog" ) %>
         </div>
       </div>
 
@@ -197,8 +193,8 @@
 
     <div class="row">
       <div class="col-sm-9  border-right">
-        <h1 class="addmaroon"><span class="cat-title">Laminating Makes Woven Fabrics Virtually Carefree</span></h1>
-        <div class="stylename bold">Americlear Fabric Lamination Provides Ultimate Protection</div>
+        <h1 class="addmaroon">Laminating Makes Woven Fabrics Virtually Carefree</h1>
+        <div class="stylesub">Americlear Fabric Lamination Provides Ultimate Protection</div>
           <div>
             <p class="splashtext top20">Don’t shy away from using decorator fabrics in high-use areas. Instead, protect favorite fabrics with Americlear lamination. This superior, heat-set technique applies a translucent film to woven material to create a long-lasting laminated fabric that never needs washing. Spot cleaning with soapy water removes everyday grime and most stains.</p>
             
@@ -207,16 +203,16 @@
             <p class="splashtext">Lamination may not be suitable for certain weaves, textures and patterns. We recommend ordering a sample Americlear lamination to ensure you like the results.</p>
           </div>
           
-          <div class="row top10">
-            <div class="col-xs-4"><a href="/americlear_laminations_sample" class="">Ordering Information</a></div>
-            <div class="col-xs-4"><a href="/technical_specs" class="">Techinical Specs</a></div>
-            <div class="col-xs-4"><a href="/request_quote" class="">Request A Quote</a></div>
+          <div class="row top10 border-top">
+            <div class="col-xs-4"><a href="/americlear_laminations_sample" class="larger">Ordering Information</a></div>
+            <div class="col-xs-4"><a href="/technical_specs" class="larger">Techinical Specs</a></div>
+            <div class="col-xs-4"><a href="/request_quote" class="larger">Request A Quote</a></div>
           </div>  
 
-          <div class="row top10 bottom ">
+          <div class="row top10 bottom border-top">
             <div class="col-xs-2 col-xs-offset-1"><%= image_tag('americlear-lam-2068.png', :class => "img-responsive") %></div>
             <div class="col-xs-8 addgreen top10 lamtext"><p><strong>Americo's Pre-Laminated Designer Fabrics</strong> can help you achieve your creative vision. These striking fabrics are great for table coverings, upholstery project or drapes. Available by the roll or as custom-sewn tablecloths, overlays or runners.<br>
-            <a href="/styles/7" class="">View swatches and specs <span class="glyphicon glyphicon-play"></span></a></p></div>
+            <a href="/styles/3" class="">View swatches and specs <span class="glyphicon glyphicon-play"></span></a></p></div>
             
           </div>  
 
@@ -313,12 +309,11 @@
     </div>
   </div>  
 
-
-
   <div class="row">
     <div class="col-xs-12 col-sm-9  border-right addgray">
-      <h1 class="addarmy"><span class="cat-title">Accessorize with Placemats, Table Toppers or Table Runners</span></h1>
-      <div class="stylename bold addblack">Design Possibilities are Only Limited by Your Imagination</div>
+
+      <h1 class="addarmy">Accessorize with Placemats, Table Toppers or Table Runners</h1>
+      <div class="stylesub addblack">Design Possibilities are Only Limited by Your Imagination</div>
       <div>
         <p class="splashtext top20">Because we manufacture our own vinyls, we can quickly and easily make custom table runners or table toppers, as well as placemats. Why settle for one look, when you can easily change your decor from season to season or even for pecial events. Simply layer any basic table cover with a decorative runner, a snazzy overlay, or colorful placemats.</p>
         <p class="addarmy larger bold">Placemats in Hundreds of Colors and Patterns</p>
@@ -356,8 +351,8 @@
 
       <div class="row top10">
         <div class="col-xs-4">
-          <a href="#" class=""><%= image_tag('accessories-topper.jpg', :class => "img-responsive") %></a>
-          <div class="bold addgold stylebox">CLASSIC VINYLS</div>
+          <a href="/styles/1" class=""><%= image_tag('accessories-topper.jpg', :class => "img-responsive") %></a>
+          <div class="bold stylebox"><a href="styles/1" class="addgold">CLASSIC VINYLS</a></div>
           <p>29 Designs | 172 Colors
           <br>Hard-working, but affordable
           <br>10-mil PVC vinyl
@@ -365,8 +360,8 @@
         </div>
         
         <div class="col-xs-4">
-          <a href="#" class=""><%= image_tag('accessories-runner.jpg', :class => "img-responsive") %></a>
-          <div class="bold addarmy stylebox">PREMIUM VINYLS</div>
+          <a href="/styles/2" class=""><%= image_tag('accessories-runner.jpg', :class => "img-responsive") %></a>
+          <div class="bold stylebox"><a href="styles/2" class="addarmy">PREMIUM VINYLS</a></div>
           <p>26 Designs | 270 Colors
           <br>Heavy duty, versatile fabric
           <br>13-mil PVC vinyl
@@ -374,8 +369,8 @@
         </div>
         
         <div class="col-xs-4">
-          <a href="#" class=""><%= image_tag('accessories-laminate.jpg', :class => "img-responsive") %></a>
-          <div class="bold addpurple stylebox">DESIGNER LAMINATES</div>
+          <a href="/styles/3" class=""><%= image_tag('accessories-laminate.jpg', :class => "img-responsive") %></a>
+          <div class="bold stylebox"><a href="styles/3" class="addpurple">DESIGNER LAMINATES</a></div>
           <p>7 Designs | 26 Colors
           <br>Long lasting, easy care fabrics
           <br>6-mil clear PVC film
@@ -398,75 +393,23 @@
           </p>
         </div>
       </div> <!-- end row -->
-   
-
-          <!--
-          <div class="row">
-          <% 
-          #@category.products.order(:id).each do |product| 
-          %>
-              
-                  <% 
-                  #product.styles.order(:sort).each do |style| 
-                    %>  
-
-                  <% @accessories.order(:sort).each do |style| %>  
-
-                
-                  <div class="col-xs-4">  
-
-                      <div class="style-link">
-                      <%= link_to(style, :class => "no-under") do %>
-                        
-                        <%= image_tag(style.image_url, :class => "img-responsive") %>
-
-                      <% end %>
-
-                      <%= style.description.html_safe %>
-
-                      </div>
-
-                  </div>
-                  <% end %>
-          <% 
-          #end 
-          %>  
-          </div>
-          -->
-
+          
         </div>
         <div id="vinyl-land" class="col-sm-2 hidden-xs">
-          <ul>
-            <li class="addgold">Ready-Made Table Covers From our Value Collection also Make Great Toppers!</li>
-            <li class="addgold"><%= link_to "View Value Covers", "/styles/86" %></li>
-          </ul>
 
-
-          <%= image_tag("swatch-image.png", :class => "img-responsive pull-right", alt: "Free Swatches", :id => 'home-swatches' ) %>
-          <%= image_tag("free-catalog.png", :class => "img-responsive pull-right", alt: "Free Catalog", :id => 'free-catalog' ) %>
+          <%= image_tag("swatch-image.png", :class => "img-responsive pull-right top40", alt: "Free Swatches", :id => 'home-swatches' ) %>
+          <%= image_tag("free-catalog.png", :class => "img-responsive pull-right top40", alt: "Free Catalog", :id => 'free-catalog' ) %>
 
         </div>
       </div>
-
-
-      
+     
     <% end %>  <!-- end if cat 5 -->  
-
-
-
-
-
-
-
 
     </div>
   </div>
-
-
 <div></div>
 
 <!--
-
 <table>
   <thead>
     <tr>
@@ -497,5 +440,4 @@
 <%= link_to 'New Category', new_category_path %>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
-
 -->
