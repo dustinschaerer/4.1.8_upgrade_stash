@@ -8,7 +8,7 @@
       <li><a href="/contact">Contact Us</a></li>
       <li class="active"><a href="/free_swatches">Free Swatches</a></li>
       <li><a href="/how_to_order">How to Order</a></li>
-      <li><a href="/terms_and_conditions">Terms and Conditions</a></li>
+      <li><a href="/terms_and_conditions">Terms &amp; Conditions</a></li>
       <li><a href="/technical_specs">Technical Specs</a></li>
       <li><a href="/cleaning_instructions">Cleaning Instructions</a></li>
       <li><a href="/frequently_asked_questions">Frequent Questions</a></li>
@@ -18,29 +18,34 @@
       <li><a href="/request_quote">Request a Quote</a></li>
       <li><a href="/request_catalog">Request a Catalog</a></li>
     </ul>
+    <div>
+      <%= image_tag("swatch-image.jpg") %>
+      <%= image_tag("free-catalog.jpg") %>
+    </div>
   </div>
 
   <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
-    <h1 class="addmaroon"><span class="cat-title">Free Trial Swatches</span></h1>
-    <p class="stylename addblack">Order As Many As You Like</p>
+    
     <div class="row">
-      <div class="col-xs-12 col-sm-9">        
-        <p>8”x 10” swatches are free and ship within 1 busness day, via express mail.</p>
-            <p>24”x24” and 54”x54” cuts are also availabe ant not charge, if needed to make you final selection.</p> 
+      <div class="col-xs-12 col-sm-7">        
+        <h1 class="addmaroon">Free Swatches Help You Choose the Right Pattern</h1>
+        <p class="stylesub addblack">Free shipping, No Strings Attached</p>
+        <p>Shopping online is certainly convenient, but it's not always easy to tell from a picture whether you would prefer vinyl or laminate, light blue or dark, a solid or a pattern. To help you decide, we are happy to send you FREE 8” x 10” SWATCHES of any of our fabrics or non-slip padding.</p>
+        <div class="addmaroon styledesc">Ordering is Easy</div> 
+        <p>Go to the style pages of the collections you like and look for the “Order Swatch” button below each color option. Simply click the button and the swatch will be added to your shopping cart. When you finish shopping, go to your shopping cart to check out and place your order.</p>
+        <p>We’ll send your FREE 8” x 10” swatches by express mail within 24 hours. Order as many as you need to make your final choice. We always want you to be 100% satisfied.</p>
+        <p>If you need a larger sample of a specific vinyl or laminate pattern, you may request a free tablecloth-sized, 52” x 52” cutting from <a href="/contact" class="blacklink">customer service</a>. (Only one free 52” cutting per customer, please.)
+        <br>We also can laminate a ½- to 1-yard sample of your material with lamination, in a matte or glossy finish. Go to the <a href="/americlear_laminations_sample" class="blacklink">Americlear Sample Lamination</a> page to learn more.</p>
+        <p>Links to request <a href="/categories" class="blacklink">free samples of non-slip padding</a> are also on the specific product pages.</p>
+        <div class="addmaroon styledesc">Call Toll-Free for Personal Assistance</div>
+        <p>If you are unsure which products will work best for you, call us toll-free at 1-800-626-2350, and let us help you narrow down your options.</p>  
       </div>
-      <div class="col-xs-12 col-sm-3">
+      <div class="col-xs-12 col-sm-5">
           <div>
-              <%= image_tag("swatch-image.png", :class => "top10", alt:"Free Swatches") %>
+              <%= image_tag("free-swatches.jpg", :class => "img-responsive", alt:"Free Swatches") %>
           </div>
-          <div>
-             <%= link_to('/request_catalog', :class => "no-under") do %>
-              <%= image_tag("free-catalog.png", :class => "top20", alt:"Free Catalog") %>
-            <% end %>
-          </div>  
-          <div class="top40">
-             <%= link_to('/categories/2', :class => "no-under onesix addarmy") do %>
-              <strong>Don't Forget</strong><br>to order the<br>Non-Slip Pads
-            <% end %>
+          <div class="top20 addarmy bold larger">
+            FREE SWATCHES make finding the right fabric for your project risk-free. Order as many as you like.
           </div>  
       </div>    
     </div>    

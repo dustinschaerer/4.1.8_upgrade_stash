@@ -1,5 +1,74 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
+
 
 <% render(@cart) %>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><h1>Your Shopping Cart</h1> Please review the contents of your shopping cart. When you are ready to place your order, click the Checkout button</h3>
+  </div>	
+  <div class="panel-body">
+
+    <div class="row">
+    <div class="col-xs-9">
+	
+
+	<% if (@cart.line_items.empty?) %>
+	<div class="row">
+    	<div class="col-xs-12">
+			You cart is empty!
+    	</div>
+	</div>
+    <% end %>
+    
+
+
+	<div class="row text-center">
+    	<div class="col-xs-2">
+			Swatch
+    	</div>
+
+    	<div class="col-xs-2">
+			Style
+    	</div>
+
+    	<div class="col-xs-2">
+			Color
+    	</div>
+
+    	<div class="col-xs-1">
+			Qty
+    	</div>
+
+    	<div class="col-xs-3">
+			Remove Swatch
+    	</div>
+
+	</div>
+    <hr class="cartline"> 
+    <%= render(@cart.line_items) %>
+  
+
+    </div>
+    <div class="col-xs-3">	
+      <div class="well">	
+        You are currently signed is as: soso 
+	  </div> 
+	</div>
+  </div>
+
+
+
+
+
+  </div>
+
+
+
+
+</div>
+
+<div class="btn-group">
+	  <%= link_to 'Checkout', new_order_path, method: :get, class: "btn btn-default", type: "button"  %>
+	  <%= link_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-default", type: "button"  %>
+</div>

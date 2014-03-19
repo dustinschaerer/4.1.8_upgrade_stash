@@ -1,8 +1,12 @@
-<div class="well">
+<div class="panel panel-default">
+  
+  <div class="panel-heading">
+    <h3 class="panel-title"><h3>Your Shopping Cart</h3> Please review the contents of your shopping cart. When you are ready to place your order, click the Checkout button</h3>
+  </div>	
 
-	<div class="cart_title">Shopping Cart</div> 
-
-    	 <% if (@cart.line_items.empty?) %>
+  <div class="panel-body">
+    	 
+    	<% if (@cart.line_items.empty?) %>
     	<div class="row">
         	<div class="col-xs-12">
 				You cart is empty!
@@ -15,30 +19,35 @@
 				Image
 	    	</div>
 	
-	    	<div class="col-xs-3">
+	    	<div class="col-xs-2">
 				Style
 	    	</div>
 
-	    	<div class="col-xs-3">
+	    	<div class="col-xs-2">
 				Color
 	    	</div>
 	
-	    	<div class="col-xs-2">
+	    	<div class="col-xs-1">
 				Qty
 	    	</div>
 
-	    	<div class="col-xs-2">
+	    	<div class="col-xs-3">
 				Remove
 	    	</div>
 
     	</div>
+        <hr class="cartline"> 
 
         <%= render(cart.line_items) %>
+        
 
-</div>
+	</div>	
+</div>	
 
 <div class="btn-group">
-	  <%= link_to 'Checkout', new_order_path, method: :get, class: "btn btn-default", type: "button"  %>
+	  <%= link_to 'Checkout', @cart, method: :get, class: "btn btn-default", type: "button"  %>
 	  <%= link_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "btn btn-default", type: "button"  %>
 </div>
+
+
 
