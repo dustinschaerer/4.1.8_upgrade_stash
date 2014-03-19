@@ -1,7 +1,7 @@
 ActiveAdmin.register LineItem do
 
   belongs_to :order
-  navigation_menu :order
+  
   
   permit_params :id, :series_id, :color_id, :quantity, :order_id
 

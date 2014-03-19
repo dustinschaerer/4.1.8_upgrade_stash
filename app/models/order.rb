@@ -8,6 +8,8 @@ Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dak
 
 	has_many :line_items, dependent: :destroy
 	belongs_to :user
+    
+    accepts_nested_attributes_for :line_items
 
 	validates :firstname, :lastname, :street_address, :city, :zipcode, :state, :country, :email, :user_id, :status, presence: true
 	validates :state, inclusion: STATES

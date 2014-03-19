@@ -98,10 +98,15 @@ ActiveAdmin.register Order do
         f.input :zipcode
         f.input :country, :as => :string
       end
+      f.inputs do
+        f.has_many :line_items, :allow_destroy => true, :heading => 'Line Items', :new_record => false do |nf|
+          nf.input :series_id
+          nf.input :color_id
+        end          
+      end
       f.actions
     end
    
-  
   
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
