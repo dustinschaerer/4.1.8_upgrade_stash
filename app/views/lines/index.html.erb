@@ -1,0 +1,53 @@
+<h1>Listing lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quote product</th>
+      <th>Length</th>
+      <th>Width</th>
+      <th>Height</th>
+      <th>Cover</th>
+      <th>Series</th>
+      <th>Color</th>
+      <th>Shape</th>
+      <th>Umbrella</th>
+      <th>Velcro</th>
+      <th>Yards</th>
+      <th>Size</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lines.each do |line| %>
+      <tr>
+        <td><%= line.quote_product %></td>
+        <td><%= line.length %></td>
+        <td><%= line.width %></td>
+        <td><%= line.height %></td>
+        <td><%= line.cover %></td>
+        <td><%= line.series %></td>
+        <td><%= line.color %></td>
+        <td><%= line.shape %></td>
+        <td><%= line.umbrella %></td>
+        <td><%= line.velcro %></td>
+        <td><%= line.yards %></td>
+        <td><%= line.size %></td>
+        <td><%= line.quantity %></td>
+        <td><%= line.price %></td>
+        <td><%= link_to 'Show', line %></td>
+        <td><%= link_to 'Edit', edit_line_path(line) %></td>
+        <td><%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line', new_line_path %>

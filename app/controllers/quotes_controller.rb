@@ -1,7 +1,8 @@
 class QuotesController < ApplicationController
-  include CurrentQuotecart
+  #include CurrentQuotecart
   include CurrentCart
-  before_action :set_quotecart
+  include CurrentQuoteholder
+  before_action :set_quoteholder
   before_action :set_cart
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
 
@@ -18,7 +19,9 @@ class QuotesController < ApplicationController
 
   # GET /quotes/new
   def new
-     if @quotecart.items.empty?
+     #if @quotecart.items.empty?
+     if @quoteholder.lines.empty?
+
       redirect_to '/request_quote', notice: "Please add items to your Quote before submitting it."
       return
     end
@@ -35,12 +38,16 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     @quote.user_id = current_user.id
-    @quote.add_items_from_quotecart(@quotecart)
+    # @quote.add_items_from_quotecart(@quotecart)
+    ########################
+    #  Add functionality here to add lines to quoteholder
+    #########################
+    @quote.add_lines_from_quoteholder(@quoteholder)
 
     respond_to do |format|
       if @quote.save
-        Quotecart.destroy(session[:quotecart_id])
-        session[:quotecart_id] = nil
+        Quoteholder.destroy(session[:quoteholder_id])
+        session[:quoteholder_id] = nil
 
         format.html { redirect_to user_path(current_user), notice: 'Your Quote was successfully created and submitted. We will notify you as soon as we complete it.' }
         format.json { render action: 'show', status: :created, location: @quote }
@@ -56,7 +63,7 @@ class QuotesController < ApplicationController
   def update
     respond_to do |format|
       if @quote.update(quote_params)
-        format.html { redirect_to @quote, notice: 'Quote was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Quote was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,7 +77,7 @@ class QuotesController < ApplicationController
   def destroy
     @quote.destroy
     respond_to do |format|
-      format.html { redirect_to quotes_url }
+      format.html { redirect_to user_path(current_user) }
       format.json { head :no_content }
     end
   end

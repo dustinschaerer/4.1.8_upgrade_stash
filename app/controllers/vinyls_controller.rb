@@ -24,9 +24,9 @@ class VinylsController < ApplicationController
     #else 
       @vinyl = Vinyl.new
       @series = Series.where("style_id = 1 OR style_id = 2").order("name")
-      @color = Color.all  
-      @cover = Cover.all
-      @shape = Shape.all
+ #     @color = Color.all  
+ #    @cover = Cover.all
+ #     @shape = Shape.all
     #end 
   end
 

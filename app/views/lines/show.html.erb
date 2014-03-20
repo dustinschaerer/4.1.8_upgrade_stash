@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quote product:</strong>
+  <%= @line.quote_product.name %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @line.length %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @line.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @line.height %>
+</p>
+
+<p>
+  <strong>Cover:</strong>
+  <%= @line.cover.name %>
+</p>
+
+<p>
+  <strong>Series:</strong>
+  <%= @line.series.name %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @line.color.name %>
+</p>
+
+<p>
+  <strong>Shape:</strong>
+  <%= @line.shape.name %>
+</p>
+
+<p>
+  <strong>Umbrella:</strong>
+  <%= @line.umbrella %>
+</p>
+
+<p>
+  <strong>Velcro:</strong>
+  <%= @line.velcro %>
+</p>
+
+<p>
+  <strong>Yards:</strong>
+  <%= @line.yards %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @line.size %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @line.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @line.price %>
+</p>
+
+<%= link_to 'Edit', edit_line_path(@line) %> |
+<%= link_to 'Back', lines_path %>

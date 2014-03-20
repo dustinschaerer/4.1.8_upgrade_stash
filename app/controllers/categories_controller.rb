@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
-  include CurrentQuotecart
+  include CurrentQuoteholder
   include CurrentCart
-  before_action :set_quotecart
+  before_action :set_quoteholder
   before_action :set_cart
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 

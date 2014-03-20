@@ -1,0 +1,25 @@
+<h1>Listing quoteholders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quoteholders.each do |quoteholder| %>
+      <tr>
+        <td><%= link_to 'Show', quoteholder %></td>
+        <td><%= link_to 'Edit', edit_quoteholder_path(quoteholder) %></td>
+        <td><%= link_to 'Destroy', quoteholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quoteholder', new_quoteholder_path %>

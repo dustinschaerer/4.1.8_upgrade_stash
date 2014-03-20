@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   include CurrentCart
-  include CurrentQuotecart
-  before_action :set_quotecart
+  include CurrentQuoteholder
+  before_action :set_quoteholder
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 

@@ -1,0 +1,31 @@
+<h1>Listing quote_products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quote_products.each do |quote_product| %>
+      <tr>
+        <td><%= quote_product.name %></td>
+        <td><%= quote_product.group %></td>
+        <td><%= link_to 'Show', quote_product %></td>
+        <td><%= link_to 'Edit', edit_quote_product_path(quote_product) %></td>
+        <td><%= link_to 'Destroy', quote_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Create New #{quote_product.name} Quote Item to add to your quoteholder", new_line_path(:quote_product_id => quote_product) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Quote product', new_quote_product_path %>

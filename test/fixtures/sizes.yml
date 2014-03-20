@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dimension: MyString
+  minimum: 1
+
+two:
+  dimension: MyString
+  minimum: 1

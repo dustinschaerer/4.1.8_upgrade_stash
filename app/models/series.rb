@@ -4,10 +4,7 @@ class Series < ActiveRecord::Base
 	has_many :colors
 	has_many :line_items
 	has_many :orders, through: :line_items
-	has_many :vinyls
-    has_many :vinylrolls
-    has_many :laminates
-    has_many :laminaterolls
+	has_many :quotes, through: :lines
 
 	before_destroy :ensure_not_referenced_by_any_line_item
     

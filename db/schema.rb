@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318030335) do
+ActiveRecord::Schema.define(version: 20140319234259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,34 @@ ActiveRecord::Schema.define(version: 20140318030335) do
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
   add_index "line_items", ["series_id"], name: "index_line_items_on_series_id", using: :btree
 
+  create_table "lines", force: true do |t|
+    t.integer  "quote_product_id"
+    t.integer  "length"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "cover_id"
+    t.integer  "series_id"
+    t.integer  "color_id"
+    t.integer  "shape_id"
+    t.boolean  "umbrella"
+    t.boolean  "velcro"
+    t.integer  "yards"
+    t.integer  "size_id"
+    t.integer  "quantity"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quoteholder_id"
+  end
+
+  add_index "lines", ["color_id"], name: "index_lines_on_color_id", using: :btree
+  add_index "lines", ["cover_id"], name: "index_lines_on_cover_id", using: :btree
+  add_index "lines", ["quote_product_id"], name: "index_lines_on_quote_product_id", using: :btree
+  add_index "lines", ["quoteholder_id"], name: "index_lines_on_quoteholder_id", using: :btree
+  add_index "lines", ["series_id"], name: "index_lines_on_series_id", using: :btree
+  add_index "lines", ["shape_id"], name: "index_lines_on_shape_id", using: :btree
+  add_index "lines", ["size_id"], name: "index_lines_on_size_id", using: :btree
+
   create_table "messages", force: true do |t|
     t.string   "email"
     t.string   "name"
@@ -258,7 +286,19 @@ ActiveRecord::Schema.define(version: 20140318030335) do
 
   add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree
 
+  create_table "quote_products", force: true do |t|
+    t.string   "name"
+    t.integer  "group"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "quotecarts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quoteholders", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -336,6 +376,13 @@ ActiveRecord::Schema.define(version: 20140318030335) do
   end
 
   add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
+
+  create_table "sizes", force: true do |t|
+    t.string   "dimension"
+    t.integer  "minimum"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "styles", force: true do |t|
     t.string   "title"

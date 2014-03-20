@@ -1,11 +1,9 @@
-
 class AmericlearsController < ApplicationController
   include CurrentCart
-  include CurrentQuotecart
+  include CurrentQuoteholder
   before_action :set_cart
-  before_action :set_quotecart
+  before_action :set_quoteholder
   before_action :set_americlear, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   # GET /americlears
   # GET /americlears.json

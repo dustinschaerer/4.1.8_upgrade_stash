@@ -1,5 +1,13 @@
 Americo::Application.routes.draw do
 
+  resources :quoteholders
+
+  resources :lines
+
+  resources :quote_products
+
+  resources :sizes
+
   resources :shapes
 
   resources :covers

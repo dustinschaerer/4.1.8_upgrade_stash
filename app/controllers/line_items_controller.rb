@@ -1,8 +1,8 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  include CurrentQuotecart
+  include CurrentQuoteholder
   before_action :set_cart
-  before_action :set_quotecart
+  before_action :set_quoteholder
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items

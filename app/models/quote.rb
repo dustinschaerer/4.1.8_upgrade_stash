@@ -1,6 +1,6 @@
 class Quote < ActiveRecord::Base
   belongs_to :user
-  has_many :items
+  has_many :lines
 
   validates :user_id, :firstname, :lastname, :telephone, :contactby, :pay_type, presence: true
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
@@ -11,6 +11,13 @@ class Quote < ActiveRecord::Base
   		quoteitem.quotecart_id = nil
         items << quoteitem 
   	end
+  end
+  
+  def add_lines_from_quoteholder(quoteholder)
+    quoteholder.lines.each do |quoteline|
+      quoteline.quoteholder_id = nil
+        lines << quoteline 
+    end
   end
 
 end

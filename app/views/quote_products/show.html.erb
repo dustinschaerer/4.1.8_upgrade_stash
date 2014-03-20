@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @quote_product.name %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @quote_product.group %>
+</p>
+
+<%= link_to 'Edit', edit_quote_product_path(@quote_product) %> |
+<%= link_to 'Back', quote_products_path %>
+
