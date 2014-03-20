@@ -29,7 +29,7 @@
             
             <% if (line.quote_product_id = 13) %>  
               <% if line.size %>
-            <div class="col-xs-6">
+            <div class="col-xs-4 col-xs-offset-1">
                 <strong>DIMENSIONS</strong><br>
                 <%= line.size.dimension %>
             </div>
@@ -92,6 +92,8 @@
                   <%= line.width %>"
                 </div>
               <% end %>  
+
+              # add roll width ?
               
               <% if line.height %>
                 <div class="quotespace">
@@ -103,14 +105,14 @@
               <% if line.umbrella %>
                 <div class="quotespace">
                   <strong>UMBRELLA?</strong>
-                  <%= line.umbrella %>
+                  <%= boolean_to_words(line.umbrella) %>
                 </div>
               <% end %>
 
               <% if line.velcro %>
                 <div class="quotespace">
                   <strong>BOOTH WITH VELCRO?</strong>
-                  <%= line.velcro %>
+                  <%= boolean_to_words(line.velcro) %>
                 </div>
               <% end %>
             </div>
@@ -120,14 +122,14 @@
 
 
 
-            <div class="col-xs-1">
+            <div class="col-xs-2 text-center">
               <% if line.quantity %>
-                <strong>QUANTITY</strong><br>
-                <%= line.quantity %>
+                <strong>QUANTITY</strong>
+                <div><%= line.quantity %></div>
               <% end %>  
             </div>
 
-            <div class="col-xs-1">
+            <div class="col-xs-2 text-right">
               <% if line.price %>
                 <strong>PRICE</strong><br>
                 <%= line.price %>

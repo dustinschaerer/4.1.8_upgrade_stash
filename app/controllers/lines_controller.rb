@@ -20,6 +20,8 @@ class LinesController < ApplicationController
   def new
     @line = Line.new
     @qp_id = (params[:quote_product_id])
+    qp = QuoteProduct.find(@qp_id)
+    @qp_name = qp.name
   end
 
   # GET /lines/1/edit

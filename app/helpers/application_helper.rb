@@ -17,7 +17,11 @@ module ApplicationHelper
   	content_tag("div", attributes, &block)
   end
   
-   def subscriber_form
+  def boolean_to_words(value)
+    value ? "Yes" : "No"
+  end
+
+  def subscriber_form
     subscriber = Subscriber.new
     raw render 'shared/subscriber_form', :subscriber => subscriber
   end

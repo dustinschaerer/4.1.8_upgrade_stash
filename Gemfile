@@ -22,7 +22,7 @@ gem 'country-select'
 gem 'underscore-rails'
 gem 'dependent-fields-rails'
 gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
-gem 'bootstrap_forms'
+gem 'bootstrap_form'
 
 
 

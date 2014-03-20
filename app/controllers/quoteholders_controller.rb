@@ -1,11 +1,11 @@
 class QuoteholdersController < ApplicationController
   include CurrentCart
   include CurrentQuoteholder
-
+  before_action :set_cart
   before_action :set_quoteholder, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_quoteholder
 
-  before_action :set_cart
+ 
   
   # GET /quoteholders
   # GET /quoteholders.json

@@ -59,7 +59,7 @@ GEM
     bcrypt-ruby (3.1.2)
     bootstrap-sass (3.0.3.0)
       sass (~> 3.2)
-    bootstrap_forms (4.0.1)
+    bootstrap_form (2.0.1)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -282,7 +282,7 @@ DEPENDENCIES
   activeadmin!
   acts-as-taggable-on
   bootstrap-sass (~> 3.0.3.0)
-  bootstrap_forms
+  bootstrap_form
   capybara (= 2.1.0)
   childprocess (= 0.3.6)
   coffee-rails (= 4.0.1)

@@ -1,83 +1,124 @@
-<%= simple_form_for(@line) do |f| %>
-  <%= f.error_notification %>
+<%= bootstrap_form_for(@line, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+  <%=# f.error_notification 
+  %>
+
+
+  <% if @line.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@line.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @line.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
 
   <div class="form-inputs">
-    <%= f.association :quote_product, selected: @qp_id, disabled: true %>
+    <%= 
+    #f.association :quote_product, selected: @qp_id, disabled: true 
+    %>
     
-    <%= f.input :quote_product_id, :as => :hidden, :input_html => { :value => @qp_id } %>
+    <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, selected: @qp_id, :html=>{:disabled=>true}  %>
+    
+    <%= f.hidden_field :quote_product_id, :as => :hidden, :input_html => { :value => @qp_id } %>
 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
-      <%= f.association :shape %>
+      <%=
+       # f.association :shape
+       %>
+      <%= f.select :shape %>
     </div> 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
-      <%= f.association :cover %>
+      <%= f.select :cover %>
     </div> 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="5">
-      <%= f.input :length %>
+      <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
     <div class="js-dependent-fields" data-select-id="line_shape_id" data-option-value="2">
-      <%= f.input :length %>
+      <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
 
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|5|6">
-      <%= f.input :width %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|4|5|6">
+      <%= f.number_field :width, placeholder: "Width (In Inches)" %>
     </div>
 
     <div class="js-dependent-fields" data-select-id="line_cover_id" data-option-value="4|5">
-      <%= f.input :height %>
+      <%= f.number_field :height, placeholder: "Height (In Inches)" %>
     </div>  
 
 
 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9">
-
-      <%= f.label :series_id %>
        <% if (@qp_id == '1' || '2' || '7' || '8' || '10' || '11' ) %>
-         <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {include_blank: true} ) %>
+         <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
         <% elsif (@qp_id == '9' || '12') %>
-          <%= f.collection_select(:series_id,  Series.where("style_id = 7").order("name"), :id, :name, {include_blank: true} ) %>
+          <%= f.collection_select(:series_id,  Series.where("style_id = 7").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
         <% elsif (@qp_id == '13') %>
-          <%= f.collection_select(:series_id,  Series.where("style_id = 8").order("name"), :id, :name, {include_blank: true} ) %>
+          <%= f.collection_select(:series_id,  Series.where("style_id = 8").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
         <% end %>
-
     </div>  
+
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9">
-      <%= #f.association :color
-       %>
-        <%= f.label :color_id %>
-        <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, include_blank: true ) %>
+      <!-- custom fix for unsupported grouped_collection_select-->
+      <div class="form-group"><label class="col-sm-2 col-md-2 control-label" for="line_series_id">Series</label><div class="col-sm-6 col-md-4">
+
+        <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, {prompt: ""}, {class: "form-control"} ) %>
+      </div></div> 
+
+    </div>  
+
+
+
+
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
       
+
+      <%= f.form_group :umbrella, label: { text: "Umbrella Hole?" } do %>
+        <%= f.check_box :umbrella do %>
+          This is sample extra text if we need to explain more thoroughly
+        <% end %>
+      <% end %>
+
+
+
+
     </div>  
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
-      <%= f.input :umbrella %>
-    </div>  
-
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
-      <%= f.input :velcro %>
+      <%= f.form_group :velcro, label: { text: "Booth with Velcro?" } do %>
+        <%= f.check_box :velcro do %>
+          This is sample extra text if we need to explain more thoroughly
+        <% end %>
+      <% end %>
     </div>  
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="7|8|9">
-      <%= f.input :yards, label: "Yards Long" %>
+      <%= f.number_field :yards, label: "Yards Long" %>
     </div>  
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="13">
-      <%= f.label :size %>
       <%= f.collection_select(:size_id,  Size.order("id"), :id, :dimension, {prompt: "Choose Your Size" } ) %>
-
     </div>  
 
-      <%= f.input :quantity %>
-      <%= f.input :price %>
+      <%= f.number_field :quantity, placeholder: "Enter Quantity" %>
+      <%= f.hidden_field :price, default: "0" %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit 'Add to My Quote', :class => "btn btn-success"  %>
+
+    <%= link_to 'Choose a Different Product to Request a Quote For', '/request_quote', class: "btn btn-warning" %>
+
+<%= link_to 'Back To Request a Quote', '/request_quote',  class: "btn btn-danger" %>
   </div>
 <% end %>
