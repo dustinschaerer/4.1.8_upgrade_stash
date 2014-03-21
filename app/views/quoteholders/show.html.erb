@@ -92,8 +92,6 @@
                   <%= line.width %>"
                 </div>
               <% end %>  
-
-              # add roll width ?
               
               <% if line.height %>
                 <div class="quotespace">
@@ -132,7 +130,11 @@
             <div class="col-xs-2 text-right">
               <% if line.price %>
                 <strong>PRICE</strong><br>
-                <%= line.price %>
+                  <% if line.price == 0 %>
+                    Submit for Pricing
+                  <% else %>  
+                    <%= number_to_currency(line.price) %>
+                  <% end %>  
               <% end %>  
             </div>
 
@@ -140,61 +142,45 @@
 
         <hr>
         <% end %>
- 
-<table>
-	
-    <tr>
-    	<td>quote_product_id</td>
-    	<td>line.cover_id</td> 
-    	<td>line.shape_id</td>
-    	<td>line.length</td>
-    	<td>line.width</td>
-    	<td>line.height</td> 
-    	<td>line.series_id</td> 
-    	<td>line.color_id</td>
-        <td>line.umbrella?</td> 
-        <td>line.velcro?</td> 
-        <td>line.yards</td> 
-        <td>line.size</td> 
-    	<td>line.quantity</td> 
-    	<td>line.price</td>
-        <td>Remove</td>
-    </tr>
-    
-    <% @quoteholder.lines.each do |line| %>
-    
-    <tr>
-    	<td><%= line.quote_product.name if line.quote_product_id %></td> 
-    	<td><%= line.cover.name if line.cover_id %></td> 
-    	<td><%= line.shape.name if line.shape_id %></td> 
-    	<td><%= line.length if line.length %></td> 
-    	<td><%= line.width if line.width %></td> 
-    	<td><%= line.height if line.height %></td> 
-    	<td><%= line.series.name if line.series_id %></td> 
-    	<td><%= line.color.name if line.color_id %></td> 
-    	<td><%= line.umbrella if line.umbrella %></td> 
-    	<td><%= line.velcro if line.velcro %></td> 
-		<td><%= line.yards if line.yards %></td> 
-		<td><%= line.size if line.size %></td> 
-	    <td>&times; <%= line.quantity %></td> 
-	    <td align="right"><%= number_to_currency(line.price) %></td>
-        <td><%= button_to 'X', line, method: :delete, 
-            data: { confirm: 'Are you sure?' } %></td>
-	</tr>
-    <% end %>
-    <tr class="total_line">
-        <td colspan="12"></td>
-        <td colspan="2" align="right">Total: <%= number_to_currency(@quoteholder.total_price) %></td>
-    </tr>
-</table>
+        
+      
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Sub-Total:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@quoteholder.total_price) %>
+          </div>
+        </div>    
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Shipping:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            $0.00
+          </div>
+        </div>   
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Sales Tax:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            $0.00
+          </div>
+        </div>   
+
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Total:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@quoteholder.total_price) %>
+          </div>
+        </div>   
+        
+        <hr>  
 
 <%= link_to 'Remove All Quote Items', @quoteholder, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you Sure?' } %>
 
-<%= link_to "Add Another Item to Quote", quote_products_path, class: "btn btn-primary" %>
-<%= link_to "Review Quote Now", @quoteholder, class: "btn btn-warning" %>
-
+<%= link_to "Add Another Item to Quote", '/request_quote', class: "btn btn-primary" %>
 <%= link_to "Submit Quote for Pricing Now", new_quote_path, class: "btn btn-success" %>
-
-
-<%= link_to 'Edit', edit_quoteholder_path(@quoteholder) %> |
-<%= link_to 'Back', quoteholders_path %>

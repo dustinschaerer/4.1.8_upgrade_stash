@@ -17,32 +17,31 @@
       <li><a href="/request_catalog">Request a Catalog</a></li>
     </ul>
     <div>
-      <%= image_tag("swatch-image.png") %>
-      <%= image_tag("free-catalog.png") %>
+      <%= image_tag("swatch-image.jpg") %>
+      <%= image_tag("free-catalog.jpg") %>
     </div>
   </div>
 
   <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
     <h1 class="addmaroon"><span class="cat-title">Request a Quote</span></h1>
     
-  <ul>  
-    <li><%= link_to "Vinyl Table Covers", "vinyls/new", class: "" %></li> 
-    <li><%= link_to "Vinyl Roll Goods", "vinylrolls/new", class: "" %></li>   
-    <li><%= link_to "Vinyl Custom Cuts", "vinylcuts/new", class: "" %></li>
-    <li><%= link_to "Laminate Table Covers", "laminates/new", class: "" %></li> 
-    <li><%= link_to "Laminate Roll Goods", "laminaterolls/new", class: "" %></li>   
-    <li><%= link_to "Laminate Custom Cuts", "laminatecuts/new", class: "" %></li>
-    <li><%= link_to "Upholstery Roll Goods", "upholsteryrolls/new", class: "" %></li>  
-    <li><%= link_to "Upholstery Custom Cut", "upholsterycuts/new", class: "" %></li>  
-    <li><%= link_to "Non-Slip Padding Roll Goods", "nonslippads/new", class: "" %></li>  
-    <li><%= link_to "Non-Slip Padding Custom Cuts", "nonslipcuts/new", class: "" %></li> 
-    <li><%= link_to "Vinyl Padding", "/vinylpads/new", class: "" %></li> 
-    <li><%= link_to "Americlear Lamination", "/americlears/new", class: "" %></li>
-  </ul>
+    <p>&nbsp;</p>     
+    <ul>  
+      <li><%= link_to "Vinyl Table Covers", "/lines/new?quote_product_id=1", class: "" %></li> 
+      <li><%= link_to "Vinyl Roll Goods", "/lines/new?quote_product_id=10", class: "" %></li>   
+      <li><%= link_to "Vinyl Custom Cuts", "/lines/new?quote_product_id=7", class: "" %></li>
+      <li><%= link_to "Laminate Table Covers", "/lines/new?quote_product_id=2", class: "" %></li> 
+      <li><%= link_to "Laminate Roll Goods", "/lines/new?quote_product_id=11", class: "" %></li>   
+      <li><%= link_to "Laminate Custom Cuts", "/lines/new?quote_product_id=8", class: "" %></li>
+      <li><%= link_to "Upholstery Roll Goods", "/lines/new?quote_product_id=12", class: "" %></li>  
+      <li><%= link_to "Upholstery Custom Cut", "/lines/new?quote_product_id=9", class: "" %></li>  
+      <li><%= link_to "Non-Slip Padding Roll Goods", "/lines/new?quote_product_id=4", class: "" %></li>  
+      <li><%= link_to "Non-Slip Padding Custom Cuts", "/lines/new?quote_product_id=5", class: "" %></li> 
+      <li><%= link_to "Vinyl Padding", "/lines/new?quote_product_id=3", class: "" %></li> 
+      <li><%= link_to "Americlear Lamination", "/lines/new?quote_product_id=6", class: "" %></li>
+      <li><%= link_to "Value Vinyl", "/lines/new?quote_product_id=13", class: "" %></li>
+    </ul>
 
-    <p>Coming Soon</p>
-    <p>Value Vinyls</p>
-    <p></p>
     <p></p>
     <p></p>
   </div>    
