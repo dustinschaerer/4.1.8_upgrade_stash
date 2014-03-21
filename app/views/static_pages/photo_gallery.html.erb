@@ -1,6 +1,24 @@
 <% provide(:title, 'Photo Gallery') %>
 
- <div class="row">
+<div class="row">
+
+  <div class="col-sm-6 col-md-3 col-md-offset-1">
+    <%= link_to '/gallery', class: "btn btn-info btn-block" do %>
+      <span class="glyphicon glyphicon-arrow-left"></span> Photo Gallery Index  
+    <% end %>
+  </div>
+
+  <div class="visible-xs top10">&nbsp;</div>
+
+  <div class="col-sm-6 col-md-4 col-md-offset-3">  
+    <%= link_to '/table_cover_gallery', class: "btn btn-primary btn-block" do %>
+    Table Cover Photo Gallery <span class="glyphicon glyphicon-arrow-right"></span>
+    <% end %>
+  </div>
+
+</div>
+
+ <div class="row top20">
       <div id="galleria" class="col-xs-12"> 
         <%= link_to(image_path("gallery/6111_dustyrose_granite_upholstery_americo.jpg")) do %><%= image_tag("gallery/6111_dustyrose_granite_upholstery_americo.jpg", :data => { :description => "description image 1", :title => "title image 1"}) %><% end %>
         
@@ -41,6 +59,24 @@
       </div>
     </div>
       
+
+<div class="row top20">
+
+  <div class="col-sm-6 col-md-3 col-md-offset-1">
+    <%= link_to '/gallery', class: "btn btn-info btn-block" do %>
+      <span class="glyphicon glyphicon-arrow-left"></span> Photo Gallery Index  
+    <% end %>
+  </div>
+
+  <div class="visible-xs top10">&nbsp;</div>
+
+  <div class="col-sm-6 col-md-4 col-md-offset-3">  
+    <%= link_to '/table_cover_gallery', class: "btn btn-primary btn-block" do %>
+    Table Cover Photo Gallery <span class="glyphicon glyphicon-arrow-right"></span>
+    <% end %>
+  </div>
+
+</div>
 
 
 

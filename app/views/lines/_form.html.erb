@@ -69,7 +69,7 @@
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9">
       <!-- custom fix for unsupported grouped_collection_select-->
-      <div class="form-group"><label class="col-sm-2 col-md-2 control-label" for="line_series_id">Series</label><div class="col-sm-6 col-md-4">
+      <div class="form-group"><label class="col-sm-2 col-md-2 control-label" for="line_color_id">Color</label><div class="col-sm-6 col-md-4">
 
         <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, {prompt: ""}, {class: "form-control"} ) %>
       </div></div> 

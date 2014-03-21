@@ -277,6 +277,7 @@ footer {
 }
 
 #side {
+    z-index: 999;
     padding: 1em 1em;
     /* background: $red; */
   
@@ -311,6 +312,11 @@ footer {
     }
   }
  /* END SIDE */
+
+#cart {
+  z-index: 999;
+}
+
  #sidequote {
     padding: 1em 1em;
   
@@ -608,6 +614,7 @@ p .up10, .up10 {
 .styledesc {
   font-size: 1.5em; 
 }
+
 .seriessub {
   line-height: 1.0em; 
   font-size: 1.2em;  
@@ -615,14 +622,17 @@ p .up10, .up10 {
 .larger {
   font-size:1.3em;
 }
+.bigger {
+  font-size:1.2em;
+}
 .smaller {
   font-size:0.8em;
 }
 .serieslead {
-  font-size: 2.2em;
+  font-size: 2.0em;
 }
 .seriesdesc {
-  margin-bottom: 5px;
+  font-size: 1.4em; 
 }
 
 

@@ -41,7 +41,7 @@
           <ul>
             <% if user_signed_in? %>
               <li><a class="dropdown-toggle userlink" href="/users/<%= current_user.id %>">MY ACCOUNT </a></li>
-              <li><%= link_to "Place an Order", "/place_an_order", class: "top-link" %></li>
+              <li><%= link_to "Place an Order", "/users/#{current_user.id}", class: "top-link" %></li>
 
             <% else %>
               <li><%= link_to "Create Account", new_user_registration_path, class: "userlink" %></li>
@@ -80,11 +80,11 @@
               <% end %>
 
               <% if @cart %>
-                <div id="cart">
+                
                 <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
                   <%= render @cart %>   
                 <% end %>
-                </div> <!-- end cart id div -->
+                
               <% end %>               
             </div>
 

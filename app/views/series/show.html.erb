@@ -49,7 +49,17 @@
 
   <div class="col-sm-6">
   	<div class="serieslead <%= thiscolor %>"><%= @series.lead %></div>
-  	<div class="splashtext styledesc addgrey top10 seriesdesc"><%= @series.description %></div>
+  	<div class="seriesdesc addgray"><%= @series.description %></div>
+    
+    <div class="top10 addgray">
+      <!-- <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p> -->
+      <ul>
+        <li>Upholstery-weight vinyls </li>
+        <li>No launder – simply wipe and go. </li>
+        <li>Offered by the piece (minimum 5 yards) or by the roll (25 yards x 54”)</li>
+        <li><a href="/technical_specs" class="blacklink">Technical specs</a></li>
+      </ul>
+    </div>
 
   	<% if (@series.style.id == 1) %>
   	<div>
@@ -115,22 +125,59 @@
 
 	  <div class="col-sm-6">
         <% if (@series.style.id == 7) %>
-          <div class="pull-right top40">
-	        <div id="upholimage"><%= image_tag(@series.smallimage, :class => "img-responsive" )  %></div>
-	        <div><a href="#", id="linkswapper" class="linkswapper">VIEW LARGER  <span class="glyphicon glyphicon-zoom-in"></span></a></div>
-          </div>
-          <div class="clearfix">
-          </div>	
-          <div class="top20">
-            <a href="/styles/7"><span class="addblack"><strong>Back to ALL UPHOLSTERY Fabrics</strong></span> <span class="glyphicon glyphicon-play"></span></a> 
-          </div>  
-            
-        <% elsif (@series.style.id == 1) %>
           
-          <div class="top40 padtop40">
-            <a href="/styles/1"><span class="addblack"><strong>Back to ALL CLASSIC Vinyls</strong></span> <span class="glyphicon glyphicon-play"></span></a> 
-          </div>   
-            <!--
+
+      <% if (@series.id != 23)  %>
+        <!-- 6111-6126 -->
+      <div class="addgray top20">
+        <div class="row">
+          <div class="col-sm-12">
+            REPEAT INFORMATION
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            Vertical:
+          </div>
+          <div class="col-sm-6">
+            <%= (@series.vertical)  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            Horizontal:
+          </div>
+          <div class="col-sm-6">
+            <%= (@series.horizontal)  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            Side:
+          </div>
+          <div class="col-sm-6">
+            <%= (@series.side)  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            FOR INTERIOR USE ONLY
+          </div>
+        </div>
+
+      </div>
+      <% end %> 
+        
+      <div class="top20">
+        <a href="/styles/7"><span class="addblack"><strong>Back to ALL UPHOLSTERY Fabrics</strong></span> <span class="glyphicon glyphicon-play"></span></a> 
+      </div>  
+        
+    <% elsif (@series.style.id == 1) %>
+      
+      <div class="top40 padtop40">
+        <a href="/styles/1"><span class="addblack"><strong>Back to ALL CLASSIC Vinyls</strong></span> <span class="glyphicon glyphicon-play"></span></a> 
+      </div>   
+        <!--
           <div class="splashtext callout top25"><%= @series.callout %></div>
           <div class="noforget"><strong>Don't Forget</strong> the<br>Non-Slip Padding</div>  
           -->      	
@@ -184,44 +231,14 @@
 
 	    <% if (@series.id != 23)  %>
         <!-- 6111-6126 -->
-	  	<div>
-	  	  <p>REPEAT INFORMATION</p>
-	  	    <div class="row">
-			  <div class="col-sm-6">
-			  	Vertical:
-			  </div>
-			  <div class="col-sm-6">
-			    <%= (@series.vertical)  %>
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="col-sm-6">
-			  	Horizontal:
-			  </div>
-			  <div class="col-sm-6">
-			  	<%= (@series.horizontal)  %>
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="col-sm-6">
-			  	Side:
-			  </div>
-			  <div class="col-sm-6">
-			  	<%= (@series.side)  %>
-			  </div>
-			</div>
-		  <p>FOR INTERIOR USE ONLY</p>				  
-
+	  	  <div class="pull-right">
+          <div id="upholimage"><%= image_tag(@series.smallimage, :class => "img-responsive" )  %></div>
+          <div><a href="#", id="linkswapper" class="linkswapper">VIEW LARGER  <span class="glyphicon glyphicon-zoom-in"></span></a></div>
         </div>
+        <div class="clearfix">
+        </div>  
+          
         <% end %> 
-		<div class="top20">
-          <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p>	
-        </div>
-
-		
-		<div>
-          <!-- <p><a href="#">Also available for table covers. <span class="glyphicon glyphicon-play"></span></a></p> -->	
-        </div>
         
 	    <% end %> <!-- end of ID=7 --> 
 
