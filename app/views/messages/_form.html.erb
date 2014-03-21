@@ -1,6 +1,6 @@
 <div id="contact-form">
 
-<%= form_for(@message, :html => { :class => "form-horizontal" }) do |f| %>
+<%= bootstrap_form_for(@message, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-8") do |f| %>
 
  <% if @message.errors.any? %>
     <div id="error_explanation">
@@ -15,86 +15,27 @@
   <% end %>
 
   <div class="form-inputs">
-   
-    <div class="row">
-      <div class="col-xs-12 col-lg-8">
-        <div class="field">
-          <%= f.label :reason %>
-
-
-          <%= f.select :reason, Message::CONTACT_REASONS, prompt: "Please select a Reason for Contacting Us", :input_html => { :id => "message_reason" } %>
-        </div>
-      </div>
+    <%= f.select :reason, Message::CONTACT_REASONS, prompt: "Please select a Reason for Contacting Us", :input_html => { :id => "message_reason" } %>
+  
+    <div class="js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Order">    
+      <%= f.number_field :order_id, :label => "Order Number" %>
+    </div>
+  
+   <div class="js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Quote">
+      <%= f.number_field :quote_id%>
     </div>
 
-
-
-
-    <div class="row">
-      <div class="col-sm-12 col-md-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Order">
-        <div class="field">
-          <%= f.label :order_id %>
-          <%= f.number_field :order_id, :label => "Order Number" %>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-sm-12 col-md-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Quote">
-        
-        <%= f.label :quote_id, :label => "Quote Number" %>
-        <%= f.number_field :quote_id%>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-lg-8">
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-lg-8">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xs-12 col-lg-8">
-        <%= f.label :message %>
-        <%= f.text_area :message, rows: 7, cols: 70 %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-lg-8 js-dependent-fields">
-        <%= f.label :phone %>
-        <%= f.text_field :phone %>
-      </div>
-    </div>
-    
+    <%= f.email_field :email %>
+    <%= f.text_field :name %>
+    <%= f.text_area :message, rows: 7, cols: 70 %>
+    <%= f.telephone_field :phone %>  
   </div>
 
   <div class="form-actions">
-     <div class="row">
-      <div class="col-xs-12 col-lg-8">
-        <%= button_tag(type: 'submit', class: "btn btn-lg btn-danger btn-block") do %>
-    Send Message <i class="icon-ok icon-white"></i>
-  <% end %>
-    </div>
-    
+    <%= f.form_group do %>
+      <%= f.submit "Send Message", class: "btn btn-med btn-success" %>
+    <% end %>  
   </div>
 <% end %>
 
 </div>
-
-    <%= 
-    # f.button :submit, : => "Send Message", :class => "btn btn-lg btn-danger btn-block" 
-    %> 
-</div>
-
-
-
-
-
-
-
