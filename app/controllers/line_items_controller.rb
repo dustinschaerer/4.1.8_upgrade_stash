@@ -68,7 +68,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to styles_url }
+      format.html { redirect_to :back, notice: 'You have successfully removed the item from your Shopping Cart.' }
       format.json { head :no_content }
     end
   end

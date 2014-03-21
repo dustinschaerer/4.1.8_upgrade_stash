@@ -66,7 +66,7 @@ class LinesController < ApplicationController
   def destroy
     @line.destroy
     respond_to do |format|
-      format.html { redirect_to lines_url }
+      format.html { redirect_to :back, notice: 'Line was successfully removed from your Quote.' }
       format.json { head :no_content }
     end
   end

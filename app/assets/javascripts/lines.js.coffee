@@ -11,3 +11,7 @@ jQuery ->
       $('#line_color_id').html(options)
     else 
       $('#line_color_id').empty()  
+
+jQuery ->
+  $('.form-inputs label:first').hide();
+  $('#line_quote_product_id').hide();

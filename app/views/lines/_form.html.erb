@@ -22,25 +22,29 @@
     #f.association :quote_product, selected: @qp_id, disabled: true 
     %>
     
-    <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, selected: @qp_id, :html=>{:disabled=>true}  %>
+    <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, { selected: @qp_id, label: false  }  
+    %>
     
-    <%= f.hidden_field :quote_product_id, :as => :hidden, :input_html => { :value => @qp_id } %>
+
+    <%= # f.hidden_field :quote_product_id, :as => :hidden, :input_html => { :value => @qp_id } 
+    %>
 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
       <%=
        # f.association :shape
        %>
-      <%= f.select :shape %>
+      <%= f.collection_select :shape_id, Shape.all.order("id"), :id, :name, { prompt: "Please Choose" }   %>
     </div> 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
-      <%= f.select :cover %>
+      <%= f.collection_select :cover_id, Cover.all.order("id"), :id, :name, { prompt: "Please Choose" } %>
     </div> 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="5">
       <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
+
     <div class="js-dependent-fields" data-select-id="line_shape_id" data-option-value="2">
       <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
