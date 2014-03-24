@@ -21,8 +21,11 @@
         <li><%= link_to "Request Swatches",   "/free_swatches" %></li>
         <li><%= link_to "Request A Quote",   "/request_quote" %></li>
         <li><%= link_to "Request A Catalog",   "/request_catalog" %></li>
-        <li><%= link_to "Place An Order",   "/how_to_order" %></li>
+        <% if user_signed_in? %>
+        <li><%= link_to "Place an Order", "/users/#{current_user.id}", class: "top-link" %></li>
+        <% end %>
         <li><%= link_to "Measuring Instructions",   "/how_to_measure" %></li>
+
         <li><%= link_to "e-Catalog",   "/" %></li>
         
       </ul>

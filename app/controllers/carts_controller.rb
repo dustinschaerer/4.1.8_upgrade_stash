@@ -63,7 +63,7 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to store_url }
+      format.html { redirect_to :back, notice: 'Your cart is now empty.' }
       format.js 
       format.json { head :no_content }
     end

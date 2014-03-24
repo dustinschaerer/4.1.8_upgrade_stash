@@ -131,8 +131,14 @@
               </p>
             </div>
 
+          </div>
+          <div class="row top10 splashtext">
+            <div class="col-xs-12 addblack">  
+              <%= link_to('ADD SAMPLE TO CART', line_items_path(series_id: 80, color_id: 8), :class => "btn btn-primary btn-xs", method: :post ) %> 
+              
+              <%= link_to('GET QUOTE', '/request_quote', :class => "btn btn-primary btn-xs", method: :post ) %>
+            </div>
           </div>  
-
           <hr>
 
           <div class="row top10 splashtext">
@@ -151,6 +157,17 @@
                 <br><a href="/technical_specs">Additional specs</a></p>
             </div>
           </div>  
+
+          <div class="row top10 splashtext">
+            <div class="col-xs-12 addblack">  
+              <%= link_to('ADD SAMPLE TO CART', line_items_path(series_id: 3, color_id: 3), :class => "btn btn-primary btn-xs", method: :post ) %> 
+              
+              <%= link_to('GET QUOTE', '/request_quote', :class => "btn btn-primary btn-xs", method: :post ) %>
+
+        
+            </div>
+          </div>  
+
         </div>
 
         <div id="" class="col-sm-4">
@@ -226,7 +243,7 @@
             <li class="addgold">Free Quotes</li>
           </ul>
 
-          <%= image_tag("swatch-image.png", :class => "img-responsive pull-right", alt: "Free Swatches", :id => 'home-swatches' ) %>
+          <%= image_tag("swatch-image.jpg", :class => "img-responsive pull-right", alt: "Free Swatches", :id => 'home-swatches' ) %>
 
         </div>
       </div>
@@ -397,8 +414,8 @@
         </div>
         <div id="vinyl-land" class="col-sm-2 hidden-xs">
 
-          <%= image_tag("swatch-image.png", :class => "img-responsive pull-right top40", alt: "Free Swatches", :id => 'home-swatches' ) %>
-          <%= image_tag("free-catalog.png", :class => "img-responsive pull-right top40", alt: "Free Catalog", :id => 'free-catalog' ) %>
+          <%= image_tag("swatch-image.jpg", :class => "img-responsive pull-right top40", alt: "Free Swatches", :id => 'home-swatches' ) %>
+          <%= image_tag("free-catalog.jpg", :class => "img-responsive pull-right top40", alt: "Free Catalog", :id => 'free-catalog' ) %>
 
         </div>
       </div>

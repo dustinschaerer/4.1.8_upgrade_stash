@@ -51,6 +51,7 @@
   	<div class="serieslead <%= thiscolor %>"><%= @series.lead %></div>
   	<div class="seriesdesc addgray"><%= @series.description %></div>
     
+    <% if (@series.style.id == 7) %>
     <div class="top10 addgray">
       <!-- <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p> -->
       <ul>
@@ -61,8 +62,8 @@
       </ul>
     </div>
 
-  	<% if (@series.style.id == 1) %>
-  	<div>
+  	<% elsif (@series.style.id == 1) %>
+  	<div class="top20">
   	  <ul class="sideseries">
   	  	<li>Easy care vinyls – simply wipe and go.</li>
   	  	<li>Custom cuts. Table covers are cut to finished size any shape. (see types below)</li>
@@ -188,7 +189,7 @@
 	  <div class="col-sm-6 ">
         <!-- if this is the 9800 page -->
 	    <% if (@series.style.id == 1) %>
-	  	 <div class="noforget top40"><strong>Don't Forget</strong> the<br>Non-Slip Padding</div>
+	  	 <!-- <div class="noforget addarmy top40"><strong>Don't Forget</strong> the<br>Non-Slip Padding</div> -->
 		  
        
 	    <% elsif (@series.style.id == 3) %>
@@ -266,12 +267,12 @@
 
 
 <div class="row">
-  <div class="col-xs-9 col-sm-10">   
-    <div class="row  top20">  
+  <div class="col-xs-12 col-sm-10">   
+    <div class="row top20">  
   	  <% color_array = @series.colors.order("name") %>
   	  <% color_array.each do |swatch| %>
   	  
-        <div class="col-xs-6 col-sm-3 bottom25">
+        <div class="col-xs-12 col-sm-3 bottom25">
           <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
           <div class="row">
 			<div class="col-xs-9">
@@ -346,15 +347,15 @@
   </div> 
 	  
     
-  <div class="col-xs-3 col-sm-2">   
+  <div class="col-sm-2 hidden-xs">   
     <div>
 	  <%= link_to('/free_swatches', :class => "no-under") do %>
-	    <%= image_tag("swatch-image.png", :class => "top40", alt:"Free Swatches") %>
+	    <%= image_tag("swatch-image.jpg", :class => "top40", alt:"Free Swatches") %>
 	  <% end %>
 	</div>
 	<div>
 	   <%= link_to('/request_catalog', :class => "no-under") do %>
-	    <%= image_tag("free-catalog.png", :class => "top40", alt:"Free Catalog") %>
+	    <%= image_tag("free-catalog.jpg", :class => "top40", alt:"Free Catalog") %>
 	  <% end %>
 	</div>  
 	<div class="top40">
