@@ -19,6 +19,7 @@
 //= require galleria.classic
 //= require underscore
 //= require dependent-fields
+//= require respond
 //= require turbolinks
 //= require_tree .
 

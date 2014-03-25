@@ -15,6 +15,7 @@
 
 
   <div class="form-inputs">
+
     <%= 
     #f.association :quote_product, selected: @qp_id, disabled: true 
     %>
@@ -27,47 +28,64 @@
 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
-      <%=
-       # f.association :shape
-       %>
       <%= f.collection_select :shape_id, Shape.all.order("id"), :id, :name, { prompt: "Please Choose" }   %>
     </div> 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
       <%= f.collection_select :cover_id, Cover.all.order("id"), :id, :name, { prompt: "Please Choose" } %>
     </div> 
-
+    
+    <% if (@qp_id == '5') %> 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="5">
       <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
 
+    <% else %>
+    
     <div class="js-dependent-fields" data-select-id="line_shape_id" data-option-value="2">
       <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
+    <% end %> 
 
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|4|5|6">
+
+    <% if (@qp_id == '4') %>  
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="4">
+      <%= f.select(:width, [[36, 36], [48, 48], [72, 72]], { prompt: "Please Choose"} )  %>
+    </div>
+
+    <% else %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|5|6">
       <%= f.number_field :width, placeholder: "Width (In Inches)" %>
     </div>
+    <% end %>    
+
 
     <div class="js-dependent-fields" data-select-id="line_cover_id" data-option-value="4|5">
       <%= f.number_field :height, placeholder: "Height (In Inches)" %>
     </div>  
+   
 
 
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13">
+        <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') %>
+         
+          <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+
+        <% elsif (@qp_id == '2') || (@qp_id == '8') || (@qp_id == '11') %>
+
+          <%= f.collection_select(:series_id,  Series.where("style_id = 3").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
 
 
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9">
-       <% if (@qp_id == '1' || '2' || '7' || '8' || '10' || '11' ) %>
-         <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
-        <% elsif (@qp_id == '9' || '12') %>
+        <% elsif (@qp_id == '9') ||  (@qp_id == '12') %>
           <%= f.collection_select(:series_id,  Series.where("style_id = 7").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+
         <% elsif (@qp_id == '13') %>
           <%= f.collection_select(:series_id,  Series.where("style_id = 8").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
         <% end %>
     </div>  
 
 
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9">
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13">
       <!-- custom fix for unsupported grouped_collection_select-->
       <div class="form-group"><label class="col-sm-2 col-md-2 control-label" for="line_color_id">Color</label><div class="col-sm-6 col-md-4">
 
@@ -101,8 +119,8 @@
       <% end %>
     </div>  
 
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="7|8|9">
-      <%= f.number_field :yards, label: "Yards Long" %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="6|7|8|9">
+      <%= f.number_field :yards, label: "Yards Long", placeholder: "Yards Long (in Yards)" %>
     </div>  
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="13">
@@ -116,9 +134,8 @@
 
   <div class="form-actions">
     <%= f.submit 'Add to My Quote', :class => "btn btn-success"  %>
-
+    <%= link_to "Show My Current Quote", @quoteholder, class: "btn btn-info", method: :get %>
     <%= link_to 'Choose a Different Product to Request a Quote For', '/request_quote', class: "btn btn-warning" %>
-
-<%= link_to 'Back To Request a Quote', '/request_quote',  class: "btn btn-danger" %>
+    <%= link_to 'Back To Request a Quote', '/request_quote',  class: "btn btn-danger" %>
   </div>
 <% end %>

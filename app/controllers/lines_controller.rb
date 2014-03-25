@@ -1,7 +1,8 @@
 class LinesController < ApplicationController
   include CurrentCart
   include CurrentQuoteholder
-  before_action :set_quoteholder, only: [:create]
+  before_action :set_quoteholder
+  before_action :set_cart
   before_action :set_line, only: [:show, :edit, :update, :destroy]
 
   # GET /lines
@@ -21,12 +22,7 @@ class LinesController < ApplicationController
     @line = Line.new
     @qp_id = (params[:quote_product_id])
     qp = QuoteProduct.find(@qp_id)
-    @qp_name = qp.name
-
-
-
-
-    
+    @qp_name = qp.name   
   end
 
   # GET /lines/1/edit
