@@ -1,0 +1,376 @@
+<% @quote.lines.each do |line| %>
+
+    <% if (line.quote_product_id == 7 ) %>
+    <!-- show 3 custom cuts  -->
+    
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-yards_long">Yards Long</th>
+          <th class="col col-dimensions">Dimensions</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-yards_long"><%= line.yards %></td>
+          <td class="col col-dimensions"><%= line.size.name%></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% elsif (line.quote_product_id == 8 ) %>
+    <!-- show 3 custom cuts  -->
+    <%=
+     #render(:partial => 'admin/quotes/custom_cuts') 
+    %>
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-yards_long">Yards Long</th>
+          <th class="col col-dimensions">Dimensions</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-yards_long"><%= line.yards %></td>
+          <td class="col col-dimensions"><%= line.size.name%></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+      </tbody>
+    </table>
+     
+    <% elsif (line.quote_product_id == 9 ) %>
+    <!-- show 3 custom cuts  -->
+    <%=
+     #render(:partial => 'admin/quotes/custom_cuts') 
+    %>
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-yards_long">Yards Long</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-yards_long"><%= line.yards %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+      </tbody>
+    </table>
+     
+    <!-- If this a table cover quote -->
+    <% elsif (line.quote_product_id == 1) %>
+    <!-- show Vinyl Table Cloth 
+              Laminate Table Cloth  -->
+    <%=
+    # render(:partial => 'admin/quotes/vinyl_laminate_table_covers') 
+    %>
+      <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-length">Length</th>
+          <th class="col col-width">Width</th>
+          <th class="col col-height">Height</th>
+          <th class="col col-finish_cover">Finish Cover</th>
+          <th class="col col-table_shape">Table Shape</th>
+          <th class="col col-umbrella_hole">Umbrella Hole?</th>
+          <th class="col col-for_booth_with_velcro">For Booth with Velcro?</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-length"><%= line.length %></td>
+          <td class="col col-width"><%= line.width %></td>
+          <td class="col col-height"><%= line.height %></td>
+          <td class="col col-finish_cover"><%= line.cover.name %></td>
+          <td class="col col-table_shape"><%= line.shape.name %></td>
+          <td class="col col-umbrella_hole"><%= line.umbrella %></td>
+          <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+    <% elsif (line.quote_product_id == 2) %>
+    <!-- show Vinyl Table Cloth 
+              Laminate Table Cloth  -->
+    <%=
+    # render(:partial => 'admin/quotes/vinyl_laminate_table_covers') 
+    %>
+      <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-length">Length</th>
+          <th class="col col-width">Width</th>
+          <th class="col col-height">Height</th>
+          <th class="col col-finish_cover">Finish Cover</th>
+          <th class="col col-table_shape">Table Shape</th>
+          <th class="col col-umbrella_hole">Umbrella Hole?</th>
+          <th class="col col-for_booth_with_velcro">For Booth with Velcro?</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-length"><%= line.length %></td>
+          <td class="col col-width"><%= line.width %></td>
+          <td class="col col-height"><%= line.height %></td>
+          <td class="col col-finish_cover"><%= line.cover.name %></td>
+          <td class="col col-table_shape"><%= line.shape.name %></td>
+          <td class="col col-umbrella_hole"><%= line.umbrella %></td>
+          <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+       
+      </tbody>
+    </table>
+    <% elsif (line.quote_product_id == 3 )%>
+    <!-- show Classic white vinyl pad -->
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% elsif (line.quote_product_id == 4) %>
+    <!-- show non-slip pad rolls -->
+    
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-width">Width</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-width"><%= line.width %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+    <% elsif (line.quote_product_id == 5) %>
+    <!-- show non-slip pad cuts -->
+    
+     <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>         
+          <th class="col col-length">Length</th>
+          <th class="col col-width">Width</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-length"><%= line.length %></td>
+          <td class="col col-width"><%= line.width %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <% elsif (line.quote_product_id == 6) %>
+    <!-- show americlear -->
+    
+     <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-yards_long">Yards Long</th>
+          <th class="col col-width">Width</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-yards_long"><%= line.yards %></td>
+          <td class="col col-width"><%= line.width %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    <% elsif (line.quote_product_id == 10) %>
+    <!-- show  -->
+    
+     <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+    <% elsif (line.quote_product_id == 11) %>
+    <!-- show  -->
+    
+     <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+    <% elsif (line.quote_product_id == 12) %>
+    <!-- show  -->
+    
+     <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+
+
+    <% elsif (line.quote_product_id == 13 ) %>
+    <!-- show  -->
+    
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-dimensions">Dimensions</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-dimensions"><%= line.size.dimension %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+      </tbody>
+    </table>
+    <% else %>
+    Haha
+    <% end %> 
+
+<% end %> 

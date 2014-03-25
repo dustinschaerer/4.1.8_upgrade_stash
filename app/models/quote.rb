@@ -1,10 +1,12 @@
 class Quote < ActiveRecord::Base
   belongs_to :user
-  has_many :lines
+  has_many :lines, dependent: :destroy
+
+  accepts_nested_attributes_for :lines
 
   validates :user_id, :firstname, :lastname, :telephone, :contactby, :pay_type, presence: true
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
-  # validates :subtotal, :shipping, :sales_tax, :total
+  validates :subtotal, :shipping, :sales_tax, :total, presence: true
 
   def add_items_from_quotecart(quotecart)
   	quotecart.items.each do |quoteitem|

@@ -1,38 +1,47 @@
-<%= simple_form_for(@quote) do |f| %>
-  <%= f.error_notification %>
+<%= bootstrap_form_for(@quote, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+  
+  <div class="larger top10">
+    <p>Please fill out your Order and Shipping details below. We will notify you as soon as we custom price your order.</p>
+  </div>
 
-  <div class="form-inputs">
-    <%= f.input :firstname %>
-    <%= f.input :lastname %>
-    <%= f.input :company %>
-    <%= f.input :telephone %>
-   
-    <div class="field">
-        <%= f.label :contactby, 'Contact By' %>
-        <%= f.select(:contactby, options_for_select(['Email', 'Telephone'] )) %>
-    </div>
-   
+  <% if @quote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quote.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-    <%= f.input :ship_street_address %>
-    <%= f.input :ship_city %>
-    <%= f.input :ship_zipcode %>
-    <div class="field">
-        <%= f.label :ship_state, 'State' %>
-        <%= f.select :ship_state, Order::STATES, prompt: 'Select State' %>
+      <ul>
+      <% @quote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-    <div class="field">
-        <%= f.label :ship_country, 'Country' %>
-        <%= f.select(:ship_country, options_for_select(['United States'] )) %>
-    </div>
-   
-    <%= f.input :subtotal, :as => :hidden, :input_html => { :value => 0 } %>
-    <%= f.input :shipping, :as => :hidden, :input_html => { :value => 0 } %>
-    <%= f.input :sales_tax, :as => :hidden, :input_html => { :value => 0 } %>
-    <%= f.input :total, :as => :hidden, :input_html => { :value => 0 } %>
-    <%= f.input :pay_type, :as => :hidden, :input_html => { :value => 'credit card' } %>
+  <% end %>
+
+ 
+  <div class="form-inputs top20">
+    <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %> 
+    <%= f.text_field :firstname, label: 'First Name', placeholder: 'First Name' %>
+    <%= f.text_field :lastname, label: 'Last Name', placeholder: 'Last Name' %>
+    <%= f.text_field :company, placeholder: 'Company Name (Optional)' %>
+    <%= f.text_field :telephone, label: 'Telephone Number', placeholder: 'Telephone Number'   %>
+    <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), { prompt: 'Choose your Contact Preference '} , { label: 'Contact By' }) %>
+    <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address' %>
+    <%= f.text_field :ship_city, label: 'City', placeholder: 'City' %>
+    <%= f.number_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code' %>
+    <%= f.select :ship_state, Order::STATES, { prompt: 'Select State'}, { label: 'State' } %>
+    <%= f.select(:ship_country, options_for_select(['United States']), {}, { label: 'Country'}) %>
+    <%= f.hidden_field :email, value: current_user.email %>
+    <%= f.hidden_field :subtotal, value: 0 %>
+    <%= f.hidden_field :shipping, value: 0 %>
+    <%= f.hidden_field :sales_tax, value: 0 %>
+    <%= f.hidden_field :total, value: 0 %>
+    <%= f.hidden_field :pay_type, value: 'credit card' %>
+    <%= f.hidden_field :user_id, value: current_user.id  %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.form_group do %>
+      <%= f.submit 'Submit My Quote Now',  class: "btn btn-primary btn-large"  %>
+      <%= link_to 'Edit or Remove Items from Quote', @quoteholder,  class: "btn btn-default btn-large"  %>
+    <% end %>
   </div>
 <% end %>

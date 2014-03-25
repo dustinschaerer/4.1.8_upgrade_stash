@@ -38,18 +38,26 @@
 	<table class="table table-bordered table-hover">
 		<tr>
 			<th>Quote #</th>
+			<th>Name</th>
+			<th>Email Address</th>
 			<th>Date Submitted</th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th>Subtotal</th>
+			<th>Shipping</th>
+			<th>Sales Tax</th>
+			<th>Total</th>
+			<th>Show Quote</th>
 		</tr>	
 		<% @quotes.each do |quote|%>
 		<tr>
 			<td><%= quote.id %></td>
+			<td><%= quote.firstname %> <%= quote.lastname %></td>
+			<td><%= quote.email %></td>
 			<td><%= quote.created_at %></td>
+			<td><%= number_to_currency(quote.subtotal) %></td>
+			<td><%= number_to_currency(quote.shipping) %></td>
+			<td><%= number_to_currency(quote.sales_tax) %></td>
+			<td><%= number_to_currency(quote.total) %></td>
 	        <td><%= link_to 'Show Quote Details', quote %></td>
-			<td></td>
-	        <td><!--<%= link_to 'Edit', edit_quote_path(quote) %>--></td>
 		</tr>
 		<% end %>
 	</table>

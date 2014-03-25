@@ -1,7 +1,4 @@
 <%= bootstrap_form_for(@line, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
-  <%=# f.error_notification 
-  %>
-
 
   <% if @line.errors.any? %>
     <div id="error_explanation">
@@ -22,8 +19,7 @@
     #f.association :quote_product, selected: @qp_id, disabled: true 
     %>
     
-    <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, { selected: @qp_id, label: false  }  
-    %>
+    <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, { selected: @qp_id, label: false  } %>
     
 
     <%= # f.hidden_field :quote_product_id, :as => :hidden, :input_html => { :value => @qp_id } 

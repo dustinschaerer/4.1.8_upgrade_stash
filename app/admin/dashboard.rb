@@ -26,7 +26,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Quote Requests" do
           table_for Quote.order('id desc').limit(20).each do |quote|      
             column("Quote ID#") {|quote| link_to(quote.id, admin_quote_path(quote.id))}
-            column("Status") {|quote| status_tag(quote.status) }
+            
             column("Customer"){|quote| link_to(quote.user.email, admin_quote_path(quote.user)) }
             column("First Name"){|quote| (quote.firstname) }
             column("Last Name"){|quote| (quote.lastname) }

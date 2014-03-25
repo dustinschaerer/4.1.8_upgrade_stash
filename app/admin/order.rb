@@ -2,7 +2,6 @@ ActiveAdmin.register Order do
 
   actions :all, :except => [:destroy] 
 
-
   permit_params :user_id, :firstname, :lastname, :company, :street_address, :city, :state, :zipcode, :country, :telephone, :email, :status
   
   index do 
@@ -23,7 +22,7 @@ ActiveAdmin.register Order do
     
       column do
 
-        panel "Customer Information" do 
+        panel "Order ##{order.id} Customer Information" do 
         
           attributes_table_for order.user do
             row("User") { auto_link order.user }
@@ -54,7 +53,7 @@ ActiveAdmin.register Order do
       column do
 
 
-        panel "Invoice" do
+        panel "Invoice -Order ##{order.id}" do
           
           attributes_table_for order do
             row ("Order ID") { order.id }

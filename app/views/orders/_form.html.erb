@@ -1,5 +1,6 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
+<%= bootstrap_form_for(@order, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+
+ <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
@@ -11,64 +12,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email, 'Email Address' %>
-    <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname, size: 35 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname, size: 35 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :company %>
+    <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %>  
+    <%= f.text_field :firstname, label: 'First Name', size: 35 %>
+    <%= f.text_field :lastname, label: 'Last Name', size: 35 %>
     <%= f.text_field :company, size: 50 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :street_address, 'Street Address' %>
-    <%= f.text_field :street_address, size: 50 %>
-  </div>
-  <div class="field">
-    <%= f.label :city, 'City' %>
+    <%= f.text_field :street_address, label: 'Street Address', size: 50 %>
     <%= f.text_field :city, size: 30 %>
-  </div>
-  <div class="field">
-    <%= f.label :zipcode, 'Zip Code' %>
-    <%= f.text_field :zipcode, size: 10 %>
-  </div>
-  <div class="field">
-    <%= f.label :state, 'State' %>
+    <%= f.text_field :zipcode, label: 'Zip Code', size: 10 %>
     <%= f.select :state, Order::STATES, prompt: 'Select State' %>
-  </div>
-  <div class="field">
-    <%= f.label :country, 'Country' %>
     <%= f.select(:country, options_for_select(['United States'] )) %>
-
-  </div>
-  <div class="field">
-    <%= f.label :telephone, 'Telephone Number' %>
-    <%= f.text_field :telephone %>
-  </div>
-  
-  <div class="field">
+    <%= f.text_field :telephone, label: 'Telephone Number' %>
     <%= f.hidden_field :status, value: "Submitted"  %>
-  </div>
-  
-  <div class="field">
     <%= f.hidden_field :user_id, value: current_user.id  %>
-  </div>
-
-  <!--  order.user_id and order.status are hidden fields -->
   
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.form_group do %>
+      <%= f.submit 'Submit Order Now', :class => "btn btn-success"  %>
+    <% end %>
   </div>
 <% end %>

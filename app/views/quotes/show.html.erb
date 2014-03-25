@@ -7,7 +7,7 @@
 </p>
 
 <div class="row">
-  <div class="col-xs-12 col-md-8">
+  <div class="col-xs-12">
 
     <div class="panel panel-info">
       
@@ -20,10 +20,11 @@
       </div>
 
       <div class="panel-body">
+
         <div class="row">
 
           <div class="col-sm-4 col-md-4">
-            <div class="panel panel-warning">
+            <div class="panel panel-success">
               <div class="panel-heading">
                 CUSTOMER DETAILS
               </div>
@@ -32,7 +33,7 @@
                 <strong><%= @quote.company %></strong><br>
                 <% end %>
                 
-                <%= @quote.firstname %><%= @quote.lastname %>
+                <%= @quote.firstname %> <%= @quote.lastname %>
                 <br><%= @quote.ship_street_address %>
                 <br><%= @quote.ship_city %>, <%= @quote.ship_state %>  <%= @quote.ship_zipcode %> 
                 <br><%= @quote.ship_country %>
@@ -55,48 +56,170 @@
           
         </div>  
         <hr>
-        <% @quote.items.each do |t| %>
+        <% @quote.lines.each do |line| %>
 
-        <%= if t.itemable_type == 'americlear'
-                  kind = 'AmeriClear Lamination'
-                elsif t.itemable_type == 'laminatecut' 
-                  kind =  'Laminate Custom Cut' 
-                elsif t.itemable_type == 'laminateroll' 
-                  kind = 'Laminate Roll Goods' 
-                elsif t.itemable_type == 'laminate' 
-                  kind = 'Laminate Table Cover' 
-                elsif t.itemable_type == 'nonslipcuts' 
-                  kind = 'Non-Slip Pad Custom Cut' 
-                elsif t.itemable_type == 'nonslippad' 
-                  kind = 'Non-Slip Pad Roll Goods' 
-                elsif t.itemable_type == 'uphlsterycut' 
-                  kind = 'Upholstery Custom Cut' 
-                elsif t.itemable_type == 'upholsteryroll' 
-                  kind = 'Upholstery Roll Goods' 
-                elsif t.itemable_type == 'value' 
-                  kind = 'Value Vinyl Table Cover' 
-                elsif t.itemable_type == 'vinyl'
-                  kind = 'Vinyl Table Cover' 
-                elsif t.itemable_type == 'vinylcut' 
-                  kind = 'Vinyl Custom Cut' 
-                elsif t.itemable_type == 'vinylroll' 
-                  kind = 'Vinyl Roll Goods' 
-              end %>
+        <div class="row bottom10">
+            <div class="col-xs-12 larger">
+               Quote Product: <span class="bold"><%= line.quote_product.name.upcase if line.quote_product_id %></span>
+            </div>
+        </div>
+
+        <div class="row">
+          
+            
+
+            <div class="col-xs-2">
+                <% if line.color_id %>
+                    <%= image_tag(line.color.image_url, class: "img-responsive") if line.color_id %>
+                <% end %>    
+            </div>
+    
+            <div class="col-xs-3">
+                <% if line.series_id %>
+                  <div class="quotespace border-top">
+                    <strong>SERIES:</strong>
+                    <%= line.series.name %>
+                  </div>  
+                <% end %>    
+
+
+                <% if line.color_id %>
+                <div class="quotespace">
+                    <strong>COLOR:</strong>
+                    <%= line.color.name %>
+                  </div>  
+                <% end %>
+
+
+                <% if line.cover_id %>
+                  <div class="quotespace border-top">
+                    <strong>FINISH COVER:</strong><br>
+                    <%= line.cover.name %>
+                  </div>  
+                <% end %>
+            </div>
+            
+  
+            <% if (line.quote_product_id = 13) %>  
+              <% if line.size %>
+            <div class="col-xs-2 col-xs-offset-1">
+                <strong>DIMENSIONS</strong><br>
+                <%= line.size.dimension %>
+            </div>
+              <% end %>  
+            <% end %>  
+            
+            <!-- If this column is not Value Vinyl-->
+              
+            <div class="col-xs-3">
+              <% if line.shape %>  
+                <div class="quotespace">
+                  <strong>TABLE SHAPE:</strong>
+                  <%= line.shape.name %>
+                </div>
+              <% end %>   
+
+              <% if line.length %>  
+                <div class="quotespace">
+                  <strong>LENGTH:</strong>
+                  <%= line.length %>"  
+                </div>
+              <% end %>   
+
+              <% if line.width %>  
+                <div class="quotespace">
+                  <strong>WIDTH:</strong>
+                  <%= line.width %>"
+                </div>
+              <% end %>  
+              
+              <% if line.height %>
+                <div class="quotespace">
+                  <strong>TABLE HEIGHT:</strong>
+                  <%= line.height %>"
+                </div>
+              <% end %>
+
+              <% if line.umbrella %>
+                <div class="quotespace">
+                  <strong>UMBRELLA?</strong>
+                  <%= boolean_to_words(line.umbrella) %>
+                </div>
+              <% end %>
+
+              <% if line.velcro %>
+                <div class="quotespace">
+                  <strong>BOOTH WITH VELCRO?</strong>
+                  <%= boolean_to_words(line.velcro) %>
+                </div>
+              <% end %>
+            </div>
+            
+          
+           <!-- End If this column is not Value Vinyl-->
+
+
+
+            <div class="col-xs-2 text-center">
+              <% if line.quantity %>
+                <strong>QUANTITY</strong>
+                <div><%= line.quantity %></div>
+              <% end %>  
+            </div>
+
+            <div class="col-xs-2 text-right">
+              <% if line.price %>
+                <strong>PRICE</strong><br>
+                  <% if line.price == 0 %>
+                    Waiting on Pricing
+                  <% else %>  
+                    <%= number_to_currency(line.price) %>
+                  <% end %>  
+              <% end %>  
+            </div>
+
+        </div>     
+
+        <hr>
+        <% end %>
         
         <div class="row">
-          <div class="col-xs-4 "><%= t.itemable_type %></div>
-          <div class="col-xs-4"><%= t.itemable_id %></div>
-         
-          <div class="col-xs-4"><a href="/<%= t.itemable_type %>s/<%= t.itemable_id %>">View Quote Item</a></div>
-        </div>
-        <hr>
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Sub-Total:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@quoteholder.total_price) %>
+          </div>
+        </div>    
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Shipping:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            $0.00
+          </div>
+        </div>   
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Sales Tax:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            $0.00
+          </div>
+        </div>   
 
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Total:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@quoteholder.total_price) %>
+          </div>
+        </div>   
         
-
-        <% end %>
-
-        </div>  
-
+        <hr>   
+         
+         Thank you for your choosing Americo!
       </div>
     
     </div>
@@ -105,88 +228,6 @@
 </div>
 
 
-<p>
-  <strong>Items:</strong>
-  <% @quote.items.each do |t| %>
-  <%= t.itemable_type %>
-  <%= t.itemable_id %>
-  <% end %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @quote.user.id %>
-</p>
-
-<p>
-  <strong>Firstname:</strong>
-  <%= @quote.firstname %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @quote.lastname %>
-</p>
-
-<p>
-  <strong>Telephone:</strong>
-  <%= @quote.telephone %>
-</p>
-
-<p>
-  <strong>Contactby:</strong>
-  <%= @quote.contactby %>
-</p>
-
-<p>
-  <strong>Ship street address:</strong>
-  <%= @quote.ship_street_address %>
-</p>
-
-<p>
-  <strong>Ship city:</strong>
-  <%= @quote.ship_city %>
-</p>
-
-<p>
-  <strong>Ship state:</strong>
-  <%= @quote.ship_state %>
-</p>
-
-<p>
-  <strong>Ship zipcode:</strong>
-  <%= @quote.ship_zipcode %>
-</p>
-
-<p>
-  <strong>Ship country:</strong>
-  <%= @quote.ship_country %>
-</p>
-
-<p>
-  <strong>Subtotal:</strong>
-  <%= @quote.subtotal %>
-</p>
-
-<p>
-  <strong>Shipping:</strong>
-  <%= @quote.shipping %>
-</p>
-
-<p>
-  <strong>Sales tax:</strong>
-  <%= @quote.sales_tax %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @quote.total %>
-</p>
-
-<p>
-  <strong>Pay type:</strong>
-  <%= @quote.pay_type %>
-</p>
 
 <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
   <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   

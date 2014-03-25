@@ -17,15 +17,7 @@
  
     <div class="row">
       
-       
-      <% if @quotecart %>
-           
-              <%= hidden_div_if(@quotecart.items.empty?, id: 'quotecart') do %>
-                <%= render @quotecart %>   
-              <% end %>
-            
-      <% end %> 
-
+     
       <div class="col-xs-12">
          <!--2nd column-->
          <div id="rightCol">

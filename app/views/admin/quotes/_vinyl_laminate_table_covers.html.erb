@@ -1,0 +1,36 @@
+ 	<table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-length">Length</th>
+          <th class="col col-width">Width</th>
+          <th class="col col-height">Height</th>
+          <th class="col col-finish_cover">Finish Cover</th>
+          <th class="col col-table_shape">Table Shape</th>
+          <th class="col col-umbrella_hole">Umbrella Hole?</th>
+          <th class="col col-for_booth_with_velcro">For Booth with Velcro?</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+
+        <tr class="odd" id="line_34">
+          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-series">Series</td>
+          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-length"><%= line.length %></td>
+          <td class="col col-width"><%= line.width %></td>
+          <td class="col col-height"><%= line.height %></td>
+          <td class="col col-finish_cover"><%= line.cover_id %></td>
+          <td class="col col-table_shape"><%= line.shape_id %></td>
+          <td class="col col-umbrella_hole"><%= line.umbrella %></td>
+          <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= line.price %></td>
+        </tr>
+       
+      </tbody>
+    </table>

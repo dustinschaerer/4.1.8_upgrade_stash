@@ -6,7 +6,7 @@ ActiveAdmin.register Quote do
   
   index do 
     column("Quote ID#", :sortable => :id) {|quote| link_to "##{quote.id} ", admin_quote_path(quote) }
-    column("Quote Status") { |quote| status_tag(quote.status) }
+    #column("Quote Status") { |quote| status_tag(quote.status) }
     column("Customer", :user, :sortable => :user_id)
     column("City", :ship_city, :sortable => :city)
     column("State", :ship_state, :sortable => :state)
@@ -14,16 +14,18 @@ ActiveAdmin.register Quote do
     column("Date Modified", :updated_at)
     default_actions
   end
-  
 
   show do
+    panel "Quote Details" do
+      div do
+       render "conditional_lines"
+      end
+      
+    end
 
     columns do 
-    
       column do
-
-        panel "Customer Information" do 
-        
+        panel "Quote ##{quote.id}  - Customer Information" do  
           attributes_table_for quote.user do
             row("User") { auto_link quote.user }
             row :email
@@ -40,39 +42,23 @@ ActiveAdmin.register Quote do
             row :ship_country  
           end   
         end  
-        active_admin_comments
       end # end column
       
       column do
-
-        panel "Quote Details" do
-          
+        panel "Quote History" do
           attributes_table_for quote do
-            row ("Quote ID#") { quote.id }
-            row :status
             row :created_at
             row :updated_at
           end
-        
-          table_for(quote.items) do |t|
-            t.column("Quote Product Type") {|item| item.itemable_type }
-            t.column("Quote Product Type") {|item| item.itemable_id }     
-          end
-
-          table_for(quote.items) do |t|
-            t.column("ADD PRICING TO Quote ITEMS") {|item| link_to "##{item.itemable_type} - #{item.itemable_id} ", "/admin/#{item.itemable_type}s/#{item.itemable_id}/edit" }
-          end
-
-          table_for(quote.items) do |item|
-
-          # lookup = item.itemable_type.capitalize
-           # @lookup = lookup.find(item.itemable_id)
-
-            #item.column("LINE ITEM DETAILS") {|item| @lookup.price }
-            item.column("LINE ITEM DETAILS") {|item| link_to "##{item.itemable_type} - #{item.itemable_id} ", "/admin/#{item.itemable_type}s/#{item.itemable_id}/edit" }
-          end
-
         end
+        active_admin_comments
+        
+
+
+
+
+
+
 
       end # end column
     end # end columns
@@ -87,24 +73,36 @@ ActiveAdmin.register Quote do
       f.input :firstname
       f.input :lastname
       f.input :company
+      f.input :telephone
       f.input :ship_street_address
       f.input :ship_city
       f.input :ship_state
       f.input :ship_zipcode
       f.input :ship_country, :as => :string
+    end
+    f.inputs 'Items in Quote' do
+      f.has_many :lines, :allow_destroy => true,  :new_record => false do |linef|
+        linef.input :quote_product_id, :label => 'Quote Product', :as => :select, :collection => QuoteProduct.all.order("id"), :input_html => { disabled: true }
+
+        linef.input :length
+        linef.input :width
+        linef.input :height
+        linef.input :cover_id, :label => 'Finish Cover', :as => :select, :collection => Cover.all.order("id"), :input_html => { disabled: true }
+        linef.input :shape_id, :label => 'Shape', :as => :select, :collection => Shape.all.order("id"), :input_html => { disabled: true }
+        linef.input :series_id, :label => 'Series', :as => :select, :collection => Series.all.order("id"), :input_html => { disabled: true }
+        linef.input :color_id, :label => 'Color', :as => :select, :collection => Color.all.order("id"), :input_html => { disabled: true }
+        linef.input :price
+      end  
+    end
+
+    f.inputs 'Totals' do  
       f.input :subtotal
       f.input :sales_tax
       f.input :shipping
       f.input :total
       f.input :pay_type
     end
-    f.inputs 'Items' do
-      f.has_many :items, :allow_destroy => true,  :new_record => false do |itemf|
-        itemf.input :itemable_type
-        itemf.input :itemable_id
-
-      end  
-    end
+    
     f.actions
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319234259) do
+ActiveRecord::Schema.define(version: 20140324194624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -188,10 +188,14 @@ ActiveRecord::Schema.define(version: 20140319234259) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quoteholder_id"
+    t.integer  "quote_id"
+    t.integer  "purchase_id"
   end
 
   add_index "lines", ["color_id"], name: "index_lines_on_color_id", using: :btree
   add_index "lines", ["cover_id"], name: "index_lines_on_cover_id", using: :btree
+  add_index "lines", ["purchase_id"], name: "index_lines_on_purchase_id", using: :btree
+  add_index "lines", ["quote_id"], name: "index_lines_on_quote_id", using: :btree
   add_index "lines", ["quote_product_id"], name: "index_lines_on_quote_product_id", using: :btree
   add_index "lines", ["quoteholder_id"], name: "index_lines_on_quoteholder_id", using: :btree
   add_index "lines", ["series_id"], name: "index_lines_on_series_id", using: :btree
