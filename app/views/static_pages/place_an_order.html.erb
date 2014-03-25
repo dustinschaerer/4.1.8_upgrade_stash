@@ -1,7 +1,5 @@
-<% provide(:title, 'Place an Order') %>
-
+<% provide(:title, 'Request a Quote') %>
 <div class="row border-top">
-
   <div class="col-sm-12 col-md-2 hidden-xs">
     <ul class="nav nav-pills nav-stacked">
       <li><a href="/about">About Us</a></li>
@@ -14,8 +12,8 @@
       <li><a href="/frequently_asked_questions">Frequent Questions</a></li>
       <li><a href="/privacy_policy">Privacy Policy</a></li>
       <li><a href="/how_to_measure">How to Measure</a></li>
-      <li class="active"><a href="/place_an_order">Place an Order</a></li>
-      <li><a href="/request_quote">Request a Quote</a></li>
+      <li><a href="/place_an_order">Place an Order</a></li>
+      <li class="active"><a href="/request_quote">Request a Quote</a></li>
       <li><a href="/request_catalog">Request a Catalog</a></li>
     </ul>
     <div>
@@ -24,103 +22,169 @@
     </div>
   </div>
 
-  <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
-    <h1 class="addmaroon"><span class="cat-title">Place an Order</span></h1>
-    <div class="row">
-        
-      <div class="col-xs-12 col-sm-7">
-        <div class="stylename addmaroon">How to Place an Order Online</div>
-        
 
-        <div id="orangeback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">1 
-            </div> 
-            <div class="col-xs-11 tenpad">After placing your Quote and it has been approved, DO THIS...
-            </div> 
-          </div> 
-        </div>
- <!--       <div id="blueback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">2 
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Choose table cover types from the illustrations <span class="glyphicon glyphicon-play"></span></strong>
-              <br>Note which tables, if any, need umbrella holes or Velcro (for booths attached to walls)
-            </div> 
-          </div></div>
-        <div id="greenback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">3   
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Measure your table tops in inches.</strong><br>
-              <ul class="noindent">
-                <li class="noindent">For square or rectangular tables, measure width first, then length (example: 32” x 42”) For standard drape covers, we add an 8” drop on all sides, unless you specify otherwise.</li>
-                <li class="noindent">For round tables, measure the diameter of table from edge to edge across the center (example: 60”)</li>
-                <li class="noindent">For floor length covers, measure from top of table to the floor.</li>
-              </ul>
-          <div class="pull-right"><a href="how_to_measure" class="whitelink">Measuring Instructions</a></div>
-            </div> 
-          </div>
-        </div>
-        <div id="redback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">4  
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Request a quote.</strong><br>
-              <ul class="noindent">
-                <li class="noindent">Provide us with the style number, color choice, and all your table measurements, and let us do the math.</li>
-                <li class="noindent">For standard drape covers, we add an 8” drop on all sides, unless you specify otherwise.</li>
-                <li class="noindent">Table runners come in 3 widths: 12”, 16” and 24”.</li>
-              </ul>
-            </div> 
-          </div>
-        </div>
-        <div id="grayback">
-          <div class="row">
-            <div class="col-xs-1 twoem bold">5  
-            </div> 
-            <div class="col-xs-11 tenpad"><strong>Place your order.</strong><br> 
-              <ul class="noindent">
-                <li class="noindent">All table covers are precision-cut and constructed to your exact specifications. Edges are finished with a 1/4" single-turn hem.</li>
-                <li class="noindent">Finished table covers are delivered within 5 to 15 days.</li>
-              </ul>
-            </div> 
-          </div>
-        </div>
--->
-     
+  <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
+    <h1 class="addmaroon"><span class="cat-title">Request a Quote</span></h1>
+    <hr>
+    <div class="bold addgray styledesc bottom10">Table Covers</div>
+    
+    <div class="row">
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=1", class: "") do %>
+          <%= image_tag("quote_vinyl-table.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">VINYL TABLE COVERS</div>
+          <div class="addgray">Classic (9800) Premium (6100)</div>
+        <% end %>
+      </div>
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=10", class: "") do %>
+          <%= image_tag("quote_vinyl-and-upholstery-roll.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">VINYL ROLL GOODS</div>
+          <div class="addgray">Classic (9800) Premium (6100) </div>
+        <% end %>
+      </div>
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=7", class: "") do %>
+          <%= image_tag("quote_vinyl-cut.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">VINYL CUSTOM CUTS</div>
+          <div class="addgray">Classic (9800) Premium (6100) </div>
+        <% end %>
+      </div>
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=2", class: "") do %>
+          <%= image_tag("quote_laminate-table.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">LAMINATE TABLE COVERS</div>
+          <div class="addgray">Designer Collection (1200/2000)</div>
+        <% end %>
+      </div>
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=11", class: "") do %>
+          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">LAMINATE ROLL GOODS</div>
+          <div class="addgray">Designer Collection (1200/2000)</div>
+        <% end %>
+      </div>
+  
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=8", class: "") do %>
+          <%= image_tag("quote_laminate-cut.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">LAMINATE CUSTOM CUTS</div>
+          <div class="addgray">Designer Collection (1200/2000)</div>
+        <% end %>
+      </div>
+  
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=13", class: "") do %>
+          <%= image_tag("quote_vinyl-cut.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">VALUE VINYL TABLE COVERS</div>
+          <div class="addgray">Ready-Made Table Covers (7000)</div>
+        <% end %>
+      </div>
+    </div> 
+  
+    <hr>
+    <div class="bold addgray styledesc bottom10">Upholstery</div>
+    
+    <div class="row">
+       <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=12", class: "") do %>
+          <%= image_tag("quote_upholstery.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">UPHOLSTERY ROLL GOODS</div>
+          <div class="addgray">Distinctions Collection (6111-6126)</div>
+        <% end %>
+      </div>  
+
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=9", class: "") do %>
+          <%= image_tag("quote_upholstery-cut.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">UPHOLSTERY CUSTOM CUTS</div>
+          <div class="addgray">Distinctions Collection (6111-6126)</div>
+        <% end %>
+      </div>  
+    </div> 
+  
+    <hr>
+    <div class="bold addgray styledesc bottom10">Non-Slip Padding</div>
+    
+    <div class="row">  
+
+
+
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=4", class: "") do %>
+          <%= image_tag("quote_non-slip.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">NON-SLIP PADDING</div>
+          <div class="addmaroon bold">ROLL GOODS</div>
+        <% end %>
+      </div>  
+      
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=5", class: "") do %>
+          <%= image_tag("quote_non-slip.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">NON-SLIP PADDING</div>
+          <div class="addmaroon bold">CUSTOM CUTS</div>
+        <% end %>
+      </div>  
+      
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=3", class: "") do %>
+          <%= image_tag("quote_white-padding.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">VINYL PADDING ROLL GOODS</div>
+          <div class="addgray">Classic White Vinyl Padding</div>
+        <% end %>
+      </div>  
+    </div> 
+  
+    <hr>
+    <div class="bold addgray styledesc bottom10">Americlear Lamination</div>
+    
+    <div class="row">  
+
+
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("/lines/new?quote_product_id=6", class: "") do %>
+          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">AMERICLEAR LAMINATION</div>
+          <div class="addgray">Laminate Your Own Fabric</div>
+        <% end %>
+      </div>  
+    </div>
+
+  </div>    
+  
+
+   <hr>
+    <div class="bold addgray styledesc bottom10">Accessories</div>
+    
+    <div class="row">  
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("#", class: "") do %>
+          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">PLACEMATS</div>
+          <div class="addgray">Filler Text</div>
+        <% end %>
       </div>
 
-      <div class="col-xs-12 col-sm-5">
-        <div id="stylename addmaroon">TABLE COVER TYPES</div>
-        <!--
-        <div class="row grayback">
-          <div class="col-xs-6"><%= image_tag('drape.png', :class=> "img-responsive") %><br>DRAPE<br>Standard throw cover with 8” drop</div>
-          <div class="col-xs-6"><%= image_tag('drape-to-floor.png', :class=> "img-responsive") %><br>DRAPE TO FLOOR<br>Oversized throw cover, brushes the floor</div>
-        </div>
-        <div class="row grayback">
-          <div class="col-xs-6"><%= image_tag('fitted.png', :class=> "img-responsive") %><br>FITTED<br>Fits like a box top, with 6” drop</div>
-          <div class="col-xs-6"><%= image_tag('fitted-to-floor.png', :class=> "img-responsive") %><br>FITTED TO FLOOR<br>Fits like a box top, brushes the floor</div>
-        </div>
-        <div class="row grayback">
-          <div class="col-xs-6"><%= image_tag('elastic-fit.png', :class=> "img-responsive") %><br>ELASTIC FIT<br>Cups under tabletop with elastic hem</div>
-          <div class="col-xs-6"><%= image_tag('umbrella-hole.png', :class=> "img-responsive") %><br>UMBRELLA HOLE<br>Available with any custom-made styles</div>
-        </div>
-        <div class="row grayback">
-          <div class="col-xs-6"><%= image_tag('booth-with-velcro.png', :class=> "img-responsive") %><br>BOOTH with VELCRO
-                                <br>Velcro at one end, for custom-made styles
-          </div>
-          <div class="col-xs-6 top20"><br><a href="how_to_measure">Measuring Instructions <span class="glyphicon glyphicon-play"></span></a></div>
-        </div>
-        -->
-      </div>    
-    </div>    
 
-  	<p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("#", class: "") do %>
+          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">RUNNERS</div>
+          <div class="addgray">Filler Text</div>
+        <% end %>
+      </div>  
+
+
+      <div class="col-sm-6 col-md-4 bottom20">
+        <%= link_to("#", class: "") do %>
+          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+          <div class="addmaroon bold">TOPPERS</div>
+          <div class="addgray">Filler Text</div>
+        <% end %>
+      </div>                
+    </div>
+
   </div>    
 
+  
 </div>   
