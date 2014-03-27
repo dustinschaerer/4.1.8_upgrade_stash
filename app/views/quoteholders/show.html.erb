@@ -144,7 +144,15 @@
                     Submit for Pricing
                   <% else %>  
                     <%= number_to_currency(line.price) %>
-                  <% end %>  
+                  <% end %> 
+                <br>
+                <strong>TOTAL PRICE:</strong><br>
+                  <% if line.price == 0 %>
+                    Submit for Pricing
+                  <% else %>  
+                    <%= number_to_currency(line.total_price) %>
+                  <% end %>
+
               <% end %>  
             </div>
 

@@ -61,7 +61,7 @@ class Line < ActiveRecord::Base
   end
 
   def total_price
-		self.price * self.quantity
+		price * quantity
 	end	
 
 end
