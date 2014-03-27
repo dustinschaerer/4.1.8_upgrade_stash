@@ -55,7 +55,8 @@ ActiveAdmin.register Quote do
             row :total do |ttl|
               number_to_currency ttl.total
             end
-          end   
+            strong { link_to "Update Totals and Pricing on this Quote", [:admin, quote] }
+          end 
         end  
       end # end column
       
@@ -79,26 +80,28 @@ ActiveAdmin.register Quote do
       f.input :email
       f.input :firstname
       f.input :lastname
-      f.input :company
+      f.input :company 
       f.input :telephone
       f.input :ship_street_address
       f.input :ship_city
-      f.input :ship_state
+      f.input :ship_state, :as => :select, :collection => Order::STATES
       f.input :ship_zipcode
-      f.input :ship_country, :as => :string
+      f.input :ship_country, :as => :string, :input_html => { :readonly => :true }
     end
     f.inputs 'Items in Quote' do
       f.has_many :lines, :allow_destroy => true,  :new_record => false do |linef|
         linef.input :quote_product_id, :label => 'Quote Product', :as => :select, :collection => QuoteProduct.all.order("id"), :input_html => { disabled: true }
 
-        linef.input :length
-        linef.input :width
-        linef.input :height
+        linef.input :length, :label => "Length (in Inches)", size: 5
+        linef.input :width, :label => "Width (in Inches)", size: 5
+        linef.input :height, :label => "Height (in Inches)", size: 5
         linef.input :cover_id, :label => 'Finish Cover', :as => :select, :collection => Cover.all.order("id"), :input_html => { disabled: true }
         linef.input :shape_id, :label => 'Shape', :as => :select, :collection => Shape.all.order("id"), :input_html => { disabled: true }
         linef.input :series_id, :label => 'Series', :as => :select, :collection => Series.all.order("id"), :input_html => { disabled: true }
         linef.input :color_id, :label => 'Color', :as => :select, :collection => Color.all.order("id"), :input_html => { disabled: true }
-        linef.input :price
+        linef.input :price do |p|
+          number_to_currency p.price
+        end   
       end  
     end
 
