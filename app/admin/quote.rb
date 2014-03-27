@@ -14,6 +14,7 @@ ActiveAdmin.register Quote do
     column("State", :ship_state, :sortable => :state)
     column("Date Created", :created_at)
     column("Date Modified", :updated_at)
+    column("Quote Total", :total)
     default_actions
   end
 
@@ -41,7 +42,19 @@ ActiveAdmin.register Quote do
             row :ship_city
             row :ship_state
             row :ship_zipcode
-            row :ship_country  
+            row :ship_country 
+            row :subtotal do |sb|
+              number_to_currency sb.subtotal
+            end  
+            row :shipping do |i|
+              best_in_place i, :shipping, :type => :input, :display_with => lambda{ |v| number_to_currency(v) }, :html_attrs => { :class => 'edit-shipping-body' }               
+            end  
+            row :sales_tax do |i|
+              best_in_place i, :sales_tax, :type => :input, :display_with => lambda{ |v| number_to_currency(v) }, :html_attrs => { :class => 'edit-sales-tax-body' }               
+            end  
+            row :total do |ttl|
+              number_to_currency ttl.total
+            end
           end   
         end  
       end # end column

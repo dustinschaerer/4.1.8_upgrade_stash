@@ -174,7 +174,15 @@
                     Waiting on Pricing
                   <% else %>  
                     <%= number_to_currency(line.price) %>
-                  <% end %>  
+                  <% end %> 
+                  <br>
+                  <strong>TOTAL PRICE:</strong><br>
+                  <% if line.price == 0 %>
+                    Submit for Pricing
+                  <% else %>  
+                    <%= number_to_currency(line.total_price) %>
+                  <% end %>
+ 
               <% end %>  
             </div>
 
@@ -188,7 +196,7 @@
             <strong>Sub-Total:</strong> 
           </div>
           <div class="col-xs-2 text-right">
-            <%= number_to_currency(@quoteholder.total_price) %>
+            <%= number_to_currency(@quote.subtotal) %>
           </div>
         </div>    
         <div class="row">
@@ -196,7 +204,7 @@
             <strong>Shipping:</strong> 
           </div>
           <div class="col-xs-2 text-right">
-            $0.00
+            <%= number_to_currency(@quote.shipping) %>
           </div>
         </div>   
         <div class="row">
@@ -204,7 +212,7 @@
             <strong>Sales Tax:</strong> 
           </div>
           <div class="col-xs-2 text-right">
-            $0.00
+            <%= number_to_currency(@quote.sales_tax) %>
           </div>
         </div>   
 
@@ -213,7 +221,7 @@
             <strong>Total:</strong> 
           </div>
           <div class="col-xs-2 text-right">
-            <%= number_to_currency(@quoteholder.total_price) %>
+            <%= number_to_currency(@quote.total) %>
           </div>
         </div>   
         

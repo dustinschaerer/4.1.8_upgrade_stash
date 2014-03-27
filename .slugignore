@@ -1,8 +1,11 @@
 *.psd
 *.pdf
 *.zip
-/test
-/spec
-/features
-/doc
-/app/assets/images/swatches/swatches.zip
+log/development.log
+test
+spec
+features
+doc
+app/assets/images/swatches/swatches.zip
+app/assets/images/*.jpg
+app/assets/images/*.png
