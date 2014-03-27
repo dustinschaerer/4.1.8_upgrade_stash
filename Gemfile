@@ -21,9 +21,8 @@ gem 'simple_form'
 gem 'country-select'
 gem 'underscore-rails'
 gem 'dependent-fields-rails'
-gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem 'bootstrap_form'
-
+gem "best_in_place", github: 'bernat/best_in_place'
 
 
 group :development, :test do

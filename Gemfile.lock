@@ -1,8 +1,10 @@
 GIT
-  remote: git://github.com/galetahub/simple-captcha.git
-  revision: 2602bf19a63df25929960b5a7721a9d265281ec1
+  remote: git://github.com/bernat/best_in_place.git
+  revision: df178520bf9ba405baee9528d5dbb630d6ff760c
   specs:
-    simple_captcha (0.1.6)
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (>= 3.1)
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
@@ -281,6 +283,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   acts-as-taggable-on
+  best_in_place!
   bootstrap-sass (~> 3.0.3.0)
   bootstrap_form
   capybara (= 2.1.0)
@@ -305,7 +308,6 @@ DEPENDENCIES
   seed_dump
   selenium-webdriver (= 2.35.1)
   shoulda
-  simple_captcha!
   simple_form
   spork-rails (= 4.0.0)
   turbolinks (= 2.1)

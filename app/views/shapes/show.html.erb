@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @shape.name %>
+  <%= best_in_place @shape, :name, :type => :input %>
 </p>
 
 <%= link_to 'Edit', edit_shape_path(@shape) %> |

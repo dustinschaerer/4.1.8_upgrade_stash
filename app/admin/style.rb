@@ -1,4 +1,5 @@
 ActiveAdmin.register Style do
+    
 
   
   # See permitted parameters documentation:

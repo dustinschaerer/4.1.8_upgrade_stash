@@ -2,8 +2,11 @@ ActiveAdmin.register Quote do
   
   actions :all, :except => [:destroy] 
 
-  permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at
-  
+
+  permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at,
+   lines_attributes: [ :id, :price]
+
+
   index do 
     column("Quote ID#", :sortable => :id) {|quote| link_to "##{quote.id} ", admin_quote_path(quote) }
     #column("Quote Status") { |quote| status_tag(quote.status) }
@@ -52,14 +55,6 @@ ActiveAdmin.register Quote do
           end
         end
         active_admin_comments
-        
-
-
-
-
-
-
-
       end # end column
     end # end columns
   end # end show
@@ -107,11 +102,6 @@ ActiveAdmin.register Quote do
   end
 
   
-
-
-
-
-
 ####################################
 
 

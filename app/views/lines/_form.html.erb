@@ -1,3 +1,74 @@
+<% if (@qp_id == '1') %>  
+  <div>
+    <div>Styles 9800 &amp; 6100</div>
+    <div>We custom cut and sew covers to fit any table size. Cloths wider than 54" will be seamed. Give us your table size &amp; we will do the math. See the <a href="/how_to_measure">how to measure</a> page for specifics.</div>
+    <div>We require table size instead of cloth size for quoting.</div>
+    <div>Please be sure you have visited our measuring page for how to measureand table styles.</div>
+  </div>
+<% elsif (@qp_id == '2') %>  
+  <div>
+    <div>Styles 1200 &amp; 2000</div>
+    <div>We custom cut and sew covers to fit any table size. / Whole roll (25 yards x 54" width) / Cut goods  (any length X 4" width), Cloths wider than 54" will be seamed. Give us your table size &amp; we will do the math, or see how to measure page for specifics.</div>
+    <div>We require table size instead of cloth size for quoting.</div>
+    <div>Please be sure you have visited our measuring page for how to measureand table styles.</div>
+  </div>  
+<% elsif (@qp_id == '3') %>  
+  <div>
+    <div>Classic White Vinyl Padding</div>
+    <div>Only available by the Roll (25 yards x 54" width).</div>
+  </div> 
+<% elsif (@qp_id == '4') %>  
+  <div>
+    <div>Non-Slip Padding Rolls</div>
+    <div>Available by the Roll (25 yards) in either 36", 48", &amp; 72" widths.  Non-Slip Padding is also available in <a href="/lines/new?quote_product_id=5">Custom Cut sizes</a> to accomodate any need.</div>
+  </div> 
+<% elsif (@qp_id == '5') %>  
+  <div>
+    <div>Non-Slip Padding Custom Cuts</div>
+    <div>Available in any Custom Cut sizes you ned to accomodate any purpose. Non-Slip Padding is also available by the <a href="/lines/new?quote_product_id=4">Roll (25 yards)</a> in either 36", 48", &amp; 72" widths.  </div>
+  </div>
+<% elsif (@qp_id == '6') %>  
+  <div>
+    <div>C.O.M. (Customer Own Material)</div>
+    <div>Matte or Gloss applied to textured or flat fabrics. WIDTH OF GOODS: 45" to 58"</div>
+  </div>
+<% elsif (@qp_id == '7') %>  
+  <div>
+    <div>Vinyl Custom Cuts</div>
+    <div>Classic and Premium Vinyl Custom Cut rules, availability and options.</div>
+  </div>
+<% elsif (@qp_id == '8') %>  
+  <div>
+    <div>Laminate Custom Cuts</div>
+    <div>Designer Laminate Vinyl Custom Cut rules, availability and options.</div>
+  </div>
+<% elsif (@qp_id == '9') %>  
+  <div>
+    <div>Upholstery Custom Cuts</div>
+    <div>Vinyl Upholstery Fabric Custom Cut rules, availability and options.</div>
+  </div>
+<% elsif (@qp_id == '10') %>  
+   <div>
+    <div>Styles 9800 &amp; 6100</div>
+    <div>Whole roll (25 yards x 54" width)</div>
+  </div>
+<% elsif (@qp_id == '11') %>  
+  <div>
+    <div>Styles 1200 &amp; 2000</div>
+    <div>Whole roll (25 yards x 54" width)</div>
+  </div>
+<% elsif (@qp_id == '12') %>  
+  <div>
+    <div>Upholstery Styles - Distinction Collection 6111 - 6126</div>
+    <div>Whole roll (25 yards x 54" width)</div>
+  </div>
+<% elsif (@qp_id == '13') %>  
+  <div>
+    <div>Value Vinyl Ready Made Table Cloths</div>
+    <div>Available in 8 ready-made sizes and shapes. </div>
+  </div> 
+<% end %>
+
 <%= bootstrap_form_for(@line, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
 
   <% if @line.errors.any? %>

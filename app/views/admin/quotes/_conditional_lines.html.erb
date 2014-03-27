@@ -81,7 +81,7 @@
           <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= line.price %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :type => :input %></td>
         </tr>
       </tbody>
     </table>
@@ -124,7 +124,7 @@
           <td class="col col-umbrella_hole"><%= line.umbrella %></td>
           <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= line.price %></td>
+          <td class="col col-price"><%= best_in_place line, :price %></td>        
         </tr>
        
       </tbody>
@@ -167,9 +167,8 @@
           <td class="col col-umbrella_hole"><%= line.umbrella %></td>
           <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= line.price %></td>
-        </tr>
-       
+          <td class="col col-price"><%= best_in_place line, :price %></td>  
+       </tr>
       </tbody>
     </table>
     <% elsif (line.quote_product_id == 3 )%>
@@ -186,7 +185,7 @@
         <tr class="odd" id="">
           <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= line.price %></td>
+          <td class="col col-price"><%= best_in_place line, :price %></td>  
         </tr>
       </tbody>
     </table>
@@ -209,7 +208,7 @@
           <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= line.price %></td>
+          <td class="col col-price"><%= best_in_place line, :price %></td>  
         </tr>
        
       </tbody>
