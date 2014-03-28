@@ -42,7 +42,7 @@ class LinesController < ApplicationController
         format.html { redirect_to @line.quoteholder, notice: 'Line was successfully created and added to your Quoteholder.' }
         format.json { render action: 'show', status: :created, location: @line }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', :params => { :quote_product_id => @qp_id } }
         format.json { render json: @line.errors, status: :unprocessable_entity }
       end
     end

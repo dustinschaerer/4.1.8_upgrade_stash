@@ -20,3 +20,17 @@
 	max-width: 100px;
 }
 
+.purr {
+position: fixed;
+top:10%;
+left: 40%;
+width: 300px;
+padding: 20px 15px 20px 15px;
+background-color: rgba(155,0,0,0.7);
+border-radius: 5px;
+z-index: 9999;
+font-size: 26px;
+font-weight: bold;
+color: white;
+&:first-letter { text-transform: uppercase; }
+}

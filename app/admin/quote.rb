@@ -47,10 +47,10 @@ ActiveAdmin.register Quote do
               number_to_currency sb.subtotal
             end  
             row :shipping do |i|
-              best_in_place i, :shipping, :type => :input, :display_with => lambda{ |v| number_to_currency(v) }, :html_attrs => { :class => 'edit-shipping-body' }               
+              best_in_place i, :shipping, :type => :input
             end  
             row :sales_tax do |i|
-              best_in_place i, :sales_tax, :type => :input, :display_with => lambda{ |v| number_to_currency(v) }, :html_attrs => { :class => 'edit-sales-tax-body' }               
+              best_in_place i, :sales_tax, :type => :input, :display_with => :number_to_currency
             end  
             row :total do |ttl|
               number_to_currency ttl.total
@@ -106,11 +106,11 @@ ActiveAdmin.register Quote do
     end
 
     f.inputs 'Totals' do  
-      f.input :subtotal
-      f.input :sales_tax
+      f.input :subtotal, :input_html => { disabled: true }
+      f.input :sales_tax, :input_html => { disabled: true }
       f.input :shipping
-      f.input :total
-      f.input :pay_type
+      f.input :total, :input_html => { disabled: true }
+      
     end
     
     f.actions

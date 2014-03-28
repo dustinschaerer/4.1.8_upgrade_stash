@@ -69,28 +69,16 @@
   </div> 
 <% end %>
 
-<%= bootstrap_form_for(@line, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
-
-  <% if @line.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@line.errors.count, "error") %> prohibited this order from being saved:</h2>
-
-      <ul>
-      <% @line.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
 
+<%= bootstrap_form_for(@line, :url => { :action => :create, :quote_product_id => @qp_id }, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+  
+
+  <%= f.alert_message "Please fix the following errors:" %>
+
+  
   <div class="form-inputs">
-
-    <%= 
-    #f.association :quote_product, selected: @qp_id, disabled: true 
-    %>
-    
     <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, { selected: @qp_id, label: false  } %>
     
 
@@ -157,15 +145,11 @@
 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13">
-      <!-- custom fix for unsupported grouped_collection_select-->
       <div class="form-group"><label class="col-sm-2 col-md-2 control-label" for="line_color_id">Color</label><div class="col-sm-6 col-md-4">
-
-        <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, {prompt: ""}, {class: "form-control"} ) %>
+        <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, {prompt: "Please Choose a Series first"}, {class: "form-control"} ) %>
       </div></div> 
 
     </div>  
-
-
 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">

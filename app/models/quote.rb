@@ -12,7 +12,9 @@ class Quote < ActiveRecord::Base
 
   validates :user_id, :firstname, :lastname, :telephone, :contactby, :pay_type, presence: true
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
-  validates :subtotal, :shipping, :sales_tax, :total, presence: true
+  validates :subtotal, :shipping, :sales_tax, :total, presence: true, numericality: true
+  
+
   
   def add_lines_from_quoteholder(quoteholder)
     quoteholder.lines.each do |quoteline|
