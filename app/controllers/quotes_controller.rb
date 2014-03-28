@@ -1,10 +1,10 @@
 class QuotesController < ApplicationController
-  #include CurrentQuotecart
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_quoteholder
   before_action :set_cart
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
+
 
   # GET /quotes
   # GET /quotes.json
@@ -15,17 +15,15 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+
   end
 
   # GET /quotes/new
   def new
-     #if @quotecart.items.empty?
-     if @quoteholder.lines.empty?
-
+    #if @quotecart.items.empty?
+    if @quoteholder.lines.empty?
       redirect_to '/request_quote', notice: "Please add items to your Quote before submitting it."
-      return
     end
-
     @quote = Quote.new
   end
 
@@ -72,7 +70,7 @@ class QuotesController < ApplicationController
         #format.json { render json: @quote.errors, status: :unprocessable_entity }
         format.json { respond_with_bip(@quote) }
       end
-    
+    end
   end
 
   # DELETE /quotes/1
@@ -85,6 +83,10 @@ class QuotesController < ApplicationController
     end
   end
 
+
+
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quote
@@ -94,6 +96,6 @@ class QuotesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
       params.require(:quote).permit(:user_id, :firstname, :lastname, :company, :email, :status, :telephone, :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :id, 
-        lines_attributes: [:id, :price])
+        lines_attributes: [:id, :price, :quantity])
     end
 end

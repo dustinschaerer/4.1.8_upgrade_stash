@@ -169,14 +169,14 @@
 
             <div class="col-xs-2 text-right">
               <% if line.price %>
-                <strong>PRICE</strong><br>
+                <strong>UNIT PRICE</strong><br>
                   <% if line.price == 0 %>
                     Waiting on Pricing
                   <% else %>  
                     <%= number_to_currency(line.price) %>
                   <% end %> 
-                  <br>
-                  <strong>TOTAL PRICE:</strong><br>
+                  <br><br>
+                  <strong>PRICE:</strong><br>
                   <% if line.price == 0 %>
                     Submit for Pricing
                   <% else %>  
@@ -241,6 +241,3 @@
   <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
 <% end %>
 <p></p>
-
-<%= link_to 'Edit', edit_quote_path(@quote) %> |
-<%= link_to 'Back', quotes_path %>

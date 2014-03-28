@@ -3,8 +3,47 @@ ActiveAdmin.register Quote do
   actions :all, :except => [:destroy] 
 
   permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at,
-   lines_attributes: [ :id, :price]
+   lines_attributes: [ :id, :price, :quantity]
+  
+  before_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
+  after_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
 
+  controller do
+    
+    def calculate_subtotal
+      running_total = 0
+      @quote.lines.each do |line|
+        one_line_price = (line.quantity * line.price)
+        running_total += one_line_price  
+      end
+      Quote.subtotal = running_total
+    end
+    
+
+    def calculate_sales_tax
+      if (self.ship_state == 'Arkansas')
+        tax_rate = 0.0975 
+      elsif (self.ship_state == 'Minnesota')
+        tax_rate = 0.06875 
+      elsif (self.ship_state == 'New Jersey')
+        tax_rate = 0.07 
+      else
+        tax_rate = 0  
+      end
+      self.sales_tax = (self.subtotal * tax_rate).truncate(2)
+    end
+
+    def calculate_total
+      self.total = (self.subtotal + self.shipping + self.sales_tax)
+    end
+
+    def recalculate_totals
+      @quote = Quote.find(params[:id])
+      @quote.calculate_subtotal
+      @quote.calculate_sales_tax
+      @quote.calculate_total
+    end      
+  end
 
   index do 
     column("Quote ID#", :sortable => :id) {|quote| link_to "##{quote.id} ", admin_quote_path(quote) }
@@ -14,17 +53,21 @@ ActiveAdmin.register Quote do
     column("State", :ship_state, :sortable => :state)
     column("Date Created", :created_at)
     column("Date Modified", :updated_at)
-    column("Quote Total", :total)
+    column("Price Total", :total)
     default_actions
   end
 
   show do
+
     panel "Quote Details" do
       div do
        render "conditional_lines"
       end
       
     end
+    div :class => "recalculatebtn" do
+      h3 { button_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote], :method => :get }
+    end 
 
     columns do 
       column do
@@ -47,15 +90,13 @@ ActiveAdmin.register Quote do
               number_to_currency sb.subtotal
             end  
             row :shipping do |i|
-              best_in_place i, :shipping, :type => :input
+              best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
             end  
-            row :sales_tax do |i|
-              best_in_place i, :sales_tax, :type => :input, :display_with => :number_to_currency
-            end  
+            row :sales_tax  
             row :total do |ttl|
               number_to_currency ttl.total
             end
-            strong { link_to "Update Totals and Pricing on this Quote", [:admin, quote] }
+            h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
           end 
         end  
       end # end column
@@ -75,9 +116,8 @@ ActiveAdmin.register Quote do
   form do |f|
     f.actions
     f.inputs 'Details' do
-      f.input :status, :label => 'Quote Status', :as => :select, :collection => [['Submitted', 'Submitted'], ['Shipped', 'Shipped']]
-      f.input :user_id
-      f.input :email
+      f.input :user_id, :input_html => { disabled: true }
+      f.input :email, :input_html => { disabled: true }
       f.input :firstname
       f.input :lastname
       f.input :company 
@@ -99,6 +139,7 @@ ActiveAdmin.register Quote do
         linef.input :shape_id, :label => 'Shape', :as => :select, :collection => Shape.all.order("id"), :input_html => { disabled: true }
         linef.input :series_id, :label => 'Series', :as => :select, :collection => Series.all.order("id"), :input_html => { disabled: true }
         linef.input :color_id, :label => 'Color', :as => :select, :collection => Color.all.order("id"), :input_html => { disabled: true }
+        linef.input :quantity
         linef.input :price do |p|
           number_to_currency p.price
         end   

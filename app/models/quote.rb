@@ -1,10 +1,8 @@
 class Quote < ActiveRecord::Base
 
   before_save :total_price
-  before_save :calculate_subtotal
-  before_save :calculate_sales_tax
-  before_save :calculate_total
-
+  before_save :recalculate_totals
+  
   belongs_to :user
   has_many :lines, dependent: :destroy
 
@@ -23,6 +21,7 @@ class Quote < ActiveRecord::Base
     end
   end
 
+
   def total_price
     lines.to_a.sum { |line| line.total_price }
   end 
@@ -31,8 +30,6 @@ class Quote < ActiveRecord::Base
   def calculate_subtotal
     self.subtotal = total_price
   end
-
-
 
   def calculate_sales_tax
     if (self.ship_state == 'Arkansas')
@@ -45,12 +42,16 @@ class Quote < ActiveRecord::Base
       tax_rate = 0  
     end
     self.sales_tax = (self.subtotal * tax_rate).truncate(2)
-
   end
-
 
   def calculate_total
     self.total = (self.subtotal + self.shipping + self.sales_tax)
   end
+
+  def recalculate_totals
+    calculate_subtotal
+    calculate_sales_tax
+    calculate_total
+  end  
 
 end
