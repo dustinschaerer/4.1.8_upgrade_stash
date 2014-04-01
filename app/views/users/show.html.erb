@@ -46,6 +46,7 @@
 			<th>Sales Tax</th>
 			<th>Total</th>
 			<th>Show Quote</th>
+			<th>Buy Now</th>
 		</tr>	
 		<% @quotes.each do |quote|%>
 		<tr>
@@ -58,6 +59,7 @@
 			<td><%= number_to_currency(quote.sales_tax) %></td>
 			<td><%= number_to_currency(quote.total) %></td>
 	        <td><%= link_to 'Show Quote Details', quote %></td>
+	        <td><%= link_to 'Buy This Now', "/purchases/new?quote_id=#{quote.id}", method: :get %></td>
 		</tr>
 		<% end %>
 	</table>

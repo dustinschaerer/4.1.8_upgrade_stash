@@ -1,2 +1,0 @@
-module AmericlearsHelper
-end

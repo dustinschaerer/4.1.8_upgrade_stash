@@ -1,7 +1,0 @@
-$(document).ready ->
-  $("#new_vinyl").on("ajax:success", (e, data, status, xhr) ->
-    $("#new_vinyl").append xhr.responseText
-  ).on "ajax:error", (e, xhr, status, error) ->
-    $("#new_vinyl").append "<p>ERROR</p>"
-
-$('#quotecart').html("<%= escape_javascript render(@quotecart) %>");

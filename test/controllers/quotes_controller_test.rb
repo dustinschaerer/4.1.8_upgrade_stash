@@ -18,7 +18,7 @@ class QuotesControllerTest < ActionController::TestCase
 
   test "should create quote" do
     assert_difference('Quote.count') do
-      post :create, quote: { contactby: @quote.contactby, firstname: @quote.firstname, lastname: @quote.lastname, pay_city: @quote.pay_city, pay_country: @quote.pay_country, pay_state: @quote.pay_state, pay_street_address: @quote.pay_street_address, pay_type: @quote.pay_type, pay_zipcode: @quote.pay_zipcode, sales_tax: @quote.sales_tax, ship_city: @quote.ship_city, ship_country: @quote.ship_country, ship_state: @quote.ship_state, ship_street_address: @quote.ship_street_address, ship_zipcode: @quote.ship_zipcode, shipping: @quote.shipping, subtotal: @quote.subtotal, telephone: @quote.telephone, total: @quote.total, user_id: @quote.user_id }
+      post :create, quote: { contactby: @quote.contactby, firstname: @quote.firstname, lastname: @quote.lastname, pay_type: @quote.pay_type, sales_tax: @quote.sales_tax, ship_city: @quote.ship_city, ship_country: @quote.ship_country, ship_state: @quote.ship_state, ship_street_address: @quote.ship_street_address, ship_zipcode: @quote.ship_zipcode, shipping: @quote.shipping, subtotal: @quote.subtotal, telephone: @quote.telephone, total: @quote.total, user_id: @quote.user_id }
     end
 
     assert_redirected_to quote_path(assigns(:quote))
@@ -35,7 +35,7 @@ class QuotesControllerTest < ActionController::TestCase
   end
 
   test "should update quote" do
-    patch :update, id: @quote, quote: { contactby: @quote.contactby, firstname: @quote.firstname, lastname: @quote.lastname, pay_city: @quote.pay_city, pay_country: @quote.pay_country, pay_state: @quote.pay_state, pay_street_address: @quote.pay_street_address, pay_type: @quote.pay_type, pay_zipcode: @quote.pay_zipcode, sales_tax: @quote.sales_tax, ship_city: @quote.ship_city, ship_country: @quote.ship_country, ship_state: @quote.ship_state, ship_street_address: @quote.ship_street_address, ship_zipcode: @quote.ship_zipcode, shipping: @quote.shipping, subtotal: @quote.subtotal, telephone: @quote.telephone, total: @quote.total, user_id: @quote.user_id }
+    patch :update, id: @quote, quote: { contactby: @quote.contactby, firstname: @quote.firstname, lastname: @quote.lastname, pay_type: @quote.pay_type, sales_tax: @quote.sales_tax, ship_city: @quote.ship_city, ship_country: @quote.ship_country, ship_state: @quote.ship_state, ship_street_address: @quote.ship_street_address, ship_zipcode: @quote.ship_zipcode, shipping: @quote.shipping, subtotal: @quote.subtotal, telephone: @quote.telephone, total: @quote.total, user_id: @quote.user_id }
     assert_redirected_to quote_path(assigns(:quote))
   end
 

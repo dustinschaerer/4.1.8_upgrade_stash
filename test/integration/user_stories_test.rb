@@ -11,18 +11,19 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   test "buying a product" do
     LineItem.delete_all
     Order.delete_all
-    vinyl_swatch = products(:vinyl)
+    color_swatch = colors(:one)
+    series_swatch = series(:two)
 
     get "/"
     assert_response :success
     assert_template "static_pages/home"
     
-    xml_http_request :post, '/line_items', product_id: vinyl_swatch.id
+    xml_http_request :post, "/line_items?color_id=#{color_swatch.id}&series_id=#{sereis_swatch.id}"
     assert_response :success 
     
     cart = Cart.find(session[:cart_id])
     assert_equal 1, cart.line_items.size
-    assert_equal vinyl_swatch, cart.line_items[0].product
+    assert_equal color_swatch, cart.line_items[0].color
     
     get "/orders/new"
     assert_response :success
@@ -52,7 +53,8 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     
     assert_equal 1, order.line_items.size
     line_item = order.line_items[0]
-    assert_equal vinyl_swatch, line_item.product
+    assert_equal color_swatch, line_item.color
+    assert_equal series_swatch, line_item.series
 
     mail = ActionMailer::Base.deliveries.last
     assert_equal ["tim@example.org"], mail.to

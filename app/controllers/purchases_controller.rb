@@ -4,6 +4,7 @@ class PurchasesController < ApplicationController
   before_action :set_quotecart
   before_action :set_cart
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /purchases
   # GET /purchases.json
@@ -18,9 +19,22 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/new
   def new
-   
-    
     @purchase = Purchase.new
+    @quote = Quote.find(params[:quote_id])
+    @purchase.firstname = @quote.firstname
+    @purchase.lastname = @quote.lastname
+    @purchase.telephone = @quote.telephone
+    @purchase.user_id = @quote.user_id
+    @purchase.contactby = @quote.contactby
+    @purchase.ship_street_address = @quote.ship_street_address
+    @purchase.ship_city = @quote.ship_city
+    @purchase.ship_state = @quote.ship_state
+    @purchase.ship_zipcode = @quote.ship_zipcode
+    @purchase.ship_country = @quote.ship_country
+    @purchase.subtotal= @quote.subtotal
+    @purchase.shipping = @quote.shipping
+    @purchase.sales_tax = @quote.sales_tax
+    @purchase.total = @quote.total
   end
 
   # GET /purchases/1/edit
@@ -30,8 +44,20 @@ class PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.json
   def create
-    @purchase = Purchase.new(purchase_params)
+    if (params[:checkbox_use_same_address] == true)
+      @purchase.pay_firstname = @purchase.firstname 
+      @purchase.pay_lastname = @purchase.lastname 
+      @purchase.pay_company = @purchase.company 
+      @purchase.pay_telephone = @purchase.telephone
+      @purchase.pay_street_address = @purchase.ship_street_address 
+      @purchase.pay_city = @purchase.ship_city 
+      @purchase.pay_zipcode = @purchase.ship_zipcode
+      @purchase.pay_state = @purchase.ship_state
+      @purchase.pay_country = @purchase.ship_country
+    end
 
+    @purchase = Purchase.new(purchase_params)
+    
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }

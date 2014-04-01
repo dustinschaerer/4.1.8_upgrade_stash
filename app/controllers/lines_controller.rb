@@ -4,6 +4,7 @@ class LinesController < ApplicationController
   before_action :set_quoteholder
   before_action :set_cart
   before_action :set_line, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /lines
   # GET /lines.json
@@ -19,6 +20,7 @@ class LinesController < ApplicationController
 
   # GET /lines/new
   def new
+
     @line = Line.new
     @qp_id = (params[:quote_product_id])
     qp = QuoteProduct.find(@qp_id)

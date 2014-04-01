@@ -1,33 +1,39 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  quote_product_id: 
+  quote_product_id: 1
   length: 1
   width: 1
   height: 1
   cover_id: 
-  series_id: 
-  color_id: 
-  shape_id: 
+  series_id: 1
+  color_id: 1
+  shape_id: 1
   umbrella: false
   velcro: false
   yards: 1
-  size_id: 
+  size_id: 1
   quantity: 1
   price: 9.99
+  quoteholder_id: 1
+  quote_id: 1
+  purchase_id: 1
 
 two:
-  quote_product_id: 
+  quote_product_id: 1
   length: 1
   width: 1
   height: 1
-  cover_id: 
-  series_id: 
-  color_id: 
-  shape_id: 
+  cover_id: 1
+  series_id: 1
+  color_id: 1
+  shape_id: 1
   umbrella: false
   velcro: false
   yards: 1
-  size_id: 
+  size_id: 1
   quantity: 1
   price: 9.99
+  quoteholder_id: 1
+  quote_id: 1
+  purchase_id: 1

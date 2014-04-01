@@ -42,7 +42,9 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        #send email
         OrderNotifier.received(@order).deliver
+
         format.html { redirect_to user_path(current_user), notice: 'Your order was successfully created. Thank You for choosing Americo! We will send you an email when your order is ready to ship.' }
         format.json { render action: 'show', status: :created, location: @order }
       else

@@ -7,6 +7,18 @@ ActiveAdmin.register Quote do
   
   before_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
   after_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
+  
+  
+  member_action :send_priced_email, :method => :post do
+    # Do some work here...
+    @quote = Quote.find(params[:id])
+    @current_user_id = @quote.user_id
+    @current_user = User.find(@current_user_id)
+    QuoteNotifier.priced(@quote, @current_user).deliver
+    redirect_to admin_quotes_path, :notice => "Priced Email message sent to customer."    
+
+  end
+
 
   controller do
     
@@ -43,6 +55,7 @@ ActiveAdmin.register Quote do
       @quote.calculate_sales_tax
       @quote.calculate_total
     end      
+
   end
 
   index do 
@@ -66,8 +79,11 @@ ActiveAdmin.register Quote do
       
     end
     div :class => "recalculatebtn" do
-      h3 { button_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote], :method => :get }
+      h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
+      h3 { button_to "Pricing Complete - Send EMail to Notify Customer Now", "/admin/quotes/#{quote.id}/send_priced_email", :method => :post }                                                                    
     end 
+
+
 
     columns do 
       column do

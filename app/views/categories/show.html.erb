@@ -222,7 +222,7 @@
           
           <div class="row top10 border-top">
             <div class="col-xs-4"><a href="/americlear_laminations_sample" class="larger">Ordering Information</a></div>
-            <div class="col-xs-4"><a href="/technical_specs" class="larger">Techinical Specs</a></div>
+            <div class="col-xs-4"><a href="/technical_specs" class="larger">Technical Specs</a></div>
             <div class="col-xs-4"><a href="/request_quote" class="larger">Request A Quote</a></div>
           </div>  
 
@@ -243,7 +243,8 @@
             <li class="addgold">Free Quotes</li>
           </ul>
 
-          <%= image_tag("swatch-image.jpg", :class => "img-responsive pull-right", alt: "Free Swatches", :id => 'home-swatches' ) %>
+          <%= link_to('/free_swatches', :class => "img-responsive", alt: "Free Swatches", :id => 'home-swatches') do %><%= image_tag("swatch-image.jpg") %><% end %>
+          <%= link_to('/request_catalog', :class => "img-responsive", alt: "Free Swatches", :id => 'home-swatches') do %><%= image_tag("free-catalog.jpg") %><% end %>
 
         </div>
       </div>
@@ -413,10 +414,9 @@
           
         </div>
         <div id="vinyl-land" class="col-sm-2 hidden-xs">
+          <%= link_to '/free_swatches' do %><%= image_tag("swatch-image.jpg", :class => "img-responsive pull-right top40", alt: "Free Swatches", :id => 'home-swatches' ) %><% end %>
 
-          <%= image_tag("swatch-image.jpg", :class => "img-responsive pull-right top40", alt: "Free Swatches", :id => 'home-swatches' ) %>
-          <%= image_tag("free-catalog.jpg", :class => "img-responsive pull-right top40", alt: "Free Catalog", :id => 'free-catalog' ) %>
-
+          <%= link_to '/request_catalog' do %><%= image_tag("free-catalog.jpg", :class => "img-responsive pull-right top40", alt: "Free Catalog", :id => 'free-catalog' ) %><% end %>
         </div>
       </div>
      

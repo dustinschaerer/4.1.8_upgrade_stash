@@ -4,6 +4,7 @@ class QuotesController < ApplicationController
   before_action :set_quoteholder
   before_action :set_cart
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
 
   # GET /quotes
@@ -47,7 +48,8 @@ class QuotesController < ApplicationController
         Quoteholder.destroy(session[:quoteholder_id])
         session[:quoteholder_id] = nil
 
-        format.html { redirect_to user_path(current_user), notice: 'Your Quote was successfully created and submitted. We will notify you as soon as we complete it.' }
+        QuoteNotifier.received(@quote).deliver        
+        format.html { redirect_to user_path(current_user), notice: 'Your Quote was successfully created and submitted. You should receive a confirmation email letting you know we\'ve recieved your quote right away. We will also send you a notification email as soon as we finish pricing your Quote.' }
         format.json { render action: 'show', status: :created, location: @quote }
       else
         format.html { render action: 'new' }
@@ -64,7 +66,6 @@ class QuotesController < ApplicationController
         format.html { redirect_to user_path(current_user), notice: 'Quote was successfully updated.' }
         #format.json { head :no_content }
         format.json { respond_with_bip(@quote) }
-
       else
         format.html { render action: 'edit' }
         #format.json { render json: @quote.errors, status: :unprocessable_entity }

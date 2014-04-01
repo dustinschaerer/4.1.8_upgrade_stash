@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class QuotecartsControllerTest < ActionController::TestCase
@@ -48,3 +49,4 @@ class QuotecartsControllerTest < ActionController::TestCase
     assert_redirected_to quotecarts_path
   end
 end
+=end

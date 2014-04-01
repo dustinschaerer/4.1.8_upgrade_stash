@@ -1,11 +1,11 @@
 require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   setup do
-    @product = products(:one)
+    @product = products(:vinyl)
     @update = {
       title:       'Lorem Ipsum Swatch',
       description: 'Description text for lorem ipsum swatch',
-      category:    'Lorem',
+      category_id:    '1',
       image_url:   'lorem-swatch-sample.png',
       thumbnail_url: 'lorem-swatch-sample-thumb.png'
     }

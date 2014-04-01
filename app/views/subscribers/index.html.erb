@@ -3,7 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Email</th>
       <th>Active</th>
       <th></th>
@@ -15,7 +14,6 @@
   <tbody>
     <% @subscribers.each do |subscriber| %>
       <tr>
-        <td><%= subscriber.user_id %></td>
         <td><%= subscriber.email %></td>
         <td><%= subscriber.active %></td>
         <td><%= link_to 'Show', subscriber %></td>

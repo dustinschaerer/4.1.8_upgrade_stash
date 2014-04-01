@@ -1,0 +1,24 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  style_id: 1
+  name: 9802
+  description: This is the description
+  image_url: swatches/9800/9801/9801_hl.jpg
+  lead: Soothing alterntive
+  callout: Complicated
+  vertical: nil
+  horizontal: nil
+  side: nil
+
+two:
+  style_id: 1
+  name: 9802
+  description: This is the description
+  image_url: swatches/9800/9801/9801_hl.jpg
+  lead: Soothing alterntive
+  callout: Complicated
+  vertical: nil
+  horizontal: nil
+  side: nil

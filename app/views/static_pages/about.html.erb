@@ -18,8 +18,8 @@
       <li><a href="/request_catalog">Request a Catalog</a></li>
   	</ul>
   	<div>
-      <%= image_tag("swatch-image.jpg") %>
-      <%= image_tag("free-catalog.jpg") %>
+      <%= link_to '/free_swatches' do %><%= image_tag("swatch-image.jpg") %><% end %>
+      <%= link_to '/request_catalog' do %><%= image_tag("free-catalog.jpg") %><% end %>
     </div>
   </div>
 

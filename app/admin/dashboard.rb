@@ -10,14 +10,13 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Swatch & Catalog Orders" do
           table_for Order.order('id desc').limit(20) do
             column("Order ID#") {|order| link_to(order.id, admin_order_path(order.id))}
-            column("Status") {|order| status_tag(order.status) }
+            column("Status") {|order| status_tag (order.is_complete? ? "Shipped" : "Submitted"), (order.is_complete? ? :ok : :error) }
             column("Customer"){|order| link_to(order.user.email, admin_order_path(order.user)) }
             column("First Name"){|order| (order.firstname) }
             column("Last Name"){|order| (order.lastname) }
             column("Company"){|order| (order.company) }
             column("View ") {|order| link_to("View", admin_order_path(order.id))}
             column("Edit") {|order| link_to(order.id, edit_admin_order_path(order.id))}
-
           end
         end
       end

@@ -2,6 +2,7 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  user_id: 1
   firstname: Tim
   lastname:  Smith
   street_address: 123 Way Street
@@ -12,6 +13,7 @@ one:
   telephone: 555-555-5555
 
 two:
+  user_id: 1
   firstname: MyString
   lastname: MyString
   street_address: MyText

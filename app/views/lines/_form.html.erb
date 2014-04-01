@@ -67,8 +67,22 @@
     <div>Value Vinyl Ready Made Table Cloths</div>
     <div>Available in 8 ready-made sizes and shapes. </div>
   </div> 
+<% elsif (@qp_id == '14') %>  
+  <div>
+    <div>Placemats</div>
+    <div> </div>
+  </div> 
+<% elsif (@qp_id == '15') %>  
+  <div>
+    <div>Table Runners</div>
+    <div> </div>
+  </div> 
+<% elsif (@qp_id == '16') %>  
+  <div>
+    <div>Table Toppers</div>
+    <div> </div>
+  </div> 
 <% end %>
-
 
 
 
@@ -85,54 +99,64 @@
     <%= # f.hidden_field :quote_product_id, :as => :hidden, :input_html => { :value => @qp_id } 
     %>
 
-
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
+    <% if (@qp_id == '1') || (@qp_id == '2') || (@qp_id == '16') %>  
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|16">
       <%= f.collection_select :shape_id, Shape.all.order("id"), :id, :name, { prompt: "Please Choose" }   %>
     </div> 
+
+    <% elsif (@qp_id == '15') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="15">
+      <%= f.collection_select :shape_id, Shape.where("id = 2 or id = 3").order("id"), :id, :name, { prompt: "Please Choose" }   %>
+    </div> 
+    <% end %>
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
       <%= f.collection_select :cover_id, Cover.all.order("id"), :id, :name, { prompt: "Please Choose" } %>
     </div> 
     
+    <% if (@qp_id == '4') %>  
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="4">
+      <%= f.select(:width, [[36, 36], [48, 48], [72, 72]], { prompt: "Please Choose"} )  %>
+    </div>
+    
+    <% elsif (@qp_id == '15') %>  
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="15">
+      <%= f.select(:width, [['12"', 12], ['16"', 16], ['24"', 24]], { prompt: "Please Choose"} )  %>
+    </div>
+
+    <% else %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|5|6|16">
+      <%= f.number_field :width, placeholder: "Width (In Inches)" %>
+    </div>
+    <% end %>
+
     <% if (@qp_id == '5') %> 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="5">
       <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
-
-    <% else %>
-    
+    <% elsif (@qp_id == '1') || (@qp_id == '2') || (@qp_id == '15') || (@qp_id == '16')%>
     <div class="js-dependent-fields" data-select-id="line_shape_id" data-option-value="2">
       <%= f.number_field :length, placeholder: "Length (In Inches)" %>
     </div>
     <% end %> 
 
 
-    <% if (@qp_id == '4') %>  
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="4">
-      <%= f.select(:width, [[36, 36], [48, 48], [72, 72]], { prompt: "Please Choose"} )  %>
-    </div>
-
-    <% else %>
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|5|6">
-      <%= f.number_field :width, placeholder: "Width (In Inches)" %>
-    </div>
-    <% end %>    
-
-
     <div class="js-dependent-fields" data-select-id="line_cover_id" data-option-value="4|5">
       <%= f.number_field :height, placeholder: "Height (In Inches)" %>
     </div>  
    
-
-
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13">
-        <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16">
+        <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') || (@qp_id == '14')%>
          
           <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
 
         <% elsif (@qp_id == '2') || (@qp_id == '8') || (@qp_id == '11') %>
 
           <%= f.collection_select(:series_id,  Series.where("style_id = 3").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+
+        <% elsif (@qp_id == '15') || (@qp_id == '16') %>
+
+          <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2 OR style_id = 3").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
 
 
         <% elsif (@qp_id == '9') ||  (@qp_id == '12') %>
@@ -144,7 +168,7 @@
     </div>  
 
 
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13">
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16">
       <div class="form-group"><label class="col-sm-2 col-md-2 control-label" for="line_color_id">Color</label><div class="col-sm-6 col-md-4">
         <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, {prompt: "Please Choose a Series first"}, {class: "form-control"} ) %>
       </div></div> 

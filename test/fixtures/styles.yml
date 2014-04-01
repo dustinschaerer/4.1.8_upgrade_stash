@@ -1,0 +1,18 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: CLASSICS COLLECTION
+  name: 9800 Series
+  description: This is the description
+  image_url: 9828-lasagna_vinyl-table-cover.jpg
+  product_id: 1
+  sort: 2
+
+two:
+  title: CLASSICS COLLECTION
+  name: 9800 Series
+  description: This is the description
+  image_url: 9828-lasagna_vinyl-table-cover.jpg
+  product_id: 1
+  sort: 2

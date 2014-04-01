@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: 
+  email: admin@example.com
   name: MyString
   order_id: 1
   quote_id: 1
   phone: MyString
 
 two:
-  email: 
+  email: admin@example.com
   name: MyString
   order_id: 1
   quote_id: 1

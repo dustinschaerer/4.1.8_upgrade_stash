@@ -1,17 +1,5 @@
 Americo::Application.routes.draw do
 
-  resources :quoteholders
-
-  resources :lines
-
-  resources :quote_products
-
-  resources :sizes
-
-  resources :shapes
-
-  resources :covers
-
   authenticated :user do
     root :to => 'static_pages#home', :as => "authenticated_root"
   end
@@ -23,6 +11,12 @@ Americo::Application.routes.draw do
   ActiveAdmin.routes(self)
   
   resources :users, only: [:show, :edit, :update]
+  resources :quoteholders
+  resources :lines
+  resources :quote_products
+  resources :sizes
+  resources :shapes
+  resources :covers
   resources :categories
   resources :line_items
   resources :carts
@@ -31,23 +25,9 @@ Americo::Application.routes.draw do
   resources :colors
   resources :orders
   resources :shipping_profiles
-  resources :laminatecuts
-  resources :vinylcuts
-  resources :upholsterycuts
-  resources :upholsteryrolls
-  resources :vinylpads
-  resources :nonslipcuts
-  resources :nonslippads
-  resources :americlears
-  resources :frogs
   resources :messages
-  resources :subscribers
-  resources :laminaterolls
-  resources :laminates
-  resources :vinylrolls
-  resources :items
-  resources :quotecarts
-  resources :vinyls
+  resources :subscribers  
+  resources :quotecarts  
   resources :quotes
   resources :purchases
 
@@ -86,6 +66,7 @@ Americo::Application.routes.draw do
   match '/privacy_policy',   to: 'static_pages#privacy_policy', via: 'get'
   match '/request_catalog',   to: 'static_pages#request_catalog', via: 'get'
   match '/request_quote',   to: 'static_pages#request_quote', via: 'get'
+  match '/roll_goods',   to: 'static_pages#roll_goods', via: 'get'
   match '/satisfied_customers',   to: 'static_pages#satisfied_customers', via: 'get'
   match '/sitemap',   to: 'static_pages#sitemap', via: 'get'
   match '/table_cover_gallery', to: 'static_pages#table_cover_gallery', via: 'get'

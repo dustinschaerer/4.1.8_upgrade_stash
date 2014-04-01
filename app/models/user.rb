@@ -4,11 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable
   
-  has_one :shipping_profile, dependent: :destroy
-  accepts_nested_attributes_for :shipping_profile, allow_destroy: true
+  has_many :shipping_profiles, dependent: :destroy
+  accepts_nested_attributes_for :shipping_profiles, allow_destroy: true
   has_many :orders
   has_many :quotes
   has_many :purchases
+  has_many :subscribers
   
 
 

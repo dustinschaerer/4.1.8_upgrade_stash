@@ -36,6 +36,7 @@ class CartsControllerTest < ActionController::TestCase
 
   test "should update cart" do
     patch :update, id: @cart, cart: {  }
+    request.env["HTTP_REFERER"]
     assert_redirected_to cart_path(assigns(:cart))
   end
 

@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
+  user_id: 1
   firstname: MyString
   lastname: MyString
   telephone: MyString
@@ -11,11 +11,6 @@ one:
   ship_state: MyString
   ship_zipcode: MyString
   ship_country: MyString
-  pay_street_address: MyString
-  pay_city: MyString
-  pay_state: MyString
-  pay_zipcode: MyString
-  pay_country: MyString
   subtotal: 9.99
   shipping: 9.99
   sales_tax: 9.99
@@ -23,7 +18,7 @@ one:
   pay_type: MyString
 
 two:
-  user_id: 
+  user_id: 2
   firstname: MyString
   lastname: MyString
   telephone: MyString
@@ -33,11 +28,6 @@ two:
   ship_state: MyString
   ship_zipcode: MyString
   ship_country: MyString
-  pay_street_address: MyString
-  pay_city: MyString
-  pay_state: MyString
-  pay_zipcode: MyString
-  pay_country: MyString
   subtotal: 9.99
   shipping: 9.99
   sales_tax: 9.99

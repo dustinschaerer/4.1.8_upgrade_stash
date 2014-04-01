@@ -9,7 +9,7 @@ class ProductTest < ActiveSupport::TestCase
     assert product.invalid?
     assert product.errors[:title].any?
     assert product.errors[:description].any?
-    assert product.errors[:category].any?
+    assert product.errors[:category_id].any?
     assert product.errors[:image_url].any?
     assert product.errors[:thumbnail_url].any?
   end
@@ -27,7 +27,7 @@ class ProductTest < ActiveSupport::TestCase
   test "image url is invalid with incorrectly formatter URL" do
     product = Product.new(title:       "Vinyl Swatch Sample",
                           description: "8 x 10 Vinyl Swatch Sample",
-                          category:    "Vinyl",
+                          category_id:    "1",
                           image_url:   "fred.g",
                           thumbnail_url: "fred-thumb.gif" )
 
@@ -39,7 +39,7 @@ class ProductTest < ActiveSupport::TestCase
   test "product is not valid without a unique title" do
     product = Product.new(title:       products(:vinyl).title,
                           description: "8 x 10 Vinyl Swatch Sample", 
-                          category:    "Vinyl", 
+                          category_id:    "1", 
                           image_url:   "fred.gif",
                           thumbnail_url: "fred-thumb.gif" )
 
@@ -50,7 +50,7 @@ class ProductTest < ActiveSupport::TestCase
   test "product is not valid without a unique title - i18n" do
     product = Product.new(title:       products(:vinyl).title,
                           description: "yyy", 
-                          category:    "Vinyl",
+                          category_id:    "1",
                           image_url:   "fred.gif",
                           thumbnail_url: "fred-thumb.gif")
 

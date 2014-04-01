@@ -1,18 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <% provide(:title, 'Request a Quote') %>
 <div class="row border-top">
   <div class="col-sm-12 col-md-2 hidden-xs">
@@ -32,186 +19,146 @@
       <li><a href="/request_catalog">Request a Catalog</a></li>
     </ul>
     <div>
-      <%= image_tag("swatch-image.jpg") %>
-      <%= image_tag("free-catalog.jpg") %>
+      <%= link_to '/free_swatches' do %><%= image_tag("swatch-image.jpg") %><% end %>
+      <%= link_to '/request_catalog' do %><%= image_tag("free-catalog.jpg") %><% end %>
     </div>
   </div>
 
 
   <div class="col-sm-12 col-md-10 border-left addgray" id="clean">
     <h1 class="addmaroon"><span class="cat-title">Request a Quote</span></h1>
-    <hr>
-    <div class="bold addgray styledesc bottom10">Table Covers</div>
     
-    <div class="row">
+    <hr>
+    
+    <div><span class="bold addarmy styledesc bottom10">Table Cloths</span> <span class="addblack">| Series: 6100, 9800,1200 &amp; 2000 | 7100</span></div>
+    
+    <div class="row top10">
 
       <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=1", class: "") do %>
           <%= image_tag("quote_vinyl-table.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">VINYL TABLE COVERS</div>
-          <div class="addgray">Classic (9800) Premium (6100)</div>
-        <% end %>
       </div>
-      <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=2", class: "") do %>
-          <%= image_tag("quote_laminate-table.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">LAMINATE TABLE COVERS</div>
-          <div class="addgray">Designer Collection (1200/2000)</div>
-        <% end %>
-      </div>
-      <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=13", class: "") do %>
-          <%= image_tag("quote_vinyl-cut.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">VALUE VINYL TABLE COVERS</div>
+      <div class="col-sm-6 col-md-8">
+          <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=1", class: "") do %>Vinyl Table Covers<% end %></div>
+          <div class="addgray bottom10">Classic (9800) Premium (6100)</div>
+          <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=2", class: "") do %>Laminate Table Covers<% end %></div>
+          <div class="addgray bottom10">Designer Collection (1200/2000)</div>
+          <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=13", class: "") do %>Value Vinyl Table Covers<% end %></div>
           <div class="addgray">Ready-Made Table Covers (7000)</div>
-        <% end %>
       </div>
 
     </div>
 
     <hr>
-    <div class="bold addgray styledesc bottom10">Roll Goods</div>
+    
+    <div><span class="bold addorange styledesc bottom10">Roll Goods</span> <span class="addblack">| Series: 6100, 9800,1200 &amp; 2000</span></div>
+    
+    <div class="row top10">
 
-    <div class="row">
       <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=10", class: "") do %>
           <%= image_tag("quote_vinyl-and-upholstery-roll.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">VINYL ROLL GOODS</div>
-          <div class="addgray">Classic (9800) Premium (6100) </div>
-        <% end %>
       </div>
      
-      <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=11", class: "") do %>
-          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">LAMINATE ROLL GOODS</div>
-          <div class="addgray">Designer Collection (1200/2000)</div>
-        <% end %>
-      </div>
-      <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=12", class: "") do %>
-          <%= image_tag("quote_upholstery.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">UPHOLSTERY ROLL GOODS</div>
-          <div class="addgray">Distinctions Collection (6111-6126)</div>
-        <% end %>
-      </div>  
-
-
-
-      
+      <div class="col-sm-6 col-md-8">
+          <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=12", class: "") do %>Upholstery Roll Goods<% end %></div>
+          <div class="addgray bottom10">Distinctions Collection (6111-6126)</div>
+          <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=10", class: "") do %>Vinyl Roll Goods<% end %></div>
+          <div class="addgray bottom10">Classic (9800) Premium (6100) </div>      
+          <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=11", class: "") do %>Laminate Roll Goods<% end %></div>
+          <div class="addgray">Designer Collection (1200/2000)</div>    
+      </div>   
     </div> 
   
     <hr>
-    <div class="bold addgray styledesc bottom10">Custom Cuts</div>
+
+    <div><span class="bold addpurple styledesc bottom10">Custom Cuts</span> <span class="addblack">| Series: 6100, 9800,1200 &amp; 2000</span></div>
     
-    <div class="row">
-      <div class="col-sm-6 col-md-3 bottom20">
-        <%= link_to("/lines/new?quote_product_id=7", class: "") do %>
+    <div class="row top10">
+      <div class="col-sm-6 col-md-4 bottom20">
           <%= image_tag("quote_vinyl-cut.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">VINYL CUSTOM CUTS</div>
-          <div class="addgray">Classic (9800) Premium (6100) </div>
-        <% end %>
       </div>
-      
-      <div class="col-sm-6 col-md-3 bottom20">
-        <%= link_to("/lines/new?quote_product_id=8", class: "") do %>
-          <%= image_tag("quote_laminate-cut.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">LAMINATE CUSTOM CUTS</div>
-          <div class="addgray">Designer Collection (1200/2000)</div>
-        <% end %>
+      <div class="col-sm-6 col-md-8">
+        <div class="addmaroon"> <%= link_to("/lines/new?quote_product_id=9", class: "") do %>Upholstery Custom Cuts<% end %></div>
+        <div class="addgray bottom10">Distinctions Collection (6111-6126)</div>
+        <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=7", class: "") do %>Vinyl Custom Cuts<% end %></div>
+        <div class="addgray bottom10">Classic (9800) Premium (6100) </div>
+        <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=8", class: "") do %>Laminate Custom Cuts<% end %></div>
+        <div class="addgray">Designer Collection (1200/2000)</div>
       </div>
+    </div>   
 
-      <div class="col-sm-6 col-md-3 bottom20">
-        <%= link_to("/lines/new?quote_product_id=9", class: "") do %>
-          <%= image_tag("quote_upholstery-cut.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">UPHOLSTERY CUSTOM CUTS</div>
-          <div class="addgray">Distinctions Collection (6111-6126)</div>
-        <% end %>
-      </div> 
-
-       <div class="col-sm-6 col-md-3 bottom20">
-        <%= link_to("/lines/new?quote_product_id=5", class: "") do %>
-          <%= image_tag("quote_non-slip.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">NON-SLIP PADDING</div>
-          <div class="addmaroon bold">CUSTOM CUTS</div>
-        <% end %>
-      </div>  
-
-    </div> 
-  
     <hr>
-    <div class="bold addgray styledesc bottom10">Non-Slip Padding</div>
-    
-    <div class="row">  
+
+    <div><span class="bold addgold styledesc bottom10">Non-Slip Padding</span> <span class="addblack">| Roll and Custom Cuts</span></div>
+
+    <div class="row top10">  
 
       <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=4", class: "") do %>
           <%= image_tag("quote_non-slip.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">NON-SLIP PADDING</div>
-          <div class="addmaroon bold">ROLL GOODS</div>
-        <% end %>
       </div>  
       
       <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=5", class: "") do %>
-          <%= image_tag("quote_non-slip.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">NON-SLIP PADDING</div>
-          <div class="addmaroon bold">CUSTOM CUTS</div>
-        <% end %>
+        <div class="addmaroon bottom20"><%= link_to("/lines/new?quote_product_id=4", class: "") do %>Non-Slip Padding Roll Goods<% end %></div>
+        <div class="addmaroon bottom20"><%= link_to("/lines/new?quote_product_id=5", class: "") do %>Non-Slip Padding Custom Cuts<% end %></div>
       </div>  
       
+    </div>
+
+
+    <div class="row top10">  
+
       <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=3", class: "") do %>
           <%= image_tag("quote_white-padding.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">VINYL PADDING ROLL GOODS</div>
-          <div class="addgray">Classic White Vinyl Padding</div>
-        <% end %>
+      </div>  
+
+      <div class="col-sm-6 col-md-3 bottom20">
+        <div class="addmaroon bottom20"><%= link_to("/lines/new?quote_product_id=3", class: "") do %>Vinyl Padding Roll Goods<% end %></div>    
+        <div class="addmaroon bottom20"><%= link_to("/lines/new?quote_product_id=5", class: "") do %>Vinyl Padding Custom Cuts<% end %></div>
       </div>  
     </div> 
   
     <hr>
-    <div class="bold addgray styledesc bottom10">Americlear Lamination</div>
+
+    <div><span class="bold addorange styledesc bottom10">Americlear Lamination</span> <span class="addblack">| Laminate Your Own Fabric</span></div>
     
-    <div class="row">  
+    <div class="row top10">  
 
-
-      <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("/lines/new?quote_product_id=6", class: "") do %>
+      <div class="col-sm-6 col-md-4 bottom20">      
           <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
-          <div class="addmaroon bold">AMERICLEAR LAMINATION</div>
-          <div class="addgray">Laminate Your Own Fabric</div>
-        <% end %>
+      </div>  
+
+      <div class="col-sm-6 col-md-3 bottom20">
+        <div class="addmaroon"><%= link_to("/lines/new?quote_product_id=6", class: "") do %>Americlear Lamination<% end %></div>
       </div>  
     </div>
  
 
   <hr>
-    <div class="bold addgray styledesc bottom10">Accessories</div>
+    <div><span class="bold addmaroon styledesc bottom10">Accessories</span> <span class="addblack">| Placemats, Runners and Toppers</span></div>
     
-    <div class="row">  
-      <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("#", class: "") do %>
-          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+    <div class="row top10">  
+      <div class="col-sm-6 col-md-4 bottom20">         
+        <%= image_tag("quote_placemats.jpg", class: "img-responsive") %>   
+        <%= link_to("/lines/new?quote_product_id=14", class: "") do %>
           <div class="addmaroon bold">PLACEMATS</div>
-          <div class="addgray">Filler Text</div>
+          <div class="addgray">Classic (9800) Premium (6100)</div>  
         <% end %>
       </div>
 
 
       <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("#", class: "") do %>
-          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+        <%= image_tag("quote_runners.jpg", class: "img-responsive") %>
+        <%= link_to("/lines/new?quote_product_id=15", class: "") do %>
           <div class="addmaroon bold">RUNNERS</div>
-          <div class="addgray">Filler Text</div>
+          <div class="addgray">Classic (9800) Premium (6100) and Designer Laminates (1200/2000)</div>
         <% end %>
       </div>  
 
 
-      <div class="col-sm-6 col-md-4 bottom20">
-        <%= link_to("#", class: "") do %>
-          <%= image_tag("quote_laminate-americlear-roll.jpg", class: "img-responsive") %>
+      <div class="col-sm-6 col-md-4 bottom20"> 
+        <%= image_tag("quote_topper.jpg", class: "img-responsive") %>
+        <%= link_to("/lines/new?quote_product_id=16", class: "") do %>
           <div class="addmaroon bold">TOPPERS</div>
-          <div class="addgray">Filler Text</div>
+          <div class="addgray">Classic (9800) Premium (6100) and Designer Laminates (1200/2000)</div>
         <% end %>
       </div>                
     </div>

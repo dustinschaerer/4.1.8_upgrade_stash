@@ -29,7 +29,7 @@
       <tr>
         <td><%= series.id %></td>
         <td><%= series.style_id %></td>
-        <td><%= series.style.name %></td>
+        <td><%= series.style.name if series.style_id %></td>
         <td><%= series.name %></td>
         <td><%= series.description %></td>
         <td><%= series.lead %></td>

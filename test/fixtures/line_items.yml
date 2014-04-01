@@ -3,8 +3,14 @@
 
 one:
   cart_id: 1
-  order: 1
+  order_id: 1
+  series_id: 1
+  color_id: 1
+  quantity: 1
 
 two:
   cart_id: 1
-  order: 1
+  order_id: 1
+  series_id: 1
+  color_id: 1
+  quantity: 1

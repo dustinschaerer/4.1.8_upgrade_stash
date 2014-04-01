@@ -21,4 +21,11 @@ Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dak
 			line_items << item
 		end
     end
+
+
+    def is_complete?
+      if (self.status == "Shipped")
+      	true
+      end	
+    end
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Barley
+  series_id: 1
+  image_url: swatches/9800/9801/9801_hl.jpg
+  notforupholstery: f
+
+two:
+  name: MyString
+  series_id: 1
+  image_url: swatches/9800/9801/9801_hl.jpg
+  notforupholstery: f
