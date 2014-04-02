@@ -1,38 +1,111 @@
 <% provide(:title, 'Roll Goods') %>
-<div class="row border-top">
-  
-  <div class="col-sm-12 col-md-2">
-    <ul class="nav nav-pills nav-stacked">
-      <li class="active"><a href="/about">About Us</a></li>
-      <li><a href="/contact">Contact Us</a></li>
-      <li><a href="/free_swatches">Free Swatches</a></li>
-      <li><a href="/how_to_order">How to Order</a></li>
-      <li><a href="/terms_and_conditions">Terms &amp; Conditions</a></li>
-      <li><a href="/technical_specs">Technical Specs</a></li>
-      <li><a href="/cleaning_instructions">Cleaning Instructions</a></li>
-      <li><a href="/frequently_asked_questions">Frequent Questions</a></li>
-      <li><a href="/privacy_policy">Privacy Policy</a></li>
-      <li><a href="/how_to_measure">How to Measure</a></li>
-      <li><a href="/place_an_order">Place an Order</a></li>
-      <li><a href="/request_quote">Request a Quote</a></li>
-      <li><a href="/request_catalog">Request a Catalog</a></li>
-  	</ul>
-  	<div>
-      <%= link_to '/free_swatches' do %><%= image_tag("swatch-image.jpg") %><% end %>
-      <%= link_to '/request_catalog' do %><%= image_tag("free-catalog.jpg") %><% end %>
-    </div>
-  </div>
 
-  <div class="col-sm-12 col-md-10 border-left addgray">
-    <h1 class="addmaroon"><span class="cat-title">Roll Goods</span></h1>
-    <p class="stylename"></p>
-    
-  	<p></p>
-    
-    <p class="stylename"></p>
-  	
-    <p></p>
+ <div class="row">
+      <div class="col-sm-12">
 
-  </div>    
+        <div class="slider-wrapper theme-default">
+          <div id="slider" class="nivoSlider">
+              <%= image_tag("rollgoods-slider.jpg", alt: "sliderimg", :title => "#rollgoodscaption", :data => { :thumb => 'rollgoods-slider.jpg' } ) %> 
+          </div>
+          <!--
+          <div id="rollgoodsfabriccaption" class="nivo-html-caption" style="display:none">
+            <div class="nivo-1">
+        
+            </div>
+            <div class="nivo-1a">
+               <strong>Americlear lamination</strong> transforms designer fabrics into durable, no-launder material that's ideal for tablecloths, upholstery, drapes and more.
+            </div>
+          </div>
+        -->
+        </div>
+      </div>
+    </div>  
 
-</div>   
+
+    <div class="row">
+      <div class="col-sm-9  border-right">
+        <h1 class="addmaroon">For Flexibility, Order Fabric or Padding by the Roll</h1>
+        <div class="stylesub">We Have a Huge Supply of Roll Goods Ready to Ship Today!</div>
+          <div>
+            <p class="splashtext top20">When you need fabric fast, we’re happy to sell you any of our exclusive Americo fabrics or non-slip padding by the roll or by the cut. All vinyls and laminate roll goods are 54” wide and come in 25-yard rolls. We also offer custom cuts, starting at just 5 yards!</p>
+            
+            <p class="splashtext">Non-slip padding can also be ordered in by the 33-yard roll and is available in three widths—26”, 48” and 72”. Our Classic vinyl (style 9808) also makes great table padding and comes in 25-yard rolls of 54” fabric. For your convenience, we custom cut padding to any length. No minimums!</p>
+
+            <p class="splashtext">Order today and we’ll pack and ship your goods within 1 business day. If you need help selecting patterns or colors, let us send you FREE 8” x 10” swatches. Browse through our collections below to select roll goods or order swatches.</p>
+          </div>
+          
+          <div class="row top10">
+            <div class="col-xs-4">
+              <a href="/styles/1" class=""><%= image_tag('9828-lasagna_vinyl-table-cover.jpg', :class => "img-responsive") %></a>
+              <div class="bold stylebox"><a href="/styles/1" class="addgold">CLASSIC VINYLS</a></div>
+              <p>29 Designs | 172 Colors
+              <br>Hard-working, but affordable
+              <br>10-mil PVC vinyl
+              <br>Good for commercial use</p>
+            </div>
+            
+            <div class="col-xs-4">
+              <a href="/styles/2" class=""><%= image_tag('6125_black-mocha_vinyl-table-cover.jpg', :class => "img-responsive") %></a>
+              <div class="bold stylebox"><a href="/styles/2" class="addarmy">PREMIUM VINYLS</a></div>
+              <p>26 Designs | 270 Colors
+              <br>Heavy duty, versatile fabric
+              <br>13-mil PVC vinyl
+              <br>Some designs suitable for upholstery</p>
+            </div>
+            
+            <div class="col-xs-4">
+              <a href="/styles/3" class=""><%= image_tag('2013-white_laminated-table-cover.jpg', :class => "img-responsive") %></a>
+              <div class="bold stylebox"><a href="/styles/3" class="addpurple">DESIGNER LAMINATES</a></div>
+              <p>7 Designs | 26 Colors
+              <br>Long lasting, easy care fabrics
+              <br>6-mil clear PVC film
+              <br>Good for upholstery, too</p>
+              </p>
+            </div>
+
+            <div class="col-xs-4">
+              <a href="/styles/3" class=""><%= image_tag('non-slip-pad-rugs.jpg', :class => "img-responsive") %></a>
+              <div class="bold stylebox"><a href="/categories/2" class="addmaroon">NON-SLIP PAD</a></div>
+              <p>Flame Retardant
+              <br>Cuts with Scissors
+              <br>Will not Fray or Roll</p>
+              </p>
+            </div>
+
+            <div class="col-xs-4">
+              <a href="/styles/3" class=""><%= image_tag('classic-vinyl-non-slip-pad.jpg', :class => "img-responsive") %></a>
+              <div class="bold stylebox"><a href="/categories/2" class="addmaroon">CLASSIC VINYL PAD</a></div>
+              <p>9808-White
+              <br>Cuts with Scissors
+              <br>Will not Fray or Roll</p>
+              </p>
+            </div>
+
+
+
+
+
+
+          </div>  
+
+
+
+
+
+
+
+          <div class="row top10 border-top">
+            <div class="col-xs-4"><a href="/americlear_laminations_sample" class="larger">Ordering Information</a></div>
+            <div class="col-xs-4"><a href="/technical_specs" class="larger">Technical Specs</a></div>
+            <div class="col-xs-4"><a href="/request_quote" class="larger">Request A Quote</a></div>
+          </div>  
+          
+        </div>
+        <div id="vinyl-land" class="col-sm-3">
+            <div class="addgold styledesc">Custom-Made Table Covers Are Our Specialty!</div>
+
+          <%= link_to('/free_swatches', :class => "img-responsive", alt: "Free Swatches", :id => 'home-swatches') do %><%= image_tag("swatch-image.jpg") %><% end %>
+          <%= link_to('/request_catalog', :class => "img-responsive", alt: "Free Swatches", :id => 'home-swatches') do %><%= image_tag("free-catalog.jpg") %><% end %>
+
+        </div>
+      </div>
