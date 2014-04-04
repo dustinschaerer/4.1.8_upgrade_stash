@@ -32,7 +32,7 @@
   <tbody>
     <% @purchases.each do |purchase| %>
       <tr>
-        <td><%= purchase.user %></td>
+        <td><%= purchase.user.id if purchase.user %></td>
         <td><%= purchase.firstname %></td>
         <td><%= purchase.lastname %></td>
         <td><%= purchase.telephone %></td>

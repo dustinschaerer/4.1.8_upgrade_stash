@@ -57,9 +57,10 @@
 			<td><%= number_to_currency(quote.subtotal) %></td>
 			<td><%= number_to_currency(quote.shipping) %></td>
 			<td><%= number_to_currency(quote.sales_tax) %></td>
-			<td><%= number_to_currency(quote.total) %></td>
+			<td><%= number_to_currency(quote.total) %></td> 
 	        <td><%= link_to 'Show Quote Details', quote %></td>
-	        <td><%= link_to 'Buy This Now', "/purchases/new?quote_id=#{quote.id}", method: :get %></td>
+	        <td><%= link_to 'Buy This Now', new_purchase_path(quote_id: quote), method: :get %></td
+
 		</tr>
 		<% end %>
 	</table>

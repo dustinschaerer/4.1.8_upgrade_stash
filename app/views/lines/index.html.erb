@@ -4,6 +4,9 @@
   <thead>
     <tr>
       <th>Quote product</th>
+      <th>quoteholder_id</th>
+      <th>quote_id</th>
+      <th>purchase_id</th>
       <th>Length</th>
       <th>Width</th>
       <th>Height</th>
@@ -26,18 +29,21 @@
   <tbody>
     <% @lines.each do |line| %>
       <tr>
-        <td><%= line.quote_product %></td>
+        <td><%= line.quote_product.name if line.quote_product %></td>
+        <td><%= line.quoteholder_id %></td>
+        <td><%= line.quote_id %></td>
+        <td><%= line.purchase_id %></td>
         <td><%= line.length %></td>
         <td><%= line.width %></td>
         <td><%= line.height %></td>
-        <td><%= line.cover %></td>
-        <td><%= line.series %></td>
-        <td><%= line.color %></td>
-        <td><%= line.shape %></td>
+        <td><%= line.cover.name if line.cover %></td>
+        <td><%= line.series.name if line.series %></td>
+        <td><%= line.color.name  if line.color %></td>
+        <td><%= line.shape.name  if line.shape %></td>
         <td><%= line.umbrella %></td>
         <td><%= line.velcro %></td>
         <td><%= line.yards %></td>
-        <td><%= line.size %></td>
+        <td><%= line.size.dimension if line.size %></td>
         <td><%= line.quantity %></td>
         <td><%= line.price %></td>
         <td><%= link_to 'Show', line %></td>

@@ -6,4 +6,12 @@
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     </div>
   <% end %>
+
+  <% if (msg == 'Swatch was successfully Added to your Cart.') %>  
+     <script>
+	   $(document).ready(function() {
+		 $('#minidropcart').click();
+		});
+		</script>
+  <% end %>
 <% end %>

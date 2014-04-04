@@ -2,7 +2,7 @@ $('#notice').hide();
 
 $('#cart').html("<%= escape_javascript render(@cart) %>");
 
-if (<%= @cart.line_items.length == 1 %>) { $('#minidropcart a').click('blind', 1000); }
+$('#minidropcart').dropdown('toggle');
 
 
 $('#current_item').css({'background-color':'#E94E42'}).animate({'background-color':'#9D261D'}, 1000);

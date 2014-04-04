@@ -1,7 +1,8 @@
 class PurchasesController < ApplicationController
-  include CurrentQuotecart
+  include CurrentQuote
   include CurrentCart
-  before_action :set_quotecart
+  #this was causing me to not be able to submit new purchase  (create)
+  before_action :set_quote, only: [:new, :create]
   before_action :set_cart
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   
@@ -20,7 +21,7 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
-    @quote = Quote.find(params[:quote_id])
+    #@quote = Quote.find(params[:quote_id])
     @purchase.firstname = @quote.firstname
     @purchase.lastname = @quote.lastname
     @purchase.telephone = @quote.telephone
@@ -35,6 +36,8 @@ class PurchasesController < ApplicationController
     @purchase.shipping = @quote.shipping
     @purchase.sales_tax = @quote.sales_tax
     @purchase.total = @quote.total
+    @purchase.ip_address = request.ip
+    
   end
 
   # GET /purchases/1/edit
@@ -44,6 +47,7 @@ class PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.json
   def create
+    
     if (params[:checkbox_use_same_address] == true)
       @purchase.pay_firstname = @purchase.firstname 
       @purchase.pay_lastname = @purchase.lastname 
@@ -55,18 +59,34 @@ class PurchasesController < ApplicationController
       @purchase.pay_state = @purchase.ship_state
       @purchase.pay_country = @purchase.ship_country
     end
-
+         
     @purchase = Purchase.new(purchase_params)
-    
-    respond_to do |format|
+
+    # Add purchase ref to lines
+    @purchase.add_lines_from_quote(@quote)   
+
+    #respond_to do |format|
+      
       if @purchase.save
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @purchase }
+  
+        if @purchase.purchase_the_order
+          render :action => 'success' 
+        else
+          render :action => 'failure'
+        end     
+        # send purchase notification email    
+        # PurchaseNotifier.received(@purchase).deliver
+
+        #format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
+        #format.json { render action: 'show', status: :created, location: @purchase }
+
       else
-        format.html { render action: 'new' }
-        format.json { render json: @purchase.errors, status: :unprocessable_entity }
+        respond_to do |format|
+          format.html { render action: 'new', notice: 'Purchase could not be saved' }
+          format.json { render json: @purchase.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    #end
   end
 
   # PATCH/PUT /purchases/1
@@ -101,6 +121,12 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:user_id, :firstname, :lastname, :telephone, :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type)
+      params.require(:purchase).permit(:user_id, :firstname, :lastname, :telephone, 
+        :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, 
+        :ship_country, :pay_firstname, :pay_lastname, :pay_company, :pay_telephone, 
+        :pay_status, :status, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, 
+        :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type, 
+        :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number, 
+        :card_verification)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401202506) do
+ActiveRecord::Schema.define(version: 20140403233839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,21 @@ ActiveRecord::Schema.define(version: 20140401202506) do
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
+  create_table "purchase_transactions", force: true do |t|
+    t.integer  "purchase_id"
+    t.string   "action"
+    t.integer  "amount"
+    t.boolean  "success"
+    t.string   "message"
+    t.text     "params"
+    t.boolean  "test"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "authorization"
+  end
+
+  add_index "purchase_transactions", ["purchase_id"], name: "index_purchase_transactions_on_purchase_id", using: :btree
+
   create_table "purchases", force: true do |t|
     t.integer  "user_id"
     t.string   "firstname"
@@ -200,6 +215,11 @@ ActiveRecord::Schema.define(version: 20140401202506) do
     t.string   "pay_telephone"
     t.string   "pay_status"
     t.string   "status"
+    t.integer  "amount"
+    t.string   "state",               default: "pending"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.string   "ip_address"
   end
 
   add_index "purchases", ["user_id"], name: "index_purchases_on_user_id", using: :btree

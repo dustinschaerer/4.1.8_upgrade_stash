@@ -1,4 +1,4 @@
-Americo::Application.configure do
+ Americo::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -43,5 +43,18 @@ Americo::Application.configure do
     password:   "schiznut1",
     enable_starttls_auto: true
   }
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+  end
+  
+  # maybe put this block up in after_initialize
+  config.to_prepare do
+    ::GATEWAY = ActiveMerchant::Billing::ElavonGateway.new(
+        :login     => "my_virtual_merchant_id",
+        :password  => "my_virtual_merchant_pin",
+        :user      => "my_virtual_merchant_user_id" # optional
+      )
+  end
 
 end

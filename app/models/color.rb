@@ -2,11 +2,6 @@ class Color < ActiveRecord::Base
 	belongs_to :series
 	has_many :line_items
   has_many :lines
-    
-    has_many :vinyls
-    has_many :vinylrolls
-    has_many :laminates
-    has_many :laminaterolls
 
 	before_destroy :ensure_not_referenced_by_any_line_item
 

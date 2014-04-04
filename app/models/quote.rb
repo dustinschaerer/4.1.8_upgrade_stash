@@ -4,7 +4,7 @@ class Quote < ActiveRecord::Base
   before_save :recalculate_totals
   
   belongs_to :user
-  has_many :lines, dependent: :destroy
+  has_many :lines
 
   accepts_nested_attributes_for :lines
 

@@ -1,7 +1,12 @@
 class Purchase < ActiveRecord::Base
   
   belongs_to :user
-  has_many :lines, dependent: :destroy
+  has_many :lines 
+  has_many :transactions, :class_name => 'PurchaseTransaction', :dependent => :destroy
+
+  attr_accessor :card_number, :card_verification
+  
+  validate :validate_card, { on: :create }
 
   validates :user_id, :firstname, :lastname, :telephone, :contactby, :pay_type, presence: true
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
@@ -11,23 +16,64 @@ class Purchase < ActiveRecord::Base
 
   PAYMENT_TYPES = [ "Credit Card" ]
 
-  def copy_stuff
-    @quote = Quote.find(params[:id])
-    @purchase.firstname = @quote.firstname
-    @purchase.lastname = @quote.lastname
-    @purchase.telephone = @quote.telephone
-    @purchase.user_id = @quote.user_id
-    @purchase.contactby = @quote.contactby
-    @purchase.ship_street_address = @quote.ship_street_address
-    @purchase.ship_city = @quote.ship_city
-    @purchase.ship_state = @quote.ship_state
-    @purchase.ship_state = @quote.ship_zipcode
-    @purchase.ship_country = @quote.ship_country
-    @purchase.subtotal= @quote.subtotal
-    @purchase.shipping = @quote.shipping
-    @purchase.sales_tax = @quote.sales_tax
-    @purchase.total = @quote.total
+  def add_lines_from_quote(quote)
+
+    #find each line in the quote
+    
+
+    quote.lines.each do |thisline|
+     # Don't do this, it would remove the quote_id from line 
+     # thisline.quote_id = nil
+        lines << thisline 
+    end
+  end
+  
+  def purchase_the_order
+    response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
+    transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
+    purchase.update_attribute(:purchased_at, Time.now) if response.success?
+    response.success?
+  end
+  
+  def price_in_cents
+    (total*100).round
   end
 
+  private
+  
+  def purchase_options
+    {
+      :ip =>  '127.000.100.001',
+      :billing_address => {
+        :name     => "Dusty Farlow",
+        :address1 => "123 Main St.",
+        :city     => "New York",
+        :state    => "NY",
+        :country  => "US",
+        :zip      => "10001"
+      }
+    }
+  end
+  
+  def validate_card
+    unless credit_card.valid?
+      credit_card.errors.full_messages.each do |message|
+        errors.add :base, message
+      end
+    end
+  end
+  
+  def credit_card
+    @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
+      #:type               => card_type,
+      :brand              => card_type,
+      :number             => card_number,
+      :verification_value => card_verification,
+      :month              => card_expires_on.month,
+      :year               => card_expires_on.year,
+      :first_name         => pay_firstname,
+      :last_name          => pay_lastname
+    )
+  end
 
 end
