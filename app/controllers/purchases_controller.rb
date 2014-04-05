@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   include CurrentQuote
   include CurrentCart
   #this was causing me to not be able to submit new purchase  (create)
-  before_action :set_quote, only: [:new, :create]
+  #before_action :set_quote, only: [:new, :create]
   before_action :set_cart
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   
@@ -21,7 +21,7 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
-    #@quote = Quote.find(params[:quote_id])
+    @quote = Quote.find(params[:quote_id])
     @purchase.firstname = @quote.firstname
     @purchase.lastname = @quote.lastname
     @purchase.telephone = @quote.telephone
@@ -65,7 +65,7 @@ class PurchasesController < ApplicationController
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
 
-    #respond_to do |format|
+    respond_to do |format|
       
       if @purchase.save
   
@@ -74,19 +74,19 @@ class PurchasesController < ApplicationController
         else
           render :action => 'failure'
         end     
-        # send purchase notification email    
-        # PurchaseNotifier.received(@purchase).deliver
+        #send purchase notification email    
+        PurchaseNotifier.confirmation(@purchase).deliver
 
-        #format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
-        #format.json { render action: 'show', status: :created, location: @purchase }
+        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @purchase }
 
       else
         respond_to do |format|
-          format.html { render action: 'new', notice: 'Purchase could not be saved' }
+          format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
           format.json { render json: @purchase.errors, status: :unprocessable_entity }
         end
       end
-    #end
+    end
   end
 
   # PATCH/PUT /purchases/1

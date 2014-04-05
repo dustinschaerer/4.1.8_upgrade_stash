@@ -1,0 +1,19 @@
+<%= @purchase.firstname %> <%= @purchase.lastname %>,
+
+Your Americo Order has Shipped! 
+
+This notification is to let you know that we've shipped your recent Purchase:
+
+Purchase ID #<%= @puchase.id %>
+--------------------------------
+<%= render @purchase.line_items %>
+--------------------------------
+<%= render @purchase.subtotal %>
+<%= render @purchase.shipping %>
+<%= render @purchase.sales_tax %>
+--------------------------------
+<%= render @purchase.total %>
+
+If you do not receive your order in 7-10 business days, please contact us and let us know.
+
+Thank you for shopping with Americo!

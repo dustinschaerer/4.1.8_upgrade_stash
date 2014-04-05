@@ -1,3 +1,5 @@
+
+
 <%= bootstrap_form_for(@purchase, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
 
   <div class="form-inputs">
@@ -28,14 +30,11 @@
         </div>
       </div>     
 
-
-
-
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title" style="display: inline;">Payment Details</h3> 
-            <%= check_box_tag(:checkbox_use_same_address, value = "1", checked = false, {class: 'use_same_address', id: 'make_same_address' }) %> Check this Box is Billing Information is the same Shipping Information
+            <%= check_box_tag(:checkbox_use_same_address, value = "1", checked = false, {class: 'make_same_address', id: 'make_same_address' }) %> Check this Box is Billing Information is the same Shipping Information
           </div>
           <div class="panel-body">
             
@@ -56,12 +55,25 @@
     <%= f.hidden_field :status, value: "Submitted" %>
     <%= f.hidden_field :pay_status, value: "Unpaid" %>
 
-    <%= f.number_field :subtotal, readonly: true %>
-    <%= f.number_field :shipping, readonly: true %>
-    <%= f.number_field :sales_tax, readonly: true %>
-    <%= f.number_field :total, readonly: true %>
-
-
+    <%= f.hidden_field :subtotal, readonly: true %>
+    <%= f.hidden_field :shipping, readonly: true %>
+    <%= f.hidden_field :sales_tax, readonly: true %>
+    <%= f.hidden_field :total, readonly: true %>
+    
+     <div class="row">
+      <div class="col-md-offset-8 col-md-2 larger">
+            Subtotal:
+        <br>Sales Tax:
+        <br>Shipping:
+        <br>Total:
+      </div>
+      <div class="col-md-2 larger">
+            <%= number_to_currency(f.object.subtotal, :precision => 2) %>
+        <br><%= number_to_currency(f.object.subtotal, :precision => 2) %>
+        <br><%= number_to_currency(f.object.subtotal, :precision => 2) %>
+        <br><%= number_to_currency(f.object.subtotal, :precision => 2) %>
+      </div> 
+    
     <%= f.select :pay_type, Purchase::PAYMENT_TYPES, { prompt: 'Select Payment Type'}, { label: 'Payment Type' } %>
 
      <%=  f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
