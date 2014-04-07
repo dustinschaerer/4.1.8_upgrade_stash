@@ -4,15 +4,19 @@ Your Americo Order has Shipped!
 
 This notification is to let you know that we've shipped your recent Purchase:
 
-Purchase ID #<%= @puchase.id %>
+Purchase ID #<%= @purchase.id %>
 --------------------------------
-<%= render @purchase.line_items %>
+<%= @purchase.lines.each do |line| %>
+
+<%= line.quote_product.name %> <%= line.quantity %> <%= line.price %> 
+
+<% end %>
 --------------------------------
-<%= render @purchase.subtotal %>
-<%= render @purchase.shipping %>
-<%= render @purchase.sales_tax %>
+Subtotal:  <%= number_to_currency(@purchase.subtotal) %>
+Shipping:  <%= number_to_currency(@purchase.shipping) %>
+Sales Tax: <%= number_to_currency(@purchase.sales_tax) %>
 --------------------------------
-<%= render @purchase.total %>
+Total:     <%= number_to_currency(@purchase.total) %>
 
 If you do not receive your order in 7-10 business days, please contact us and let us know.
 

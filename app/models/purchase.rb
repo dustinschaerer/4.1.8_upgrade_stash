@@ -3,6 +3,8 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
   has_many :lines 
   has_many :transactions, :class_name => 'PurchaseTransaction', :dependent => :destroy
+  
+  accepts_nested_attributes_for :lines
 
   attr_accessor :card_number, :card_verification
   
@@ -37,6 +39,12 @@ class Purchase < ActiveRecord::Base
   
   def price_in_cents
     (total*100).round
+  end
+  
+  def is_complete?
+    if (self.status == "Shipped")
+      true
+    end 
   end
 
   private

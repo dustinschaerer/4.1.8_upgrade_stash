@@ -38,3 +38,36 @@ color: white;
 .recalculatebtn {
 	text-align: right;
 }
+
+body.logged_out h2 {
+    background: -moz-linear-gradient(-90deg, #6A7176, #4D5256) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: medium none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 40px;
+    margin: -13px -30px 20px;
+    padding: 10px 10px 10px 20px;
+    text-shadow: 0 1px 0 #000000;
+}
+
+
+body.logged_out #adminlogo {
+  height: 80px;
+  margin: 0 25% 0 25%;
+  text-align: center;
+  background-image: image_url('logo.png');
+  background-repeat:no-repeat;
+}
+
+
+#header {
+  h1 {
+    font-size: 28px;
+  }
+}  
+
+#header ul.tabs > li a {
+	font-size: 14px;
+}

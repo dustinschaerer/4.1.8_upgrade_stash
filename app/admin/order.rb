@@ -1,5 +1,5 @@
 ActiveAdmin.register Order do
-
+  menu :priority => 6
   actions :all, :except => [:destroy] 
 
   permit_params :user_id, :firstname, :lastname, :company, :street_address, :city, :state, :zipcode, :country, :telephone, :email, :status

@@ -7,4 +7,6 @@
 jQuery ->
   $('.best_in_place').best_in_place()
   
-
+jQuery ->
+  $('#content_wrapper').prepend( '<div id="adminlogo"></div>') 
+  $('#content_wrapper h2').html( 'Americo Administrator Login') 

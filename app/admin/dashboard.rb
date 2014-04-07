@@ -7,34 +7,48 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
     
       column do
+        panel "Recent Purchases" do
+          table_for Purchase.order('id desc').limit(15).each do |purchase|      
+            column("purchase ID#") {|purchase| link_to(purchase.id, admin_purchase_path(purchase.id))}
+            column("Status") {|purchase| status_tag (purchase.is_complete? ? "Shipped" : "Submitted"), (purchase.is_complete? ? :ok : :error) }
+            column("Price Total") {|purchase| (purchase.total) }
+           # column("Customer"){|purchase| link_to(purchase.user.email, admin_purchase_path(purchase.user)) }
+            column("First Name"){|purchase| (purchase.firstname) }
+            column("Last Name"){|purchase| (purchase.lastname) }
+            column("View ") {|purchase| link_to("View", admin_purchase_path(purchase.id))}
+            column("Edit") {|purchase| link_to(purchase.id, edit_admin_purchase_path(purchase.id))}
+          end
+        end
+
+
+        panel "Recent Quote Requests" do
+          table_for Quote.order('id desc').limit(15).each do |quote|      
+            column("Quote ID#") {|quote| link_to(quote.id, admin_quote_path(quote.id))}
+            column("Status") {|quote| status_tag (quote.is_complete? ? "Priced" : "Submitted"), (quote.is_complete? ? :ok : :error) }
+            column("Price Total") {|quote| (quote.total) }
+           # column("Customer"){|quote| link_to(quote.user.email, admin_quote_path(quote.user)) }
+            column("First Name"){|quote| (quote.firstname) }
+            column("Last Name"){|quote| (quote.lastname) }
+            column("View ") {|quote| link_to("View", admin_quote_path(quote.id))}
+            column("Edit") {|quote| link_to(quote.id, edit_admin_quote_path(quote.id))}
+          end
+        end
+      end
+
+      column do
         panel "Recent Swatch & Catalog Orders" do
-          table_for Order.order('id desc').limit(20) do
+          table_for Order.order('id desc').limit(15) do
             column("Order ID#") {|order| link_to(order.id, admin_order_path(order.id))}
             column("Status") {|order| status_tag (order.is_complete? ? "Shipped" : "Submitted"), (order.is_complete? ? :ok : :error) }
-            column("Customer"){|order| link_to(order.user.email, admin_order_path(order.user)) }
+           # column("Customer"){|order| link_to(order.user.email, admin_order_path(order.user)) }
             column("First Name"){|order| (order.firstname) }
             column("Last Name"){|order| (order.lastname) }
-            column("Company"){|order| (order.company) }
             column("View ") {|order| link_to("View", admin_order_path(order.id))}
             column("Edit") {|order| link_to(order.id, edit_admin_order_path(order.id))}
           end
         end
       end
 
-      column do
-        panel "Recent Quote Requests" do
-          table_for Quote.order('id desc').limit(20).each do |quote|      
-            column("Quote ID#") {|quote| link_to(quote.id, admin_quote_path(quote.id))}
-            column("Price Total") {|quote| (quote.total) }
-            column("Customer"){|quote| link_to(quote.user.email, admin_quote_path(quote.user)) }
-            column("First Name"){|quote| (quote.firstname) }
-            column("Last Name"){|quote| (quote.lastname) }
-            column("Company"){|quote| (quote.company) }
-            column("View ") {|quote| link_to("View", admin_quote_path(quote.id))}
-            column("Edit") {|quote| link_to(quote.id, edit_admin_quote_path(quote.id))}
-          end
-        end
-      end
 
     end # columns
 

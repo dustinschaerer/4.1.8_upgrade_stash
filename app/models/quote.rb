@@ -21,6 +21,11 @@ class Quote < ActiveRecord::Base
     end
   end
 
+  def is_complete?
+    if (self.status == "Priced")
+      true
+    end 
+  end
 
   def total_price
     lines.to_a.sum { |line| line.total_price }

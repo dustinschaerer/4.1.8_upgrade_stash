@@ -1,6 +1,6 @@
-ActiveAdmin.register Style do
-    
-  menu :parent => "Content"
+ActiveAdmin.register User do
+
+  menu :priority => 8
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
