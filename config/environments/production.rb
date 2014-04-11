@@ -64,7 +64,21 @@ Americo::Application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
-
+  
+  config.action_mailer.delivery_method = :smtp
+   
+  config.action_mailer.perform_deliveries = true
+   
+  # Action Mailer config setting
+  config.action_mailer.smtp_setting = {
+  :address        => 'smtp.sendgrid.net',
+  :port           => '587',
+  :authentication => :plain,
+  :user_name      => ENV['SENDGRID_USERNAME'],
+  :password       => ENV['SENDGRID_PASSWORD'],
+  :domain         => 'heroku.com',
+  :enable_starttls_auto => true
+}
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
@@ -78,8 +92,8 @@ Americo::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-#  config.after_initialize do
-#    ActiveMerchant::Billing::Base.mode = :production
+ #  config.after_initialize do
+ #    ActiveMerchant::Billing::Base.mode = :production
  #   ::GATEWAY = ActiveMerchant::Billing::ElavonGateway.new(
  #       :login     => "live_virtual_merchant_id",
  #       :password  => "live_virtual_merchant_pin",
