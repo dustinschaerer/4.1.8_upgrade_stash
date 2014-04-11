@@ -70,7 +70,7 @@ Americo::Application.configure do
   config.action_mailer.perform_deliveries = true
    
   # Action Mailer config setting
-  config.action_mailer.smtp_setting = {
+  ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
   :port           => '587',
   :authentication => :plain,
