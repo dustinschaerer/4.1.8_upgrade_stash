@@ -51,9 +51,9 @@
   # maybe put this block up in after_initialize
   config.to_prepare do
     ::GATEWAY = ActiveMerchant::Billing::ElavonGateway.new(
-        :login     => "my_virtual_merchant_id",
-        :password  => "my_virtual_merchant_pin",
-        :user      => "my_virtual_merchant_user_id" # optional
+        :login     => ENV['MVM_LOGIN_ID'],
+        :password  => ENV['MVM_PIN'],
+        :user      => ENV['MVM_USER_ID']
       )
   end
 
