@@ -30,7 +30,7 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(subscriber_params)
 
-    SubscriberNotifier.new_signup(@subscriber).deliver
+    SubscriberNotification.new_signup(@subscriber).deliver
 
     respond_to do |format|
       if @subscriber.save
