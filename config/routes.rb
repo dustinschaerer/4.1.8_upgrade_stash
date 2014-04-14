@@ -5,7 +5,7 @@ Americo::Application.routes.draw do
   end
   root :to => "static_pages#home"
 
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
 
   resources :users, only: [:show, :edit, :update]
 

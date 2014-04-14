@@ -4,28 +4,31 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-12">      
-        User Details
-        <%= f.hidden_field :user_id, size: 40, value: current_user.id, readonly: true %> 
-        <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), { prompt: 'Choose your Contact Preference '} , { label: 'Contact By' }) %>
+      <div class="col-md-12 bottom20">      
+        <p>To purchase all the items from your submitted Quote #<%= @quote.id %>, fill out the shipping and billing information below.  Our checkout is 100% secure and fully encrypted.</p>  
       </div>
+      
+
 
       <div class="col-md-6">
-    
+           
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Shipping Details</h3>
+            <h3 class="panel-title">Step 1: Shipping Details</h3>
           </div>
           <div class="panel-body">
             <%= f.text_field :firstname, label: 'First Name' %>
             <%= f.text_field :lastname, label: 'Last Name' %>
-            <%= f.text_field :company, placeholder: 'Company Name (Optio' %>
+            <%= f.text_field :company, placeholder: 'Company Name (Optional)' %>
             <%= f.text_field :telephone, label: 'Telephone Number', placeholder: 'Telephone Number'   %>
             <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address' %>
             <%= f.text_field :ship_city, label: 'City', placeholder: 'City' %>
             <%= f.text_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code' %>
             <%= f.select :ship_state, Order::STATES, { prompt: 'Select State'}, { label: 'State' } %>
             <%= f.select :ship_country, options_for_select(['United States']), {}, { label: 'Country'} %>    
+
+            <%= f.hidden_field :user_id, size: 40, value: current_user.id, readonly: true %> 
+            <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), { prompt: 'Choose your Contact Preference '} , { label: 'Contact By' }) %>
           </div>
         </div>
       </div>     
@@ -33,14 +36,14 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title" style="display: inline;">Payment Details</h3> 
-            <%= check_box_tag(:checkbox_use_same_address, value = "1", checked = false, {class: 'make_same_address', id: 'make_same_address' }) %> Check this Box is Billing Information is the same Shipping Information
+            <h3 class="panel-title" style="display: inline;">Step 2: Payment Details</h3> 
+            
           </div>
           <div class="panel-body">
-            
+            <%= check_box_tag(:checkbox_use_same_address, value = "1", checked = false, {class: 'make_same_address', id: 'make_same_address' }) %> Check if Payment Information is the same as Shipping<br><br>
             <%= f.text_field :pay_firstname, label: 'First Name', placeholder: 'First Name' %>
             <%= f.text_field :pay_lastname, label: 'Last Name', placeholder: 'Last Name' %>
-            <%= f.text_field :pay_company, placeholder: 'Company Name (Optional)', placeholder: 'Copmany (Optional)' %>
+            <%= f.text_field :pay_company, placeholder: 'Company Name (Optional)', placeholder: 'Company (Optional)' %>
             <%= f.text_field :pay_telephone, label: 'Telephone Number', placeholder: 'Telephone Number'   %>
             <%= f.text_field :pay_street_address, placeholder: 'Street Address' %>
             <%= f.text_field :pay_city, placeholder: 'City' %>
@@ -61,31 +64,44 @@
     <%= f.hidden_field :total, readonly: true %>
     
      <div class="row">
-      <div class="col-md-offset-8 col-md-2 larger">
-            Subtotal:
-        <br>Sales Tax:
-        <br>Shipping:
-        <br>Total:
-      </div>
-      <div class="col-md-2 larger">
-            <%= number_to_currency(f.object.subtotal, :precision => 2) %>
-        <br><%= number_to_currency(f.object.subtotal, :precision => 2) %>
-        <br><%= number_to_currency(f.object.subtotal, :precision => 2) %>
-        <br><%= number_to_currency(f.object.subtotal, :precision => 2) %>
+      
+      <div class="col-md-offset-6 col-md-6">
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th colspan="2">Order Totals:</td>
+          </tr>
+          <tr>
+            <td>Subtotal:</td>
+            <td><%= number_to_currency(f.object.subtotal, :precision => 2) %></td>
+          </tr>
+          <tr>
+            <td>Sales Tax:</td>
+            <td><%= number_to_currency(f.object.sales_tax, :precision => 2) %></td>
+          </tr>
+          <tr>
+            <td>Shipping:</td>
+            <td><%= number_to_currency(f.object.shipping, :precision => 2) %></td>
+          </tr>
+          <tr>
+            <td><strong>Total:</strong></td>
+            <td><strong><%= number_to_currency(f.object.total, :precision => 2) %></strong></td>
+          </tr>
+        </table>
+      
       </div> 
     
-    <%= f.select :pay_type, Purchase::PAYMENT_TYPES, { prompt: 'Select Payment Type'}, { label: 'Payment Type' } %>
-
-     <%=  f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+    <%= f.select :pay_type, Purchase::PAYMENT_TYPES, {}, { label: 'Payment Type' } %>
+    <%=  f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
     <%=  f.text_field :card_number %>
     <%=  f.text_field :card_verification, label: 'Card Verification Value (CVV)' %>
     <div class="form-group"><label class="col-sm-4 control-label" for="purchase_card_expires_on">Card expires on</label>
     <div class="col-sm-4">
 <select class="form-control" id="purchase_card_expires_on_2i" name="purchase[card_expires_on(2i)]">
+<option selected="selected" value="">Please Select Month Exp</option>
 <option value="1">1 - January</option>
 <option value="2">2 - February</option>
 <option value="3">3 - March</option>
-<option selected="selected" value="4">4 - April</option>
+<option value="4">4 - April</option>
 <option value="5">5 - May</option>
 <option value="6">6 - June</option>
 <option value="7">7 - July</option>
@@ -98,7 +114,8 @@
 <input id="purchase_card_expires_on_3i" name="purchase[card_expires_on(3i)]" type="hidden" value="1" />
 </div>
       <div class="col-sm-4"><select class="form-control" id="purchase_card_expires_on_1i" name="purchase[card_expires_on(1i)]">
-<option selected="selected" value="2014">2014</option>
+<option selected="selected" value="">Please Select Year Exp</option>
+<option value="2014">2014</option>
 <option value="2015">2015</option>
 <option value="2016">2016</option>
 <option value="2017">2017</option>
@@ -116,11 +133,13 @@
     %>
    
   </p>
-        
-
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit  %>
+    <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-8">
+        <%= f.submit  'Place Order Now', :class => "btn btn-success btn-block"  %> 
+      </div>
+    </div>
   </div>
 <% end %>
