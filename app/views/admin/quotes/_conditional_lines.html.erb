@@ -335,7 +335,7 @@
           <td class="col col-series"><%= line.series.name %></td>
           <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
         </tr>
        
       </tbody>
@@ -364,7 +364,7 @@
           <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-dimensions"><%= line.size.dimension %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
         </tr>
       </tbody>
     </table>

@@ -13,7 +13,7 @@
       
       <div class="panel-heading">
         <div class="row">
-          <div class="col-sm-12 col-md-8">     
+          <div class="col-sm-12 col-md-12">     
             <h1>QUOTE ID #<%= @quote.id %></h1>
           </div>
         </div>  
@@ -43,7 +43,7 @@
           <div class="col-sm-4 col-md-4 pull-right">
              <p><strong>Quote Date:</strong> <%= @quote.created_at.strftime("%B %d, %Y") %></p>
              <p><strong>Quote Status:</strong> <%= @quote.status %></p>
-             <p><strong>Customer Phone:</strong> <%= @quote.telephone %></p>
+             <p><strong>Phone:</strong> <%= @quote.telephone %></p>
              <p><strong>Email:</strong> <%= @quote.email %></p>
           </div>
  
@@ -51,7 +51,7 @@
         
         <div class="row">
           <div class="col-xs-12">     
-            Items in this Quote are listed below. Click on the individual quote items to see details for each one.
+            Items in this Quote are listed below. 
           </div>  
           
         </div>  

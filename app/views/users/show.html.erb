@@ -38,6 +38,7 @@
 	<table class="table table-bordered table-hover">
 		<tr>
 			<th>Quote #</th>
+			<th>Status</th>
 			<th>Name</th>
 			<th>Email Address</th>
 			<th>Date Submitted</th>
@@ -51,6 +52,7 @@
 		<% @quotes.each do |quote|%>
 		<tr>
 			<td><%= quote.id %></td>
+			<td><%= quote.status %></td>
 			<td><%= quote.firstname %> <%= quote.lastname %></td>
 			<td><%= quote.email %></td>
 			<td><%= quote.created_at %></td>

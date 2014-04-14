@@ -25,7 +25,6 @@ ActiveAdmin.register Quote do
     end  
   end
 
-
   controller do
     
     def calculate_subtotal
@@ -60,19 +59,23 @@ ActiveAdmin.register Quote do
       @quote.calculate_subtotal
       @quote.calculate_sales_tax
       @quote.calculate_total
+      @quote.save!
     end      
 
   end
 
   index do 
     column("Quote ID#", :sortable => :id) {|quote| link_to "##{quote.id} ", admin_quote_path(quote) }
-    #column("Quote Status") { |quote| status_tag(quote.status) }
+    column("Quote Status") { |quote| status_tag(quote.status) }
     column("Customer", :user, :sortable => :user_id)
     column("City", :ship_city, :sortable => :city)
     column("State", :ship_state, :sortable => :state)
     column("Date Created", :created_at)
     column("Date Modified", :updated_at)
-    column("Price Total", :total)
+    
+    column("Price Total", :total)  do |tl|
+      number_to_currency tl.total
+    end  
     default_actions
   end
 
