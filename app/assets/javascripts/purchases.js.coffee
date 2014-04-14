@@ -30,9 +30,10 @@ jQuery ->
       $("#purchase_pay_zipcode").prop('readonly', true)
       $('input:text[id*=purchase_pay_zipcode]').val($('input:text[id*=purchase_ship_zipcode]').val())
 
+      state = $('#purchase_ship_state option:selected').val()
+      $('#purchase_pay_state option[value=' + state + ']').attr('selected','selected')
 
-      $('#purchase_pay_state').val($('#purchase_ship_state').val())
-
+      
 
       alert "Shipping address copied to Payment Address"
 
@@ -61,8 +62,6 @@ jQuery ->
 
       $('select[id=purchase_pay_state]').prop('enabled', true)
       $('select[id=purchase_pay_state]').val("")
-
-     
 
 
 
