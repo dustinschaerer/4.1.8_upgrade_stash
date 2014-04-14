@@ -60,7 +60,7 @@
 			<td><%= number_to_currency(quote.total) %></td> 
 	        <td><%= link_to 'Show Quote Details', quote %></td>
 	        <td>
-	        	<% if (quote.total > 0) %>
+	        	<% if (quote.status == "Priced") %>
                 <!-- Need conditional check if order has been priced, canceled, or already purchased. --> 
 	        	<%= link_to 'Buy This Now', new_purchase_path(quote_id: quote), method: :get %>
                 <% else %>

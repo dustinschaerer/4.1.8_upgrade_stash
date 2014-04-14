@@ -1,7 +1,7 @@
 class PurchasesController < ApplicationController
- # include CurrentQuote
+  include CurrentQuote
   include CurrentCart
-  
+  before_action :set_quote
   before_action :set_cart
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, unless: :current_admin_user
@@ -64,28 +64,32 @@ class PurchasesController < ApplicationController
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
 
-    respond_to do |format|
       
-      if @purchase.save
-  
-        if @purchase.purchase_the_order
-          render :action => 'success' 
-        else
-          render :action => 'failure'
-        end     
+    if @purchase.save
+      if @purchase.purchase_the_order
+        
         #send purchase notification email    
         PurchaseNotifier.confirmation(@purchase).deliver
-
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @purchase }
+        
+        render :action => 'success' 
 
       else
-        respond_to do |format|
-          format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
-          format.json { render json: @purchase.errors, status: :unprocessable_entity }
-        end
+        
+        render :action => 'failure'
+
+      end     
+       
+#      respond_to do |format|
+#        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @purchase }
+#      end
+    else
+      respond_to do |format|
+        format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
+        format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
     end
+  
   end
 
   # PATCH/PUT /purchases/1

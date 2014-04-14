@@ -21,9 +21,9 @@ class Purchase < ActiveRecord::Base
   def add_lines_from_quote(quote)
 
     #find each line in the quote
-    
+    @quote = Quote.find(quote.id)
 
-    quote.lines.each do |thisline|
+    @quote.lines.each do |thisline|
      # Don't do this, it would remove the quote_id from line 
      # thisline.quote_id = nil
         lines << thisline 
