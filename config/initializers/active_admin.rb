@@ -140,7 +140,7 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-  
+
   config.skip_before_filter :authenticate_user!
   
   # == Setting a Favicon
@@ -167,7 +167,7 @@ ActiveAdmin.setup do |config|
   # == CSV options
   #
   # Set the CSV builder separator
-  # config.csv_options = { :col_sep => ';' }
+  config.csv_options = { :col_sep => ',' }
   #
   # Force the use of quotes
   # config.csv_options = { :force_quotes => true }
