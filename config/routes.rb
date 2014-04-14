@@ -7,10 +7,11 @@ Americo::Application.routes.draw do
 
   devise_for :users
 
+  resources :users, only: [:show, :edit, :update]
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
-  resources :users, only: [:show, :edit, :update]
+
   resources :quoteholders
   resources :lines
   resources :quote_products

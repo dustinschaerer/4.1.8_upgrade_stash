@@ -2,10 +2,10 @@ class PurchasesController < ApplicationController
   include CurrentQuote
   include CurrentCart
   #this was causing me to not be able to submit new purchase  (create)
-  #before_action :set_quote, only: [:new, :create]
+  before_action :set_quoteholder
   before_action :set_cart
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
-  
+  before_filter :authenticate_user!, unless: :current_admin_user
 
   # GET /purchases
   # GET /purchases.json

@@ -4,8 +4,7 @@ class QuotesController < ApplicationController
   before_action :set_quoteholder
   before_action :set_cart
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-
+  before_filter :authenticate_user!, unless: :current_admin_user
 
   # GET /quotes
   # GET /quotes.json

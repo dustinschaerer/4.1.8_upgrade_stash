@@ -15,10 +15,14 @@ ActiveAdmin.register Quote do
     @current_user_id = @quote.user_id
     @current_user = User.find(@current_user_id)
     QuoteNotifier.priced(@quote, @current_user).deliver
-
+    
     #update status to "Priced"
-    redirect_to admin_quotes_path, :notice => "Priced Email message sent to customer."    
-
+    @quote.status = "Priced"
+    if @quote.save!
+      redirect_to admin_quotes_path, :notice => "Priced Email message sent to customer."    
+    else
+      render :back, :notice => "ERROR: Could not update Quote Status to Priced."
+    end  
   end
 
 
@@ -80,12 +84,11 @@ ActiveAdmin.register Quote do
       end
       
     end
+
     div :class => "recalculatebtn" do
       h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
       h3 { button_to "Pricing Complete - Send EMail to Notify Customer Now", "/admin/quotes/#{quote.id}/send_priced_email", :method => :post }                                                                    
     end 
-
-
 
     columns do 
       column do
