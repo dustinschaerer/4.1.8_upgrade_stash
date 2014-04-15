@@ -1,32 +1,28 @@
 
-
 <%= bootstrap_form_for(@purchase, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
 
   <div class="form-inputs">
     <div class="row">
       <div class="col-md-12 bottom20">      
-        <p>To purchase all the items from your submitted Quote #<%= @quote.id %>, fill out the shipping and billing information below.  Our checkout is 100% secure and fully encrypted.</p>  
+        <p>To purchase all the items from your submitted <strong>Quote #<%= @quote.id %></strong>, fill out the shipping and billing information below.  Our checkout is 100% secure and fully encrypted.</p>  
       </div>
       
-
-
       <div class="col-md-6">
-           
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Step 1: Shipping Details</h3>
+            <h3 class="panel-title">Step 1: Delivery Address &amp; Details</h3>
           </div>
           <div class="panel-body">
             <%= f.text_field :firstname, label: 'First Name' %>
             <%= f.text_field :lastname, label: 'Last Name' %>
             <%= f.text_field :company, placeholder: 'Company Name (Optional)' %>
             <%= f.text_field :telephone, label: 'Telephone Number', placeholder: 'Telephone Number'   %>
-            <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address' %>
-            <%= f.text_field :ship_city, label: 'City', placeholder: 'City' %>
-            <%= f.text_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code' %>
-            <%= f.select :ship_state, Order::STATES, { prompt: 'Select State'}, { label: 'State' } %>
-            <%= f.select :ship_country, options_for_select(['United States']), {}, { label: 'Country'} %>    
-
+            <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address', readonly: true %>
+            <%= f.text_field :ship_city, label: 'City', placeholder: 'City', readonly: true %>
+            <%= f.text_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code', readonly: true %>
+            <%= f.text_field :ship_state, label: 'State', placeholder: 'State', readonly: true %>
+            <%= f.text_field :ship_country, label: 'Country', placeholder: 'Country', readonly: true %>    
+            
             <%= f.hidden_field :user_id, size: 40, value: current_user.id, readonly: true %> 
             <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), { prompt: 'Choose your Contact Preference '} , { label: 'Contact By' }) %>
           </div>
@@ -36,7 +32,7 @@
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title" style="display: inline;">Step 2: Payment Details</h3> 
+            <h3 class="panel-title" style="display: inline;">Step 2: Payment Information</h3> 
             
           </div>
           <div class="panel-body">
@@ -56,8 +52,7 @@
     </div>     
 
     <%= f.hidden_field :status, value: "Submitted" %>
-    <%= f.hidden_field :pay_status, value: "Unpaid" %>
-
+    <%= f.hidden_field :pay_status, value: "Pending" %>
     <%= f.hidden_field :subtotal, readonly: true %>
     <%= f.hidden_field :shipping, readonly: true %>
     <%= f.hidden_field :sales_tax, readonly: true %>

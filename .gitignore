@@ -6,6 +6,9 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bundle
+
+
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -14,6 +17,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/public/assets
+/public/assets/*
+/public/system
+/coverage/
+/spec/tmp
 
 # Ignore other unneeded files.
 database.yml

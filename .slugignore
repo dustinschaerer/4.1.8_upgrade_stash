@@ -9,3 +9,5 @@ doc
 app/assets/images/swatches/swatches.zip
 app/assets/images/*.jpg
 app/assets/images/*.png
+app/public/assets/*
+tmp

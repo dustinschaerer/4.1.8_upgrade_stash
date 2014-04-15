@@ -40,7 +40,7 @@ module Americo
     config. generators do |g|
         g.test_framework :test_unit
     end    
-
+    
     config.assets.paths << "#{Rails.root}/app/themes/default/"
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
