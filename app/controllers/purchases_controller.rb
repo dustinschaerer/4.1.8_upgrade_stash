@@ -130,6 +130,6 @@ class PurchasesController < ApplicationController
         :pay_status, :status, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, 
         :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type, 
         :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number, 
-        :card_verification)
+        :card_verification, :month, :year)
     end
 end

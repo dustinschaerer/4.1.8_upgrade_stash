@@ -30,8 +30,7 @@ jQuery ->
       $("#purchase_pay_zipcode").prop('readonly', true)
       $('input:text[id*=purchase_pay_zipcode]').val($('input:text[id*=purchase_ship_zipcode]').val())
      
-      $('select[id*=purchase_pay_state]').val($('select[id*=purchase_ship_state]').val())
-      $("#purchase_pay_state").prop('disabled', true)
+      $('select[id*=purchase_pay_state]').val($("select[id*=purchase_ship_state]").val()); 
 
       $('select[id*=purchase_pay_country]').val($('select[id*=purchase_ship_country]').val())
       $("#purchase_pay_country").prop('disabled', true)
