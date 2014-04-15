@@ -8,24 +8,25 @@
 jQuery ->
   $("#make_same_address").change ->
     if @checked
-      $("#purchase_pay_firstname").prop('readonly', true)
-      $("input#purchase_pay_firstname")
-      $('input:text[id*=purchase_pay_firstname]').val($('input:text[id*=purchase_firstname]').val())
-      $("#purchase_pay_lastname").prop('readonly', true)
-      $('input:text[id*=purchase_pay_lastname]').val($('input:text[id*=purchase_lastname]').val())
-      $("#purchase_pay_company").prop('readonly', true) 
-      $('input:text[id*=purchase_pay_company]').val($('input:text[id*=purchase_company]').val())
-      $("#purchase_pay_telephone").prop('readonly', true) 
-      $('input:text[id*=purchase_pay_telephone]').val($('input:text[id*=purchase_telephone]').val())
-      $("#purchase_pay_street_address").prop('readonly', true) 
-      $('input:text[id*=purchase_pay_street_address]').val($('input:text[id*=purchase_ship_street_address]').val())
-      $("#purchase_pay_city").prop('readonly', true)
-      $('input:text[id*=purchase_pay_city]').val($('input:text[id*=purchase_ship_city]').val())
-      $("#purchase_pay_zipcode").prop('readonly', true)
-      $('input:text[id*=purchase_pay_zipcode]').val($('input:text[id*=purchase_ship_zipcode]').val()) 
-      setState = $('#purchase_ship_state :selected').val()
-      $('#purchase_pay_state').val(setState)
-      alert setState
+   #   $("#purchase_pay_firstname").prop('readonly', true)
+   #   $("input#purchase_pay_firstname")
+   #   $('input:text[id*=purchase_pay_firstname]').val($('input:text[id*=purchase_firstname]').val())
+   #   $("#purchase_pay_lastname").prop('readonly', true)
+   #   $('input:text[id*=purchase_pay_lastname]').val($('input:text[id*=purchase_lastname]').val())
+   #   $("#purchase_pay_company").prop('readonly', true) 
+   #   $('input:text[id*=purchase_pay_company]').val($('input:text[id*=purchase_company]').val())
+   #   $("#purchase_pay_telephone").prop('readonly', true) 
+   #   $('input:text[id*=purchase_pay_telephone]').val($('input:text[id*=purchase_telephone]').val())
+   #   $("#purchase_pay_street_address").prop('readonly', true) 
+   #   $('input:text[id*=purchase_pay_street_address]').val($('input:text[id*=purchase_ship_street_address]').val())
+   #   $("#purchase_pay_city").prop('readonly', true)
+   #   $('input:text[id*=purchase_pay_city]').val($('input:text[id*=purchase_ship_city]').val())
+   #   $("#purchase_pay_zipcode").prop('readonly', true)
+   #   $('input:text[id*=purchase_pay_zipcode]').val($('input:text[id*=purchase_ship_zipcode]').val()) 
+   #   $('#purchase_ship_state :selected').val()
+      $('#purchase_pay_state').val($('#purchase_ship_state :selected').val())
+      $("#purchase_pay_state").prop('selected',true);
+      alert "State has been copied"
     else
       alert "not checked"
       $("#purchase_pay_firstname").prop('enabled', true)
