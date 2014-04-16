@@ -89,7 +89,6 @@
 			<th>Sales Tax</th>
 			<th>Total</th>
 			<th>Show purchase</th>
-			<th></th>
 		</tr>	
 		<% @purchases.each do |purchase|%>
 		<tr>
@@ -103,11 +102,8 @@
 			<td><%= number_to_currency(purchase.sales_tax) %></td>
 			<td><%= number_to_currency(purchase.total) %></td> 
 	        <td><%= link_to 'Show Purchase Details', purchase %></td>
-	        <td></td>
-
 		</tr>
 		<% end %>
 	</table>
 
-	
 </div>
