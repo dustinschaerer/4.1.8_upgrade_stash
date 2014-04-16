@@ -81,7 +81,10 @@
 
               <% if @cart %>
                 
-                <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+                <%= content_tag("div", id: 'cart') do %>
+                <%= 
+                #hidden_div_if(@cart.line_items.empty?, id: 'cart') do 
+                  %>
                   <%= render @cart %>   
                 <% end %>
                 
