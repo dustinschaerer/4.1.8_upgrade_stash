@@ -36,7 +36,9 @@ class PurchasesController < ApplicationController
     @purchase.sales_tax = @quote.sales_tax
     @purchase.total = @quote.total
     @purchase.ip_address = request.ip
-    
+    @purchase.amount = @quote.amount
+    @purchase.quote_id = @quote.id
+
   end
 
   # GET /purchases/1/edit
@@ -58,39 +60,35 @@ class PurchasesController < ApplicationController
       @purchase.pay_state = @purchase.ship_state
       @purchase.pay_country = @purchase.ship_country
     end
-         
+    @quote = Quote.find(purchase_params[:quote_id])
     @purchase = Purchase.new(purchase_params)
 
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
-
-      
+    @purchase.update_attribute(:status, "Purchased")
+     @quote.update_status_to_purchased
+  
     if @purchase.save
-      if @purchase.purchase_the_order
-        
+      
+      # if @purchase.purchase_the_order
         #send purchase notification email    
-        PurchaseNotifier.confirmation(@purchase).deliver
-        
-        render :action => 'success' 
-
-      else
-        
-        render :action => 'failure'
-
-      end     
-       
-#      respond_to do |format|
-#        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
-#        format.json { render action: 'show', status: :created, location: @purchase }
-#      end
+      PurchaseNotifier.confirmation(@purchase, current_user).deliver
+       #   render :action => 'success' 
+       # else
+       #   render :action => 'failure'
+       # end     
+      respond_to do |format|
+        format.html { redirect_to current_user, notice: 'Purchase was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @purchase }
+      end 
     else
       respond_to do |format|
         format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
     end
-  
   end
+
 
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
@@ -130,6 +128,8 @@ class PurchasesController < ApplicationController
         :pay_status, :status, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, 
         :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type, 
         :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number, 
-        :card_verification, :month, :year)
+        :card_verification, :month, :year, :email, :quote_id,
+        quotes_attributes: [:status])
+       
     end
 end

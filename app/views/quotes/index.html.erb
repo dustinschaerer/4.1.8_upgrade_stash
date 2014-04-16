@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Quote ID#</th>
       <th>User</th>
       <th>Firstname</th>
       <th>Lastname</th>
@@ -18,6 +19,7 @@
       <th>Sales tax</th>
       <th>Total</th>
       <th>Pay type</th>
+      <th>Status</th>
       <th></th>
       <th></th>
       <th></th>
@@ -27,6 +29,7 @@
   <tbody>
     <% @quotes.each do |quote| %>
       <tr>
+        <td><%= quote.id %></td>
         <td><%= quote.user_id %></td>
         <td><%= quote.firstname %></td>
         <td><%= quote.lastname %></td>
@@ -42,6 +45,7 @@
         <td><%= quote.sales_tax %></td>
         <td><%= quote.total %></td>
         <td><%= quote.pay_type %></td>
+        <td><%= quote.status %></td>
         <td><%= link_to 'Show', quote %></td>
         <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
         <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>

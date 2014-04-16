@@ -22,6 +22,7 @@
       <th>Shipping</th>
       <th>Sales tax</th>
       <th>Total</th>
+      <th>Amount</th>
       <th>Pay type</th>
       <th></th>
       <th></th>
@@ -33,7 +34,7 @@
     <% @purchases.each do |purchase| %>
       <tr>
         <td><% if purchase.user %>
-              <%= purchase.user.name %> 
+              <%= purchase.user_id%> 
             <% else %>
               <%= purchase.user_id %>
             <% end %>   
@@ -56,6 +57,7 @@
         <td><%= purchase.shipping %></td>
         <td><%= purchase.sales_tax %></td>
         <td><%= purchase.total %></td>
+        <td><%= purchase.amount %></td>
         <td><%= purchase.pay_type %></td>
         <td><%= link_to 'Show', purchase %></td>
         <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>

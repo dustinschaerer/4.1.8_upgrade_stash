@@ -1,8 +1,8 @@
 <% provide(:title ,'User Profile') %>
 
-<h1>Hello, <%= @user.username %></h1> 
-<p>Your email address: <strong><%= @user.email %></strong> <%= link_to 'Change', edit_user_registration_path %></p>
 
+<h1 style="display:inline;">Hello, <%= @user.email %></h1>     <%= link_to 'Change My Email Address', edit_user_registration_path %> 
+<p>&nbsp;</p>
 <h3>My Swatch Order History</h3>
 <div class="table-responsive">
 	<table class="table table-bordered table-hover">
@@ -61,10 +61,10 @@
 			<td><%= number_to_currency(quote.sales_tax) %></td>
 			<td><%= number_to_currency(quote.total) %></td> 
 	        <td><%= link_to 'Show Quote Details', quote %></td>
-	        <td>
-	        	<% if (quote.status == "Priced") %>
-                <!-- Need conditional check if order has been priced, canceled, or already purchased. --> 
-	        	<%= link_to 'Buy This Now', new_purchase_path(quote_id: quote), method: :get %>
+	        <td><% if (quote.status == "Priced") %>
+                       <%= link_to 'Buy This Now', new_purchase_path(quote_id: quote), method: :get %>
+             	<% elsif (quote.status == "Purchased") %>
+                  Purchased  
                 <% else %>
                 Waiting on Pricing  
                 <% end %>
@@ -80,19 +80,34 @@
 	<table class="table table-bordered table-hover">
 		<tr>
 			<th>Purchase #</th>
-			<th></th>
-			<th></th>
-			<th></th>
+			<th>Status</th>
+			<th>Name</th>
+			<th>Email Address</th>
+			<th>Date Submitted</th>
+			<th>Subtotal</th>
+			<th>Shipping</th>
+			<th>Sales Tax</th>
+			<th>Total</th>
+			<th>Show purchase</th>
 			<th></th>
 		</tr>	
-		
+		<% @purchases.each do |purchase|%>
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><%= purchase.id %></td>
+			<td><%= purchase.status %></td>
+			<td><%= purchase.firstname %> <%= purchase.lastname %></td>
+			<td><%= purchase.email %></td>
+			<td><%= purchase.created_at %></td>
+			<td><%= number_to_currency(purchase.subtotal) %></td>
+			<td><%= number_to_currency(purchase.shipping) %></td>
+			<td><%= number_to_currency(purchase.sales_tax) %></td>
+			<td><%= number_to_currency(purchase.total) %></td> 
+	        <td><%= link_to 'Show Purchase Details', purchase %></td>
+	        <td></td>
+
 		</tr>
-		
+		<% end %>
 	</table>
+
+	
 </div>

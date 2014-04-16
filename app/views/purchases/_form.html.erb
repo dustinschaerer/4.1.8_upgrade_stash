@@ -1,10 +1,15 @@
 
 <%= bootstrap_form_for(@purchase, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+  
 
   <div class="form-inputs">
     <div class="row">
       <div class="col-md-12 bottom20">      
         <p>To purchase all the items from your submitted <strong>Quote #<%= @quote.id %></strong>, fill out the shipping and billing information below.  Our checkout is 100% secure and fully encrypted.</p>  
+        
+        <%= f.alert_message "Please fix the following errors:" %>
+
+       
       </div>
       
       <div class="col-md-6">
@@ -50,13 +55,15 @@
         </div>
       </div>     
     </div>     
-
+    <%= f.hidden_field :email, value: current_user.email %>
     <%= f.hidden_field :status, value: "Submitted" %>
     <%= f.hidden_field :pay_status, value: "Pending" %>
     <%= f.hidden_field :subtotal, readonly: true %>
     <%= f.hidden_field :shipping, readonly: true %>
     <%= f.hidden_field :sales_tax, readonly: true %>
     <%= f.hidden_field :total, readonly: true %>
+    <%= f.hidden_field :quote_id, readonly: true, value: @quote.id %>
+
     
      <div class="row">
       
@@ -89,6 +96,10 @@
     <%=  f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
     <%=  f.text_field :card_number %>
     <%=  f.text_field :card_verification, label: 'Card Verification Value (CVV)' %>
+  
+
+
+<!--
     <div class="form-group"><label class="col-sm-4 control-label" for="purchase_card_expires_on">Card expires on</label>
     <div class="col-sm-4">
 <select class="form-control" id="purchase_card_expires_on_2i" name="purchase[card_expires_on(2i)]">
@@ -122,10 +133,12 @@
 <option value="2023">2023</option>
 <option value="2024">2024</option>
 </select></div>
-
+-->
 
     <%= #  f.date_select :card_expires_on, control_col:'col-sm-3', :discard_day => true, :start_year => Date.today.year, :add_month_numbers => true,  :end_year => (Date.today.year+10)  
-    %>
+    %> 
+
+      <%= f.date_select :card_expires_on, discard_day: true, :add_month_numbers => true, start_year: Date.today.year, end_year: (Date.today.year+10), prompt: { month: 'Select month', year: 'Select year' } %>
    
   </p>
   </div>

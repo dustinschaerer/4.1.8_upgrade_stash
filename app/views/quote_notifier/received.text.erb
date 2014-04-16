@@ -4,13 +4,10 @@ Thank you for your recent Quote submission to Americo.
 
 Thank you for considering Americo products. For your convenience, the item(s) you requested are listed below.
 
-
-Prodcut Type -- Quantity
-<% @quote.lines.each do |line| %>
-
-<% line.quote_product.name %> -- <% line.quote_product.quantity %> 
-
-<% end %>
+Quantity x Product Type
+-----------------------
+<%= render @quote.lines -%>
+-----------------------
 
 Your updated quote will include any necessary Sales Taxes and the Shipping Cost to the submitted address.
 

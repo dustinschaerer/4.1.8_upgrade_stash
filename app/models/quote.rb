@@ -4,6 +4,7 @@ class Quote < ActiveRecord::Base
   before_save :recalculate_totals
   
   belongs_to :user
+  belongs_to :purchase
   has_many :lines
 
   accepts_nested_attributes_for :lines
@@ -12,8 +13,14 @@ class Quote < ActiveRecord::Base
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
   validates :subtotal, :shipping, :sales_tax, :total, presence: true, numericality: true
   
+   
 
+  def update_status_to_purchased
+    self.status = "Purchased"
+    self.save
+  end
   
+  #  @quote.add_lines_from_quoteholder(@quoteholder)
   def add_lines_from_quoteholder(quoteholder)
     quoteholder.lines.each do |quoteline|
       quoteline.quoteholder_id = nil
@@ -51,6 +58,7 @@ class Quote < ActiveRecord::Base
 
   def calculate_total
     self.total = (self.subtotal + self.shipping + self.sales_tax)
+    self.amount = ((self.total)*100).round
   end
 
   def recalculate_totals

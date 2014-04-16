@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   include CurrentQuotecart
   include CurrentCart
-  before_action :set_quotecart
   before_action :set_cart
   
   before_filter :authenticate_user!
@@ -16,6 +15,8 @@ class UsersController < ApplicationController
    
       # lookup the quotes belonging to this user
       @quotes = Quote.find_all_by_user_id current_user[:id]
+
+      @purchases = Purchase.find_all_by_user_id current_user[:id]
    
     else
       render 'new', notice: 'You tried to access an account that does not belong to you.'

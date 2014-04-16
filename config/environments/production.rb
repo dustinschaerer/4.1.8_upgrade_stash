@@ -94,13 +94,13 @@ Americo::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
- #  config.after_initialize do
- #    ActiveMerchant::Billing::Base.mode = :production
+ # config.after_initialize do
+ #   ActiveMerchant::Billing::Base.mode = :production
  #   ::GATEWAY = ActiveMerchant::Billing::ElavonGateway.new(
- #       :login     => "live_virtual_merchant_id",
- #       :password  => "live_virtual_merchant_pin",
- #       :user      => "live_virtual_merchant_user_id" # optional
- #     )
+ #     :login     => ENV['MVM_LOGIN_ID'],
+ #     :password  => ENV['MVM_PIN'],
+ #     :user      => ENV['MVM_USER_ID']
+ #   )
  # end
 
 end

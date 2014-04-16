@@ -6,11 +6,7 @@ This notification is to let you know that we've shipped your recent Purchase:
 
 Purchase ID #<%= @purchase.id %>
 --------------------------------
-<%= @purchase.lines.each do |line| %>
-
-<%= line.quote_product.name %> <%= line.quantity %> <%= line.price %> 
-
-<% end %>
+<%= render @purchase.lines %> 
 --------------------------------
 Subtotal:  <%= number_to_currency(@purchase.subtotal) %>
 Shipping:  <%= number_to_currency(@purchase.shipping) %>

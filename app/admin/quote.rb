@@ -120,6 +120,7 @@ ActiveAdmin.register Quote do
             row :total do |ttl|
               number_to_currency ttl.total
             end
+            row :amount
             h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
           end 
         end  
