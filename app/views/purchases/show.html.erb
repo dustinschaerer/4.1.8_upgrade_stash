@@ -1,114 +1,250 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @purchase.user.id if @purchase.user %>
+  <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
+  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+<% end %>
 </p>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @purchase.firstname %>
-</p>
+<div class="row">
+  <div class="col-xs-12">
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @purchase.lastname %>
-</p>
+    <div class="panel panel-danger">
+      
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-sm-12 col-md-12">     
+            <h1>PURCHASE ID #<%= @purchase.id %></h1>
+          </div>
+        </div>  
+      </div>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @purchase.telephone %>
-</p>
+      <div class="panel-body">
 
-<p>
-  <strong>Contactby:</strong>
-  <%= @purchase.contactby %>
-</p>
+        <div class="row">
 
-<p>
-  <strong>Ship street address:</strong>
-  <%= @purchase.ship_street_address %>
-</p>
+          <div class="col-sm-4 col-md-4">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                CUSTOMER DETAILS
+              </div>
+              <div class="panel-body">
+                <% if @purchase.company %>
+                  <strong><%= @purchase.company %></strong><br>
+                <% end %>
+                <%= @purchase.firstname %> <%= @purchase.lastname %>
+                <br><%= @purchase.ship_street_address %>
+                <br><%= @purchase.ship_city %>, <%= @purchase.ship_state %>  <%= @purchase.ship_zipcode %> 
+                <br><%= @purchase.ship_country %>
+              </div>
+            </div>  
+          </div>
+          <div class="col-sm-4 col-md-4 pull-right">
+             <p><strong>Quote Date:</strong> <%= @purchase.created_at.strftime("%B %d, %Y") %></p>
+             <p><strong>Quote Status:</strong> <%= @purchase.status %></p>
+             <p><strong>Phone:</strong> <%= @purchase.telephone %></p>
+             <p><strong>Email:</strong> <%= @purchase.email %></p>
+          </div>
+ 
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">     
+            Items included in this Purchase are listed below. 
+          </div>  
+          
+        </div>  
+        <hr>
+        <% @purchase.lines.each do |line| %>
 
-<p>
-  <strong>Ship city:</strong>
-  <%= @purchase.ship_city %>
-</p>
+        <div class="row bottom10">
+            <div class="col-xs-12 larger">
+               Product: <span class="bold"><%= line.quote_product.name.upcase if line.quote_product_id %></span>
+            </div>
+        </div>
 
-<p>
-  <strong>Ship state:</strong>
-  <%= @purchase.ship_state %>
-</p>
+        <div class="row">
+            <div class="col-xs-2">
+                <% if line.color_id %>
+                    <%= image_tag(line.color.image_url, class: "img-responsive") if line.color_id %>
+                <% end %>    
+            </div>
+    
+            <div class="col-xs-3">
+                <% if line.series_id %>
+                  <div class="quotespace border-top">
+                    <strong>SERIES:</strong>
+                    <%= line.series.name %>
+                  </div>  
+                <% end %>    
 
-<p>
-  <strong>Ship zipcode:</strong>
-  <%= @purchase.ship_zipcode %>
-</p>
 
-<p>
-  <strong>Ship country:</strong>
-  <%= @purchase.ship_country %>
-</p>
+                <% if line.color_id %>
+                <div class="quotespace">
+                    <strong>COLOR:</strong>
+                    <%= line.color.name %>
+                  </div>  
+                <% end %>
 
-<p>
-  <strong>Pay street address:</strong>
-  <%= @purchase.pay_street_address %>
-</p>
 
-<p>
-  <strong>Pay city:</strong>
-  <%= @purchase.pay_city %>
-</p>
+                <% if line.cover_id %>
+                  <div class="quotespace border-top">
+                    <strong>FINISH COVER:</strong><br>
+                    <%= line.cover.name %>
+                  </div>  
+                <% end %>
+            </div>
+            
+  
+            <% if (line.quote_product_id = 13) %>  
+              <% if line.size %>
+            <div class="col-xs-2 col-xs-offset-1">
+                <strong>DIMENSIONS</strong><br>
+                <%= line.size.dimension %>
+            </div>
+              <% end %>  
+            <% end %>  
+            
+            <!-- If this column is not Value Vinyl-->
+              
+            <div class="col-xs-3">
+              <% if line.shape %>  
+                <div class="quotespace">
+                  <strong>TABLE SHAPE:</strong>
+                  <%= line.shape.name %>
+                </div>
+              <% end %>   
 
-<p>
-  <strong>Pay state:</strong>
-  <%= @purchase.pay_state %>
-</p>
+              <% if line.length %>  
+                <div class="quotespace">
+                  <strong>LENGTH:</strong>
+                  <%= line.length %>"  
+                </div>
+              <% end %>   
 
-<p>
-  <strong>Pay zipcode:</strong>
-  <%= @purchase.pay_zipcode %>
-</p>
+              <% if line.width %>  
+                <div class="quotespace">
+                  <strong>WIDTH:</strong>
+                  <%= line.width %>"
+                </div>
+              <% end %>  
+              
+              <% if line.height %>
+                <div class="quotespace">
+                  <strong>TABLE HEIGHT:</strong>
+                  <%= line.height %>"
+                </div>
+              <% end %>
 
-<p>
-  <strong>Pay country:</strong>
-  <%= @purchase.pay_country %>
-</p>
+              <% if line.umbrella %>
+                <div class="quotespace">
+                  <strong>UMBRELLA?</strong>
+                  <%= boolean_to_words(line.umbrella) %>
+                </div>
+              <% end %>
 
-<p>
-  <strong>Subtotal:</strong>
-  <%= @purchase.subtotal %>
-</p>
+              <% if line.velcro %>
+                <div class="quotespace">
+                  <strong>BOOTH WITH VELCRO?</strong>
+                  <%= boolean_to_words(line.velcro) %>
+                </div>
+              <% end %>
+            </div>
+            
+          
+           <!-- End If this column is not Value Vinyl-->
 
-<p>
-  <strong>Shipping:</strong>
-  <%= @purchase.shipping %>
-</p>
 
-<p>
-  <strong>Sales tax:</strong>
-  <%= @purchase.sales_tax %>
-</p>
 
-<p>
-  <strong>Total:</strong>
-  <%= @purchase.total %>
-</p>
+            <div class="col-xs-2 text-center">
+              <% if line.quantity %>
+                <strong>QUANTITY</strong>
+                <div><%= line.quantity %></div>
+              <% end %>  
+            </div>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @purchase.amount %>
-</p>
+            <div class="col-xs-2 text-right">
+              <% if line.price %>
+                <strong>UNIT PRICE</strong><br>
+                  <% if line.price == 0 %>
+                    Waiting on Pricing
+                  <% else %>  
+                    <%= number_to_currency(line.price) %>
+                  <% end %> 
+                  <br><br>
+                  <strong>PRICE:</strong><br>
+                  <% if line.price == 0 %>
+                    Submit for Pricing
+                  <% else %>  
+                    <%= number_to_currency(line.total_price) %>
+                  <% end %>
+ 
+              <% end %>  
+            </div>
 
-<p>
-  <strong>Quote ID:</strong>
-  <%= @purchase.quote_id %>
-</p>
+        </div>     
 
-<p>
-  <strong>Pay type:</strong>
-  <%= @purchase.pay_type %>
-</p>
+        <hr>
+        <% end %>
+        
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Sub-Total:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@purchase.subtotal) %>
+          </div>
+        </div>    
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Shipping:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@purchase.shipping) %>
+          </div>
+        </div>   
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Sales Tax:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@purchase.sales_tax) %>
+          </div>
+        </div>   
 
-<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
-<%= link_to 'Back', purchases_path %>
+        <div class="row">
+          <div class="col-xs-2 col-xs-offset-8 text-right">
+            <strong>Total:</strong> 
+          </div>
+          <div class="col-xs-2 text-right">
+            <%= number_to_currency(@purchase.total) %>
+          </div>
+        </div>   
+        
+        <hr>   
+         
+         Thank you for your choosing Americo!
+      </div>
+    
+    </div>
+
+  </div>
+</div>
+
+
+
+<%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
+  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+<% end %>
+<p></p>
+
+
+
+
+
+
+
+
+
+
+
