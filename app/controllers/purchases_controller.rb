@@ -1,7 +1,6 @@
 class PurchasesController < ApplicationController
   include CurrentQuote
   include CurrentCart
-  before_action :set_quote, only: [:create]
   before_action :set_cart
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, unless: :current_admin_user
