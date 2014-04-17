@@ -126,19 +126,21 @@
           
             <% if user_signed_in? %>
               <li class="list-group-item"><a class="dropdown-toggle userlink" href="/users/<%= current_user.id %>">MY ACCOUNT </a></li>
-              <li><%= link_to "Place an Order", "/users/#{current_user.id}", class: "top-link" %></li>
+              <li class="list-group-item"><%= link_to "Place an Order", "/users/#{current_user.id}", class: "top-link" %></li>
 
             <% else %>
               <li class="list-group-item"><%= link_to "Create Account", new_user_registration_path, class: "userlink" %></li>
 
             <% end %>
-       
+            <li class="list-group-item"><%= link_to "Request a Quote", "/request_quote", class: "top-link" %></li>
+            <!--
             <li class="list-group-item"><a href="/categories/1" class="top-link">Vinyl Table Covers</a></li>
             <li class="list-group-item"><a href="/styles/7" class="top-link">Vinyl Upholstery Fabrics</a></li>
             <li class="list-group-item"><a href="/free_swatches" class="top-link">FREE Swatches</a></li>
-            <li class="list-group-item"><%= link_to "Request a Quote", "/request_quote", class: "top-link" %></li>
+            
             <li class="list-group-item"><a href="/request_catalog" class="top-link">FREE Catalog</a></li>
             <li class="list-group-item"><a href="/free_swatches" class="top-link">FREE Swatches</a></li>
+          -->
           </ul>        
         </div>
 
