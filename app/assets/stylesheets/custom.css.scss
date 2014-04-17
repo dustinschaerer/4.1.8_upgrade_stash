@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  padding-top: 40px;
+  padding-top: 0px;
   overflow-x: hidden;
 }
 
@@ -124,7 +124,26 @@ a {
 
 
 /* header */
-
+.tel,.tel:visited { /*for small screens */
+display:block;
+color:#fff;
+background-color:#000;
+padding:1em;
+text-decoration:none;
+}
+.tel:hover,.tel:focus {
+color:#000;
+background-color:#fff;
+}
+@media screen and (min-width: 28.5em) { /* for larger screens */
+.tel,.tel:visited {
+background:none;
+cursor:default;
+}
+.tel,.tel:focus {
+color:#000;
+}
+}
 #userheader {
   padding: 12px 0px 12px 0px;
   margin-bottom:0px;
@@ -152,10 +171,10 @@ a {
 } 
 
 .homephone {
-  font-size: 1.4em;
+  font-size: 1.6em;
   font-weight: bold;
   color: #666;
-  padding-top:26px;
+  padding-top:10px;
 }
 .border-right {
   border-right: solid 1px #bcbcbc;
@@ -177,6 +196,9 @@ a {
   border-bottom: solid 1px #bcbcbc;
   margin-bottom:20px;
 }
+.less10 {
+  margin-top: -10px;
+}
 .top-link {
   color: #666;
   text-decoration: none;
@@ -195,11 +217,36 @@ a {
   left: 30px;
   font-weight: 700;
 }
-.cartcount {
-  z-index:10;
+
+@media (max-width: 768px) {
+  .cartcount {
+    z-index:10;
+    position: relative;
+    left:4%;
+    top:1px;
+  }
+}
+@media (min-width: 769px)
+and (max-width: 990px) {
+  .cartcount {
+    z-index:10;
+    position: relative;
+    left:28%;
+    top:1px;
+  }
+}
+
+@media (min-width: 991px) {
+  .cartcount {
+    z-index:10;
+    position: relative;
+    left:20%;
+    top:1px;
+  }
+}
+.carticon {
   position: relative;
-  left:17%;
-  top:20px;
+  top:-19px;  
 }
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
@@ -247,6 +294,17 @@ a {
   }
 }
 
+@media (max-width: 500px) {
+  .cart-box {
+    position: relative;
+    left: 0px;
+  }
+}
+
+/* flash */
+#flash_notice {
+  font-size: 16px;
+}
 
 /* footer */
 .footer {

@@ -2,23 +2,25 @@
 
     <div class="col-md-5">
         <p class="top5"><b>Stay connected with Americo Inc. 800-626-2350</b>  <a href="/contact"><span class="glyphicon glyphicon-envelope"></span></a></p>
+        <div class="visible-xs visible-sm add-bottom"></div>
     </div>
+    
+
     <div class="col-md-7">
-      <div class="row"> 
+      
         <%= form_for(subscriber, :html => { :class => "form-horizontal"} )  do |f| %>
           <div class="field form-group">
               
             <%= f.label :email, 'Enter email for Special Offers', :class => "col-sm-4 col-lg-4 control-label" %> 
               
             <div class="col-sm-6 col-lg-6">
-            <%= f.email_field :email, :class => "form-control", :placeholder => "Enter email"%>
+            <%= f.email_field :email, :class => "form-control bottom10", :placeholder => "Enter email"%>
             </div>
         
             <div class="col-sm-2 col-lg-2">
-            <%= f.submit 'GO', :class => "btn btn-danger btn" %>
+            <%= f.submit 'GO', :class => "btn btn-danger btn-block" %>
             </div>
           </div>
         <% end -%>  
-      </div>
     </div>
 </div>

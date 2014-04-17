@@ -13,8 +13,6 @@ class Quote < ActiveRecord::Base
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
   validates :subtotal, :shipping, :sales_tax, :total, presence: true, numericality: true
   
-   
-
   def update_status_to_purchased
     self.status = "Purchased"
     self.save

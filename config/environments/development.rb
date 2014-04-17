@@ -51,10 +51,33 @@
   # maybe put this block up in after_initialize
   config.to_prepare do
     ::GATEWAY = ActiveMerchant::Billing::ElavonGateway.new(
-        :login     => ENV['MVM_LOGIN_ID'],
-        :password  => ENV['MVM_PIN'],
-        :user      => ENV['MVM_USER_ID']
+        :login     => ENV['TEST_MVM_LOGIN_ID'],
+        :password  => ENV['TEST_MVM_PIN'],
+        :user      => ENV['TEST_MVM_USER_ID']
       )
   end
+
+    #   gateway = ActiveMerchant::Billing::ElavonGateway.new(
+    #               :login     => "my_virtual_merchant_id",
+    #               :password  => "my_virtual_merchant_pin",
+    #               :user      => "my_virtual_merchant_user_id" # optional
+    #            )
+    #
+    #   # set up credit card obj as in main ActiveMerchant example
+    #   creditcard = ActiveMerchant::Billing::CreditCard.new(
+    #     :type       => 'visa',
+    #     :number     => '41111111111111111',
+    #     :month      => 10,
+    #     :year       => 2011,
+    #     :first_name => 'Bob',
+    #     :last_name  => 'Bobsen'
+    #   )
+    #
+    #   # run request
+    #   response = gateway.purchase(1000, creditcard) # authorize and capture 10 USD
+    #
+    #   puts response.success?      # Check whether the transaction was successful
+    #   puts response.message       # Retrieve the message returned by Elavon
+    #   puts response.authorization # Retrieve the unique transaction ID returned by Elavon
 
 end

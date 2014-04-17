@@ -47,7 +47,6 @@ class PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.json
   def create
-    
     if (params[:checkbox_use_same_address] == true)
       @purchase.pay_firstname = @purchase.firstname 
       @purchase.pay_lastname = @purchase.lastname 
@@ -61,25 +60,33 @@ class PurchasesController < ApplicationController
     end
     @quote = Quote.find(purchase_params[:quote_id])
     @purchase = Purchase.new(purchase_params)
-
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
     @purchase.update_attribute(:status, "Purchased")
-     @quote.update_status_to_purchased
-  
+    @quote.update_status_to_purchased
+    
     if @purchase.save
+
+      # attempt purchase
+      if @purchase.purchase_the_order
+        render :action => 'success' 
+      else
+        render :action => 'failure'
+      end 
       
-      # if @purchase.purchase_the_order
-        #send purchase notification email    
+
+      # self.test_url = 'https://demo.myvirtualmerchant.com/VirtualMerchantDemo/process.do'
+      
+      # send purchase notification email    
       PurchaseNotifier.confirmation(@purchase, current_user).deliver
        #   render :action => 'success' 
        # else
        #   render :action => 'failure'
        # end     
-      respond_to do |format|
-        format.html { redirect_to current_user, notice: 'Purchase was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @purchase }
-      end 
+     # respond_to do |format|
+     #   format.html { redirect_to current_user, notice: 'Purchase was successfully created.' }
+     #   format.json { render action: 'show', status: :created, location: @purchase }
+     # end 
     else
       respond_to do |format|
         format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
@@ -87,7 +94,6 @@ class PurchasesController < ApplicationController
       end
     end
   end
-
 
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
