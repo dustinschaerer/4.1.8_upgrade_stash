@@ -176,6 +176,11 @@ color:#000;
   color: #666;
   padding-top:10px;
 }
+.mobilephone {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #666;
+}
 .border-right {
   border-right: solid 1px #bcbcbc;
 }
@@ -218,7 +223,25 @@ color:#000;
   font-weight: 700;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 420px) {
+  .cartcount {
+    z-index:10;
+    position: relative;
+    left:8%;
+    top:1px;
+  }
+}
+@media (min-width: 421px)
+and (max-width: 580px) {
+  .cartcount {
+    z-index:10;
+    position: relative;
+    left:6%;
+    top:1px;
+  }
+}
+@media (min-width: 581px)
+and (max-width: 830px) {
   .cartcount {
     z-index:10;
     position: relative;
@@ -226,12 +249,13 @@ color:#000;
     top:1px;
   }
 }
-@media (min-width: 769px)
+
+@media (min-width: 831px)
 and (max-width: 990px) {
   .cartcount {
     z-index:10;
     position: relative;
-    left:28%;
+    left:30%;
     top:1px;
   }
 }
