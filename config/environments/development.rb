@@ -46,16 +46,14 @@
 
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
+
+    
   end
   
   # maybe put this block up in after_initialize
-  config.to_prepare do
-    ::GATEWAY = ActiveMerchant::Billing::ElavonGateway.new(
-        :login     => ENV['TEST_MVM_LOGIN_ID'],
-        :password  => ENV['TEST_MVM_PIN'],
-        :user      => ENV['TEST_MVM_USER_ID']
-      )
-  end
+  #config.to_prepare do
+    
+  #end
 
     #   gateway = ActiveMerchant::Billing::ElavonGateway.new(
     #               :login     => "my_virtual_merchant_id",

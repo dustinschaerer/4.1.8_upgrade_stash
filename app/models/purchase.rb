@@ -16,7 +16,9 @@ class Purchase < ActiveRecord::Base
   validates :pay_type, :pay_status, :status, presence: true
   
   validate :validate_card, on: :create, if: :is_ready?
-  
+
+  PAYMENT_TYPES = [ "Credit Card" ]
+
   def is_ready?
     if card_expires_on.blank? 
       false
@@ -24,8 +26,6 @@ class Purchase < ActiveRecord::Base
       true 
     end  
   end 
-
-  PAYMENT_TYPES = [ "Credit Card" ]
 
   def add_lines_from_quote(quote)
     #find each line in the quote
@@ -40,18 +40,22 @@ class Purchase < ActiveRecord::Base
   end
   
   def purchase_the_order
-    response = GATEWAY.purchase(amount, credit_card, purchase_options)
+    # response = gateway.purchase(amount, credit_card)
+    gateway = ActiveMerchant::Billing::ElavonGateway.new(
+        :login => '005461',
+        :password => 'P5IB9C',
+        :user => "webpage"
+      )
+
+    response = gateway.purchase(amount, credit_card)
     transactions.create!(:action => "purchase", :amount => amount, :response => response)
-    purchase.update_attribute(:purchased_at, Time.now) if response.success?
-    purchase.update_attribute(:status, "Purchased") if response.success?
+    self.update_attribute(:status, "Purchased") if response.success?
     response.success?
+
   end
 
   def purchase_options
-    {
-      :ip =>  '127.000.000.001',
-      
-    }
+    { }
   end
   
   def self.amount
@@ -78,10 +82,8 @@ class Purchase < ActiveRecord::Base
     quote.status = "Purchased"
     quote.save!
   end
-
-  private
   
-    def validate_card
+  def validate_card
       unless credit_card.valid?
         credit_card.errors.each do |attr, messages|
           # Map to the model properties, assuming you used the 
@@ -106,15 +108,19 @@ class Purchase < ActiveRecord::Base
     
     def credit_card
       @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
-        :brand              => card_type,
-        :number             => card_number,
-        :verification_value => card_verification,
-        :month              => card_expires_on.month,
-        :year               => card_expires_on.year,
-        :first_name         => pay_firstname,
-        :last_name          => pay_lastname
+                :brand              => card_type, 
+                :first_name         => pay_firstname,
+                :last_name          => pay_lastname,
+                :number             => card_number,
+                :month              => card_expires_on.month,
+                :year               => card_expires_on.year,
+                :verification_value => card_verification
       )
     end
+
+  private
+  
+    
 
 
 end

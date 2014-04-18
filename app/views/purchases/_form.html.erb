@@ -62,6 +62,7 @@
     <%= f.hidden_field :shipping, readonly: true %>
     <%= f.hidden_field :sales_tax, readonly: true %>
     <%= f.hidden_field :total, readonly: true %>
+    <%= f.hidden_field :amount, readonly: true, value: @quote.amount %>
     <%= f.hidden_field :quote_id, readonly: true, value: @quote.id %>
 
     

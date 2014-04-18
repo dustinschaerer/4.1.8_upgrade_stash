@@ -10,7 +10,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Purchases" do
           table_for Purchase.order('id desc').limit(15).each do |purchase|      
             column("purchase ID#") {|purchase| link_to(purchase.id, admin_purchase_path(purchase.id))}
-            column("Status") {|purchase| status_tag (purchase.is_complete? ? "Shipped" : "Submitted"), (purchase.is_complete? ? :ok : :error) }
+            column("Status") {|purchase| (purchase.status)  }
             column("Price Total") {|purchase| (purchase.total) }
            # column("Customer"){|purchase| link_to(purchase.user.email, admin_purchase_path(purchase.user)) }
             column("First Name"){|purchase| (purchase.firstname) }

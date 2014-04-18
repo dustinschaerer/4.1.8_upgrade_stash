@@ -58,38 +58,29 @@ class PurchasesController < ApplicationController
       @purchase.pay_state = @purchase.ship_state
       @purchase.pay_country = @purchase.ship_country
     end
+
     @quote = Quote.find(purchase_params[:quote_id])
     @purchase = Purchase.new(purchase_params)
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
     @purchase.update_attribute(:status, "Purchased")
     @quote.update_status_to_purchased
-    
     if @purchase.save
-
       # attempt purchase
       if @purchase.purchase_the_order
-        render :action => 'success' 
+        # send purchase notification email    
+        PurchaseNotifier.confirmation(@purchase, current_user).deliver
+        respond_to do |format|   
+          format.html { redirect_to @purchase, notice: "PURCHASE COMPLETED! We'll send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories." }
+          format.json { render action: 'show', status: :created, location: @purchase }
+        end
       else
-        render :action => 'failure'
-      end 
-      
-
-      # self.test_url = 'https://demo.myvirtualmerchant.com/VirtualMerchantDemo/process.do'
-      
-      # send purchase notification email    
-      PurchaseNotifier.confirmation(@purchase, current_user).deliver
-       #   render :action => 'success' 
-       # else
-       #   render :action => 'failure'
-       # end     
-     # respond_to do |format|
-     #   format.html { redirect_to current_user, notice: 'Purchase was successfully created.' }
-     #   format.json { render action: 'show', status: :created, location: @purchase }
-     # end 
+        #render :action => 'failure'
+        redirect_to :back, notice: 'FAILURE: Credit Card Invalid. Enter valid card card information to place your order now.' 
+      end
     else
       respond_to do |format|
-        format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
+        format.html { redirect_to @purchase, notice: 'Purchase could not be completed. See errors for details.' }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
     end

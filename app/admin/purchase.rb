@@ -7,7 +7,12 @@ ActiveAdmin.register Purchase do
                 :pay_country, :pay_type, :pay_status, :subtotal, :shipping, :sales_tax, :total, :amount, :updated_at, :paycompany, :status, :state, 
                 :card_expires_on, :card_type, :ip_address, lines_attributes: [ :id, :price, :quantity]
   
-
+  member_action :set_to_shipped, :method => :post do
+    @purchase = Purchase.find(params[:id])
+    @purchase.status = "Shipped"
+    @purchase.save
+  end  
+  
   member_action :send_shipped_email, :method => :post do
     # Do some work here...
     @purchase = Purchase.find(params[:id])
@@ -20,7 +25,7 @@ ActiveAdmin.register Purchase do
       redirect_to admin_purchase_path(@purchase), {:notice => "WARNING: ALREADY SENT - Your Purchase has Shipped Email has already been sent to #{@current_user.email}."}    
     else
       @purchase.status = "Shipped"
-      if @purchase.save!
+      if @purchase.save
         redirect_to admin_purchase_path, {:notice => "Purchase ##{@purchase.id} Shipped Email has been sent to #{@current_user.email}."}    
       else
         redirect_to admin_purchase_path(@purchase), {:notice => "Purchase Status could not be saved. Please review the status and try again."}
@@ -31,7 +36,7 @@ ActiveAdmin.register Purchase do
 
   index do 
     column("Purchase ID#", :sortable => :id) {|purchase| link_to "##{purchase.id} ", admin_purchase_path(purchase) }
-    column("Purchase Status") { |purchase| status_tag((purchase.is_complete? ? "Shipped" : "Submitted"), (purchase.is_complete? ? :ok : :error)) }     
+    column("Purchase Status", :status)
     column("State", :state, :sortable => :state)
     column("First", :firstname, :sortable => :firstname)
     column("Last", :lastname, :sortable => :lastname)
@@ -129,6 +134,7 @@ ActiveAdmin.register Purchase do
     else
       div :class => "recalculatebtn" do       
         h2 { "Warning: Shipped Email message already sent." }
+        h4 { button_to "Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/set_to_shipped", :method => :post }                                                                  
         h4 { button_to "RE-Send Shipped EMail to Customer Now and Re-Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/send_shipped_email", :method => :post }                                                                    
       end
     end  
@@ -140,7 +146,7 @@ ActiveAdmin.register Purchase do
   form do |f|
     f.actions
     f.inputs 'Purchase Status' do
-      f.input :status, :as => :select, :collection => ['Submitted', 'Shipped']
+      f.input :status, :as => :select, :collection => ['Submitted', 'Purchased', 'Shipped']
     end
 
     f.inputs 'Customer Details' do

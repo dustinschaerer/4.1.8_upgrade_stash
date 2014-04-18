@@ -15,7 +15,7 @@ ActiveAdmin.register Quote do
     @current_user_id = @quote.user_id
     @current_user = User.find(@current_user_id)
     QuoteNotifier.priced(@quote, @current_user).deliver
-    
+  
     #update status to "Priced"
     @quote.status = "Priced"
     if @quote.save!
@@ -62,6 +62,8 @@ ActiveAdmin.register Quote do
       @quote.save!
     end      
 
+
+
   end
 
   index do 
@@ -96,6 +98,9 @@ ActiveAdmin.register Quote do
     columns do 
       column do
         panel "Quote ##{quote.id}  - Customer Information" do  
+          attributes_table_for quote do
+            row :status
+          end  
           attributes_table_for quote.user do
             row("User") { auto_link quote.user }
             row :email

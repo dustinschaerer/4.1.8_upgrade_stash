@@ -26,6 +26,7 @@ gem 'bootstrap_form'
 gem "best_in_place", github: 'bernat/best_in_place'
 gem 'activemerchant'
 gem 'figaro'
+gem 'unicorn'
 
 
 group :development, :test do
