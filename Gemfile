@@ -27,7 +27,7 @@ gem "best_in_place", github: 'bernat/best_in_place'
 gem 'activemerchant'
 gem 'figaro'
 gem 'unicorn'
-
+gem 'newrelic_rpm'
 
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
