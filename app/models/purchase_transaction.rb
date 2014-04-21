@@ -3,6 +3,8 @@ class PurchaseTransaction < ActiveRecord::Base
   serialize :params
   cattr_accessor :gateway
   
+
+
   def response=(response)
     self.success       = response.success?
     self.authorization = response.authorization

@@ -29,6 +29,7 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
+
   end
 
   # POST /quotes
@@ -62,7 +63,7 @@ class QuotesController < ApplicationController
   def update
     respond_to do |format|
       if @quote.update(quote_params)
-        format.html { redirect_to user_path(current_user), notice: 'Quote was successfully updated.' }
+        format.html { redirect_to quote_path(@quote), notice: 'Quote was successfully updated.' }
         #format.json { head :no_content }
         format.json { respond_with_bip(@quote) }
       else
@@ -95,7 +96,7 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:user_id, :firstname, :lastname, :company, :email, :status, :telephone, :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :id, 
+      params.require(:quote).permit(:user_id, :firstname, :lastname, :company, :email, :status, :telephone, :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :id, :tax_id, :question, 
         lines_attributes: [:id, :price, :quantity])
     end
 end

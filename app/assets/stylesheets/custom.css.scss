@@ -25,7 +25,9 @@ textarea {
   	margin-bottom: 10px;
   }
 }
-
+.inline {
+  display:inline;
+}
 .form-inline div { display: inline-block }
 
 .affix-top {
@@ -639,6 +641,9 @@ p .up10, .up10 {
 }
 .up5 {
   margin-top: -5px;  
+}
+.top4 {
+  margin-top: 4px;
 }
 .top10 {
   margin-top: 10px;

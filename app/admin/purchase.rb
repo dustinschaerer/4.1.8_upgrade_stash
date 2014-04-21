@@ -37,7 +37,7 @@ ActiveAdmin.register Purchase do
   index do 
     column("Purchase ID#", :sortable => :id) {|purchase| link_to "##{purchase.id} ", admin_purchase_path(purchase) }
     column("Purchase Status", :status)
-    column("State", :state, :sortable => :state)
+    #column("State", :state, :sortable => :state)
     column("First", :firstname, :sortable => :firstname)
     column("Last", :lastname, :sortable => :lastname)
     column("Date Created", :created_at)
@@ -56,6 +56,7 @@ ActiveAdmin.register Purchase do
             row :email
             row :firstname
             row :lastname
+            row :tax_id
             row :telephone
             row :contact_by
             row :ip_address
@@ -90,7 +91,6 @@ ActiveAdmin.register Purchase do
             row :shipping do |shipping| number_to_currency shipping.subtotal end
             row :sales_tax do |st| number_to_currency st.sales_tax end
             row :total do |ttl| number_to_currency ttl.total end
-            row :amount
             row :state
             row :pay_city
             row :pay_state

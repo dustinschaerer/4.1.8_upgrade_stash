@@ -5,23 +5,19 @@ class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, unless: :current_admin_user
 
-  # GET /purchases
-  # GET /purchases.json
-  def index
-    @purchases = Purchase.all
-  end
-
   # GET /purchases/1
   # GET /purchases/1.json
   def show
   end
-
+    
   # GET /purchases/new
   def new
     @purchase = Purchase.new
     @quote = Quote.find(params[:quote_id])
     @purchase.firstname = @quote.firstname
     @purchase.lastname = @quote.lastname
+    @purchase.company = @quote.company
+    @purchase.tax_id = @quote.tax_id
     @purchase.telephone = @quote.telephone
     @purchase.user_id = @quote.user_id
     @purchase.contactby = @quote.contactby
@@ -37,11 +33,6 @@ class PurchasesController < ApplicationController
     @purchase.ip_address = request.ip
     @purchase.amount = @quote.amount
     @purchase.quote_id = @quote.id
-
-  end
-
-  # GET /purchases/1/edit
-  def edit
   end
 
   # POST /purchases
@@ -64,7 +55,7 @@ class PurchasesController < ApplicationController
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
     @purchase.update_attribute(:status, "Purchased")
-    @quote.update_status_to_purchased
+
     if @purchase.save
       # attempt purchase
       if @purchase.purchase_the_order
@@ -75,8 +66,7 @@ class PurchasesController < ApplicationController
           format.json { render action: 'show', status: :created, location: @purchase }
         end
       else
-        #render :action => 'failure'
-        redirect_to :back, notice: 'FAILURE: Credit Card Invalid. Enter valid card card information to place your order now.' 
+        render :action => 'failure', notice: "FAILURE: Credit Card Invalid. Enter valid card card information to place your order now."
       end
     else
       respond_to do |format|
@@ -88,27 +78,10 @@ class PurchasesController < ApplicationController
 
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
-  def update
-    respond_to do |format|
-      if @purchase.update(purchase_params)
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @purchase.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+
 
   # DELETE /purchases/1
   # DELETE /purchases/1.json
-  def destroy
-    @purchase.destroy
-    respond_to do |format|
-      format.html { redirect_to purchases_url }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -124,8 +97,7 @@ class PurchasesController < ApplicationController
         :pay_status, :status, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, 
         :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type, 
         :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number, 
-        :card_verification, :month, :year, :email, :quote_id,
-        quotes_attributes: [:status])
-       
+        :card_verification, :month, :year, :email, :quote_id, :tax_id, 
+        quotes_attributes: [:status]) 
     end
 end

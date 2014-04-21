@@ -1,10 +1,37 @@
 <p id="notice"><%= notice %></p>
+  <div class="row">
 
-<p>
-  <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
-  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
-<% end %>
-</p>
+  <% if @quote.question %> 
+    <div class="col-xs-12 col-md-2">
+  <% else %>        
+    <div class="col-xs-12">      
+  <% end %>
+      <p>
+        <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
+        <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+      <% end %>
+      </p>
+    </div>
+  
+  <% if @quote.question %> 
+    <div class="col-xs-12 col-md-offset-1 col-md-8">
+      <div class="panel panel-danger">
+      
+        <div class="panel-heading">
+               
+              <strong>Please review these Questions or Comments regarding your quote: </strong>
+        </div>
+
+        <div class="panel-body">
+          <%= simple_format(@quote.question) %> 
+          <%= button_to 'Reply', edit_quote_path(@quote.id), class: "btn btn-success pull-right", method: :get %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  </div>
+
 
 <div class="row">
   <div class="col-xs-12">
@@ -32,7 +59,9 @@
                 <% if @quote.company %>
                 <strong><%= @quote.company %></strong><br>
                 <% end %>
-                
+                <% if @quote.tax_id %>
+                Tax ID: <%= @quote.tax_id %><br>
+                <% end %>
                 <%= @quote.firstname %> <%= @quote.lastname %>
                 <br><%= @quote.ship_street_address %>
                 <br><%= @quote.ship_city %>, <%= @quote.ship_state %>  <%= @quote.ship_zipcode %> 
@@ -40,9 +69,10 @@
               </div>
             </div>  
           </div>
+
           <div class="col-sm-4 col-md-4 pull-right">
-             <p><strong>Quote Date:</strong> <%= @quote.created_at.strftime("%B %d, %Y") %></p>
-             <p><strong>Quote Status:</strong> <%= @quote.status %></p>
+             <p><strong>Date:</strong> <%= @quote.created_at.strftime("%B %d, %Y") %></p>
+             <p><strong>Status:</strong> <%= @quote.status %></p>
              <p><strong>Phone:</strong> <%= @quote.telephone %></p>
              <p><strong>Email:</strong> <%= @quote.email %></p>
           </div>

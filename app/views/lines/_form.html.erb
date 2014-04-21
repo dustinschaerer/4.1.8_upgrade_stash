@@ -31,7 +31,9 @@
 <% elsif (@qp_id == '6') %>  
   <div>
     <div>C.O.M. (Customer Own Material)</div>
-    <div>Matte or Gloss applied to textured or flat fabrics. WIDTH OF GOODS: 45" to 58"</div>
+    <div>WIDTH OF GOODS ACCEPTED: 45" to 58"</div>
+    <div>We can only accept material for lamination on full width pieces rolled onto tubes, not finished items.  Please enter the toal number of yards to be laminated combined into the field below.</div>
+    <div>Choose between Matte or Gloss applied to textured or flat fabrics. WIDTH OF GOODS ACCEPTED: 45" to 58"</div>
   </div>
 <% elsif (@qp_id == '7') %>  
   <div>
@@ -70,18 +72,30 @@
   </div> 
 <% elsif (@qp_id == '14') %>  
   <div>
-    <div>Placemats</div>
-    <div> </div>
+    <div>Reversible placemats are 16.5” x 11.5” with smartly mitered corners. Both sides are the same color and pattern. Simply choose your favorite styles from our Classic or Premium vinyl collections.</div>
+    <div>Minimum order is <strong>72 pieces per color</strong>.</div>
   </div> 
 <% elsif (@qp_id == '15') %>  
   <div>
-    <div>Table Runners</div>
-    <div> </div>
+    <div>All table runners will be precision cut and sewn with a 1/4" hem.
+      <ul>
+         <li>Standard drop for table toppers and overlays is 8”.</li>
+         <li>Standard drop for table runners is 8”.</li>
+         <li>Table runners come in 3 widths: 12”, 16” and 24”.”</li>
+         <li>Runners are sewn with squared edges and are not reversible.</li>
+      </ul>  
+    </div>
   </div> 
 <% elsif (@qp_id == '16') %>  
   <div>
-    <div>Table Toppers</div>
-    <div> </div>
+    <div>All table toppers will be precision cut and sewn with a 1/4" hem.
+      <ul>
+        <li>Standard drop for table toppers and overlays is 8”.</li>
+        <li>Standard drop for table runners is 8”.</li>
+        <li>Table runners come in 3 widths: 12”, 16” and 24”.”</li>
+        <li>Runners are sewn with squared edges and are not reversible.</li>
+      </ul>  
+    </div>
   </div> 
 <% end %>
 
@@ -181,29 +195,47 @@
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
       <%= f.form_group :umbrella, label: { text: "Umbrella Hole?" } do %>
-        <%= f.check_box :umbrella do %>
-          This is sample extra text if we need to explain more thoroughly
+        <%= f.check_box :umbrella, label: "Check only to add umbrealla hole in center." do %>
         <% end %>
       <% end %>
     </div>  
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
       <%= f.form_group :velcro, label: { text: "Booth with Velcro?" } do %>
-        <%= f.check_box :velcro do %>
-          This is sample extra text if we need to explain more thoroughly
+        <%= f.check_box :velcro, label: "Check only if table is attached to the wall" do %>
         <% end %>
+        <a href="#" data-toggle="modal" data-target="#modalBooth">Open Diagram for Help</a> 
       <% end %>
     </div>  
-
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="6|7|8|9">
-      <%= f.number_field :yards, label: "Yards Long", placeholder: "Yards Long (in Yards)" %>
+ 
+    <% if (@qp_id == '6') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="6">
+      <%= f.number_field :yards, label: "Total Yards", placeholder: "Total Yards Long (in Yards)" %>
     </div>  
+    
+
+    <%= f.select(:finish,  ['Matte', 'Gloss'], {prompt: "Please  Select a Finish"} ) %>
+    <%= f.select(:laminate_side,  ['Face Side', 'Back Side'], {prompt: "Select Side to Laminate"} ) %>
+
+
+    <% else %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="7|8|9">
+      <%= f.number_field :yards, label: "Yards Long", placeholder: "Yards Long (in Yards)" %>
+    </div> 
+    <% end %>
+
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="13">
       <%= f.collection_select(:size_id,  Size.order("id"), :id, :dimension, {prompt: "Choose Your Size" } ) %>
     </div>  
+    
+    <% if (@qp_id == '6') %>
+        <%= f.hidden_field :quantity, placeholder: "Enter Quantity", value: "1" %>
 
+      <% else %>
       <%= f.number_field :quantity, placeholder: "Enter Quantity" %>
+      <% end %>
+      
       <%= f.hidden_field :price, value: "0" %>
 
   </div>
@@ -228,9 +260,15 @@
 
     </div>  
     <div class="col-sm-offset-1 col-sm-4">
-      <%= link_to @quoteholder, class: "btn btn-info  btn-block", method: :get do %>
-      Review my Quote <span class="glyphicon glyphicon-arrow-right"></span>
+      <% unless @quoteholder.lines.empty? %>
+
+        <%= link_to @quoteholder, class: "btn btn-info  btn-block", method: :get do %>
+        Review my Quote <span class="glyphicon glyphicon-arrow-right"></span>
+        <% end %>
+
       <% end %>
+
+
     </div>
   </div>
     

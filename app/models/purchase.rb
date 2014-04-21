@@ -35,23 +35,19 @@ class Purchase < ActiveRecord::Base
      # thisline.quote_id = nil
         lines << thisline 
     end
-    @quote.update_attribute(:status, "Purchased")
-    @quote.save
+
   end
   
   def purchase_the_order
-    # response = gateway.purchase(amount, credit_card)
     gateway = ActiveMerchant::Billing::ElavonGateway.new(
-        :login => '005461',
-        :password => 'P5IB9C',
-        :user => "webpage"
-      )
-
+      :login     => ENV['TEST_MVM_LOGIN_ID'],
+      :password  => ENV['TEST_MVM_PIN'],
+      :user      => ENV['TEST_MVM_USER_ID']
+    )
     response = gateway.purchase(amount, credit_card)
     transactions.create!(:action => "purchase", :amount => amount, :response => response)
     self.update_attribute(:status, "Purchased") if response.success?
     response.success?
-
   end
 
   def purchase_options
@@ -108,7 +104,7 @@ class Purchase < ActiveRecord::Base
     
     def credit_card
       @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
-                :brand              => card_type, 
+                :type               => card_type, 
                 :first_name         => pay_firstname,
                 :last_name          => pay_lastname,
                 :number             => card_number,
@@ -117,10 +113,8 @@ class Purchase < ActiveRecord::Base
                 :verification_value => card_verification
       )
     end
-
+         
   private
-  
     
-
 
 end

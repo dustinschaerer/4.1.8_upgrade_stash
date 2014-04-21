@@ -9,6 +9,7 @@ jQuery ->
     options = $(colors).filter("optgroup[label='#{series}']").html()
     if options
       $('#line_color_id').html(options)
+      $('#line_color_id').prepend('<option selected="selected">Please select...</option>')
     else 
       $('#line_color_id').empty()  
 

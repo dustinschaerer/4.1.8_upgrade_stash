@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   
   <div class="panel-heading">
-    <h3 class="panel-title"><h3>Your Quote Cart in Progress</h3>
+    <h3 class="panel-title"><h3 style="display:inline;">Your Quote Cart in Progress</h3> <%= link_to "Submit Quote for Pricing Now", new_quote_path, class: "btn btn-success inline pull-right" %>
   </div>    
 
   <div class="panel-body">
@@ -14,7 +14,9 @@
         </div>
         <% end %>
         
-
+        <div class="row">
+          
+        </div>
 
     <% @quoteholder.lines.each do |line| %>
 
@@ -33,7 +35,12 @@
             <div class="col-xs-2">
                 <% if line.color_id %>
                     <%= image_tag(line.color.image_url, class: "img-responsive") if line.color_id %>
-                <% end %>    
+                <% end %>   
+
+                <% if line.finish %>
+                   <strong>FINISH:</strong>
+                   <%= line.finish %>
+                <% end %>     
             </div>
     
             <div class="col-xs-2">
@@ -58,6 +65,11 @@
                     <strong>FINISH COVER:</strong><br>
                     <%= line.cover.name %>
                   </div>  
+                <% end %>
+
+                <% if line.laminate_side %>
+                   <strong>Side to Laminate:</strong><br>
+                   <%= line.laminate_side %>
                 <% end %>
             </div>
             
@@ -197,7 +209,16 @@
         </div>   
         
         <hr>  
-<%= link_to "Submit Quote for Pricing Now", new_quote_path, class: "btn btn-success" %>
 
-<%= link_to "Add Another Item to Quote", '/request_quote', class: "btn btn-primary" %>
-<%= link_to 'Remove All Quote Items', @quoteholder, class: "btn btn-danger pucd rall-right", method: :delete, data: { confirm: 'Are you Sure?' } %>
+<div class="row">
+          <div class="col-xs-offset-1 col-xs-10"><%= link_to "Submit Quote for Pricing Now", new_quote_path, class: "btn btn-success btn-block" %></div>
+      
+</div>
+<div class="row top10">
+          <div class="col-xs-offset-1 col-xs-4"><%= link_to 'Remove All Quote Items', @quoteholder, class: "btn btn-danger btn-block", method: :delete, data: { confirm: 'Are you Sure?' } %></div>
+          <div class="col-xs-offset-2 col-xs-4"><%= link_to "Add Another Item to Quote", '/request_quote', class: "btn btn-primary btn-block" %></div>
+</div>
+
+<div class="row top10">
+          <div class="col-xs-12">When you are through adding items to your quote, click the "Submit Quote for Pricing Now" button to send us your quote.</div>
+</div>

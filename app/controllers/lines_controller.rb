@@ -82,6 +82,6 @@ class LinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_params
-      params.require(:line).permit(:quote_product_id, :length, :width, :height, :cover_id, :series_id, :color_id, :shape_id, :umbrella, :velcro, :yards, :size_id, :quantity, :price, :id)
+      params.require(:line).permit(:quote_product_id, :length, :width, :height, :cover_id, :series_id, :color_id, :shape_id, :umbrella, :velcro, :yards, :size_id, :quantity, :price, :id, :finish, :laminate_side)
     end
 end

@@ -29,7 +29,9 @@ class Line < ActiveRecord::Base
   validates :length, presence: true, if: :is_other_length?
   validates :height, presence: true, if: :is_height?    
   validates :yards, presence: true, if: :is_yards?    
-
+  validates :finish, presence: true, if: :is_finish?    
+  validates :laminate_side, presence: true, if: :is_laminate_side?    
+  
 
   def is_placemat?
     (quote_product_id == 14)
@@ -105,6 +107,14 @@ class Line < ActiveRecord::Base
     (quote_product_id == 8) || (quote_product_id == 9 )
   end  
   
+  def is_finish?
+    (quote_product_id == 6)
+  end  
+
+  def is_laminate_side?
+    (quote_product_id == 6) 
+  end
+
   def total_price
 		price * quantity
 	end	

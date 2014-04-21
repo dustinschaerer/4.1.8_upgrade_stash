@@ -21,6 +21,7 @@
             <%= f.text_field :firstname, label: 'First Name' %>
             <%= f.text_field :lastname, label: 'Last Name' %>
             <%= f.text_field :company, placeholder: 'Company Name (Optional)' %>
+            <%= f.text_field :tax_id, label: "Tax ID Number", readonly: true %>
             <%= f.text_field :telephone, label: 'Telephone Number', placeholder: 'Telephone Number'   %>
             <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address', readonly: true %>
             <%= f.text_field :ship_city, label: 'City', placeholder: 'City', readonly: true %>
@@ -64,7 +65,7 @@
     <%= f.hidden_field :total, readonly: true %>
     <%= f.hidden_field :amount, readonly: true, value: @quote.amount %>
     <%= f.hidden_field :quote_id, readonly: true, value: @quote.id %>
-
+    <%= f.hidden_field :tax_id, readonly: true %>
     
      <div class="row">
       

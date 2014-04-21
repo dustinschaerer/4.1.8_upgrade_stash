@@ -2,7 +2,7 @@ ActiveAdmin.register Quote do
   menu :priority => 5
   actions :all, :except => [:destroy] 
 
-  permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at,
+  permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at, :question, 
    lines_attributes: [ :id, :price, :quantity]
   
   before_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
@@ -25,6 +25,18 @@ ActiveAdmin.register Quote do
     end  
   end
 
+  member_action :send_question_email, :method => :post do
+    @quote = Quote.find(params[:id])
+    @current_user_id = @quote.user_id
+    @current_user = User.find(@current_user_id)
+    if QuoteNotifier.question(@quote, @current_user).deliver
+      redirect_to admin_quotes_path, :notice => "Question or Comment Email message has been successfully sent to customer."    
+    else
+      render :back, :notice => "ERROR: Could not deliver email message."
+    end  
+  end
+
+
   controller do
     
     def calculate_subtotal
@@ -35,15 +47,19 @@ ActiveAdmin.register Quote do
       end
       Quote.subtotal = running_total
     end
-    
+
+
+
 
     def calculate_sales_tax
-      if (self.ship_state == 'Arkansas')
-        tax_rate = 0.0975 
-      elsif (self.ship_state == 'Minnesota')
-        tax_rate = 0.06875 
-      elsif (self.ship_state == 'New Jersey')
-        tax_rate = 0.07 
+      if self.tax_id.blank?
+        if (self.ship_state == 'Arkansas')
+          tax_rate = 0.0975 
+        elsif (self.ship_state == 'Minnesota')
+          tax_rate = 0.06875 
+        elsif (self.ship_state == 'New Jersey')
+          tax_rate = 0.07 
+        end
       else
         tax_rate = 0  
       end
@@ -109,6 +125,9 @@ ActiveAdmin.register Quote do
             row :firstname
             row :lastname
             row :company
+            row :tax_id do |tid|
+              best_in_place tid, :tax_id, :type => :input
+            end  
             row :telephone
             row :ship_street_address
             row :ship_city
@@ -121,17 +140,28 @@ ActiveAdmin.register Quote do
             row :shipping do |i|
               best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
             end  
-            row :sales_tax  
+            row :sales_tax  do |st|
+              best_in_place st, :sales_tax, :type => :input, :display_with => :number_to_currency
+            end  
             row :total do |ttl|
               number_to_currency ttl.total
             end
-            row :amount
             h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
           end 
         end  
       end # end column
       
       column do
+
+        panel "Questions for the Customer" do
+          attributes_table_for quote do
+            row :question do |qq|
+              best_in_place qq, :question, :type => :textarea, :display_with => :simple_format
+            end
+            h3 { button_to "Email Question Response History to Customer Now", "/admin/quotes/#{quote.id}/send_question_email", :method => :post }
+          end
+        end
+
         panel "Quote History" do
           attributes_table_for quote do
             row :created_at
@@ -148,6 +178,7 @@ ActiveAdmin.register Quote do
     f.inputs 'Details' do
       f.input :user_id, :input_html => { disabled: true }
       f.input :email, :input_html => { disabled: true }
+      f.input :question
       f.input :firstname
       f.input :lastname
       f.input :company 
@@ -187,7 +218,6 @@ ActiveAdmin.register Quote do
     f.actions
   end
 
-  
 ####################################
 
 

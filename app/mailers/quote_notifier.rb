@@ -1,5 +1,5 @@
 class QuoteNotifier < ActionMailer::Base
-  default from: 'staff@americo-test.us'
+  default from: 'ken@americo-inc.com'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -18,4 +18,11 @@ class QuoteNotifier < ActionMailer::Base
     @current_user = current_user
     mail to: quote.email, subject: 'Pricing Complete on Americo Quote'
   end
+
+  def question(quote, current_user)
+    @quote = quote
+    @current_user = current_user
+    mail to: quote.email, subject: 'Question about your Americo Quote'
+  end
+
 end

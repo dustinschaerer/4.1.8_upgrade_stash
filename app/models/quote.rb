@@ -42,16 +42,20 @@ class Quote < ActiveRecord::Base
   end
 
   def calculate_sales_tax
-    if (self.ship_state == 'Arkansas')
-      tax_rate = 0.0975 
-    elsif (self.ship_state == 'Minnesota')
-      tax_rate = 0.06875 
-    elsif (self.ship_state == 'New Jersey')
-      tax_rate = 0.07 
+    if self.tax_id.blank?
+
+      if (self.ship_state == 'Arkansas')
+        tax_rate = 0.0975 
+      elsif (self.ship_state == 'Minnesota')
+        tax_rate = 0.06875 
+      elsif (self.ship_state == 'New Jersey')
+        tax_rate = 0.07 
+      end  
     else
-      tax_rate = 0  
+      tax_rate = 0
     end
     self.sales_tax = (self.subtotal * tax_rate).truncate(2)
+
   end
 
   def calculate_total

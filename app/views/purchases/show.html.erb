@@ -32,6 +32,9 @@
                 <% if @purchase.company %>
                   <strong><%= @purchase.company %></strong><br>
                 <% end %>
+                 <% if @purchase.tax_id %>
+                Tax ID: <%= @purchase.tax_id %><br>
+                <% end %>
                 <%= @purchase.firstname %> <%= @purchase.lastname %>
                 <br><%= @purchase.ship_street_address %>
                 <br><%= @purchase.ship_city %>, <%= @purchase.ship_state %>  <%= @purchase.ship_zipcode %> 
@@ -40,8 +43,8 @@
             </div>  
           </div>
           <div class="col-sm-4 col-md-4 pull-right">
-             <p><strong>Quote Date:</strong> <%= @purchase.created_at.strftime("%B %d, %Y") %></p>
-             <p><strong>Quote Status:</strong> <%= @purchase.status %></p>
+             <p><strong>Purchase Date:</strong> <%= @purchase.created_at.strftime("%B %d, %Y") %></p>
+             <p><strong>Purchase Status:</strong> <%= @purchase.status %></p>
              <p><strong>Phone:</strong> <%= @purchase.telephone %></p>
              <p><strong>Email:</strong> <%= @purchase.email %></p>
           </div>
@@ -68,6 +71,11 @@
                 <% if line.color_id %>
                     <%= image_tag(line.color.image_url, class: "img-responsive") if line.color_id %>
                 <% end %>    
+
+                 <% if line.finish %>
+                   <strong>FINISH:</strong>
+                   <%= line.finish %>
+                <% end %>   
             </div>
     
             <div class="col-xs-3">
@@ -92,6 +100,11 @@
                     <strong>FINISH COVER:</strong><br>
                     <%= line.cover.name %>
                   </div>  
+                <% end %>
+
+                <% if line.laminate_side %>
+                   <strong>Side to Laminate:</strong><br>
+                   <%= line.laminate_side %>
                 <% end %>
             </div>
             

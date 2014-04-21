@@ -1,0 +1,18 @@
+Dear <%= @quote.firstname %> <%= @quote.lastname %>
+
+We have a question for your to review about your recent Quote Submission with Americo-Inc.com.
+
+-------------------------
+QUOTE ID# <%= @quote.id %>
+--------------------------
+<%= @quote.question %>
+-----------------------
+ 
+<%= edit_quote_url(@quote) %> 
+
+You can reply to this message directly or review your this Quote and your entire Account history here: <%= user_url(@current_user) %>
+
+Sincerely,
+Ken
+
+http://www.americo-inc.com 

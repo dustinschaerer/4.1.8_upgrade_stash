@@ -272,14 +272,18 @@
   	  <% color_array = @series.colors.order("name") %>
   	  <% color_array.each do |swatch| %>
   	  
-        <div class="col-xs-12 col-sm-3 bottom25">
-          <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
-          <div class="row">
+  <div class="col-xs-6 col-sm-4 col-lg-3 bottom25">
+    <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
+    <div class="row">
 			<div class="col-xs-9">
 				<div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-remove-sign"></span> <% end %><% swatch.series.name %>  <%= swatch.name %></strong></div>
 				<div class="addblack">
 					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-xs", method: :post ) %> 
 				</div>
+        <div class="addblack">
+          <%= link_to('GET QUOTE', '/request_quote', :class => "btn btn-info btn-xs top4", method: :get ) %> 
+        </div>
+        
 			</div>
 			<div class="col-xs-3">
                 <!-- Button trigger modal -->

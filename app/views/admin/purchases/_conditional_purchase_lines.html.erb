@@ -255,6 +255,8 @@
       <thead>
         <tr>
           <th class="col col-quote_product_type">Product Type</th>
+           <th class="col col-width">Finish</th>
+          <th class="col col-width">Side to Laminate</th>
           <th class="col col-yards_long">Yards Long</th>
           <th class="col col-width">Width</th>
           <th class="col col-quantity">Quantity</th>
@@ -264,6 +266,8 @@
       <tbody>
         <tr class="odd" id="">
           <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-finish"><%= line.finish %></td>
+          <td class="col col-laminate_side"><%= line.laminate_side %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-quantity"><%= line.quantity %></td>

@@ -11,12 +11,13 @@ class UsersController < ApplicationController
 
     if current_user.id == @user.id
       # lookup the orders belonging to this user
-      @orders = @user.orders.all
-   
-      # lookup the quotes belonging to this user
-      @quotes = Quote.find_all_by_user_id current_user[:id]
+      #@orders = @user.orders.all
+      @orders = Order.find_all_by_user_id(current_user[:id], :order => "id DESC")
 
-      @purchases = Purchase.find_all_by_user_id current_user[:id]
+      # lookup the quotes belonging to this user
+      @quotes = Quote.find_all_by_user_id(current_user[:id], :order => "id DESC")
+
+      @purchases = Purchase.find_all_by_user_id( current_user[:id], :order => "id DESC")
    
     else
       render 'new', notice: 'You tried to access an account that does not belong to you.'

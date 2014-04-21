@@ -40,42 +40,12 @@
     domain:     "americo-test.us",
     authentication: "plain",
     user_name:  "dustinschaerer@gmail.com",
-    password:   "schiznut1",
+    password:   "oldpwd",
     enable_starttls_auto: true
   }
 
   config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test
-
-    
+    ActiveMerchant::Billing::Base.mode = :test   
   end
-  
-  # maybe put this block up in after_initialize
-  #config.to_prepare do
-    
-  #end
-
-    #   gateway = ActiveMerchant::Billing::ElavonGateway.new(
-    #               :login     => "my_virtual_merchant_id",
-    #               :password  => "my_virtual_merchant_pin",
-    #               :user      => "my_virtual_merchant_user_id" # optional
-    #            )
-    #
-    #   # set up credit card obj as in main ActiveMerchant example
-    #   creditcard = ActiveMerchant::Billing::CreditCard.new(
-    #     :type       => 'visa',
-    #     :number     => '41111111111111111',
-    #     :month      => 10,
-    #     :year       => 2011,
-    #     :first_name => 'Bob',
-    #     :last_name  => 'Bobsen'
-    #   )
-    #
-    #   # run request
-    #   response = gateway.purchase(1000, creditcard) # authorize and capture 10 USD
-    #
-    #   puts response.success?      # Check whether the transaction was successful
-    #   puts response.message       # Retrieve the message returned by Elavon
-    #   puts response.authorization # Retrieve the unique transaction ID returned by Elavon
 
 end
