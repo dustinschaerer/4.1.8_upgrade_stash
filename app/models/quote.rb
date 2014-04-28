@@ -43,7 +43,7 @@ class Quote < ActiveRecord::Base
 
   def calculate_sales_tax
     if self.tax_id.blank?
-
+      tax_rate = 0
       if (self.ship_state == 'Arkansas')
         tax_rate = 0.0975 
       elsif (self.ship_state == 'Minnesota')
