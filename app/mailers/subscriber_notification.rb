@@ -1,5 +1,5 @@
 class SubscriberNotification < ActionMailer::Base
-  default from: 'staff@americo-test.us'
+  default from: 'ken@americo-inc.com'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -9,7 +9,7 @@ class SubscriberNotification < ActionMailer::Base
   def new_signup(subscriber)
     @subscriber = subscriber
 
-    mail to: subscriber.email, subject: 'Americo Quote Confirmation'
+    mail to: subscriber.email, subject: 'Americo Subscription Notice'
   end
 
 end
