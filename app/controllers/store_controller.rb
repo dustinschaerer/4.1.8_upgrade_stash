@@ -1,8 +1,8 @@
 class StoreController < ApplicationController
   include CurrentCart
-  include CurrentQuotecart
-  before_action :set_cart, only: [:create]
-  before_action :set_quotecart, only: [:create]
+  include CurrentQuoteholder
+  before_action :set_cart
+  before_action :set_quoteholder 
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   
   def index

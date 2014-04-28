@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
   include CurrentCart
-  include CurrentQuotecart
+  include CurrentQuoteholder
   before_action :set_cart
-  before_action :set_quotecart
+  before_action :set_quoteholder
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def home

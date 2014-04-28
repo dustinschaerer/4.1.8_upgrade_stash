@@ -28,21 +28,34 @@
   config.assets.debug = false
 
   # Add mailer config options for Devise
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'heroku.com' }
 
   # Set email delivery configuration
   config.action_mailer.delivery_method = :smtp
   
   # Action Mailer config setting
+#  config.action_mailer.smtp_settings = {
+#    address:    "smtp.gmail.com",
+#    port:       587,
+#    domain:     "americo-test.us",
+#    authentication: "plain",
+#    user_name:  "dustinschaerer@gmail.com",
+#    password:   "oldpwd",
+#    enable_starttls_auto: true
+#  }
+  
+  # Action Mailer config setting
   config.action_mailer.smtp_settings = {
-    address:    "smtp.gmail.com",
-    port:       587,
-    domain:     "americo-test.us",
-    authentication: "plain",
-    user_name:  "dustinschaerer@gmail.com",
-    password:   "oldpwd",
+    address:    'smtp.mandrillapp.com',
+    port:       '587',
+    domain:     'heroku.com',
+    authentication: 'plain',
+    user_name:  ENV['MANDRILL_USERNAME'],
+    password:   ENV['MANDRILL_APIKEY'],
     enable_starttls_auto: true
   }
+  
 
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test   

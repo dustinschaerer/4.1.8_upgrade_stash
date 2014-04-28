@@ -72,15 +72,26 @@ Americo::Application.configure do
   config.action_mailer.default_url_options = { :host => 'frozen-depths-2742.heroku.com' }
    
   # Action Mailer config setting
-  ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
-  :port           => '587',
-  :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'],
-  :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
-  :enable_starttls_auto => true
-}
+  config.action_mailer.smtp_settings = {
+    address:    'smtp.mandrillapp.com',
+    port:       '587',
+    domain:     'heroku.com',
+    authentication: 'plain',
+    user_name:  ENV['MANDRILL_USERNAME'],
+    password:   ENV['MANDRILL_APIKEY'],
+    enable_starttls_auto: true
+  }
+
+  # Action Mailer config setting
+#  ActionMailer::Base.smtp_settings = {
+#  :address        => 'smtp.sendgrid.net',
+#  :port           => '587',
+#  :authentication => :plain,
+#  :user_name      => ENV['SENDGRID_USERNAME'],
+#  :password       => ENV['SENDGRID_PASSWORD'],
+#  :domain         => 'heroku.com',
+#  :enable_starttls_auto => true
+#}
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true

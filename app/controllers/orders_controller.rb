@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
-  include CurrentQuotecart
+  include CurrentQuoteholder
   include CurrentCart
-  before_action :set_quotecart, only: [:new, :create]
+  before_action :set_quoteholder, only: [:new, :create]
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, unless: :current_admin_user

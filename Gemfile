@@ -28,6 +28,8 @@ gem 'activemerchant'
 gem 'figaro'
 gem 'unicorn'
 gem 'newrelic_rpm'
+gem 'friendly_id', '~> 5.0.0'
+
 
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
