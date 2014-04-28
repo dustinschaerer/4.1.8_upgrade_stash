@@ -65,10 +65,8 @@ class PurchasesController < ApplicationController
           format.html { redirect_to @purchase, notice: "PURCHASE COMPLETED! We'll send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories." }
           format.json { render action: 'show', status: :created, location: @purchase }
         end
-      else
-        respond_to do |format|
-          redirect_to @purchase, notice: 'FAILURE: Credit Card Invalid. Enter valid card card information to place your order now.'
-        end
+      else  
+        redirect_to :back, notice: 'FAILURE: Credit Card Invalid. Enter valid card card information to place your order now.'
       end
     else
       respond_to do |format|
