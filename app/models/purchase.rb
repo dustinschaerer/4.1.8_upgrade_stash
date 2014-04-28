@@ -40,9 +40,9 @@ class Purchase < ActiveRecord::Base
   
   def purchase_the_order
     gateway = ActiveMerchant::Billing::ElavonGateway.new(
-      :login     => ENV['TEST_MVM_LOGIN_ID'],
-      :password  => ENV['TEST_MVM_PIN'],
-      :user      => ENV['TEST_MVM_USER_ID']
+      :login     => ENV['MVM_LOGIN_ID'],
+      :password  => ENV['MVM_PIN'],
+      :user      => ENV['MVM_USER_ID']
     )
     response = gateway.purchase(amount, credit_card)
     transactions.create!(:action => "purchase", :amount => amount, :response => response)

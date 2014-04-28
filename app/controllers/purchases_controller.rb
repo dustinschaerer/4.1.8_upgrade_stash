@@ -66,7 +66,9 @@ class PurchasesController < ApplicationController
           format.json { render action: 'show', status: :created, location: @purchase }
         end
       else
-        render :action => 'failure', notice: "FAILURE: Credit Card Invalid. Enter valid card card information to place your order now."
+        respond_to do |format|
+          redirect_to @purchase, notice: 'FAILURE: Credit Card Invalid. Enter valid card card information to place your order now.'
+        end
       end
     else
       respond_to do |format|
