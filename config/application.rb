@@ -40,6 +40,8 @@ module Americo
     config. generators do |g|
         g.test_framework :test_unit
     end    
+
+    config.filter_parameters << :card_number << :card_verification
     
     config.assets.paths << "#{Rails.root}/app/themes/default/"
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
