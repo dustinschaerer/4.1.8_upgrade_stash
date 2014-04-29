@@ -60,6 +60,8 @@ class PurchasesController < ApplicationController
       # attempt purchase
       if @purchase.purchase_the_order
         # send purchase notification email    
+        @quote.status = 'Purchased'
+        @quote.save
         PurchaseNotifier.confirmation(@purchase, current_user).deliver
         respond_to do |format|   
           format.html { redirect_to @purchase, notice: "PURCHASE COMPLETED! We'll send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories." }
