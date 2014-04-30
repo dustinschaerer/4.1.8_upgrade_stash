@@ -7,11 +7,11 @@ ActiveAdmin.register Purchase do
                 :pay_country, :pay_type, :pay_status, :subtotal, :shipping, :sales_tax, :total, :amount, :updated_at, :paycompany, :status, :state, 
                 :card_expires_on, :card_type, :ip_address, lines_attributes: [ :id, :price, :quantity]
   
-  member_action :set_to_shipped, :method => :post do
-    @purchase = Purchase.find(params[:id])
-    @purchase.status = "Shipped"
-    @purchase.save
-  end  
+  #member_action :set_to_shipped, :method => :post do
+  #  @purchase = Purchase.find(params[:id])
+  #  @purchase.status = "Shipped"
+  #  @purchase.save
+  #end  
   
   member_action :send_shipped_email, :method => :post do
     # Do some work here...
@@ -22,7 +22,7 @@ ActiveAdmin.register Purchase do
     
     #update status to "Shipped"
     if (@purchase.status == "Shipped")
-      redirect_to admin_purchase_path(@purchase), {:notice => "WARNING: ALREADY SENT - Your Purchase has Shipped Email has already been sent to #{@current_user.email}."}    
+      redirect_to admin_purchase_path(@purchase), {:notice => "WARNING: EMAIL MESSAGE SENT TO CUSTOMER AGAIN - Your Purchase has Shipped Email was re-sent to #{@current_user.email}."}    
     else
       @purchase.status = "Shipped"
       if @purchase.save
@@ -127,15 +127,19 @@ ActiveAdmin.register Purchase do
       
     end
 
-    if (purchase.status == "Priced")
+    if (purchase.status == "Purchased")
       div :class => "recalculatebtn" do
         h3 { button_to "SHIP ORDER - Send Shipped EMail to Customer Now and Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/send_shipped_email", :method => :post }                                                                    
       end 
     else
       div :class => "recalculatebtn" do       
-        h2 { "Warning: Shipped Email message already sent." }
-        h4 { button_to "Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/set_to_shipped", :method => :post }                                                                  
-        h4 { button_to "RE-Send Shipped EMail to Customer Now and Re-Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/send_shipped_email", :method => :post }                                                                    
+        if (purchase.status == "Shipped")
+          h2 { "Warning: Shipped Email message already sent." }
+         # h4 { button_to "Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/set_to_shipped", :method => :post }                                                                  
+          h4 { button_to "RE-Send Shipped EMail to Customer Now and Re-Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/send_shipped_email", :method => :post }                                                                   
+        else
+          h2 { "Warning: Purchase ID# #{purchase.id} status is not set to Purchased or Shipped." }
+        end 
       end
     end  
     active_admin_comments
