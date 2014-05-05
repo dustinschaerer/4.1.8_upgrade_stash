@@ -31,8 +31,8 @@ class Line < ActiveRecord::Base
   validates :finish, presence: true, if: :is_finish?    
   validates :laminate_side, presence: true, if: :is_laminate_side?    
   validates :yards, presence: true, if: :is_yards?    
-  validates :yards,  numericality: { greater_than_or_equal_to: 5 }, if: :is_cut? 
-  validates :yards,  numericality: { less_than_or_equal_to: 25 }, if: :is_cut? 
+  validates :yards, presence: true, numericality: { greater_than_or_equal_to: 5 }, if: :is_cut? 
+  validates :yards, presence: true, numericality: { less_than_or_equal_to: 25 }, if: :is_cut? 
 
 
   def is_cut? 
@@ -110,7 +110,7 @@ class Line < ActiveRecord::Base
 
   def is_yards?
     (quote_product_id == 6) || (quote_product_id == 7 ) ||
-    (quote_product_id == 8) || (quote_product_id == 9 ) || (quote_product_id == 17 )
+    (quote_product_id == 8) || (quote_product_id == 9 ) 
   end  
   
   def is_finish?
