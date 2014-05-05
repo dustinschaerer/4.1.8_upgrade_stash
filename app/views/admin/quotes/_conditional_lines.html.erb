@@ -1,99 +1,8 @@
 <% @quote.lines.each do |line| %>
 
-    <% if (line.quote_product_id == 7 ) %>
-    <!-- show 3 custom cuts  -->
-    
-    <table border="0" cellspacing="0" cellpadding="0">
-      <thead>
-        <tr>
-          <th class="col col-quote_product_type">Quote Product Type</th>
-          <th class="col col-series">Series</th>
-          <th class="col col-color">Color</th>
-          <th class="col col-swatch">Swatch</th>
-          <th class="col col-yards_long">Yards Long</th>
-          <th class="col col-dimensions">Dimensions</th>
-          <th class="col col-quantity">Quantity</th>
-          <th class="col col-price">Price</th>
-        </tr>
-      </thead>      
-      <tbody>
-        <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
-          <td class="col col-yards_long"><%= line.yards %></td>
-          <td class="col col-dimensions"><%= line.size.name%></td>
-          <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
-        </tr>
-      </tbody>
-    </table>
-
-    <% elsif (line.quote_product_id == 8 ) %>
-    <!-- show 3 custom cuts  -->
-    <%=
-     #render(:partial => 'admin/quotes/custom_cuts') 
-    %>
-    <table border="0" cellspacing="0" cellpadding="0">
-      <thead>
-        <tr>
-          <th class="col col-quote_product_type">Quote Product Type</th>
-          <th class="col col-series">Series</th>
-          <th class="col col-color">Color</th>
-          <th class="col col-swatch">Swatch</th>
-          <th class="col col-yards_long">Yards Long</th>
-          <th class="col col-dimensions">Dimensions</th>
-          <th class="col col-quantity">Quantity</th>
-          <th class="col col-price">Price</th>
-        </tr>
-      </thead>      
-      <tbody>
-        <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
-          <td class="col col-yards_long"><%= line.yards %></td>
-          <td class="col col-dimensions"><%= line.size.name%></td>
-          <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
-        </tr>
-      </tbody>
-    </table>
-     
-    <% elsif (line.quote_product_id == 9 ) %>
-    <!-- show 3 custom cuts  -->
-    <%=
-     #render(:partial => 'admin/quotes/custom_cuts') 
-    %>
-    <table border="0" cellspacing="0" cellpadding="0">
-      <thead>
-        <tr>
-          <th class="col col-quote_product_type">Quote Product Type</th>
-          <th class="col col-series">Series</th>
-          <th class="col col-color">Color</th>
-          <th class="col col-swatch">Swatch</th>
-          <th class="col col-yards_long">Yards Long</th>
-          <th class="col col-quantity">Quantity</th>
-          <th class="col col-price">Price</th>
-        </tr>
-      </thead>      
-      <tbody>
-        <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
-          <td class="col col-yards_long"><%= line.yards %></td>
-          <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
-        </tr>
-      </tbody>
-    </table>
      
     <!-- If this a table cover quote -->
-    <% elsif (line.quote_product_id == 1) %>
+    <% if (line.quote_product_id == 1) %>
     <!-- show Vinyl Table Cloth 
               Laminate Table Cloth  -->
     <%=
@@ -276,6 +185,98 @@
       </tbody>
     </table>
     
+    <% elsif (line.quote_product_id == 7 ) %>
+    <!-- show 3 custom cuts  -->
+    
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-swatch">Swatch</th>
+          <th class="col col-yards_long">Yards Long</th>
+          <th class="col col-dimensions">Dimensions</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= line.color.name %></td>
+          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-yards_long"><%= line.yards %></td>
+          <td class="col col-dimensions"><%= line.size.name%></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
+        </tr>
+      </tbody>
+    </table>
+
+    <% elsif (line.quote_product_id == 8 ) %>
+    <!-- show 3 custom cuts  -->
+    <%=
+     #render(:partial => 'admin/quotes/custom_cuts') 
+    %>
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-swatch">Swatch</th>
+          <th class="col col-yards_long">Yards Long</th>
+          <th class="col col-dimensions">Dimensions</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= line.color.name %></td>
+          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-yards_long"><%= line.yards %></td>
+          <td class="col col-dimensions"><%= line.size.name%></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
+        </tr>
+      </tbody>
+    </table>
+     
+    <% elsif (line.quote_product_id == 9 ) %>
+    <!-- show 3 custom cuts  -->
+    <%=
+     #render(:partial => 'admin/quotes/custom_cuts') 
+    %>
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-swatch">Swatch</th>
+          <th class="col col-yards_long">Yards Long</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= line.color.name %></td>
+          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-yards_long"><%= line.yards %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
+        </tr>
+      </tbody>
+    </table>
+     
     
     <% elsif (line.quote_product_id == 10) %>
     <!-- show  -->
@@ -390,8 +391,34 @@
         </tr>
       </tbody>
     </table>
-    <% else %>
+
+    <% elsif (line.quote_product_id == 17 ) %>
+    <!-- show  -->
     
+    <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+        <tr>
+          <th class="col col-quote_product_type">Quote Product Type</th>
+          <th class="col col-series">Series</th>
+          <th class="col col-color">Color</th>
+          <th class="col col-swatch">Swatch</th>
+          <th class="col col-quantity">Quantity</th>
+          <th class="col col-price">Price</th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr class="odd" id="">
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-series"><%= line.series.name %></td>
+          <td class="col col-color"><%= line.color.name %></td>
+          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quantity"><%= line.quantity %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
+        </tr>
+      </tbody>
+    </table>
+
+    <% else %>
 
     <% end %> 
 

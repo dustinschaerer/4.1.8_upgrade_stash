@@ -64,7 +64,7 @@ class QuoteholdersController < ApplicationController
     session[:quoteholder_id] = nil
     respond_to do |format|
        
-      format.html { redirect_to quote_products_path, notice: 'Your Quote is now empty.' }
+      format.html { redirect_to '/request_a_quote', notice: 'Your Quote is now empty.' }
       format.json { head :no_content }
     end
   end

@@ -28,11 +28,17 @@ class Line < ActiveRecord::Base
   validates :length, presence: true, if: :is_length?
   validates :length, presence: true, if: :is_other_length?
   validates :height, presence: true, if: :is_height?    
-  validates :yards, presence: true, if: :is_yards?    
   validates :finish, presence: true, if: :is_finish?    
   validates :laminate_side, presence: true, if: :is_laminate_side?    
-  
+  validates :yards, presence: true, if: :is_yards?    
+  validates :yards,  numericality: { greater_than_or_equal_to: 5 }, if: :is_cut? 
+  validates :yards,  numericality: { less_than_or_equal_to: 25 }, if: :is_cut? 
 
+
+  def is_cut? 
+    (quote_product_id == 7) || (quote_product_id == 8) || (quote_product_id == 9)
+  end
+    
   def is_placemat?
     (quote_product_id == 14)
   end     
@@ -60,13 +66,13 @@ class Line < ActiveRecord::Base
   def is_series?
     ( (quote_product_id == 1) || (quote_product_id == 2 ) || (quote_product_id == 7 ) ||
       (quote_product_id == 8) || (quote_product_id == 9 ) || (quote_product_id == 10 ) ||
-      (quote_product_id == 11) || (quote_product_id == 12 ) || (quote_product_id == 13 ) )
+      (quote_product_id == 11) || (quote_product_id == 12 ) || (quote_product_id == 13 ) || (quote_product_id == 17 ) )
   end
   
   def is_color?
     ( (quote_product_id == 1) || (quote_product_id == 2 ) || (quote_product_id == 7 ) ||
       (quote_product_id == 8) || (quote_product_id == 9 ) || (quote_product_id == 10 ) ||
-      (quote_product_id == 11) || (quote_product_id == 12 ) || (quote_product_id == 13 ) )
+      (quote_product_id == 11) || (quote_product_id == 12 ) || (quote_product_id == 13 ) || (quote_product_id == 17 ) )
   end
 
   def is_width?
@@ -104,7 +110,7 @@ class Line < ActiveRecord::Base
 
   def is_yards?
     (quote_product_id == 6) || (quote_product_id == 7 ) ||
-    (quote_product_id == 8) || (quote_product_id == 9 )
+    (quote_product_id == 8) || (quote_product_id == 9 ) || (quote_product_id == 17 )
   end  
   
   def is_finish?
