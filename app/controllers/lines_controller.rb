@@ -1,4 +1,6 @@
 class LinesController < ApplicationController
+
+  before_action :authenticate_admin_user!, :except => [:new, :create, :destroy] 
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_quoteholder
@@ -41,7 +43,7 @@ class LinesController < ApplicationController
 
     respond_to do |format|
       if @line.save
-        format.html { redirect_to @line.quoteholder, notice: 'Line was successfully created and added to your Quoteholder.' }
+        format.html { redirect_to @line.quoteholder, only_path: true, notice: 'Line was successfully created and added to your Quoteholder.' }
         format.json { render action: 'show', status: :created, location: @line }
       else
         format.html { render action: 'new', :params => { :quote_product_id => @qp_id } }

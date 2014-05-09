@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_admin_user!, :except => [:new, :create] 
+
   include CurrentQuoteholder
   include CurrentCart
   before_action :set_quoteholder  

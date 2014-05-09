@@ -1,4 +1,6 @@
 class SizesController < ApplicationController
+
+  before_action :authenticate_admin_user!
   before_action :set_size, only: [:show, :edit, :update, :destroy]
 
   # GET /sizes

@@ -11,3 +11,4 @@ app/assets/images/*.jpg
 app/assets/images/*.png
 app/public/assets/*
 tmp
+certs

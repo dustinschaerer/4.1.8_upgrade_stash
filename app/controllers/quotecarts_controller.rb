@@ -1,4 +1,6 @@
 class QuotecartsController < ApplicationController
+
+  before_action :authenticate_admin_user!
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_cart

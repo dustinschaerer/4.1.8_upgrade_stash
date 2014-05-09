@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 
 
    def invalid_user
-      logger.error "Attempt to access inalid user #{params[:id]}"  
-      redirect_to store_url, notice: 'You tried to access and Invalid user.'
+      logger.error "Attempt to access invalid user #{params[:id]}"  
+      redirect_to root_url, notice: 'You tried to access an Invalid user.'
    end
 
 end

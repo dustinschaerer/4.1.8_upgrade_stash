@@ -8,6 +8,10 @@ class Color < ActiveRecord::Base
 	acts_as_taggable
 
   validates :name, :image_url, :series_id, presence: true
+  validates :image_url, allow_blank: true, format: {
+		with: %r{\A\.(gif|jpg|png)\z}i,
+		message: 'must be a URL for GIF, JPG or PNG image.'
+	}
   
 	
 	private

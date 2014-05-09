@@ -24,7 +24,6 @@ Americo::Application.routes.draw do
   resources :series
   resources :colors
   resources :orders
-  resources :shipping_profiles
   resources :messages
   resources :subscribers  
   resources :quotecarts  

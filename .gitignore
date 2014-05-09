@@ -35,3 +35,7 @@ bundler_stubs/
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore certificates
+/certs
+certs/*

@@ -1,4 +1,7 @@
 class QuoteProductsController < ApplicationController
+
+  before_action :authenticate_admin_user! 
+
   before_action :set_quote_product, only: [:show, :edit, :update, :destroy]
 
   # GET /quote_products

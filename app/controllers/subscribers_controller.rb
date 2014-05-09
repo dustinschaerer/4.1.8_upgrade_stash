@@ -1,4 +1,6 @@
 class SubscribersController < ApplicationController
+
+  before_action :authenticate_admin_user!, :except => [:create]
   include CurrentQuoteholder
   include CurrentCart
   before_action :set_quoteholder

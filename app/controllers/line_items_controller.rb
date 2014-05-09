@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  before_action :authenticate_admin_user!, :except => [:new, :create, :destroy] 
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_cart

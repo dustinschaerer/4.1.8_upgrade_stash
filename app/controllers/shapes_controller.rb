@@ -1,4 +1,6 @@
 class ShapesController < ApplicationController
+
+  before_action :authenticate_admin_user!
   before_action :set_shape, only: [:show, :edit, :update, :destroy]
 
   # GET /shapes

@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show] 
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_quoteholder
@@ -15,6 +17,15 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
+    
+    # make sure users only see their own quotes 
+    #
+    #
+    #
+    #
+    #
+
+
 
   end
 

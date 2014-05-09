@@ -1,4 +1,6 @@
 class QuoteholdersController < ApplicationController
+  before_action :authenticate_admin_user!, :except => [:show, :destroy] 
+
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_cart
@@ -62,9 +64,9 @@ class QuoteholdersController < ApplicationController
   def destroy
     @quoteholder.destroy if @quoteholder.id == session[:quoteholder_id]
     session[:quoteholder_id] = nil
+
     respond_to do |format|
-       
-      format.html { redirect_to '/request_a_quote', notice: 'Your Quote is now empty.' }
+      format.html { redirect_to '/request_quote', notice: 'Your Quote is now empty.' }
       format.json { head :no_content }
     end
   end
@@ -77,7 +79,7 @@ class QuoteholdersController < ApplicationController
 
     def invalid_quoteholder
       logger.error "Attempt to access invalid quoteholder #{params[:id]}"
-      redirect_to root_path, "Invalid Quote Cart"
+      redirect_to root_url, notice: 'Invalid Quote Cart'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

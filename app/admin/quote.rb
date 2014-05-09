@@ -48,9 +48,6 @@ ActiveAdmin.register Quote do
       Quote.subtotal = running_total
     end
 
-
-
-
     def calculate_sales_tax
       if self.tax_id.blank?
         if (self.ship_state == 'Arkansas')
@@ -77,8 +74,6 @@ ActiveAdmin.register Quote do
       @quote.calculate_total
       @quote.save!
     end      
-
-
 
   end
 

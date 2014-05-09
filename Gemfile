@@ -2,8 +2,9 @@
 ruby '2.0.0'
 
 
-gem 'rails', '4.0.2'
-gem 'sass-rails', '4.0.1'
+gem 'rails', '4.0.4'
+#gem 'sass-rails', '4.0.1'
+gem "sass-rails", "~> 4.0.3"
 #gem 'bootstrap-sass', '~>3.0.3.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
@@ -29,7 +30,8 @@ gem 'figaro'
 gem 'unicorn'
 gem 'newrelic_rpm'
 gem 'friendly_id', '~> 5.0.0'
-
+gem 'tilt', '1.4.1'
+gem "brakeman", :require => false
 
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
