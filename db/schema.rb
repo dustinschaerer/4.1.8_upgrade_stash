@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506163340) do
+ActiveRecord::Schema.define(version: 20140512174457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -356,9 +356,11 @@ ActiveRecord::Schema.define(version: 20140506163340) do
     t.datetime "updated_at"
     t.integer  "product_id"
     t.integer  "sort"
+    t.string   "slug"
   end
 
   add_index "styles", ["product_id"], name: "index_styles_on_product_id", using: :btree
+  add_index "styles", ["slug"], name: "index_styles_on_slug", using: :btree
 
   create_table "subscribers", force: true do |t|
     t.string   "email"

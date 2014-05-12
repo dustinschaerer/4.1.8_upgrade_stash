@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @category = Category.friendly.find(params[:id])
 
     @accessories = Style.where(:id => 1..3).order('sort ASC')
   end
@@ -74,8 +74,8 @@ class CategoriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      #@category = Category.friendly.find(params[:id])
-      @category = Category.find(params[:id])
+      @category = Category.friendly.find(params[:id])
+      #@category = Category.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

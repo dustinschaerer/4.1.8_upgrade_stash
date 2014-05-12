@@ -17,15 +17,13 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
-    
     # make sure users only see their own quotes 
-    #
-    #
-    #
-    #
-    #
-
-
+    # look up the user attached to quote
+    if (@quote.user_id) == (current_user.id)
+      # only show this quote if it belongs to the signed in user
+    else   
+      redirect_to root_url, notice: "The quote you tried to access does not belong to you."
+    end   
 
   end
 

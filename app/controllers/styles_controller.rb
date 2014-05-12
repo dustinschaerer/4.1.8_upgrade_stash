@@ -13,6 +13,7 @@ class StylesController < ApplicationController
 
   # GET /styles/1
   def show
+    @style = Style.friendly.find(params[:id])
   end
 
   # GET /styles/new
@@ -56,7 +57,7 @@ class StylesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_style
-      @style = Style.find(params[:id])
+      @style = Style.friendly.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

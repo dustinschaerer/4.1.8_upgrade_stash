@@ -7,14 +7,14 @@
     <div class="col-sm-3 col-md-3 ">
       <ul>
         <li class="dark"><strong>OUR PRODUCTS</strong></li>
-        <li><%= link_to "Vinyl Table Covers",   "/categories/1" %></li>
-        <li><%= link_to "Laminated Fabric",   "/categories/3" %></li>
-        <li><%= link_to "Upholstery Fabrics",   "/styles/7" %></li>
+        <li><%= link_to "Vinyl Table Covers",   "/categories/vinyl-table-covers" %></li>
+        <li><%= link_to "Laminated Fabric",   "/categories/laminated-fabric" %></li>
+        <li><%= link_to "Upholstery Fabrics",   "/styles/vinyl-upholstery-fabric" %></li>
         <li><%= link_to "Roll Goods",   "/roll_goods" %></li>
-        <li><%= link_to "No-Slip Pads",   "/categories/2" %></li>
-        <li><%= link_to "Placemats",   "/categories/5" %></li>
-        <li><%= link_to "Tablecover Overlays",   "/categories/5" %></li>
-        <li><%= link_to "Runners",   "/categories/5" %></li>
+        <li><%= link_to "No-Slip Pads",   "/categories/non-slip-padding" %></li>
+        <li><%= link_to "Placemats",   "/categories/vinyl-placemats-toppers-runners" %></li>
+        <li><%= link_to "Tablecover Overlays",   "/categories/vinyl-placemats-toppers-runners" %></li>
+        <li><%= link_to "Runners",   "/categories/vinyl-placemats-toppers-runners" %></li>
     </div>
     <div class="col-sm-3 col-md-3">
       <ul>
@@ -25,10 +25,7 @@
         <% if user_signed_in? %>
         <li><%= link_to "Place an Order", "/users/#{current_user.id}", class: "top-link" %></li>
         <% end %>
-        <li><%= link_to "Measuring Instructions",   "/how_to_measure" %></li>
-
-        <li><%= link_to "e-Catalog",   "/" %></li>
-        
+        <li><%= link_to "Measuring Instructions",   "/how_to_measure" %></li>        
       </ul>
     </div>
     <div class="col-sm-3 col-md-3">
@@ -48,7 +45,7 @@
         <li><%= link_to "Satisfied Customers", "/satisfied_customers" %></li>
         <li><%= link_to "Technical Specs", "/technical_specs" %></li>
         <li><%= link_to "Privacy Policy", "/privacy_policy" %></li>
-        <li><%= link_to "Site Map", "/sitemap" %></li>
+        
       </ul>
     </div>
    
@@ -62,7 +59,4 @@
     </div>
   </div>
   
-<%= debug(params) %>
 
-<%= params.inspect %>
-<%= debug(session) %>
