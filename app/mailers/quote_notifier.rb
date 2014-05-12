@@ -24,5 +24,10 @@ class QuoteNotifier < ActionMailer::Base
     @current_user = current_user
     mail to: quote.email, subject: 'Question about your Americo Quote'
   end
+  
+  def notify_admin(quote)
+    @quote = quote
+    mail to: "ken@americo-inc.com", subject: 'New Quote received on Americo Dashboard'
+  end
 
 end

@@ -69,7 +69,7 @@ Americo::Application.configure do
    
   config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.default_url_options = { :host => 'frozen-depths-2742.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'frozen-depths-2742.herokuapp.com' }
    
   # Action Mailer config setting
   config.action_mailer.smtp_settings = {

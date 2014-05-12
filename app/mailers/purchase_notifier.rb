@@ -22,4 +22,9 @@ class PurchaseNotifier < ActionMailer::Base
     @current_user = current_user
     mail to: purchase.user.email, subject: 'Americo Purchase has Shipped'
   end
+
+  def notify_admin(purchase)
+    @purchase = purchase
+    mail to: "ken@americo-inc.com", subject: 'New Purchase received on Americo Dashboard'
+  end
 end
