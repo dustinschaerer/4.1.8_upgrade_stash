@@ -65,6 +65,8 @@ class PurchasesController < ApplicationController
         @quote.status = 'Purchased'
         @quote.save
         PurchaseNotifier.confirmation(@purchase, current_user).deliver
+        PurchaseNotifier.notify_admin(@purchase).deliver
+
         respond_to do |format|   
           format.html { redirect_to @purchase, notice: "PURCHASE COMPLETED! We'll send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories." }
           format.json { render action: 'show', status: :created, location: @purchase }

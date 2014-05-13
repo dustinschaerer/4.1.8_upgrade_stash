@@ -57,7 +57,7 @@ class QuotesController < ApplicationController
         Quoteholder.destroy(session[:quoteholder_id])
         session[:quoteholder_id] = nil
         QuoteNotifier.received(@quote, current_user).deliver  
-
+        QuoteNotifier.notify_admin(@quote).deliver
         format.html { redirect_to user_path(current_user), notice: 'Your Quote was successfully created and submitted. You should receive a confirmation email letting you know we\'ve recieved your quote right away. We will also send you a notification email as soon as we finish pricing your Quote.' }
         format.json { render action: 'show', status: :created, location: @quote }
       else
