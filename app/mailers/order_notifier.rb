@@ -20,6 +20,6 @@ class OrderNotifier < ActionMailer::Base
 
   def notify_admin(order)
     @order = order
-    mail to: "ken@americo-inc.com", subject: 'New Order received on Americo Dashboard'
+    mail to: 'ken@americo-inc.com', subject: 'New Order received on Americo Dashboard'
   end
 end
