@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show] 
   include CurrentQuote
   include CurrentCart
   before_action :set_cart

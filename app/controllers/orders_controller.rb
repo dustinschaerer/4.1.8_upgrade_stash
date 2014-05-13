@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show] 
   include CurrentQuoteholder
   include CurrentCart
   before_action :set_quoteholder, only: [:new, :create]
