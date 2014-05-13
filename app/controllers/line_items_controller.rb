@@ -1,10 +1,10 @@
 class LineItemsController < ApplicationController
-  before_action :authenticate_admin_user!, :except => [:new, :create, :destroy] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :destroy, :edit] 
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_cart
   before_action :set_quoteholder
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: [:show, :edit, :update, :destroy, :edit]
 
   # GET /line_items
   # GET /line_items.json
