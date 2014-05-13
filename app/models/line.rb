@@ -13,21 +13,30 @@ class Line < ActiveRecord::Base
   validates :quantity, presence: true, numericality: {:only_integer => true}
 
   validates :price, presence: true, numericality: true
-  
+  validates :quantity, presence: true, numericality: { greater_than: 0 }  
   validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 72 }, if: :is_placemat? 
   validates :quantity, numericality: { greater_than_or_equal_to: 6 }, if: :is_value_one? 
   validates :quantity, numericality: { greater_than_or_equal_to: 2 }, if: :is_value_two?
 
   validates :shape_id, presence: true, if: :is_shape?
+  validates :shape_id, numericality: { greater_than: 0 }, if: :is_shape?
   validates :cover_id, presence: true, if: :is_cover?
+  validates :cover_id, numericality: { greater_than: 0 }, if: :is_cover?
   validates :series_id, presence: true, if: :is_series? 
+  validates :series_id, numericality: { greater_than: 0 }, if: :is_series? 
   validates :color_id, presence: true, if: :is_color?
+  validates :color_id, numericality: { greater_than: 0 }, if: :is_color?
   validates :width, presence: true, if: :is_width?
-  validates :width,  numericality: { greater_than_or_equal_to: 48 }, if: :is_americlear? 
+  validates :width, numericality: { greater_than: 0 }, if: :is_width? 
+  validates :width, numericality: { greater_than: 0 }, if: :is_americlear?
+  validates :width, numericality: { greater_than_or_equal_to: 48 }, if: :is_americlear? 
   validates :width, numericality: { less_than_or_equal_to: 54 }, if: :is_americlear?
   validates :length, presence: true, if: :is_length?
+  validates :length, numericality: { greater_than: 0 }, if: :is_length?
   validates :length, presence: true, if: :is_other_length?
+  validates :length, numericality: { greater_than: 0 }, if: :is_other_length?
   validates :height, presence: true, if: :is_height?    
+  validates :height, numericality: { greater_than: 0 }, if: :is_height?    
   validates :finish, presence: true, if: :is_finish?    
   validates :laminate_side, presence: true, if: :is_laminate_side?    
   validates :yards, presence: true, if: :is_yards?    
