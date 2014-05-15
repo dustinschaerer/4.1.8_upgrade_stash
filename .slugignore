@@ -9,4 +9,5 @@ doc
 app/assets/images/swatches/swatches.zip
 app/public/assets/*
 tmp
+tmp/*
 certs
