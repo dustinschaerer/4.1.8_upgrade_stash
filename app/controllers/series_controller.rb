@@ -1,5 +1,5 @@
 class SeriesController < ApplicationController
-  before_action :authenticate_admin_user!, :except => [:show, :edit, :update]
+  before_action :authenticate_admin_user!, :except => [:show]
   include CurrentQuoteholder
   include CurrentCart
   before_action :set_quoteholder

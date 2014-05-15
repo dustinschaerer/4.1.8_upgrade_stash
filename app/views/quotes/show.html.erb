@@ -104,6 +104,11 @@
                 <% if line.color_id %>
                     <%= image_tag(line.color.image_url, class: "img-responsive") if line.color_id %>
                 <% end %>    
+
+                <% if line.finish %>
+                   <strong>FINISH:</strong>
+                   <%= line.finish %>
+                <% end %>     
             </div>
     
             <div class="col-xs-3">
@@ -128,6 +133,11 @@
                     <strong>FINISH COVER:</strong><br>
                     <%= line.cover.name %>
                   </div>  
+                <% end %>
+
+                <% if line.laminate_side %>
+                   <strong>Side to Laminate:</strong><br>
+                   <%= line.laminate_side %>
                 <% end %>
             </div>
             

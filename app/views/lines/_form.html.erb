@@ -227,7 +227,7 @@
     
     <% if (@qp_id == '6') || (@qp_id == '7') || (@qp_id == '8') || (@qp_id == '9') %>
       <%= f.hidden_field :quantity, placeholder: "Enter Quantity", value: "1" %>
-    <% elsif (@qp_id == '10') || (@qp_id == '11') || (@qp_id == '12') || (@qp_id == '17') %>
+    <% elsif (@qp_id == '4') || (@qp_id == '10') || (@qp_id == '11') || (@qp_id == '12') || (@qp_id == '17') %>
       <%= f.number_field :quantity, placeholder: "Enter Desired Number of Rolls" %>
     <% else %>
       <%= f.number_field :quantity, placeholder: "Enter Quantity" %>
