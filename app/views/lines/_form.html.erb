@@ -104,22 +104,13 @@
   </div>
 <% end %>
 
-
-
-
-
 <%= bootstrap_form_for(@line, :url => { :action => :create, :quote_product_id => @qp_id }, style: :horizontal, left: "col-sm-3 col-md-3", right: "col-sm-9 col-md-9") do |f| %>
-  
 
   <%= f.alert_message "Please fix the following errors:" %>
 
   
   <div class="form-inputs">
     <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, { selected: @qp_id, label: false  } %>
-    
-
-    <%= # f.hidden_field :quote_product_id, :as => :hidden, :input_html => { :value => @qp_id } 
-    %>
 
     <% if (@qp_id == '1') || (@qp_id == '2') || (@qp_id == '16') %>  
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|16">
@@ -189,14 +180,12 @@
         <% end %>
     </div>  
 
-
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16|17">
       <div class="form-group"><label class="col-sm-3 col-md-3 control-label" for="line_color_id">Color</label><div class="col-sm-9 col-md-9">
         <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, {prompt: "Please Choose a Series first"}, {class: "form-control"} ) %>
       </div></div> 
 
     </div>  
-
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
       <%= f.form_group :umbrella, label: { text: "Umbrella Hole?" } do %>
@@ -205,14 +194,16 @@
       <% end %>
     </div>  
 
-    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
+    <% if (@qp_id == '1') || (@qp_id == '2') %> 
+    <div class="" data-select-id="line_cover_id" data-option-value="" id="velcro_booth">
       <%= f.form_group :velcro, label: { text: "Booth with Velcro?" } do %>
         <%= f.check_box :velcro, label: "Check only if table is attached to the wall" do %>
         <% end %>
         <a href="#" data-toggle="modal" data-target="#modalBooth">Open Diagram for Help</a> 
       <% end %>
-    </div>  
- 
+    </div>
+    <% end %> 
+
     <% if (@qp_id == '6') %>
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="6">
       <%= f.number_field :yards, label: "Total Yards", placeholder: "Total Yards Long (in Yards)" %>
@@ -236,6 +227,8 @@
     
     <% if (@qp_id == '6') || (@qp_id == '7') || (@qp_id == '8') || (@qp_id == '9') %>
       <%= f.hidden_field :quantity, placeholder: "Enter Quantity", value: "1" %>
+    <% elsif (@qp_id == '10') || (@qp_id == '11') || (@qp_id == '12') || (@qp_id == '17') %>
+      <%= f.number_field :quantity, placeholder: "Enter Desired Number of Rolls" %>
     <% else %>
       <%= f.number_field :quantity, placeholder: "Enter Quantity" %>
     <% end %>

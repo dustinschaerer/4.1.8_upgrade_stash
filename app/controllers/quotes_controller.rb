@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create, :show] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :edit, :update] 
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_quoteholder
@@ -38,7 +38,11 @@ class QuotesController < ApplicationController
 
   # GET /quotes/1/edit
   def edit
-
+     if (@quote.user_id) == (current_user.id)
+      # only edit this quote if it belongs to the signed in user
+    else   
+      redirect_to root_url, notice: "You must sign in to edit your quote."
+    end  
   end
 
   # POST /quotes

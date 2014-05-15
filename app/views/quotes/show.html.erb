@@ -90,13 +90,15 @@
 
         <div class="row bottom10">
             <div class="col-xs-12 larger">
-               Quote Product: <span class="bold"><%= line.quote_product.name.upcase if line.quote_product_id %></span>
+               Quote Product: <span class="bold"><%= line.quote_product.name.upcase if line.quote_product_id %></span> <% if (line.quote_product.id == 10 || line.quote_product.id == 11 || line.quote_product.id == 12 || line.quote_product.id == 17) %>
+                       - 25 yard rolls / 54" wide
+                     <% elsif (line.quote_product.id == 4) %>
+                       - 33 yard rolls
+                     <% end %>
             </div>
         </div>
 
         <div class="row">
-          
-            
 
             <div class="col-xs-2">
                 <% if line.color_id %>
@@ -181,6 +183,13 @@
                 <div class="quotespace">
                   <strong>BOOTH WITH VELCRO?</strong>
                   <%= boolean_to_words(line.velcro) %>
+                </div>
+              <% end %>
+
+              <% if line.yards %>
+                <div class="quotespace">
+                  <strong>TOTAL YARDS:</strong>
+                  <%= line.yards %> yards
                 </div>
               <% end %>
             </div>

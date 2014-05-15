@@ -62,7 +62,13 @@
 
   <div class="larger top10">
   </div>
+
+  <% if @quote.question %>
     <p>Please review the questions/comments in the box below in regards to your Quote. If you'd like to reply, just add your message to the box and click "Update Comments".</p>
+  <% else %>
+    <p>There have not been questions attached to this quote yet.</p> 
+  <% end %>
+
 
   <% if @quote.errors.any? %>
     <div id="error_explanation">
@@ -76,14 +82,21 @@
     </div>
   <% end %>
   
+  
+  <% if @quote.question %>
   <div class="form-inputs top20">,
     <%= f.text_area :question, label: 'Question or Comments', rows: 8,  value: @quote.question.html_safe %> 
-  </div>  
+  </div>
+  <% end %>  
 
   <div class="form-actions">
     <%= f.form_group do %>
-      <%= f.submit 'Update or Edit Comments',  class: "btn btn-success btn-large"  %>
-      <%= link_to 'Cancel Reply', quotes_path(@quote), class: "btn btn-danger btn-large" %>
+      <% if @quote.question %>
+        <%= f.submit 'Update or Edit Comments',  class: "btn btn-success btn-large"  %>
+        <%= link_to 'Cancel Reply', quote_path(@quote), class: "btn btn-danger btn-large" %>
+      <% else %>
+        <%= link_to 'Go Back', quote_path(@quote), class: "btn btn-danger btn-large" %>
+      <% end %>
     <% end %>
   </div>
 
