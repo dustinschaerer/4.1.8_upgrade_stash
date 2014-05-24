@@ -1,6 +1,6 @@
 ActiveAdmin.register Quote do
   menu :priority => 5
-  actions :all, :except => [:destroy] 
+  actions :all 
 
   permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at, :question, 
    lines_attributes: [ :id, :price, :quantity]
