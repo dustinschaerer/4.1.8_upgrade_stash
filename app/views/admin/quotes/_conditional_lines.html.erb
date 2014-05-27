@@ -323,7 +323,7 @@
       <tbody>
 
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
           <td class="col col-series"><%= line.series.name %></td>
           <td class="col col-color"><%= line.color.name %></td>
           <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
@@ -351,7 +351,7 @@
       <tbody>
 
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
           <td class="col col-series"><%= line.series.name %></td>
           <td class="col col-color"><%= line.color.name %></td>
           <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
