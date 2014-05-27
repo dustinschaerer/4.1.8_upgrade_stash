@@ -74,17 +74,15 @@ class QuotesController < ApplicationController
   # PATCH/PUT /quotes/1
   # PATCH/PUT /quotes/1.json
   def update
-    if (@quote.user_id) == (current_user.id)
-      respond_to do |format|
-        if @quote.update(quote_params)
-          format.html { redirect_to quote_path(@quote), notice: 'Quote was successfully updated.' }
-          #format.json { head :no_content }
-          format.json { respond_with_bip(@quote) }
-        else
-          format.html { render action: 'edit' }
-          #format.json { render json: @quote.errors, status: :unprocessable_entity }
-          format.json { respond_with_bip(@quote) }
-        end
+    respond_to do |format|
+      if @quote.update(quote_params)
+        format.html { redirect_to quote_path(@quote), notice: 'Quote was successfully updated.' }
+        #format.json { head :no_content }
+        format.json { respond_with_bip(@quote) }
+      else
+        format.html { render action: 'edit' }
+        #format.json { render json: @quote.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@quote) }
       end
     end
   end
