@@ -228,7 +228,6 @@
           <th class="col col-color">Color</th>
           <th class="col col-swatch">Swatch</th>
           <th class="col col-yards_long">Yards Long</th>
-          <th class="col col-dimensions">Dimensions</th>
           <th class="col col-quantity">Quantity</th>
           <th class="col col-price">Price</th>
         </tr>
@@ -240,7 +239,6 @@
           <td class="col col-color"><%= line.color.name %></td>
           <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
-          <td class="col col-dimensions"><%= line.size.name%></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> 
         </tr>
