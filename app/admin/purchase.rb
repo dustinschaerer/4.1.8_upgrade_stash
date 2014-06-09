@@ -88,7 +88,7 @@ ActiveAdmin.register Purchase do
         panel "Purchase Totals" do       
           attributes_table_for purchase do
             row :subtotal do |sb| number_to_currency sb.subtotal end 
-            row :shipping do |shipping| number_to_currency shipping.subtotal end
+            row :shipping do |shipping| number_to_currency shipping.shipping end
             row :sales_tax do |st| number_to_currency st.sales_tax end
             row :total do |ttl| number_to_currency ttl.total end
             row :state
