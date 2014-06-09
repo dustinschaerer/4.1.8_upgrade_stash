@@ -92,11 +92,12 @@
 			<th>Total</th>
 		</tr>	
 		<% @purchases.each do |purchase|%>
+		
 		<tr>
 			<td><%= purchase.id %></td>
 			<td><%= link_to 'Show Purchase Details', purchase %></td>
 			<td><%= purchase.status %></td>
-			<td><%= purchase.firstname %> <%= purchase.lastname %></td>
+			<td><%= purchase.pay_firstname %> <%= purchase.pay_lastname %></td>
 			<td><%= purchase.email %></td>
 			<td><%= purchase.created_at.strftime("%-m-%d-%Y") %></td>
 			<td><%= number_to_currency(purchase.subtotal) %></td>
@@ -104,6 +105,7 @@
 			<td><%= number_to_currency(purchase.sales_tax) %></td>
 			<td><%= number_to_currency(purchase.total) %></td> 
 		</tr>
+		
 		<% end %>
 	</table>
 

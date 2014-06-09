@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create, :show] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :update] 
   include CurrentQuote
   include CurrentCart
   before_action :set_cart
@@ -15,7 +15,13 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   def new
     @purchase = Purchase.new
-    @quote = Quote.find(params[:quote_id])
+    #if we just came here from the user show
+    if (params[:quote_id]) 
+      @quote = Quote.find(params[:quote_id])
+    # else we came from validation failing on this page
+    else
+      @quote = Quote.find(params[:purchase][:quote_id])
+    end
     @purchase.firstname = @quote.firstname
     @purchase.lastname = @quote.lastname
     @purchase.company = @quote.company
@@ -40,6 +46,7 @@ class PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.json
   def create
+
     if (params[:checkbox_use_same_address] == true)
       @purchase.pay_firstname = @purchase.firstname 
       @purchase.pay_lastname = @purchase.lastname 
@@ -56,34 +63,58 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
-    @purchase.update_attribute(:status, "Purchased")
+    #@purchase.update_attribute(:status, "Purchased")
 
+    
     if @purchase.save
       # attempt purchase
+      
       if @purchase.purchase_the_order
-        # send purchase notification email    
+        # update statuses to Purchased
+        @purchase.status = 'Purchased'
+        @purchase.save
         @quote.status = 'Purchased'
         @quote.save
+        # send purchase notification email 
         PurchaseNotifier.confirmation(@purchase, current_user).deliver
         PurchaseNotifier.notify_admin(@purchase).deliver
-
-        respond_to do |format|   
-          format.html { redirect_to @purchase, notice: "PURCHASE COMPLETED! We'll send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories." }
+        
+        respond_to do |format|
+          format.html { redirect_to @purchase, notice: 'PURCHASE COMPLETED! We will send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories.'  }
           format.json { render action: 'show', status: :created, location: @purchase }
-        end
+        end          
       else  
-        redirect_to :back, notice: 'FAILURE: Credit Card Invalid. Enter valid card card information to place your order now.'
+        @purchase.destroy
+        respond_to do |format|
+          #maybe render template here instead with a return link to purchase
+          format.html { redirect_to new_purchase_path(quote_id: @quote.id), notice: 'FAILURE: Credit Card Invalid. Please enter your valid card card information to place your order now.' }
+          #new_purchase_path(quote_id: quote)
+        end
       end
     else
-      respond_to do |format|
-        format.html { redirect_to @purchase, notice: 'Purchase could not be completed. See errors for details.' }
+      respond_to do |format|  
+        format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
-      end
+      end  
     end
   end
 
   # PATCH/PUT /purchases/1
   # PATCH/PUT /purchases/1.json
+  def update
+    respond_to do |format|
+      
+      if @purchase.update(purchase_params)
+            format.html { redirect_to @purchase, notice: "PURCHASE COMPLETED! We'll send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories." }
+            format.json { render action: 'show', status: :created, location: @purchase }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @cover.errors, status: :unprocessable_entity }
+      end
+    
+    end
+  end
+
 
 
   # DELETE /purchases/1
@@ -104,6 +135,6 @@ class PurchasesController < ApplicationController
         :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type, 
         :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number, 
         :card_verification, :month, :year, :email, :quote_id, :tax_id, 
-        quotes_attributes: [:status]) 
+        quotes_attributes: [:status, :id]) 
     end
 end

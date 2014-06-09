@@ -1,5 +1,5 @@
 
-<%= bootstrap_form_for(@purchase, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
+<%= bootstrap_form_for(@purchase, action: :new, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
   
 
   <div class="form-inputs">
@@ -8,8 +8,6 @@
         <p>To purchase all the items from your submitted <strong>Quote #<%= @quote.id %></strong>, fill out the shipping and billing information below.  Our checkout is 100% secure and fully encrypted.</p>  
         
         <%= f.alert_message "Please fix the following errors:" %>
-
-       
       </div>
       
       <div class="col-md-6">
@@ -98,49 +96,8 @@
     <%=  f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
     <%=  f.text_field :card_number %>
     <%=  f.text_field :card_verification, label: 'Card Verification Value (CVV)' %>
-  
 
-
-<!--
-    <div class="form-group"><label class="col-sm-4 control-label" for="purchase_card_expires_on">Card expires on</label>
-    <div class="col-sm-4">
-<select class="form-control" id="purchase_card_expires_on_2i" name="purchase[card_expires_on(2i)]">
-<option selected="selected" value="">Please Select Month Exp</option>
-<option value="1">1 - January</option>
-<option value="2">2 - February</option>
-<option value="3">3 - March</option>
-<option value="4">4 - April</option>
-<option value="5">5 - May</option>
-<option value="6">6 - June</option>
-<option value="7">7 - July</option>
-<option value="8">8 - August</option>
-<option value="9">9 - September</option>
-<option value="10">10 - October</option>
-<option value="11">11 - November</option>
-<option value="12">12 - December</option>
-</select>
-<input id="purchase_card_expires_on_3i" name="purchase[card_expires_on(3i)]" type="hidden" value="1" />
-</div>
-      <div class="col-sm-4"><select class="form-control" id="purchase_card_expires_on_1i" name="purchase[card_expires_on(1i)]">
-<option selected="selected" value="">Please Select Year Exp</option>
-<option value="2014">2014</option>
-<option value="2015">2015</option>
-<option value="2016">2016</option>
-<option value="2017">2017</option>
-<option value="2018">2018</option>
-<option value="2019">2019</option>
-<option value="2020">2020</option>
-<option value="2021">2021</option>
-<option value="2022">2022</option>
-<option value="2023">2023</option>
-<option value="2024">2024</option>
-</select></div>
--->
-
-    <%= #  f.date_select :card_expires_on, control_col:'col-sm-3', :discard_day => true, :start_year => Date.today.year, :add_month_numbers => true,  :end_year => (Date.today.year+10)  
-    %> 
-
-      <%= f.date_select :card_expires_on, discard_day: true, :add_month_numbers => true, start_year: Date.today.year, end_year: (Date.today.year+10), prompt: { month: 'Select month', year: 'Select year' } %>
+    <%= f.date_select :card_expires_on, discard_day: true, :add_month_numbers => true, start_year: Date.today.year, end_year: (Date.today.year+10), prompt: { month: 'Select month', year: 'Select year' } %>
    
   </p>
   </div>
