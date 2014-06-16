@@ -14,9 +14,9 @@ class Purchase < ActiveRecord::Base
   validates :pay_firstname, :pay_lastname, :pay_telephone, presence: true
   validates :pay_street_address, :pay_city, :pay_state, :pay_zipcode, :pay_country, presence: true
   validates :pay_type, :pay_status, :status, presence: true
-  validates :card_number, :card_verification, presence: true
+  validates :card_number, :card_verification, presence: true, on: :create
 
-  validate :validate_card, on: :create , if: :is_ready?
+  validate :validate_card, on: :create, if: :is_ready?
 
   PAYMENT_TYPES = [ "Credit Card" ]
 

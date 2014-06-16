@@ -43,6 +43,11 @@ class PurchasesController < ApplicationController
     @purchase.quote_id = @quote.id
   end
 
+   # GET /purcashes/1/edit
+  def edit
+    
+  end
+
   # POST /purchases
   # POST /purchases.json
   def create
@@ -103,7 +108,6 @@ class PurchasesController < ApplicationController
   # PATCH/PUT /purchases/1.json
   def update
     respond_to do |format|
-      
       if @purchase.update(purchase_params)
             format.html { redirect_to @purchase, notice: "PURCHASE COMPLETED! We'll send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories." }
             format.json { render action: 'show', status: :created, location: @purchase }
@@ -111,7 +115,6 @@ class PurchasesController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @cover.errors, status: :unprocessable_entity }
       end
-    
     end
   end
 
