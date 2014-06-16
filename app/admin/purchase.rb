@@ -139,6 +139,7 @@ ActiveAdmin.register Purchase do
           h4 { button_to "RE-Send Shipped EMail to Customer Now and Re-Update Purchase Status to Shipped", "/admin/purchases/#{purchase.id}/send_shipped_email", :method => :post }                                                                   
         else
           h2 { "Warning: Purchase ID# #{purchase.id} status is not set to Purchased or Shipped." }
+          h2 { button_to "Warning: OVERRIDE Purchase ID# #{purchase.id}, set status to Shipped and send shipped email.",  "/admin/purchases/#{purchase.id}/send_shipped_email", :method => :post }
         end 
       end
     end  
