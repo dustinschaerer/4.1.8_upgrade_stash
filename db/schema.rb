@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512174457) do
+ActiveRecord::Schema.define(version: 20140709160759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -314,22 +314,6 @@ ActiveRecord::Schema.define(version: 20140512174457) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "shipping_profiles", force: true do |t|
-    t.integer  "user_id"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "company"
-    t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-    t.string   "country"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "shipping_profiles", ["user_id"], name: "index_shipping_profiles_on_user_id", using: :btree
 
   create_table "simple_captcha_data", force: true do |t|
     t.string   "key",        limit: 40

@@ -1,9 +1,9 @@
 class RemoveShippingProfiles < ActiveRecord::Migration
-  def down
+  def up
     drop_table :shipping_profiles
   end
 
-  def up
+  def down
     create_table :shipping_profiles do |t|
       t.integer :user_id
       t.string :firstname
