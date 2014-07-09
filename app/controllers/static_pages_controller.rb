@@ -60,6 +60,9 @@ class StaticPagesController < ApplicationController
   def satisfied_customers
   end 
     
+  def sitemap
+  end
+
   def table_cover_gallery
   end
 
