@@ -284,4 +284,22 @@
 <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
   <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
 <% end %>
+
+<% if (@quote.status == "Priced") %>
+  <%= link_to new_purchase_path(quote_id: @quote.id), class: "btn btn-success btn-med pull-right", method: :get do %>
+    Buy This Quote Now <i class="glyphicon glyphicon-circle-arrow-right"></i>   
+  <% end %>
+<% elsif (@quote.status == "Purchased") %>
+  You have already purchased this quote.  
+<% else %>
+  <span class="text-primary pull-right"><b>This Quote is currently waiting on pricing.</b></span>
+<% end %>
+
+
+
+
+
+
+
+
 <p></p>
