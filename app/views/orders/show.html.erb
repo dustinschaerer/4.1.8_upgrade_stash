@@ -1,17 +1,44 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
 
-<p><%= link_to user_path(current_user), :class => "btn btn-primary btn-med"  do %>
-  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
-<% end %></p>
+  <% if @order.question %> 
+    <div class="col-xs-12 col-md-2">
+  <% else %>        
+    <div class="col-xs-12">      
+  <% end %>
+      <p>
+        <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
+        <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+      <% end %>
+      </p>
+    </div>
+  
+  <% if @order.question %> 
+    <div class="col-xs-12 col-md-offset-1 col-md-8">
+      <div class="panel panel-danger">
+      
+        <div class="panel-heading">
+               
+              <strong>Please review these Questions or Comments regarding your quote: </strong>
+        </div>
+
+        <div class="panel-body">
+          <%= simple_format(@order.question) %> 
+          <%= button_to 'Click to add a Reply', edit_order_path(@order.id), class: "btn btn-success pull-right", method: :get %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <div class="row">
-  <div class="col-xs-12 col-md-8">
+  <div class="col-xs-12">
 
     <div class="panel panel-info">
       
       <div class="panel-heading">
         <div class="row">
-          <div class="col-sm-12 col-md-8">     
+          <div class="col-sm-12 col-md-12">     
             SWATCH ORDER #<%= @order.id %>
           </div>
         </div>  
@@ -68,68 +95,6 @@
 
   </div>
 </div>
-
-<!--
-<p>
-  <strong>First Name:</strong>
-  <%= @order.firstname %>
-</p>
-
-<p>
-  <strong>Last Name:</strong>
-  <%= @order.lastname %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @order.company %>
-</p>
-
-<p>
-  <strong>Street address:</strong>
-  <%= @order.street_address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @order.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @order.state %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @order.zipcode %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @order.country %>
-</p>
-
-<p>
-  <strong>Telephone:</strong>
-  <%= @order.telephone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @order.email %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
-
-<p>
-  <strong>User ID:</strong>
-  <%= @order.user_id %>
-</p>
--->
 
 <%= link_to user_path(current_user), :class => "btn btn-primary btn-med"  do %>
   <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   

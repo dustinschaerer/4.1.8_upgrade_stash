@@ -32,6 +32,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+     if (@order.user_id) == (current_user.id)
+      # only edit this quote if it belongs to the signed in user
+    else   
+      redirect_to root_url, notice: "You must sign in to edit your order."
+    end  
   end
 
   # POST /orders
@@ -63,10 +68,13 @@ class OrdersController < ApplicationController
     respond_to do |format|
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
-        format.json { head :no_content }
+#        format.json { head :no_content }
+        format.json { respond_with_bip(@order) }
+
       else
         format.html { render action: 'edit' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
+ #       format.json { render json: @order.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@order) }  
       end
     end
   end
@@ -89,6 +97,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:firstname, :lastname, :company, :street_address, :city, :state, :zipcode, :country, :telephone, :email, :user_id, :status)
+      params.require(:order).permit(:firstname, :lastname, :company, :street_address, :city, :state, :zipcode, :country, :telephone, :email, :user_id, :status, :question)
     end
 end

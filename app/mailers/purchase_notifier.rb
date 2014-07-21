@@ -12,15 +12,16 @@ class PurchaseNotifier < ActionMailer::Base
     mail to: purchase.user.email, subject: 'Americo Purchase Confirmation '
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.purchase_notifier.shipped.subject
-  #
   def shipped(purchase, current_user)
     @purchase = purchase
     @current_user = current_user
     mail to: purchase.user.email, subject: 'Americo Purchase has Shipped'
+  end
+
+  def question(purchase, current_user)
+    @purchase = purchase
+    @current_user = current_user
+    mail to: purchase.email, subject: 'Question about your Americo Purchase'
   end
 
   def notify_admin(purchase)

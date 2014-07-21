@@ -28,7 +28,7 @@ Americo::Application.routes.draw do
   resources :subscribers  
   resources :quotecarts  
   resources :quotes
-  resources :purchases, :only => [:new, :create, :show]
+  resources :purchases, :only => [:new, :create, :show, :update]
 
   get "store/index"
   resources :products do

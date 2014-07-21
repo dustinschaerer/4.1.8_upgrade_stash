@@ -41,7 +41,7 @@
           <div class="cat-subtitle"></div>
           <div>
             <p class="splashtext"></p>
-            <p class="splashtext"s></p>
+            <p class="splashtext"></p>
           </div>
         </div>
         <div class="col-sm-3">
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row bottom20">
 
       <% @category.products.order(:id).each do |product| %>
           
@@ -62,15 +62,16 @@
                     
                     <%= image_tag(style.image_url, :class => "img-responsive") %>
 
-                  <% end %>
+                  
 
                   <%= style.description.html_safe %>
-
+                  <% end %>
                   </div>
               </div>
               <% end %>
       <% end %>     
       </div>
+
     <div class="border-top">
       <div id="covers">
         <div><span class="bgtext">TABLE COVER TYPES &nbsp; <a href="/how_to_measure" class="lefty">Measuring Instructions  <span class="glyphicon glyphicon-play"></span></a></span>   </div><%= image_tag('vertical-illustrations.png', :class => "img-responsive bgimg") %></div>

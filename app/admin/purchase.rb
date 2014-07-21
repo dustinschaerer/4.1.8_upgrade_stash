@@ -1,11 +1,19 @@
 ActiveAdmin.register Purchase do
 
+
+
+
+
+   
+    
+
+
   menu :priority => 4
 
   permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, 
                 :email, :pay_firstname, :pay_lastname, :paycompany, :pay_telephone, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, 
                 :pay_country, :pay_type, :pay_status, :subtotal, :shipping, :sales_tax, :total, :amount, :updated_at, :paycompany, :status, :state, 
-                :card_expires_on, :card_type, :ip_address, lines_attributes: [ :id, :price, :quantity]
+                :card_expires_on, :card_type, :ip_address, :question, lines_attributes: [ :id, :price, :quantity]
   
   #member_action :set_to_shipped, :method => :post do
   #  @purchase = Purchase.find(params[:id])
@@ -33,6 +41,16 @@ ActiveAdmin.register Purchase do
     end
   end
 
+  member_action :send_question_email, :method => :post do
+    @purchase = Purchase.find(params[:id])
+    @current_user_id = @purchase.user_id
+    @current_user = User.find(@current_user_id)
+    if PurchaseNotifier.question(@purchase, @current_user).deliver
+      redirect_to admin_purchases_path, :notice => "Question or Comment Email message has been successfully sent to customer."    
+    else
+      render :back, :notice => "ERROR: Could not deliver email message."
+    end  
+  end
 
   index do 
     column("Purchase ID#", :sortable => :id) {|purchase| link_to "##{purchase.id} ", admin_purchase_path(purchase) }
@@ -142,8 +160,27 @@ ActiveAdmin.register Purchase do
           h2 { button_to "Warning: OVERRIDE Purchase ID# #{purchase.id}, set status to Shipped and send shipped email.",  "/admin/purchases/#{purchase.id}/send_shipped_email", :method => :post }
         end 
       end
-    end  
-    active_admin_comments
+    end 
+
+    #show columns here 
+    columns do 
+      column do
+        active_admin_comments
+      end
+      column do
+        panel "Questions for the Customer" do
+          attributes_table_for purchase do
+            row :question do |qq|
+              best_in_place qq, :question, :type => :textarea, :display_with => :simple_format
+            end
+            h3 { button_to "Email Question Response History to Customer Now", "/admin/purchases/#{purchase.id}/send_question_email", :method => :post }
+          end
+        end
+      end
+    end
+
+
+
   end
   
 

@@ -1,6 +1,56 @@
-<%= bootstrap_form_for(@order, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+<% if @order.new_record? %>
 
- <% if @order.errors.any? %>
+
+  <%= bootstrap_form_for(@order, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+
+   <% if @order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %>  
+      <%= f.text_field :firstname, label: 'First Name', size: 35 %>
+      <%= f.text_field :lastname, label: 'Last Name', size: 35 %>
+      <%= f.text_field :company, size: 50 %>
+      <%= f.text_field :street_address, label: 'Street Address', size: 50 %>
+      <%= f.text_field :city, size: 30 %>
+      <%= f.text_field :zipcode, label: 'Zip Code', size: 10 %>
+      <%= f.select :state, Order::STATES, prompt: 'Select State' %>
+      <%= f.select(:country, options_for_select(['United States'] )) %>
+      <%= f.text_field :telephone, label: 'Telephone Number' %>
+      <%= f.hidden_field :status, value: "Submitted"  %>
+      <%= f.hidden_field :user_id, value: current_user.id  %>
+    
+    <div class="form-actions">
+      <%= f.form_group do %>
+        <%= f.submit 'Submit Order Now', :class => "btn btn-success"  %>
+      <% end %>
+    </div>
+  <% end %>
+
+<% else %>
+
+  <%= bootstrap_form_for(@order, style: :horizontal, left: "col-xs-12 col-md-3", right: "col-xs-12 col-md-8") do |f| %>
+
+
+  <div class="larger top10">
+  </div>
+
+  <% if @order.question %>
+    <p>Please review the questions/comments in the box below in regards to your order. If you'd like to reply, just add your message to the box and click the "Update or Edit Comments" button.</p>
+  <% else %>
+    <p>There have not been questions attached to this order yet.</p> 
+  <% end %>
+
+
+  <% if @order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
@@ -11,23 +61,26 @@
       </ul>
     </div>
   <% end %>
-
-    <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %>  
-    <%= f.text_field :firstname, label: 'First Name', size: 35 %>
-    <%= f.text_field :lastname, label: 'Last Name', size: 35 %>
-    <%= f.text_field :company, size: 50 %>
-    <%= f.text_field :street_address, label: 'Street Address', size: 50 %>
-    <%= f.text_field :city, size: 30 %>
-    <%= f.text_field :zipcode, label: 'Zip Code', size: 10 %>
-    <%= f.select :state, Order::STATES, prompt: 'Select State' %>
-    <%= f.select(:country, options_for_select(['United States'] )) %>
-    <%= f.text_field :telephone, label: 'Telephone Number' %>
-    <%= f.hidden_field :status, value: "Submitted"  %>
-    <%= f.hidden_field :user_id, value: current_user.id  %>
   
+  
+  <% if @order.question %>
+  <div class="form-inputs top20">,
+    <%= f.text_area :question, label: 'Question or Comments', rows: 8,  value: @order.question.html_safe %> 
+  </div>
+  <% end %>  
+
   <div class="form-actions">
     <%= f.form_group do %>
-      <%= f.submit 'Submit Order Now', :class => "btn btn-success"  %>
+      <% if @order.question %>
+        <%= f.submit 'Update or Edit Comments',  class: "btn btn-success btn-large"  %>
+        <%= link_to 'Cancel Reply', order_path(@order), class: "btn btn-danger btn-large" %>
+      <% else %>
+        <%= link_to 'Go Back', order_path(@order), class: "btn btn-danger btn-large" %>
+      <% end %>
     <% end %>
   </div>
+
+ <% end %>
+
+
 <% end %>

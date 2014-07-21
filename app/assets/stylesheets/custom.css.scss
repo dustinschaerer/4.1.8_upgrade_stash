@@ -555,6 +555,7 @@ footer {
 .styletype {
   font-size: 2.2em;
   letter-spacing:-1px;
+
 }
 .weighty {
   font-weight: 600;
@@ -572,7 +573,8 @@ footer {
 
 .style-title {
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.5em;
+  letter-spacing:-0.5px;
 }
 .style-head {
   font-weight: bold;
@@ -942,4 +944,21 @@ p .up10, .up10 {
 }
 body .galleria-thumbnails-container {
     display: block ! important;
+}
+
+.product-well {
+
+    
+    position: relative;
+    text-align: center;
+    box-shadow: 1px 1px 2px #e6e6e6;
+    cursor: default;
+
+}
+.style-link:hover {
+  
+  /*border: solid 1px #8A1921;*/
+   border: solid 1px #888888; 
+  box-shadow: 0px 5px 5px 3px #AAAAAA;
+  margin-top: -6px;
 }

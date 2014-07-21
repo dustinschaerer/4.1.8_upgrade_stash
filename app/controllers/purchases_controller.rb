@@ -137,7 +137,7 @@ class PurchasesController < ApplicationController
         :pay_status, :status, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, 
         :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type, 
         :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number, 
-        :card_verification, :month, :year, :email, :quote_id, :tax_id, 
+        :card_verification, :month, :year, :email, :quote_id, :tax_id, :question, 
         quotes_attributes: [:status, :id]) 
     end
 end

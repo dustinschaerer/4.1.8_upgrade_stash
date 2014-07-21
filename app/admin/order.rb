@@ -2,8 +2,19 @@ ActiveAdmin.register Order do
   menu :priority => 6
   actions :all, :except => [:destroy] 
 
-  permit_params :user_id, :firstname, :lastname, :company, :street_address, :city, :state, :zipcode, :country, :telephone, :email, :status
+  permit_params :user_id, :firstname, :lastname, :company, :street_address, :city, :state, :zipcode, :country, :telephone, :email, :status, :question
   
+  member_action :send_question_email, :method => :post do
+    @order = Order.find(params[:id])
+    @current_user_id = @order.user_id
+    @current_user = User.find(@current_user_id)
+    if OrderNotifier.question(@order, @current_user).deliver
+      redirect_to admin_orders_path, :notice => "Question or Comment Email message has been successfully sent to customer."    
+    else
+      render :back, :notice => "ERROR: Could not deliver email message."
+    end  
+  end
+
   index do 
     column("Order ID#", :sortable => :id) {|order| link_to "##{order.id} ", admin_order_path(order) }
     column("Order Status") { |order| status_tag((order.status)) }
@@ -38,22 +49,13 @@ ActiveAdmin.register Order do
             row :zipcode
             row :country
           end
-
-        
-         
         end  
-
         active_admin_comments
-
       end # end column
       
-
-
-
       column do
 
-
-        panel "Invoice -Order ##{order.id}" do
+        panel "Invoice - Order ##{order.id}" do
           
           attributes_table_for order do
             row ("Order ID") { order.id }
@@ -68,18 +70,25 @@ ActiveAdmin.register Order do
             t.column("Color") {|item| auto_link item.color}
           end
         end
+
+        panel "Questions for the Customer" do
+          attributes_table_for order do
+            row :question do |qq|
+              best_in_place qq, :question, :type => :textarea, :display_with => :simple_format
+            end
+            h3 { button_to "Email Question Response History to Customer Now", "/admin/orders/#{order.id}/send_question_email", :method => :post }
+          end
+        end
+
       end # end column
     end # end columns
   end # end show
-
 
   # sidebar "Order Details", only: [:show, :edit] do
   #   ul do
   #     li link_to("Line_Items", admin_order_line_items_path(order))
   #   end  
   # end
-  
-   
   
     form do |f|
       f.actions
