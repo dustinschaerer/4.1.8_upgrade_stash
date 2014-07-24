@@ -31,7 +31,7 @@
           <div class="nivo-1">
           </div>
           <div class="nivo-1a">
-             <strong>Classic vinyl table</strong> covers are ideal for restaurants, cafeterias, healthcare facilities,  convention centers, hotels and more
+             <strong>Classic vinyl table</strong> covers are ideal for restaurants, cafeterias, healthcare facilities,  convention centers, hotels and more.
           </div>
         </div>
 
@@ -170,7 +170,7 @@
   </div>
 
   <div class="row">    
-    <div class="col-xs-6 col-sm-7"> 
+    <div class="col-xs-12 col-sm-7"> 
       <div class="style-head">
         <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') ) %>
         <div class="addgold">
@@ -194,7 +194,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-xs-6 col-sm-5"> 
+    <div class="col-xs-12 col-sm-5 hidden-xs"> 
       <div class="choices top25">
       <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') ) %>
         <div class="addgold">
@@ -218,7 +218,7 @@
   <% unless ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %> 
   <div class="entry">
     <div class="row top10">
-      <div class="col-xs-9 col-sm-10">   
+      <div class="col-xs-12 col-sm-10">   
         <div class="row">
           <% @style.series.order("name").each do |swatch| %>
           <div class="col-xs-6 col-sm-3">   
@@ -231,7 +231,7 @@
           <% end %>
         </div>
       </div>
-      <div class="col-xs-3 col-sm-2">  
+      <div class="col-xs-12 col-sm-2">  
         <% if ( (params[:id] == '2') || (params[:id] == 'premium-vinyl-6100') ) %>
         <div class="top40">
            <%= link_to('/styles/vinyl-upholstery-fabric', :class => "no-under onesix addorange") do %>
@@ -248,12 +248,12 @@
 
 
 
-        <div>
+        <div class="hidden-xs">
           <%= link_to('/free_swatches', :class => "no-under") do %>
             <%= image_tag("swatch-image.jpg", :class => "top40", alt:"Free Swatches") %>
           <% end %>
         </div>
-        <div>
+        <div class="hidden-xs">
            <%= link_to('/request_catalog', :class => "no-under") do %>
             <%= image_tag("free-catalog.jpg", :class => "top40", alt:"Free Catalog") %>
           <% end %>
@@ -261,7 +261,7 @@
 
         <% if (params[:id] == 1..3) || (params[:id] == 'classic-vinyl-9800') || (params[:id] == 'premium-vinyl-6100') || (params[:id] == 'designer-laminate-1200-2000') %>
 
-        <div class="top40">
+        <div class="top40 hidden-xs">
            <%= link_to('/categories/non-slip-padding', :class => "no-under onesix addarmy") do %>
             <strong>Don't Forget</strong><br>to order the<br>Non-Slip Pads
           <% end %>
@@ -281,3 +281,108 @@
     </div>
   </div>
   <% end %>    
+  <hr />
+
+  <div class="row top10">
+    <div class="col-xs-12">   
+      <p class="larger bold">Also see our other collections available:</h4>
+    </div>
+  </div>
+        
+  <div class="row">
+    
+        <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') || 
+                (params[:id] == '2') || (params[:id] == 'premium-vinyl-6100') || 
+                (params[:id] == '3') || (params[:id] == 'designer-laminate-1200-2000') ) %>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 top10">   
+          <div class="style-link">
+            
+            <div style="border: solid 1px #ccc">
+              <%= link_to('/styles/value-vinyl-7100', :class => "no-under") do %>
+                <div class="stylebox">
+                <div class="style-title addmaroon top10" style="letter-spacing:-0.6px;font-size:1.3em;">VALUE COLLECTION</div>
+                              
+                  <%= image_tag("coming-soon.jpg", :class => "img-responsive", :style => "padding:10px;", alt: "Value Vinyls" ) %>
+
+                <div class="style-series">SERIES 7100</div>
+                <div class="style-design">5 Designs | 25 Colors</div>
+                <a class="btn btn-primary btn-sm bottom10" role="button" href="/styles/value-vinyl-7100">View Designs &amp; Patterns</a>
+                </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+
+        <% end %>
+
+        <% if ( (params[:id] == '2') || (params[:id] == 'premium-vinyl-6100') || 
+                (params[:id] == '3') || (params[:id] == 'designer-laminate-1200-2000') || 
+                (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 top10">   
+          <div class="style-link">
+            
+            <div style="border: solid 1px #ccc">
+              <%= link_to('/styles/classic-vinyl-9800', :class => "no-under") do %>
+                <div class="stylebox">
+                <div class="style-title addgold top10" style="letter-spacing:-0.6px;font-size:1.3em;">CLASSIC COLLECTION</div>
+                              
+                  <%= image_tag("9828-lasagna_vinyl-table-cover.jpg", :class => "img-responsive", :style => "padding:10px;", alt: "Value Vinyls" ) %>
+                <div class="style-series">SERIES 9800</div>
+                <div class="style-design">29 Designs | 152 Colors</div>
+                <a class="btn btn-primary btn-sm bottom10" role="button" href="/styles/classic-vinyl-9800">View Designs &amp; Patterns</a>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+
+        <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') || 
+                (params[:id] == '3') || (params[:id] == 'designer-laminate-1200-2000') || 
+                (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 top10">   
+          <div class="style-link">
+            <div style="border: solid 1px #ccc">
+              <%= link_to('/styles/premium-vinyl-6100', :class => "no-under") do %>
+                <div class="stylebox">
+                <div class="style-title addarmy top10" style="letter-spacing:-0.6px;font-size:1.3em;">PREMIUM COLLECTION</div>
+                              
+                  <%= image_tag("6125_black-mocha_vinyl-table-cover.jpg", :class => "img-responsive", :style => "padding:10px;", alt: "Premium Vinyls" ) %>
+                
+                <div class="style-series">SERIES 6100</div>
+                <div class="style-design">29 Designs | 152 Colors</div>
+                <a class="btn btn-primary btn-sm bottom10" role="button" href="https://www.americo-inc.com/styles/premium-vinyl-6100">View Designs &amp; Patterns</a>
+                </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+        <% end %>
+       
+        <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') || 
+                (params[:id] == '2') || (params[:id] == 'premium-vinyl-6100') || 
+                (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
+         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 top10">   
+          <div class="style-link">
+            <div style="border: solid 1px #ccc">
+              <%= link_to('/styles/designer-laminate-1200-2000', :class => "no-under") do %>
+                <div class="stylebox">
+                <div class="style-title addpurple top10" style="letter-spacing:-0.6px;font-size:1.3em;">DESIGNER COLLECTION</div>
+                  <%= image_tag("2013-white_laminated-table-cover.jpg", :class => "img-responsive", :style => "padding:10px;", alt: "Designer Vinyls" ) %>
+                <div class="style-series">SERIES 1200/2000</div>
+                <div class="style-design">29 Designs | 152 Colors</div>
+                <a class="btn btn-primary btn-sm bottom10" role="button" href="https://www.americo-inc.com/styles/designer-laminate-1200-2000">View Designs &amp; Patterns</a>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>        
+        <% end %>
+
+
+
+   </div>     
+  
