@@ -1,26 +1,26 @@
 <% if (@series.style.id == 1) %>
 <% thistitle = "CLASSIC VINYL"
    thiscolor = "addgold"  %>
-   <% provide(:title, 'Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
-   <% provide(:description, 'Americo\'s easy-care, vinyl table covers and placemats give you more design options for your dining venue. All Classic covers are custom made in 2-3 weeks.') %>
+   <% provide(:title, 'Vinyl Table Covers | 9800 Series Classic Vinyls') %>
+   <% provide(:description, 'Shop Americo\'s easy-care, vinyl table covers are a great alternative to woven table lines. All Classic vinyl table covers are custom made in 2-3 weeks.') %>
 
 <% elsif (@series.style.id == 2) %>
 <% thistitle = "PREMIUM VINYL"
    thiscolor = "addarmy"  %>
-   <% provide(:title, 'Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
-   <% provide(:description, 'Americo\'s easy-care, vinyl table covers and placemats give you more design options for your dining venue. All table covers, runners and overlays are custom made in 2-3 weeks.') %>
+   <% provide(:title, 'Vinyl Table Covers | 6100 Series Premium Vinyls') %>
+   <% provide(:description, 'Shop Americo\'s Premium vinyl table covers offer decorator style with easy maintenance and lower replacement costs over time. We offer Free Quotes and Free Samples!') %>
 
 <% elsif (@series.style.id == 3) %>
 <% thistitle = "DESIGNER VINYL "
    thiscolor = "addpurple"  %>
-   <% provide(:title, 'Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
-   <% provide(:description, 'Americo\'s laminated fabric table covers and upholstery fabric offer decorator appeal at reasonable prices. Transform any venue with custom-made table covers in 2-3 weeks.') %>
+   <% provide(:title, 'Laminated Vinyl Table Covers | 1200/2000 Series Designer Vinyls') %>
+   <% provide(:description, 'Shop Americo\'s laminated fabric table covers and roll goods offer decorator appeal at reasonable prices. Transform any venue with custom-made table covers in 2-3 weeks.') %>
 
 <% elsif (@series.style.id == 7) %>
 <% thistitle = "DISTINCTIONS COLLECTIONS"
    thiscolor = "addorange"  %>
-   <% provide(:title, 'Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
-   <% provide(:description, 'Americo\'s easy-care, vinyl upholstery fabrics offer colors and patterns for every decor.  Transform chairs, booths, stools, and other furnishing with fabric that really lasts.') %>
+   <% provide(:title, 'Vinyl Upholstery Fabric | Distinctions Collection') %>
+   <% provide(:description, 'Shop Americo\'s easy-care, vinyl upholstery fabrics offer colors and patterns for every decor.  Transform chairs, booths, stools, and other furnishing with fabric that really lasts.') %>
 
 <% elsif (@series.style.id == 8) %>
 <% thistitle = "VALUE VINYL"
@@ -63,7 +63,6 @@
     
     <% if (@series.style.id == 7) %>
     <div class="top10 addgray">
-      <!-- <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p> -->
       <ul>
         <li>Upholstery-weight vinyls </li>
         <li>No launder – simply wipe and go. </li>
@@ -198,45 +197,9 @@
 
 	  <div class="col-sm-6 ">
         <!-- if this is the 9800 page -->
-	    <% if (@series.style.id == 1) %>
-	  	 <!-- <div class="noforget addarmy top40"><strong>Don't Forget</strong> the<br>Non-Slip Padding</div> -->
-		  
+	    <% if (@series.style.id == 1) %>		  
        
 	    <% elsif (@series.style.id == 3) %>
-	<!--
-	  	<div>
-	  	  <p>REPEAT INFORMATION</p>
-	  	    <div class="row">
-			  <div class="col-sm-6">
-			  	Vertical:
-			  </div>
-			  <div class="col-sm-6">
-			    4.5"
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="col-sm-6">
-			  	Horizontal:
-			  </div>
-			  <div class="col-sm-6">
-			  	9"
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="col-sm-6">
-			  	Side:
-			  </div>
-			  <div class="col-sm-6">
-			  	4.5" Half Step
-			  </div>
-			</div>
-		  <p>FOR INTERIOR USE ONLY</p>				  
-        </div>
-
-		<div class="top20">
-          <p>Custom cuts available! Minimum order is just 5 yards. Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</p>	
-        </div>
-        -->
 
 	    <% elsif (@series.style.id == 7)  %>
 
@@ -248,18 +211,12 @@
         </div>
         <div class="clearfix">
         </div>  
-          
         <% end %> 
-        
-	    <% end %> <!-- end of ID=7 --> 
-
+	    <% end %> 
 	  </div>
-
-
 	</div>
   </div>
 </div> 
-
 
 <div class="row">    
     <div class="col-xs-12"> 
@@ -268,13 +225,9 @@
       	<div class="<%= thiscolor %>">
           <%= @series.name %> Series |  Available for placemats, runners or overlays, too. <a class="blacklink smaller" href="/categories/5">Learn More</a>
       	</div>
-       
       </div>
-      
     </div>
-   
-  </div>
-
+</div>
 
 <div class="row">
   <div class="col-xs-12 col-sm-10">   
