@@ -1,7 +1,6 @@
 ActiveAdmin.register Series do
   
   belongs_to :style
-  has_many :colors
 
   menu :parent => "Content"
 
