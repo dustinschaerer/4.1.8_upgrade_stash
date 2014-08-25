@@ -57,7 +57,7 @@ class SeriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_series
-      @series = Series.friendly.find(params[:id])
+      @series = Series.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
