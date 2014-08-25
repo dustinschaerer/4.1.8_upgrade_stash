@@ -1,5 +1,8 @@
 class Series < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :slug, use: :slugged
+
 	belongs_to :style
 	has_many :colors
 	has_many :line_items
@@ -7,8 +10,6 @@ class Series < ActiveRecord::Base
 	has_many :quotes, through: :lines
 
 	before_destroy :ensure_not_referenced_by_any_line_item
-    
-    
 
 	validates :name, :description, :image_url, presence: true
 	validates :image_url, allow_blank: true, format: {
@@ -16,6 +17,14 @@ class Series < ActiveRecord::Base
 		message: 'must be a URL for GIF, JPG or PNG image.'
 	}
     
+	def self.latest
+    	Series.order(:updated_at).last
+  	end
+
+  	def self.distinction(id)
+    	where("id = ?", id)
+    end
+
 	private
 
 	  def ensure_not_referenced_by_any_line_item
