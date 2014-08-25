@@ -5,11 +5,15 @@
 <table>
   <thead>
     <tr>
+      <th></th>
+      <th></th>
+      <th></th>
       <th>Series ID</th>
       <th>Style ID</th>
       <th>Style</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Slug</th>
       <th>Lead</th>
       <th>Callout</th>
       <th>Image url</th>
@@ -18,20 +22,21 @@
       <th>Vertical</th>
       <th>Horizontal</th>
       <th>Side</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @series.each do |series| %>
       <tr>
+         <td><%= link_to 'Show', series %></td>
+        <td><%= link_to 'Edit', edit_series_path(series) %></td>
+        <td><%= link_to 'Destroy', series, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= series.id %></td>
         <td><%= series.style_id %></td>
         <td><%= series.style.name if series.style_id %></td>
         <td><%= series.name %></td>
         <td><%= series.description %></td>
+        <td><%= series.slug %></td>
         <td><%= series.lead %></td>
         <td><%= series.callout %></td>
         <td><%= series.image_url %></td>
@@ -41,9 +46,7 @@
         <td><%= series.horizontal %></td>
         <td><%= series.side %></td>
         
-        <td><%= link_to 'Show', series %></td>
-        <td><%= link_to 'Edit', edit_series_path(series) %></td>
-        <td><%= link_to 'Destroy', series, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       
       </tr>
     <% end %>
   </tbody>

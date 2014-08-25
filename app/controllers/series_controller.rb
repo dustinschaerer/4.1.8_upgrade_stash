@@ -9,7 +9,7 @@ class SeriesController < ApplicationController
   # GET /series
   def index
    # @series = Series.where("style_id = '7'").order("name")
-   @series = Series.all
+   @series = Series.all.order(:id)
   end
 
   # GET /series/1
@@ -62,6 +62,6 @@ class SeriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def series_params
-      params.require(:series).permit(:style_id, :name, :description, :image_url, :swapimage, :smallimage, :lead, :callout, :vertical, :horizontal, :side )
+      params.require(:series).permit(:style_id, :name, :description, :image_url, :swapimage, :smallimage, :lead, :callout, :vertical, :horizontal, :side, :slug )
     end
 end
