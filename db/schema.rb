@@ -310,6 +310,7 @@ ActiveRecord::Schema.define(version: 20140825164029) do
     t.string   "slug"
   end
 
+  add_index "series", ["slug"], name: "index_series_on_slug", using: :btree
   add_index "series", ["style_id"], name: "index_series_on_style_id", using: :btree
 
   create_table "shapes", force: true do |t|
