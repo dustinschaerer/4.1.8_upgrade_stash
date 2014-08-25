@@ -283,6 +283,11 @@
   <% end %>    
   <hr />
 
+  <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') || 
+          (params[:id] == '2') || (params[:id] == 'premium-vinyl-6100') || 
+          (params[:id] == '3') || (params[:id] == 'designer-laminate-1200-2000') || 
+          (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
+
   <div class="row top10">
     <div class="col-xs-12">   
       <p class="larger bold">Also see our other collections available:</h4>
@@ -382,3 +387,4 @@
         </div>        
         <% end %>
    </div>
+   <% end %>

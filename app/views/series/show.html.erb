@@ -1,38 +1,56 @@
 <% if (@series.style.id == 1) %>
-<% thistitle = "CLASSIC VINYL"
-   thiscolor = "addgold"  %>
+<% thistitle = "9800 SERIES CLASSIC VINYLS"
+   thiscolor = "addgold"
+   thishead = "Classic Vinyl Table Covers / Roll Goods" 
+   thisback = "background-color: #8C5C37;color:white;padding:7px;" 
+   thisavailable = "Vinyl Table Covers, Roll Goods, Placemats, Table Runners and  Table Toppers" %>
    <% provide(:title, 'Vinyl Table Covers | 9800 Series Classic Vinyls') %>
    <% provide(:description, 'Shop Americo\'s easy-care, vinyl table covers are a great alternative to woven table lines. All Classic vinyl table covers are custom made in 2-3 weeks.') %>
 
 <% elsif (@series.style.id == 2) %>
-<% thistitle = "PREMIUM VINYL"
-   thiscolor = "addarmy"  %>
+<% thistitle = "6100 SERIES PREMIUM VINYLS"
+   thiscolor = "addarmy"
+   thishead = "Premium Vinyl Table Covers / Roll Goods"   
+   thisback = "background-color: #5E6923;color:white;padding:7px;"
+   thisavailable = "Vinyl Table Covers, Roll Goods, Placemats, Table Runners and Table Toppers" %>
    <% provide(:title, 'Vinyl Table Covers | 6100 Series Premium Vinyls') %>
    <% provide(:description, 'Shop Americo\'s Premium vinyl table covers offer decorator style with easy maintenance and lower replacement costs over time. We offer Free Quotes and Free Samples!') %>
 
 <% elsif (@series.style.id == 3) %>
-<% thistitle = "DESIGNER VINYL "
-   thiscolor = "addpurple"  %>
+<% thistitle = "1200/2000 SERIES DESIGNER LAMINATES"
+   thiscolor = "addpurple"
+   thishead = "Laminated Fabric Table Covers / Roll Goods" 
+   thisback = "background-color: #50334E;color:white;padding:7px;" 
+   thisavailable = "Vinyl Table Covers, Roll Goods, Table Runners and Table Toppers" %>
    <% provide(:title, 'Laminated Vinyl Table Covers | 1200/2000 Series Designer Vinyls') %>
    <% provide(:description, 'Shop Americo\'s laminated fabric table covers and roll goods offer decorator appeal at reasonable prices. Transform any venue with custom-made table covers in 2-3 weeks.') %>
 
 <% elsif (@series.style.id == 7) %>
-<% thistitle = "DISTINCTIONS COLLECTIONS"
-   thiscolor = "addorange"  %>
+<% thistitle = "DISTINCTIONS COLLECTION UPHOLSTERY VINYLS"
+   thiscolor = "addorange"
+   thishead = "Vinyl Upholstery Fabrics / Roll Goods"  
+   thisback = "background-color: #AA4B19;color:white;padding:7px;"  
+   thisavailable = "Upholstery Vinyls - Roll Goods and Custom Cut Goods" %>
    <% provide(:title, 'Vinyl Upholstery Fabric | Distinctions Collection') %>
    <% provide(:description, 'Shop Americo\'s easy-care, vinyl upholstery fabrics offer colors and patterns for every decor.  Transform chairs, booths, stools, and other furnishing with fabric that really lasts.') %>
 
 <% elsif (@series.style.id == 8) %>
-<% thistitle = "VALUE VINYL"
-   thiscolor = "addgold"  %>
-   <% provide(:title, 'Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
+<% thistitle = "VALUE VINYLS"
+   thiscolor = "addgold"
+   thishead = "Value Vinyl Table Covers"
+   thisback = "background-color: #8C5C37;color:white;padding:7px;" 
+   thisavailable = "Ready-made Vinyl Table Covers"  %>
+   <% provide(:title, 'Value Vinyl Table Covers | Americo Inc.') %>
    <% provide(:description, 'Americo\'s easy-care vinyl table covers are an affordable option to renting or buying tablecloths for your venue or special events. Covers come in many size and colors.') %>
-
 <% end %>
 
 <div class="row">
   <div class="col-sm-12">
-    <div class="<%= thiscolor %>"><span class="seriesname"><%= @series.name %></span> <span class="twoem">&ndash; <%= @series.colors.count %>  colors available </div>
+    <h1 class="onesix" style="<%= thisback %>"><%= thishead %></h1>
+
+
+    <div class="<%= thiscolor %> top10"><span class="seriesname">Style <%= @series.name %></span> <span class="twoem">&ndash; <%= @series.colors.count %>  colors available </div>
+    
     <div class="seriessub bold">
     	<%= thistitle %> 
     	<% if (@series.style.id == 2) %>
@@ -79,8 +97,10 @@
   	  	<li>Minimum order is just 5 yards.</li>
   	  	<li>Or order by the roll. Each 54”-wide roll holds 25 yards of fabric.</li>
   	  	<li>Finished edge sewn with 1⁄4” single turn hem</li>
-  	  </ul>
-      <p><a href="/technical_specs" class="addgray underline">Technical specs.</a></p>
+  	    <li><a href="/technical_specs" class="addgray underline">Technical specs.</a></li>
+      </ul>
+      <p>Style <b><%= @series.name %></b> is also available as placemats, table runners or table toppers. <a href="/categories/vinyl-placemats-toppers-runners" class="addgray underline">Learn More</a>
+
     </div>
 
     <% elsif (@series.style.id == 2) %>
@@ -93,10 +113,11 @@
   	  	<li>Finished edge sewn with 1⁄4” single turn hem</li>
   	  	<li><a href="/technical_specs" class="addgray underline">Technical specs.</a></li>
   	  </ul>
+      <p>Style <b><%= @series.name %></b> is also available as placemats, table runners or table toppers. <a href="/categories/vinyl-placemats-toppers-runners" class="addgray underline">Learn More</a>
     </div>
 
     <% elsif (@series.style.id == 3) %>
-  	<div>
+  	<div class="top10">
   	  <ul class="sideseries">
   	  	<li>Heavy-duty, no-launder fabric is suitable for upholstery</li>
   	  	<li>Table covers are custom sewn to fit your tables. (See types below.)</li>
@@ -104,7 +125,10 @@
   	  	<li>Offered by the piece (minimum 5 yards) or by the roll (25 yards x 54”)</li>
   	  	<li><a href="/technical_specs" class="addgray underline">Technical specs.</a></li>
   	  </ul>
+      <p>Style <b><%= @series.name %></b> is also available as table runners or table toppers. <a href="/categories/vinyl-placemats-toppers-runners" class="addgray underline">Learn More</a>
     </div>
+
+
 	<% end %>
   	
 	<div class="row">
@@ -220,40 +244,44 @@
 
 <div class="row">    
     <div class="col-xs-12"> 
-      <div class="style-title">
-      	
-      	<div class="<%= thiscolor %>">
-          <%= @series.name %> Series |  Available for placemats, runners or overlays, too. <a class="blacklink smaller" href="/categories/5">Learn More</a>
+      	<div class="style-title <%= thiscolor %>">
+          Style <%= @series.name %>  | <%= thisavailable %>
       	</div>
-      </div>
+      <p class="top10">Colors Available:</p>  
+
     </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12 col-sm-10">   
-    <div class="row top20">  
+    <div class="row top5">  
   	  <% color_array = @series.colors.order("name") %>
   	  <% color_array.each do |swatch| %>
   	  
   <div class="col-xs-6 col-sm-4 col-lg-3 bottom25">
     <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
     <div class="row">
-			<div class="col-xs-9">
+			<div class="col-xs-12">
 				<div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-remove-sign"></span> <% end %><% swatch.series.name %>  <%= swatch.name %></strong></div>
 				<div class="addblack">
-					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-xs", method: :post ) %> 
+					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-block btn-xs", method: :post ) %> 
 				</div>
         <div class="addblack">
-          <%= link_to('GET QUOTE', '/request_quote', :class => "btn btn-info btn-xs top4", method: :get ) %> 
+          <%= link_to('GET QUOTE', '/request_quote', :class => "btn btn-info btn-block btn-xs top4", method: :get ) %> 
         </div>
-        
+        <div>
+       
+
+        <!-- Button trigger modal -->
+        <button class="btn btn-block btn-success btn-xs top4" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
+          VIEW LARGER
+        </button>
+</div>
+
+
 			</div>
-			<div class="col-xs-3">
-                <!-- Button trigger modal -->
-				<button class="btn btn-default btn-med pullinleft10" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
-				  <span class="glyphicon glyphicon-zoom-in"></span>	
-				</button>
-	        </div>
+
+
 
 			<!-- Modal -->
 			<div class="modal fade" id="myModal<%= swatch.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

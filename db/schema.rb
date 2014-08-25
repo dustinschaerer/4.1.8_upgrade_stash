@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718214948) do
+ActiveRecord::Schema.define(version: 20140825164029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(version: 20140718214948) do
     t.string   "side",        default: "nil"
     t.string   "swapimage"
     t.string   "smallimage"
+    t.string   "slug"
   end
 
   add_index "series", ["style_id"], name: "index_series_on_style_id", using: :btree
