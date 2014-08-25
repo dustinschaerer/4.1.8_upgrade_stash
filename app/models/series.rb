@@ -1,6 +1,5 @@
 class Series < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :name, use: :slugged
+  
   
 	belongs_to :style
 	has_many :colors
