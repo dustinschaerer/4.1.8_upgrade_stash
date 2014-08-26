@@ -31,6 +31,7 @@ gem 'passenger'
 gem 'newrelic_rpm'
 gem 'friendly_id', '~> 5.0.0'
 gem 'tilt', '1.4.1'
+gem 'asset_sync'
 #gem "brakeman", :require => false
 
 group :development, :test do
@@ -50,7 +51,7 @@ group :test do
   gem 'shoulda'
 end
 
-  
+
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
