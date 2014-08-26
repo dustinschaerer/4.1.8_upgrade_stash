@@ -5,7 +5,6 @@ class Color < ActiveRecord::Base
 
 	before_destroy :ensure_not_referenced_by_any_line_item
 
-	acts_as_taggable
 
   validates :name, :image_url, :series_id, presence: true
   validates :image_url, allow_blank: true, format: {
