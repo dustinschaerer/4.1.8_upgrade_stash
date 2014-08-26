@@ -39,3 +39,5 @@ bundler_stubs/
 # Ignore certificates
 /certs
 certs/*
+
+/public/assets/images/swatches/swatches.zip
