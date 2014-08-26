@@ -12,3 +12,7 @@ log/development.log
 tmp
 tmp/*
 certs
+/test/
+/spec/
+test/
+spec/
