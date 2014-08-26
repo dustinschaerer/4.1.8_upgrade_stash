@@ -9,8 +9,8 @@ gem "sass-rails", "~> 4.0.3"
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'master'
-gem 'seed_dump'
-gem 'acts-as-taggable-on'
+#gem 'seed_dump'
+#gem 'acts-as-taggable-on'
 gem 'pg'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
@@ -20,7 +20,7 @@ gem 'turbolinks', '2.1'
 gem 'jquery-turbolinks'
 gem 'jbuilder', '1.0.2'
 gem 'simple_form'
-gem 'country-select'
+#gem 'country-select'
 gem 'underscore-rails'
 gem 'dependent-fields-rails'
 gem 'bootstrap_form'
@@ -31,7 +31,7 @@ gem 'passenger'
 gem 'newrelic_rpm'
 gem 'friendly_id', '~> 5.0.0'
 gem 'tilt', '1.4.1'
-gem "brakeman", :require => false
+#gem "brakeman", :require => false
 
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
