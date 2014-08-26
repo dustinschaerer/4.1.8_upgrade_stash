@@ -3,7 +3,8 @@
 *.zip
 test
 spec
-public/assets/table
+public/assets/table/*.jpg
+public/assets/table/*.png
 log/development.log
 tmp
 public/assets/images/swatches/swatches.zip
