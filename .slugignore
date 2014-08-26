@@ -1,11 +1,12 @@
 *.psd
 *.pdf
 *.zip
+/public/assets/table
 log/development.log
 /test
 /spec
 /features
-/app/assets/images/swatches/swatches.zip
+/public/assets/images/swatches/swatches.zip
 tmp
 tmp/*
 certs

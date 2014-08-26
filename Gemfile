@@ -51,7 +51,8 @@ group :test do
 end
 
 group :assets do
-  gem 'asset_sync'
+  gem "fog", "~>1.20", require "fog/aws/storage"
+  gem "asset_sync"
 end
 
 group :doc do
