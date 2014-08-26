@@ -3,11 +3,9 @@
 *.zip
 test
 spec
-public/assets/table/*.jpg
-public/assets/table/*.png
 log/development.log
 tmp
-public/assets/images/swatches/swatches.zip
+public/assets/swatches/swatches.zip
 /assets/images/swatches/swatches.zip
 tmp/*
 certs

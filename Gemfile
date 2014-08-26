@@ -50,9 +50,7 @@ group :test do
   gem 'shoulda'
 end
 
-group :assets do
-  gem "asset_sync"
-end
+  gem 'asset_sync'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
