@@ -40,7 +40,7 @@ module Americo
     config. generators do |g|
         g.test_framework :test_unit
     end    
-
+    config.assets.enabled = true
     config.filter_parameters << :card_number << :card_verification
     
     config.assets.paths << "#{Rails.root}/app/themes/default/"

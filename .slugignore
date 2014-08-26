@@ -2,12 +2,10 @@
 *.pdf
 *.zip
 log/development.log
-test
-spec
-features
-doc
-app/assets/images/swatches/swatches.zip
-app/public/assets/*
+/test
+/spec
+/features
+/app/assets/images/swatches/swatches.zip
 tmp
 tmp/*
 certs
