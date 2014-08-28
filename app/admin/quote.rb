@@ -180,9 +180,9 @@ ActiveAdmin.register Quote do
       f.input :telephone
       f.input :ship_street_address
       f.input :ship_city
-      f.input :ship_state, :as => :select, :collection => Order::STATES
+      f.input :ship_state, :as => :select, :collection => ::REGIONS
       f.input :ship_zipcode
-      f.input :ship_country, :as => :string, :input_html => { :readonly => :true }
+      f.input :ship_country, :as => :select, :collection => ::COUNTRIES
     end
     f.inputs 'Items in Quote' do
       f.has_many :lines, :allow_destroy => true,  :new_record => false do |linef|
@@ -212,19 +212,6 @@ ActiveAdmin.register Quote do
     
     f.actions
   end
-
-####################################
-
-
-  # sidebar "quote Details", only: [:show, :edit] do
-  #   ul do
-  #     li link_to("Line_Items", admin_order_line_items_path(order))
-  #   end  
-  # end
-
-
-##################################
-
 
 
   # See permitted parameters documentation:

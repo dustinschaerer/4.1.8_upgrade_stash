@@ -24,7 +24,7 @@
             <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address', readonly: true %>
             <%= f.text_field :ship_city, label: 'City', placeholder: 'City', readonly: true %>
             <%= f.text_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code', readonly: true %>
-            <%= f.text_field :ship_state, label: 'State', placeholder: 'State', readonly: true %>
+            <%= f.text_field :ship_state, label: 'State/Province', placeholder: 'State', readonly: true %>
             <%= f.text_field :ship_country, label: 'Country', placeholder: 'Country', readonly: true %>    
             
             <%= f.hidden_field :user_id, size: 40, value: current_user.id, readonly: true %> 
@@ -37,7 +37,6 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title" style="display: inline;">Step 2: Payment Information</h3> 
-            
           </div>
           <div class="panel-body">
             <%= check_box_tag(:checkbox_use_same_address, value = "1", checked = false, {class: 'make_same_address', id: 'make_same_address' }) %> Check if Payment Information is the same as Shipping<br><br>
@@ -48,8 +47,9 @@
             <%= f.text_field :pay_street_address, placeholder: 'Street Address' %>
             <%= f.text_field :pay_city, placeholder: 'City' %>
             <%= f.text_field :pay_zipcode, placeholder: 'Zipcode' %>
-            <%= f.select :pay_state, Order::STATES, { prompt: 'Select State'}, { label: 'State' } %>
-            <%= f.select :pay_country, options_for_select(['United States']), {}, { label: 'Country'} %>
+            <%= f.select :pay_country, ::COUNTRIES, { prompt: 'Select Country' }, { label: 'Country'} %>
+            <%= f.select :pay_state, ::REGIONS, { prompt: 'Select State/Province'}, { label: 'State/Province' } %>
+            
           </div>
         </div>
       </div>     

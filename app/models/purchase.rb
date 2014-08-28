@@ -1,5 +1,6 @@
 class Purchase < ActiveRecord::Base
-  
+  PAYMENT_TYPES = [ "Credit Card" ]
+
   belongs_to :user
   has_many :lines 
   has_one :quote
@@ -15,11 +16,18 @@ class Purchase < ActiveRecord::Base
   validates :pay_street_address, :pay_city, :pay_state, :pay_zipcode, :pay_country, presence: true
   validates :pay_type, :pay_status, :status, presence: true
   validates :card_number, :card_verification, presence: true, on: :create
-
   validate :validate_card, on: :create, if: :is_ready?
+  validates :state, inclusion: ::STATES, if: :is_usa?
+  validates :state, inclusion: ::PROVINCES, if: :is_canada?
 
-  PAYMENT_TYPES = [ "Credit Card" ]
+  def is_usa?
+    (pay_country == 'United States') 
+  end
 
+  def is_canada?
+    (pay_country == 'Canada') 
+  end
+  
   def is_ready?
     if card_expires_on.blank? 
       false
@@ -36,7 +44,6 @@ class Purchase < ActiveRecord::Base
      # thisline.quote_id = nil
         lines << thisline 
     end
-
   end
   
   def purchase_the_order

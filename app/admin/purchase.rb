@@ -1,13 +1,5 @@
 ActiveAdmin.register Purchase do
 
-
-
-
-
-   
-    
-
-
   menu :priority => 4
 
   permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, 
@@ -200,7 +192,7 @@ ActiveAdmin.register Purchase do
       f.input :telephone
       f.input :ship_street_address
       f.input :ship_city
-      f.input :ship_state, :as => :select, :collection => Order::STATES
+      f.input :ship_state, :as => :select, :collection => ::STATES
       f.input :ship_zipcode
       f.input :ship_country, :as => :string, :input_html => { :readonly => :true }
     end
@@ -212,9 +204,9 @@ ActiveAdmin.register Purchase do
       f.input :pay_telephone
       f.input :pay_street_address
       f.input :pay_city
-      f.input :pay_state, :as => :select, :collection => Order::STATES
+      f.input :pay_state, :as => :select, :collection => ::STATES, :label => 'State/Province'
       f.input :pay_zipcode
-      f.input :pay_country, :as => :string, :input_html => { :readonly => :true }
+      f.input :pay_country, :as => :select, :collection => ::COUNTRIES
     end
 
    # f.inputs 'Items in Purchase' do

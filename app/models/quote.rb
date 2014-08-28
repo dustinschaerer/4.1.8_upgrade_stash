@@ -1,5 +1,6 @@
 class Quote < ActiveRecord::Base
 
+
   before_save :total_price
   before_save :recalculate_totals
   
@@ -13,6 +14,11 @@ class Quote < ActiveRecord::Base
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
   validates :subtotal, :shipping, :sales_tax, :total, presence: true, numericality: true
   
+
+  validates :ship_state, inclusion: ::STATES, if: :is_usa?
+  validates :ship_state, inclusion: ::PROVINCES, if: :is_canada?
+
+
   def update_status_to_purchased
     self.status = "Purchased"
     self.save
@@ -68,5 +74,12 @@ class Quote < ActiveRecord::Base
     calculate_sales_tax
     calculate_total
   end  
+  
+  def is_usa?
+    (ship_country == 'United States') 
+  end
 
+  def is_canada?
+    (ship_country == 'Canada') 
+  end
 end

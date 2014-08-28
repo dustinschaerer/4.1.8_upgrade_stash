@@ -1,7 +1,7 @@
 <% if @order.new_record? %>
 
 
-  <%= bootstrap_form_for(@order, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+  <%= bootstrap_form_for(@order, style: :horizontal, left: "col-sm-3 col-md-3", right: "col-sm-7 col-md-5") do |f| %>
 
    <% if @order.errors.any? %>
       <div id="error_explanation">
@@ -22,8 +22,20 @@
       <%= f.text_field :street_address, label: 'Street Address', size: 50 %>
       <%= f.text_field :city, size: 30 %>
       <%= f.text_field :zipcode, label: 'Zip Code', size: 10 %>
-      <%= f.select :state, Order::STATES, prompt: 'Select State' %>
-      <%= f.select(:country, options_for_select(['United States'] )) %>
+      <%= f.select(:country, options_for_select(['United States', 'Canada'] ), prompt: 'Select Country') %>
+
+      <% grouped_options = ::REGIONS %>
+
+      <div class="form-group">
+        <label class="col-sm-3 col-md-3 control-label" for="order_state">State/Province</label>
+        <div class="col-sm-7 col-md-5">
+          <select class="form-control" id="order_state" name="order[state]">
+          <option value="">Please Choose</option>
+          <%= grouped_options_for_select(grouped_options) %>
+          </select>
+        </div>
+      </div>
+
       <%= f.text_field :telephone, label: 'Telephone Number' %>
       <%= f.hidden_field :status, value: "Submitted"  %>
       <%= f.hidden_field :user_id, value: current_user.id  %>

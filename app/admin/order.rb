@@ -21,6 +21,7 @@ ActiveAdmin.register Order do
     column("Customer", :user, :sortable => :user_id)
     column("City", :city, :sortable => :city)
     column("State", :state, :sortable => :state)
+    column("Country", :country, :sortable => :country)
     column("Date Created", :created_at)
     column("Date Modified", :updated_at)
     default_actions
@@ -102,9 +103,9 @@ ActiveAdmin.register Order do
         f.input :company
         f.input :street_address
         f.input :city
-        f.input :state
+        f.input :state, :as => :select, :collection => ::REGIONS
         f.input :zipcode
-        f.input :country, :as => :string
+        f.input :country, :as => :select, :collection => ::COUNTRIES
       end
       f.inputs do
         f.has_many :line_items, :allow_destroy => true, :heading => 'Line Items', :new_record => false do |nf|
