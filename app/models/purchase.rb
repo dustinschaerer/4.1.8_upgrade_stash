@@ -16,8 +16,9 @@ class Purchase < ActiveRecord::Base
   validates :pay_street_address, :pay_city, :pay_state, :pay_zipcode, :pay_country, presence: true
   validates :pay_type, :pay_status, :status, presence: true
   validates :card_number, :card_verification, presence: true, on: :create
-  validates :state, inclusion: ::STATES_AND_PROVINCES
-  
+  validates :pay_state, inclusion: ::STATES_AND_PROVINCES
+  validates :pay_country, inclusion: ::COUNTRIES
+
   validate :validate_card, on: :create, if: :is_ready?
   
   #validates :state, inclusion: ::PROVINCES, if: :is_usa?
