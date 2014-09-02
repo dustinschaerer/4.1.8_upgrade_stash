@@ -1,3 +1,3 @@
-$(document).on "ready page:load", ->
-  if $('#slider img').length
+jQuery ->
+  if ($('#slider img').length < 3)
     $('.nivo-directionNav').remove()

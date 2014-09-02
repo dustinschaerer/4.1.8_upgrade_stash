@@ -10,10 +10,8 @@ jQuery ->
 
 jQuery ->
   regions = $('#order_state').html()
-  console.log(regions)
   $('#order_country').change ->
     country = $('#order_country :selected').text()
-    console.log(country)
     options = $(regions).filter("optgroup[label='#{country}']").html()
     if options
       $('#order_state').html(options)

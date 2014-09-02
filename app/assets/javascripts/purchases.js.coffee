@@ -60,10 +60,8 @@ jQuery ->
 
 jQuery ->
   regions = $('#purchase_pay_state').html()
-  console.log(regions)
   $('#purchase_pay_country').change ->
     country = $('#purchase_pay_country :selected').text()
-    console.log(country)
     options = $(regions).filter("optgroup[label='#{country}']").html()
     if options
       $('#purchase_pay_state').html(options)
