@@ -38,23 +38,24 @@ jQuery ->
       
       alert "Your Delivery Information has been copied over."
     else
-      $("#purchase_pay_firstname").prop('enabled', true)
+      
+      $("#purchase_pay_firstname").removeAttr('readOnly');
       $('input:text[id*=purchase_pay_firstname]').val("")
-      $("#purchase_pay_lastname").prop('enabled', true) 
+      $("#purchase_pay_lastname").removeAttr('readOnly');
       $('input:text[id*=purchase_pay_lastname]').val("")
-      $("#purchase_pay_company").prop('enabled', true) 
+      $("#purchase_pay_company").removeAttr('readOnly');
       $('input:text[id*=purchase_pay_company]').val("")
-      $("#purchase_pay_telephone").prop('enabled', true) 
+      $("#purchase_pay_telephone").removeAttr('readOnly'); 
       $('input:text[id*=purchase_pay_telephone]').val("")
-      $("#purchase_pay_street_address").prop('enabled', true) 
+      $("#purchase_pay_street_address").removeAttr('readOnly'); 
       $('input:text[id*=purchase_pay_street_address]').val("")
-      $("#purchase_pay_city").prop('enabled', true)
+      $("#purchase_pay_city").removeAttr('readOnly');
       $('input:text[id*=purchase_pay_city]').val("")
-      $("#purchase_pay_zipcode").prop('enabled', true)
+      $("#purchase_pay_zipcode").removeAttr('readOnly');
       $('input:text[id*=purchase_pay_zipcode]').val("")
-      $('select[id=purchase_pay_country]').prop('enabled', true)
+      $('select[id=purchase_pay_country]').removeAttr('readOnly');
       $('select[id=purchase_pay_country]').val("")
-      $('select[id=purchase_pay_state]').prop('enabled', true)
+      $('select[id=purchase_pay_state]').removeAttr('readOnly');
       $('select[id=purchase_pay_state]').val("")
       alert "Your Payment Information has been reset. Please enter your Payment Information to Checkout."
 

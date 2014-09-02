@@ -31,7 +31,7 @@
     <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), { prompt: 'Choose your Contact Preference '} , { label: 'Contact By' }) %>
     <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address' %>
     <%= f.text_field :ship_city, label: 'City', placeholder: 'City' %>
-    <%= f.number_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code' %>
+    <%= f.text_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code' %>
     <%= f.select(:ship_country, options_for_select(['United States', 'Canada'] ), { prompt: 'Select Country' }, { label: 'Country'}) %>
   <!--
     <%= f.select :ship_state, Order::STATES, { prompt: 'Select State'}, { label: 'State' } %>
