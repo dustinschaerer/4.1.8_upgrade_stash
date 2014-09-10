@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserStoriesTest < ActionDispatch::IntegrationTest
+class UserAuthenticationStoriesTest < ActionDispatch::IntegrationTest
 
   
   # fixtures :all
@@ -9,7 +9,32 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
   # # cart, and check out, filling in their details on the checkout form. When
   # # they submit, an order is created containing their information, along with a
   # # single line item corresponding to the product they added to their cart.
-  
+  setup do
+    @user = FactoryGirl.create(:user)
+  end
+
+  test 'allows a user to register' do
+      visit new_user_registration_path
+      fill_in 'Email', :with => 'newuser@example.com'
+      fill_in 'Password', :with => 'userpassword'
+      fill_in 'Password Confirmation', :with => 'userpassword'
+      click_button 'Sign up'
+      assert has_content?("Logged in as newuser@example.com"), "Did not display Logged in as message"
+      assert has_content?("Welcome! You have signed up successfully."), "Did not display Signed in successfully"
+      
+  end
+
+  test "should allow a registered user to sign in" do
+    visit root_url
+    click_link 'main_sign_in'
+    assert_equal new_user_session_path, current_path
+    fill_in "Email", :with => @user.email
+    fill_in "Password", :with => @user.password
+    click_button "Sign in"
+    assert has_content?("Logged in as #{@user.email}"), "Did not display Logged in as message"
+    assert has_content?("Signed in successfully"), "Did not display Signed in successfully loser"
+  end
+
   # test "buying a product" do
   #   LineItem.delete_all
   #   Order.delete_all

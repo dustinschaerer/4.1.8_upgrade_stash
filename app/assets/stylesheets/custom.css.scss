@@ -470,6 +470,38 @@ footer {
   border-top: solid 1px #bcbcbc;
   
 }
+#more-colors a {
+  color: #333333 !important;
+}
+
+#more-colors {
+  margin-top: 18px;
+  padding-top: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 6px;
+  
+  background-color: #5E6923;
+  color: white;
+  font-weight:bold;
+  h3 {
+    margin-bottom: 0.1em;
+  }
+
+}
+
+#table-covers-1, #table-covers-2 {
+
+  h3 {
+    margin-bottom: 0;
+    line-height: 1.0em;
+  }
+  
+}
+
+.std {
+  color: #333333;
+  text-decoration: underline;
+}
 
 
 
@@ -489,16 +521,12 @@ footer {
 /* end home page only*/
 
 
-
-
  /* set a max-width for horizontal fluid layout and make it centered */
 .container {
   margin-right: auto;
   margin-left: auto;
   /* max-width: 1024px;*/
 }
-
-
 
  /* Custom button style for bootstrap */
 .btn-custom { 
@@ -510,7 +538,6 @@ footer {
   background-image: -webkit-linear-gradient(top, #b42121, #5e1111); background-image: -o-linear-gradient(top, #b42121, #5e1111); 
   background-image: linear-gradient(#b42121, #5e1111); border-color: #5e1111 #5e1111 hsl(0, 69%, 17%); color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33); -webkit-font-smoothing: antialiased; 
 }
-
 
 .underline {
   text-decoration: underline;
@@ -555,11 +582,9 @@ footer {
 .styletype {
   font-size: 2.2em;
   letter-spacing:-1px;
-
 }
 .weighty {
   font-weight: 600;
-  
 }
 .stylesub {
   font-size: 1.6em;
@@ -570,7 +595,6 @@ footer {
   font-size: 16px;
   color: #757575;
 }
-
 .style-title {
   font-weight: bold;
   font-size: 1.5em;
@@ -595,11 +619,6 @@ footer {
   color: #666;
   padding-bottom:10px;
 }
-
-
-
-
-
 #styleinfobox {
   margin-bottom: 18px;
   padding-bottom: 18px;
@@ -616,9 +635,7 @@ footer {
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.5);
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.5);
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
-}  
-
-
+}
 .hl {
   color: $red;
 }
@@ -677,11 +694,9 @@ p .up10, .up10 {
 .quotespace {
   margin-top:6px; 
 }
-
 .shortline {
   line-height: 1.6em
 }
-
 .pullinleft10 {
   margin-left: -8px;
 }
@@ -707,7 +722,6 @@ p .up10, .up10 {
 .styledesc {
   font-size: 1.5em; 
 }
-
 .seriessub {
   line-height: 1.0em; 
   font-size: 1.2em;  
@@ -727,8 +741,6 @@ p .up10, .up10 {
 .seriesdesc {
   font-size: 1.4em; 
 }
-
-
 .noforget {
   font-size:1.6em;
 }
@@ -738,14 +750,10 @@ p .up10, .up10 {
 }
 .distinctions {
   font-weight: bold;
-
 }
-
 .not-uphol {
   font-weight: bold;
-  
 }
-
 #freeswatches {
   max-height:200px;
 }
@@ -759,14 +767,9 @@ p .up10, .up10 {
   padding-left: 0px;
   margin-left: 10px;
 }
-
-
 .middle {
   text-align: center;
 }
-
-
-
 /* User sign in and sign forms. */
 .border-form-div {
   /*
@@ -795,12 +798,6 @@ p .up10, .up10 {
   margin-bottom: 15px;
   padding: 7px 9px;
 }
-
-
-
-
-
-
 #contact-form {
   
   padding: 19px 29px 29px;
@@ -826,9 +823,6 @@ p .up10, .up10 {
   margin-bottom: 15px;
   padding: 7px 9px;
 }
-
-
-
 #vinyl-land {
   font-size:1.2em;
  ul {
@@ -847,7 +841,6 @@ p .up10, .up10 {
 .stylebox {
    text-align: center;
  }
-
 #stain {
   background-color: #EFEFEF;
   padding: 10px 16px 10px 16px;
@@ -855,10 +848,6 @@ p .up10, .up10 {
   margin-bottom: 10px;
   }
 }
-
-
-
-
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     background-color: #8A1921;
     color: #FFFFFF;
@@ -877,8 +866,6 @@ p .up10, .up10 {
     
     background-color: #D6676F;
 }
-
-
 #orangeback {
   background-color: #AA4B19;
   color:white;
@@ -914,7 +901,6 @@ p .up10, .up10 {
   color:white;
   padding: 20px 10px 25px 15px;
 }
-
 .backed {
   background-color: #F0EADE;
 }
@@ -929,13 +915,18 @@ p .up10, .up10 {
   color: black;
   text-decoration: underline;
 }
-
 /* Keep at bottom, this sets the padding for the fixed header top */
 
 @media (min-width: 980px) {
   body {
     padding-top: 0px;
     padding-bottom: 42px;
+  }
+}
+@media (max-width: 991px) {
+  .tcitem {
+    border-bottom: solid 1px #CCCCCC;
+    margin-bottom: 15px;
   }
 }
 .sideseries {
@@ -947,18 +938,14 @@ body .galleria-thumbnails-container {
 }
 
 .product-well {
-
-    
     position: relative;
     text-align: center;
     box-shadow: 1px 1px 2px #e6e6e6;
     cursor: default;
-
 }
 .style-link:hover {
-  
   /*border: solid 1px #8A1921;*/
-   border: solid 1px #888888; 
+  border: solid 1px #888888; 
   box-shadow: 0px 5px 5px 3px #AAAAAA;
   margin-top: -6px;
 }

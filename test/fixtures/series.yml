@@ -1,24 +1,32 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+series_one:
   style_id: 1
-  name: 9802
-  description: This is the description
+  name: 9801
+  description: This is the description text.
   image_url: swatches/9800/9801/9801_hl.jpg
   lead: Soothing alterntive
   callout: Complicated
   vertical: nil
   horizontal: nil
   side: nil
+  swapimage: nil
+  smallimage: nil
+  slug: style-9801-vinyl-table-covers
+  id: 1
 
-two:
+series_two:
   style_id: 1
   name: 9802
   description: This is the description
-  image_url: swatches/9800/9801/9801_hl.jpg
+  image_url: swatches/9800/9802/9802_hl.jpg
   lead: Soothing alterntive
   callout: Complicated
   vertical: nil
   horizontal: nil
   side: nil
+  swapimage: nil
+  smallimage: nil
+  slug: style-9802-vinyl-table-covers
+  id: 2

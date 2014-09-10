@@ -259,7 +259,7 @@
   	  <% color_array.each do |swatch| %>
   	  
   <div class="col-xs-6 col-sm-4 col-lg-3 bottom25">
-    <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad" ) %>
+    <%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad imgborder" ) %>
     <div class="row">
 			<div class="col-xs-12">
 				<div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-remove-sign"></span> <% end %><% swatch.series.name %>  <%= swatch.name %></strong></div>
@@ -347,16 +347,23 @@
 	  <%= link_to('/free_swatches', :class => "no-under") do %>
 	    <%= image_tag("swatch-image.jpg", :class => "top40", alt:"Free Swatches") %>
 	  <% end %>
-	</div>
-	<div>
-	   <%= link_to('/request_catalog', :class => "no-under") do %>
+	  </div>
+	  <div>
+	  <%= link_to('/request_catalog', :class => "no-under") do %>
 	    <%= image_tag("free-catalog.jpg", :class => "top40", alt:"Free Catalog") %>
 	  <% end %>
-	</div>  
-	<div class="top40">
-	   <%= link_to('/categories/non-slip-padding', :class => "no-under onesix addarmy") do %>
+	  </div>  
+	  <div class="top40">
+	    <%= link_to('/categories/non-slip-padding', :class => "no-under onesix addarmy") do %>
 	    <strong>Don't Forget</strong><br>to order the<br>Non-Slip Pads
 	  <% end %>
-	</div>  
+	  </div>  
   </div>     
-</div> 
+</div>
+
+<div class="row">
+  <div class="col-xs-12" id="covers">
+    <span class="bgtext">TABLE COVER TYPES &nbsp; <a href="/how_to_measure" class="lefty">Measuring Instructions  <span class="glyphicon glyphicon-play"></span></a></span>
+    <%= image_tag('vertical-illustrations.png', :class => "img-responsive bgimg") %>
+  </div>
+</div>

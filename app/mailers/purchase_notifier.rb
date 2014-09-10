@@ -9,7 +9,7 @@ class PurchaseNotifier < ActionMailer::Base
   def confirmation(purchase, current_user)
     @purchase = purchase
     @current_user = current_user
-    mail to: purchase.user.email, subject: 'Americo Purchase Confirmation '
+    mail to: purchase.user.email, subject: 'Americo Purchase Confirmation'
   end
 
   def shipped(purchase, current_user)

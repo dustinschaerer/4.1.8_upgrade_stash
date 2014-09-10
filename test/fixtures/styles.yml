@@ -1,18 +1,18 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+style_one:
   title: CLASSICS COLLECTION
   name: 9800 Series
-  description: This is the description
+  description: The 9800 series is incredible.
   image_url: 9828-lasagna_vinyl-table-cover.jpg
   product_id: 1
   sort: 2
 
-two:
-  title: CLASSICS COLLECTION
-  name: 9800 Series
-  description: This is the description
-  image_url: 9828-lasagna_vinyl-table-cover.jpg
+style_two:
+  title: PREMIUM COLLECTION
+  name: 6100 Series
+  description: The 6100 series is incredible.
+  image_url: 6125_black-mocha_vinyl-table-cover.jpg
   product_id: 1
-  sort: 2
+  sort: 3

@@ -1,14 +1,14 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+line_items_one:
   cart_id: 1
   order_id: 1
   series_id: 1
   color_id: 1
   quantity: 1
 
-two:
+line_items_two:
   cart_id: 1
   order_id: 1
   series_id: 1

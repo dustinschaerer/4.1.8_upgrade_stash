@@ -1,8 +1,15 @@
 require 'test_helper'
 
 class SeriesControllerTest < ActionController::TestCase
+
+=begin
   setup do
-    @series = series(:one)
+    @series = series(:series_one)
+  end
+
+  test "should show series" do
+    get :show, id: @series
+    assert_response :success
   end
 
   test "should get index" do
@@ -24,10 +31,6 @@ class SeriesControllerTest < ActionController::TestCase
     assert_redirected_to series_path(assigns(:series))
   end
 
-  test "should show series" do
-    get :show, id: @series
-    assert_response :success
-  end
 
   test "should get edit" do
     get :edit, id: @series
@@ -46,4 +49,6 @@ class SeriesControllerTest < ActionController::TestCase
 
     assert_redirected_to series_index_path
   end
+=end
+
 end

@@ -2,9 +2,17 @@ require 'test_helper'
 
 class StylesControllerTest < ActionController::TestCase
   setup do
-    @style = styles(:one)
+    @style = styles(:style_one)
   end
 
+  
+  test "should show style" do
+    get :show, id: @style
+    assert_response :success
+  end
+  
+
+=begin
   test "should get index" do
     get :index
     assert_response :success
@@ -24,11 +32,6 @@ class StylesControllerTest < ActionController::TestCase
     assert_redirected_to style_path(assigns(:style))
   end
 
-  test "should show style" do
-    get :show, id: @style
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: @style
     assert_response :success
@@ -46,4 +49,6 @@ class StylesControllerTest < ActionController::TestCase
 
     assert_redirected_to styles_path
   end
+=end
+
 end

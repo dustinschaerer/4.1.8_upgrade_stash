@@ -1,0 +1,5 @@
+user_one:
+  id: 1
+  email: simon@other.com
+  encrypted_password: sdfadsadsagda
+  admin: false

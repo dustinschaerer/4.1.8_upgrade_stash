@@ -1,9 +1,25 @@
 require 'test_helper'
 
 class QuoteholdersControllerTest < ActionController::TestCase
+
+=begin 
   setup do
     @quoteholder = quoteholders(:one)
   end
+
+  test "should show quoteholder" do
+    get :show, id: @quoteholder
+    assert_response :success
+  end
+
+  test "should destroy quoteholder" do
+    assert_difference('Quoteholder.count', -1) do
+      delete :destroy, id: @quoteholder
+    end
+
+    assert_redirected_to quoteholders_path
+  end
+
 
   test "should get index" do
     get :index
@@ -24,11 +40,6 @@ class QuoteholdersControllerTest < ActionController::TestCase
     assert_redirected_to quoteholder_path(assigns(:quoteholder))
   end
 
-  test "should show quoteholder" do
-    get :show, id: @quoteholder
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: @quoteholder
     assert_response :success
@@ -38,12 +49,6 @@ class QuoteholdersControllerTest < ActionController::TestCase
     patch :update, id: @quoteholder, quoteholder: {  }
     assert_redirected_to quoteholder_path(assigns(:quoteholder))
   end
+=end
 
-  test "should destroy quoteholder" do
-    assert_difference('Quoteholder.count', -1) do
-      delete :destroy, id: @quoteholder
-    end
-
-    assert_redirected_to quoteholders_path
-  end
 end

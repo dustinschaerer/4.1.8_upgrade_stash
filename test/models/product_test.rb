@@ -4,15 +4,15 @@ class ProductTest < ActiveSupport::TestCase
 
   fixtures :products
 
-  test "product attributes must not be empty" do
-    product = Product.new
-    assert product.invalid?
-    assert product.errors[:title].any?
-    assert product.errors[:description].any?
-    assert product.errors[:category_id].any?
-    assert product.errors[:image_url].any?
-    assert product.errors[:thumbnail_url].any?
-  end
+#  test "product attributes must not be empty" do
+#    product = Product.new
+#    assert product.invalid?, "Invalid Product"
+#    assert product.errors[:title].any?, "No title"
+#    assert product.errors[:description].any?, "No description"
+#    assert product.errors[:category_id].any?, "No category_id"
+#    assert product.errors[:image_url].any?, "No image_url"
+#    assert product.errors[:thumbnail_url].any?, "No thumbnail_url" 
+#  end
 
 #  test "image url is valid with correct URL" do
 #    product = Product.new(title:       "Vinyl Swatch Sample",

@@ -32,7 +32,7 @@
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => "userlink" %></li>
                 
             <% else %>
-              <li><%= link_to "SIGN IN TO MY ACCOUNT", new_user_session_path, :class => "userlink" %></li>
+              <li><%= link_to "SIGN IN TO MY ACCOUNT", new_user_session_path, { :class => "userlink", :id => "main_sign_in" } %></li>
             <% end %>
           </ul>         
         </div>
@@ -100,18 +100,10 @@
                 <% end %>
               
               <% end %>  
-
             </div>
           </div>
-          
         </div>
-
       </div>
-
-
-<!-- #######################   -->
-<!-- #######################   -->
-<!-- #######################   -->
 
       <div class="row visible-xs">
         <div class="col-xs-12 hl-link">  
@@ -133,14 +125,6 @@
 
             <% end %>
             <li class="list-group-item"><%= link_to "Request a Quote", "/request_quote", class: "top-link" %></li>
-            <!--
-            <li class="list-group-item"><a href="/categories/1" class="top-link">Vinyl Table Covers</a></li>
-            <li class="list-group-item"><a href="/styles/7" class="top-link">Vinyl Upholstery Fabrics</a></li>
-            <li class="list-group-item"><a href="/free_swatches" class="top-link">FREE Swatches</a></li>
-            
-            <li class="list-group-item"><a href="/request_catalog" class="top-link">FREE Catalog</a></li>
-            <li class="list-group-item"><a href="/free_swatches" class="top-link">FREE Swatches</a></li>
-          -->
           </ul>        
         </div>
 
@@ -197,24 +181,14 @@
                 <% else %>              
                   <div>Your cart has <%= @cart.line_items.count %>   <%= "item".pluralize(@cart.line_items.count) %></div> 
                 <% end %>
-              
               <% end %>  
-
             </div>
           </div>
-          
         </div>
-
       </div>    
-
-     
-
     </div>
-
   </div>
-
 </header>  
- 
 
 <div class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -229,18 +203,9 @@
     <a class="navbar-brand pull-right hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-collapse">Open / Close Menu</a>
   </div>
 
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-
   <nav class="collapse navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">
-
-
-      
-      <%= 
-      #content_tag :li, :class => ('active' if current_page?(root_path)) do 
-      %>
-            
+                  
       <%= content_tag :li, :class => ('active' if current_page?(:controller => "/categories", :action => "show", :id => "1" )) do %>
       <%= link_to "Vinyl Table Covers",     "/categories/vinyl-table-covers" %>
       <% end %>

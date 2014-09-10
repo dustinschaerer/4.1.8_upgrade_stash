@@ -1,15 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+message_one:
   email: admin@example.com
-  name: MyString
+  name: Dustin Richard
   order_id: 1
   quote_id: 1
-  phone: MyString
+  phone: 555-555-5555
+  message: This is a test message.
+  reason: General Product Question
 
-two:
+message_two:
   email: admin@example.com
-  name: MyString
+  name: Joe Simpson
   order_id: 1
   quote_id: 1
-  phone: MyString
+  phone: 555-555-5555
+  message: This is a test message.
+  reason: General Product Question

@@ -1,7 +1,7 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+orders_one:
   user_id: 1
   firstname: Tim
   lastname:  Smith
@@ -11,14 +11,20 @@ one:
   country: United States
   email: tim@example.org
   telephone: 555-555-5555
+  status: Submitted
+  zipcode: 95555
+  company: NetworkGeeks
 
-two:
+orders_two:
   user_id: 1
-  firstname: MyString
-  lastname: MyString
-  street_address: MyText
-  city: MyString
-  state: MyString
-  country: MyString
-  email: MyString
-  telephone: MyString
+  firstname: Timothy
+  lastname:  Smith
+  street_address: 12345 Way Street
+  city: Vancouver
+  state: Washington
+  country: United States
+  email: tim@example.org
+  telephone: 555-555-5555
+  status: Submitted
+  zipcode: 95555
+  company: NetworkGeeks

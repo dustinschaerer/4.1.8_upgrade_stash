@@ -5,6 +5,12 @@ class CategoriesControllerTest < ActionController::TestCase
     @category = categories(:one)
   end
 
+  test "should show category" do
+    get :show, id: @category
+    assert_response :success
+  end
+
+=begin
   test "should get index" do
     get :index
     assert_response :success
@@ -24,11 +30,6 @@ class CategoriesControllerTest < ActionController::TestCase
     assert_redirected_to category_path(assigns(:category))
   end
 
-  test "should show category" do
-    get :show, id: @category
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: @category
     assert_response :success
@@ -46,4 +47,6 @@ class CategoriesControllerTest < ActionController::TestCase
 
     assert_redirected_to categories_path
   end
+=end
+
 end

@@ -15,7 +15,18 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-
 class ActionController::TestCase
   include Devise::TestHelpers
 end
+
+
+
+class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+
+  def teardown 
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+  end
+end
+

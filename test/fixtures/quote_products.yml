@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+quote_product_one:
+  name: Vinyl Table Cover
   group: 1
 
-two:
-  name: MyString
+quote_product_two:
+  name: Laminate Table Cover
   group: 1
