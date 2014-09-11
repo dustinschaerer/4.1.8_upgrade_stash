@@ -4,8 +4,8 @@
    thishead = "Classic Vinyl Table Covers / Roll Goods" 
    thisback = "background-color: #8C5C37;color:white;padding:7px;" 
    thisavailable = "Vinyl Table Covers, Roll Goods, Placemats, Table Runners and  Table Toppers" %>
-   <% provide(:title, 'Vinyl Table Covers | 9800 Series Classic Vinyls') %>
-   <% provide(:description, 'Shop Americo\'s easy-care, vinyl table covers are a great alternative to woven table lines. All Classic vinyl table covers are custom made in 2-3 weeks.') %>
+   <% provide(:title, "Vinyl Table Covers | #{@series.name} Series Classic Vinyls") %>
+   <% provide(:description, "Shop Americo\'s easy-care, #{@series.name} Series vinyl table covers are a great alternative to woven table lines. All Classic vinyl table covers are custom made in 2-3 weeks.") %>
 
 <% elsif (@series.style.id == 2) %>
 <% thistitle = "6100 SERIES PREMIUM VINYLS"
@@ -13,8 +13,8 @@
    thishead = "Premium Vinyl Table Covers / Roll Goods"   
    thisback = "background-color: #5E6923;color:white;padding:7px;"
    thisavailable = "Vinyl Table Covers, Roll Goods, Placemats, Table Runners and Table Toppers" %>
-   <% provide(:title, 'Vinyl Table Covers | 6100 Series Premium Vinyls') %>
-   <% provide(:description, 'Shop Americo\'s Premium vinyl table covers offer decorator style with easy maintenance and lower replacement costs over time. We offer Free Quotes and Free Samples!') %>
+   <% provide(:title, "Vinyl Table Covers | #{@series.name} Series Premium Vinyls") %>
+   <% provide(:description, 'Shop Americo\'s #{@series.name} Series Premium vinyl table covers offer decorator style with easy maintenance and lower replacement costs over time. We offer Free Quotes and Free Samples!') %>
 
 <% elsif (@series.style.id == 3) %>
 <% thistitle = "1200/2000 SERIES DESIGNER LAMINATES"
@@ -22,8 +22,8 @@
    thishead = "Laminated Fabric Table Covers / Roll Goods" 
    thisback = "background-color: #50334E;color:white;padding:7px;" 
    thisavailable = "Vinyl Table Covers, Roll Goods, Table Runners and Table Toppers" %>
-   <% provide(:title, 'Laminated Vinyl Table Covers | 1200/2000 Series Designer Vinyls') %>
-   <% provide(:description, 'Shop Americo\'s laminated fabric table covers and roll goods offer decorator appeal at reasonable prices. Transform any venue with custom-made table covers in 2-3 weeks.') %>
+   <% provide(:title, "Laminated Vinyl Table Covers | #{@series.name} Series Designer Vinyls") %>
+   <% provide(:description, "Shop Americo\'s Series #{@series.name} laminated fabric table covers and roll goods offer decorator appeal at reasonable prices. Transform any venue with custom-made table covers in 2-3 weeks.") %>
 
 <% elsif (@series.style.id == 7) %>
 <% thistitle = "DISTINCTIONS COLLECTION UPHOLSTERY VINYLS"
@@ -31,8 +31,8 @@
    thishead = "Vinyl Upholstery Fabrics / Roll Goods"  
    thisback = "background-color: #AA4B19;color:white;padding:7px;"  
    thisavailable = "Upholstery Vinyls - Roll Goods and Custom Cut Goods" %>
-   <% provide(:title, 'Vinyl Upholstery Fabric | Distinctions Collection') %>
-   <% provide(:description, 'Shop Americo\'s easy-care, vinyl upholstery fabrics offer colors and patterns for every decor.  Transform chairs, booths, stools, and other furnishing with fabric that really lasts.') %>
+   <% provide(:title, "Vinyl Upholstery Fabric | Series #{@series.name} Distinctions Collection") %>
+   <% provide(:description, "Shop Americo\'s easy-care, #{@series.name} Series Vinyl Upholstery Fabrics offer colors and patterns for every decor.  Transform chairs, booths, stools, and other furnishing with fabric that really lasts.") %>
 
 <% elsif (@series.style.id == 8) %>
 <% thistitle = "VALUE VINYLS"
