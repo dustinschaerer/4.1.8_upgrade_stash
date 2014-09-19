@@ -176,8 +176,8 @@
             <li class="bold">Roll Length: 33 yards</li>
             <li class="bold">Roll Widths: 36", 48" &amp; 72"</li>
           </ul>
-          <%= image_tag("swatch-image.jpg", :class => "img-responsive pull-left", alt: "Free Swatches", :id => 'home-swatches' ) %>
-          <%= image_tag("free-catalog.jpg", :class => "img-responsive pull-right", alt: "Free Catalog" ) %>
+          <%= link_to '/free_swatches' do %><%= image_tag("swatch-image.jpg", :class => "img-responsive pull-left", alt: "Free Swatches", :id => 'home-swatches' ) %><% end %>
+          <%= link_to '/request_catalog' do %><%= image_tag("free-catalog.jpg", :class => "img-responsive pull-right", alt: "Free Catalog" ) %><% end %>
         </div>
       </div>
 
