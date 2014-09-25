@@ -7,518 +7,644 @@
 
 <url>
   <loc>https://www.americo-inc.com/</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/users/sign_in</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/users/sign_up</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/request_quote</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/how_to_measure</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/request_catalog</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/free_swatches</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/categories/vinyl-table-covers</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/styles/vinyl-upholstery-fabric</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/categories/laminated-fabric</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/categories/non-slip-padding</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/categories/vinyl-placemats-toppers-runners</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/gallery</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/about</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/tradeshows</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/satisfied_customers</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/contact</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/roll_goods</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/how_to_order</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/terms_and_conditions</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/cleaning_instructions</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/frequently_asked_questions</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/technical_specs</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/privacy_policy</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/users/password/new</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=1</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=2</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=12</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=10</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=11</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=9</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=7</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=8</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=4</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=5</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=3</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=6</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=14</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=15</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/lines/new?quote_product_id=16</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/americlear_laminations_sample</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/styles/value-vinyl-7100</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/roll_goods</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/styles/classic-vinyl-9800</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/styles/premium-vinyl-6100</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/styles/designer-laminate-1200-2000</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/8</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/9</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/10</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/11</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/12</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/13</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/14</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/15</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/16</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/17</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/18</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/19</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/20</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/21</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/22</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/series/23</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/styles/3</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/styles/1</loc>
-  <changefreq>weekly</changefreq>
-</url>
-<url>
-  <loc>https://www.americo-inc.com/styles/2</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/table_cover_gallery</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/photo_gallery</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/contact</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/how_to_order</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/terms_and_conditions</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/cleaning_instructions</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/frequently_asked_questions</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/technical_specs</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/privacy_policy</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/sitemap</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/users/password/new</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+
+<url>
+  <loc>https://www.americo-inc.com/americlear_laminations_sample</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6111-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6112-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6113-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6114-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6115-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6116-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6117-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6118-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6119-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6120-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6121-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6122-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6123-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6124-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6125-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/series/style-6126-vinyl-upholstery-fabrics</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/styles/3</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/place_an_order</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/1</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9801-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/2</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9802-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/5</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9803-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/6</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9804-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/24</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9805-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/7</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9806-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/25</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9807-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/26</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9808-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/27</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9809-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/28</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9810-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/29</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9811-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/30</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9812-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/31</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9813-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/32</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9814-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/33</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9815-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/34</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9816-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/35</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9817-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/36</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9818-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/37</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9819-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/38</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9820-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/39</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9821-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/40</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9822-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/41</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9823-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/42</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9824-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/43</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9825-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/44</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9826-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/45</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9827-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/46</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9828-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/47</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-9829-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/4</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6101-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/48</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6102-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/49</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6103-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/50</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6104-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/51</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6105-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/52</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6106-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/53</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6107-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/54</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6108-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/55</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6109-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/56</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6110-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/57</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6111-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/58</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6112-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/59</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6113-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/60</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6114-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/61</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6115-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/62</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6116-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/63</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6117-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/64</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6118-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/65</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6119-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/66</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6120-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/67</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6121-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/68</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6122-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/69</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6123-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/70</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6124-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/71</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6125-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/72</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-6126-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/73</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-1226-laminate-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/74</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-1290-vinyl-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/75</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-1291-laminate-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/76</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-2013-laminate-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/77</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-2063-laminate-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.americo-inc.com/series/78</loc>
-  <changefreq>weekly</changefreq>
+  <loc>https://www.americo-inc.com/series/style-2068-laminate-table-covers</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=1</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=2</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=12</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=10</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=11</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=9</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=7</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=8</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=4</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=5</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=3</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=6</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=14</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=15</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.americo-inc.com/lines/new?quote_product_id=16</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.americo-inc.com/lines/new?quote_product_id=13</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
 </url>
+
 </urlset>
