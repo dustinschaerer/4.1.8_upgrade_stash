@@ -35,13 +35,13 @@
    <% provide(:description, "Shop Americo\'s easy-care, #{@series.name} Series Vinyl Upholstery Fabrics offer colors and patterns for every decor.  Transform chairs, booths, stools, and other furnishing with fabric that really lasts.") %>
 
 <% elsif (@series.style.id == 8) %>
-<% thistitle = "VALUE VINYLS"
-   thiscolor = "addgold"
+<% thistitle = "7100 SERIES VALUE VINYLS"
+   thiscolor = "addmaroon"
    thishead = "Value Vinyl Table Covers"
    thisback = "background-color: #8C5C37;color:white;padding:7px;" 
    thisavailable = "Ready-made Vinyl Table Covers"  %>
    <% provide(:title, 'Value Vinyl Table Covers | Americo Inc.') %>
-   <% provide(:description, 'Americo\'s easy-care vinyl table covers are an affordable option to renting or buying tablecloths for your venue or special events. Covers come in many size and colors.') %>
+   <% provide(:description, "Americo\'s easy-care #{@series.name} Series Vinyl table covers are an affordable option to renting or buying tablecloths for your venue or special events. Covers come in many size and colors.") %>
 <% end %>
 
 <div class="row">
@@ -128,6 +128,17 @@
       <p>Style <b><%= @series.name %></b> is also available as table runners or table toppers. <a href="/categories/vinyl-placemats-toppers-runners" class="addgray underline">Learn More</a>
     </div>
 
+     <% elsif (@series.style.id == 8) %>
+    <div class="top10">
+      <ul class="sideseries">
+        <li>Our most affordable vinyl table covers</li>
+        <li>Ready-made in popular sizes (See styles below.)</li>
+        <li>Finished edge with 1⁄4” single turn hem</li>
+        <li>Low minimums</li>
+        <li>Fabric also offered by the roll (25 yards x 54")</li>
+        <li><a href="/technical_specs" class="addgray underline">Technical specs.</a></li>
+      </ul>
+    </div>
 
 	<% end %>
   	
