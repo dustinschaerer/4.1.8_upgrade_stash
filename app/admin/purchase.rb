@@ -46,7 +46,8 @@ ActiveAdmin.register Purchase do
 
   index do 
     column("Purchase ID#", :sortable => :id) {|purchase| link_to "##{purchase.id} ", admin_purchase_path(purchase) }
-    column("Purchase Status", :status)
+    #column("Purchase Status", :status)
+    column("Status") {|purchase| status_tag (purchase.current_status), (purchase.current_color) }
     #column("State", :state, :sortable => :state)
     column("First", :firstname, :sortable => :firstname)
     column("Last", :lastname, :sortable => :lastname)

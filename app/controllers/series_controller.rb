@@ -24,7 +24,7 @@ class SeriesController < ApplicationController
 
   # GET /series/1/edit
   def edit
-    @series = Series.find(params[:id])
+    #@series = Series.friendly.find(params[:id])
     @styles = Style.all
   end
 

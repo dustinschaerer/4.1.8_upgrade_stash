@@ -42,6 +42,17 @@ class Quote < ActiveRecord::Base
     lines.to_a.sum { |line| line.total_price }
   end 
 
+  def current_color
+    if (self.status == "Submitted")
+      return :warn
+    elsif (self.status == "Priced")
+      return :ok
+    elsif (self.status == "Offline Purchased")
+      return :offline_purchased
+    elsif (self.status == "Purchased")
+      return :error
+    end
+  end
 
   def calculate_subtotal
     self.subtotal = total_price

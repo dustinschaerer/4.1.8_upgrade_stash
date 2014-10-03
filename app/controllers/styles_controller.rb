@@ -24,7 +24,7 @@ class StylesController < ApplicationController
 
   # GET /styles/1/edit
   def edit
-    @style = Style.find(params[:id])
+    @style = Style.friendly.find(params[:id])
     @products = Product.all
   end
 

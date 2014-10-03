@@ -10,9 +10,6 @@
           <% elsif ( (params[:id] == '2') || (params[:id] == 'premium-vinyl-6100') ) %>
             <% provide(:title, 'Premium Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
             <% provide(:description, 'Americo\'s high-resiliency, Premium vinyl table covers and placemats and are ideal for busy dining venues. All Premium covers are custom made in 2-3 weeks.') %>
-            <%= 
-            # image_tag("sliders/premium-6125-black-mocha_vinyl-table-cover_slider.jpg", alt: "sliderimg", :title => "#premiumcaption", :data => { :thumb => 'sliders/premium-6125-black-mocha_vinyl-table-cover_slider.jpg' } ) 
-            %> 
             <%= image_tag("sliders/premium-6125-black-mocha_vinyl-table-cover_slider.jpg", alt: "sliderimg", :title => "#premiumcaption" ) %> 
           <% elsif ( (params[:id] == '3') || (params[:id] == 'designer-laminate-1200-2000') ) %>
             <% provide(:title, 'Designer Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
@@ -25,7 +22,7 @@
           <% elsif ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>   
             <% provide(:title, 'Value Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc.') %>
             <% provide(:description, 'Americo\'s easy-care vinyl table covers are an affordable option to renting or buying tablecloths for your venue or special events. Vinyl Table Covers come in many size and colors.') %>
-              <%= image_tag("vinyl-upholstry_1621-g_opt.jpeg", alt: "Value Vinyl Table Covers", :title => "#valuecaption", :data => { :thumb => 'vinyl-upholstry_1621-g_opt.jpeg' } ) %>
+              <%= image_tag("sliders/value-7104-vinyl-table-cover-slider.jpg", alt: "Value Vinyl Table Covers", :title => "#valuecaption", :data => { :thumb => 'sliders/value-7104-vinyl-table-cover-slider.jpg' } ) %>
           <% end %>
         </div>
         <div id="classiccaption" class="nivo-html-caption" style="display:none">
@@ -157,8 +154,8 @@
 
     <% elsif ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>   
       
-     <div class="styletype weighty">Coming Fall 2014</div>
-     <div class="styletype weighty">VALUE VINYLS</div>
+     <!--<div class="styletype weighty">Coming Fall 2014</div>
+     <div class="styletype weighty">VALUE VINYLS</div>-->
     
 
      <div class="col-sm-9 border-right">
@@ -177,7 +174,7 @@
       <p class="addgray">7000 series vinyls are 6-mil printed PVC film laminated to a 2.5 oz. per square yard non-woven polyester fabric.<br />
       <a href="/technical_specs" class="addgray underline top10">Additional specs.</a></p>
 
-      <p class="addpurple larger bold top25">Also Available as Placemats, Table Runners and Overlays</p>
+      <p class="addarmy larger bold top25">Don't Forget to order the Non-Sip Pads</p>
     </div>
 
 <!--

@@ -17,7 +17,7 @@ ActiveAdmin.register Order do
 
   index do 
     column("Order ID#", :sortable => :id) {|order| link_to "##{order.id} ", admin_order_path(order) }
-    column("Order Status") { |order| status_tag((order.status)) }
+    column("Order Status") { |order| status_tag (order.status), (order.current_color) }
     column("Customer", :user, :sortable => :user_id)
     column("City", :city, :sortable => :city)
     column("State", :state, :sortable => :state)
@@ -60,7 +60,8 @@ ActiveAdmin.register Order do
           
           attributes_table_for order do
             row ("Order ID") { order.id }
-            row :status
+            #row :status
+            row("Status") {|order| status_tag (order.status), (order.current_color) }
             row :created_at
             row :updated_at
           end
@@ -95,7 +96,7 @@ ActiveAdmin.register Order do
       f.actions
 
       f.inputs 'Details' do
-        f.input :status, :label => 'Order Status', :as => :select, :collection => [['Submitted', 'Submitted'], ['Shipped', 'Shipped']]
+        f.input :status, :label => 'Order Status', :as => :select, :collection => [['Submitted', 'Submitted'], ['Shipped', 'Shipped'], ['Offline-Purchased', 'Offline-Purchased']]
         f.input :user_id
         f.input :email
         f.input :firstname

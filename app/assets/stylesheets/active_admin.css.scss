@@ -1,20 +1,67 @@
 // SASS variable overrides must be declared before loading up Active Admin's styles.
 //
 // To view the variables that Active Admin provides, take a look at
-// `app/assets/stylesheets/active_admin/mixins/_variables.css.scss` in the
+// `app/assets/stylesheets/active_admin/mixins(/_variables.css.scss` in the
 // Active Admin source.
 //
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
 
+
+$link-color: #BF2C37;
+$skinLogo: url("logo.png") no-repeat 10px 15px;
+$skinActiveColor: #BF2C37 !default;
+$skinTextTable: #333;
+$panelHeaderBck: #1e2a33 !default;
+$skinHeaderBck: #1e2a33 !default;
+$panelHeaderBck: #BF2C37 !default;
+
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
+@import "active_admin/components/status_tags";
+@import "active_skin";
+@import url(//fonts.googleapis.com/css?family=Roboto:400,600,700&subset=latin,latin-ext);
+
+
+
+
+
+
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+
+
+
+
+
+
+
+.status_tag {
+  background: darken($secondary-color, 15%);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 3px 5px 2px 5px;
+  font-size: 0.8em;
+
+  &.ok, &.published, &.complete, &.completed, &.green { background: #03721E; }
+  &.warn, &.warning, &.orange { background: #1EA0E5; }
+  &.error, &.errored, &.red { background: #bf2c37; }
+
+  &.yes { background: #6090DB; }
+  &.no  { background: grey; }
+
+  &.offline_purchased { background: #8C5C37; }
+  &.offline_shipped { background: #BF9438; }
+
+}
+
+
 
 .invoicethumb {
 	max-width: 100px;
@@ -52,7 +99,6 @@ body.logged_out h2 {
     text-shadow: 0 1px 0 #000000;
 }
 
-
 body.logged_out #adminlogo {
   height: 80px;
   margin: 0 25% 0 25%;
@@ -61,6 +107,12 @@ body.logged_out #adminlogo {
   background-repeat:no-repeat;
 }
 
+html {
+  font-family: 'Roboto', sans-serif;
+}
+body.active_admin {
+  font-family: 'Roboto', sans-serif;
+}
 
 #header {
   h1 {
@@ -70,4 +122,172 @@ body.logged_out #adminlogo {
 
 #header ul.tabs > li a {
 	font-size: 14px;
+}
+
+
+
+
+
+
+
+#header {
+  background: #ecf0f1;
+  border: none;
+  text-shadow: none;
+  height: 80px;
+  padding: 0;
+
+  ul.tabs > li {
+    margin: 0;
+
+    a {
+      padding: 33px 20px;
+    }
+  }
+  h1.site_title {
+    background-color: #fff;
+    background: $skinLogo; 
+    padding-left: 180px;
+    color: $skinTextColor;
+    text-indent: -999999px;
+  }
+  #utility_nav {
+    background: #ecf0f1;
+  }
+}.sidebar_section.panel {
+  .filter_form_field {
+    label {
+      color: #333;
+    }
+  }
+}
+.panel {
+  border: 1px solid #666;
+  a, a:link, a:visited {
+    color: $skinTextTable;
+    display: inline-block;
+    padding: 2px 3px;
+    margin: -2px 0;
+    &:hover {
+      color: #fff;
+      background: $skinActiveColor;
+    }
+  }
+}
+.panel > h3 {
+  background-color: #1e2a33;;
+  color: #fff;
+}
+
+  /*
+  h1.site_title
+    background-color: #fff
+    background: $skinLogo
+    padding-left: 130px
+    color: $skinTextColor
+    text-indent: -999999px
+  a, a:link
+    color: $skinTextColor
+  ul.tabs
+    padding: 0
+    font-size: 0
+  ul.tabs > li:hover > a, ul.tabs > li.current > a
+    color: $skinTextActiveColor
+    background: $skinActiveColor
+    @include rounded(0)
+    margin: -10px 0
+  ul.tabs > li 
+    font-size: 12px
+    margin: 0
+    a
+      padding: 13px 20px
+      margin: 0
+  ul.tabs > li.has_nested a
+    background-position: 93% 50%
+  ul.tabs > li.has_nested:hover
+    a
+      @include rounded(0)
+      background-color: $skinActiveColor
+      border: none
+      background-position: 93% 50%
+    ul
+      background: $skinActiveColor
+      @include no-shadow()
+      @include rounded(0)
+      border: none
+      li a
+        color: #fff
+        &:hover
+          color: $skinTextColor
+  ul.tabs > li.has_nested.current a
+    background-color: $skinActiveColor
+    background-position: 93% 50%
+  #utility_nav
+    background: #fff
+    padding: 0
+    li#logout a
+      font-weight: bold
+      text-decoration: underline
+      &:hover
+        text-decoration: none
+    li a
+      &:hover
+        background: none
+        color: $skinTextColor
+    */
+
+.total-price {
+  text-align: right;
+  padding-right: 30px;
+}
+
+.attributes_table table th, .attributes_table table td {
+  color: #333;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+
+}
+.attributes_table table th {
+  font-weight: normal;
+  text-transform: uppercase;
+}
+.attributes_table table td .empty {
+  color: #FF0000;
+}
+
+
+
+table.index_table {
+  border: 1px solid #d3d8dc;
+  background: #fff;
+  th {
+    background: #f1f5f6;
+    border: 1px #d3d8dc;
+    border-style: none solid solid none;
+    padding: 7px 10px;
+    @include no-shadow();
+    color: $skinTextColor;
+    a, a:link, a:visited {
+      color: $skinTextColor;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+  td {
+    color: $skinTextTable;
+    a, a:link, a:visited {
+      color: $skinTextTable;
+      display: inline-block;
+      padding: 2px 3px;
+      margin: -2px 0;
+      &:hover {
+        color: #fff;
+        background: $skinActiveColor;
+      }
+    }
+  }
+  tr.even td {
+    background: #eee;
+  }
 }

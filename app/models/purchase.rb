@@ -75,6 +75,28 @@ class Purchase < ActiveRecord::Base
       true
     end 
   end
+
+  def current_status
+    if (self.status == "Submitted")
+      return "Purchased"
+    else  
+      return self.status
+    end
+  end
+
+  def current_color
+    if (self.status == "Purchased")
+      return :error
+    elsif (self.status == "Shipped")
+      return :ok
+    elsif (self.status == "Offline Purchase")
+      return :offline_purchase
+    elsif (self.status == "Offline Shipped")
+      return :offline_shipped
+    elsif (self.status = "Submitted")
+      return :error
+    end
+  end
   
   def set_amount(total)
     self.amount = (total*100).round

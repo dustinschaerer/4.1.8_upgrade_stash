@@ -79,7 +79,10 @@ ActiveAdmin.register Quote do
 
   index do 
     column("Quote ID#", :sortable => :id) {|quote| link_to "##{quote.id} ", admin_quote_path(quote) }
-    column("Quote Status") { |quote| status_tag(quote.status) }
+#   column("Quote Status") { |quote| status_tag(quote.status) }
+
+    column("Status") {|quote| status_tag (quote.status), (quote.current_color) }
+
     column("Customer", :user, :sortable => :user_id)
     column("City", :ship_city, :sortable => :city)
     column("State", :ship_state, :sortable => :state)
@@ -87,7 +90,9 @@ ActiveAdmin.register Quote do
     column("Date Modified", :updated_at)
     
     column("Price Total", :total)  do |tl|
-      number_to_currency tl.total
+      div :class => "total-price" do
+        number_to_currency tl.total
+      end  
     end  
     default_actions
   end
@@ -110,7 +115,8 @@ ActiveAdmin.register Quote do
       column do
         panel "Quote ##{quote.id}  - Customer Information" do  
           attributes_table_for quote do
-            row :status
+            #row :status
+            row("Status") {|quote| status_tag (quote.status), (quote.current_color) }
           end  
           attributes_table_for quote.user do
             row("User") { auto_link quote.user }
@@ -170,6 +176,9 @@ ActiveAdmin.register Quote do
 
   form do |f|
     f.actions
+    f.inputs 'Quote Status' do
+      f.input :status, :as => :select, :collection => ['Submitted', 'Priced', 'Offline-Purchased']
+    end
     f.inputs 'Details' do
       f.input :user_id, :input_html => { disabled: true }
       f.input :email, :input_html => { disabled: true }

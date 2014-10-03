@@ -9,7 +9,8 @@ class ColorsController < ApplicationController
 
   # GET /colors
   def index
-    @colors = Color.all.order("id")
+    #@colors = Color.all.order("id")
+    @colors = Color.all
   end
 
   # GET /colors/1
@@ -26,7 +27,6 @@ class ColorsController < ApplicationController
   def edit
     @color = Color.find(params[:id])
     @series = Series.all
-
   end
 
   # POST /colors

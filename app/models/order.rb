@@ -29,4 +29,17 @@ class Order < ActiveRecord::Base
      	true
     end	
   end
+
+  def current_color
+    if (self.status == "Submitted")
+      return :warn
+    elsif (self.status == "Shipped")
+      return :ok
+    elsif (self.status == "Offline Purchased")
+      return :offline_purchased
+    elsif (self.status == "Purchased")
+      return :error
+    end
+  end
+
 end
