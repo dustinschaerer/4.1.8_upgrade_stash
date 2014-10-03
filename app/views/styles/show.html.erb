@@ -173,8 +173,45 @@
 
       <p class="addgray">7000 series vinyls are 6-mil printed PVC film laminated to a 2.5 oz. per square yard non-woven polyester fabric.<br />
       <a href="/technical_specs" class="addgray underline top10">Additional specs.</a></p>
-
+ 
       <p class="addarmy larger bold top25">Don't Forget to order the Non-Sip Pads</p>
+<!--      
+      <table class="table table-striped top20">
+      <tr>
+        <td>Cloth Size</td>
+        <td>Minimum Order per Color:</td>
+      </tr>
+      <tr>
+        <td>46" x 46"</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” x52”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” x 64”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>2” x 88”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” x 112”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” round</td>
+        <td>3</td>
+      </tr>
+    </table>
+-->
+
+      <div class="bold top10">
+      </div> 
+
+
     </div>
 
 <!--
@@ -219,8 +256,13 @@
       </div>
       <div class="stylename weighty addblack bold">
           <%= @style.title %>
-      </div>
+      </div>    
+    
+      
+
     </div>
+
+
     <div class="col-xs-12 col-sm-5 hidden-xs"> 
       <div class="choices top25">
       <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') ) %>
@@ -243,6 +285,38 @@
   <div class="entry">
     <div class="row top10">
       <div class="col-xs-12 col-sm-10">   
+
+        <!-- start -->
+ <% if ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
+  <div class="row">    
+    <div class="col-xs-12"> 
+      <div class="addblack bold top10">
+        MANY SIZES AVAILABLE. LOW MINIMUMS.
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">   
+    <div class="col-sm-12 col-md-6" > 
+
+      <div class="bold top10">
+        Sizes Available With 6 Cover Minimum Order per Color:
+        <br />46” x 46” | 52” x52” | 52” x 64” | 52” x 88” | 52” x 112” | 52” round
+      </div> 
+    
+
+    </div> 
+  
+    <div class="col-sm-12 col-md-6">
+        <div class="bold top10 bottom20">
+          Sizes Available With 3 Cover Minimum Order per Color:
+          <br />88” round (with center seam)
+        </div>       
+    </div> 
+  </div>
+  <% end %>
+
+<!-- finish -->
         <div class="row">
           <% @style.series.order("name").each do |swatch| %>
           <div class="col-xs-6 col-sm-3">   
@@ -268,6 +342,45 @@
             <strong>Custom<br>Lamination<br><span class="smaller">With Americlear<br>Also Available</span></strong>
           <% end %>
         </div>
+      
+      <% elsif ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
+<!--
+              <table class="table table-striped top20">
+                <thead>
+      <tr>
+        <th>Cloth Size</td>
+        <th>Minimum Order per Color:</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>46" x 46"</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” x52”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” x 64”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>2” x 88”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” x 112”</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>52” round</td>
+        <td>3</td>
+      </tr>
+    </tbody>
+    </table>
+-->
+
         <% end %>
 
         <div class="hidden-xs">
@@ -303,7 +416,7 @@
     </div>
   </div>
 
-  
+
   <hr />
 
   <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') || 

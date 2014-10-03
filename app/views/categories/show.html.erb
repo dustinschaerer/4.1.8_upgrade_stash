@@ -57,12 +57,8 @@
 
                   <div class="style-link">
                   <%= link_to(style, :class => "no-under") do %>
-                    
                     <%= image_tag(style.image_url, :class => "img-responsive") %>
-
-                  
-
-                  <%= style.description.html_safe %>
+                    <%= style.description.html_safe %>
                   <% end %>
                   </div>
               </div>
