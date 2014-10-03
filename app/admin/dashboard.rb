@@ -9,13 +9,11 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recent Purchases" do
           table_for Purchase.order('id desc').limit(15).each do |purchase|      
-          #  column("purchase ID#") {|purchase| link_to(purchase.id, admin_purchase_path(purchase.id))}
-          # column("Status") {|order| status_tag (order.is_complete? ? "Shipped" : "Submitted"), (order.is_complete? ? :ok : :error) }
+            #column("purchase ID#") {|purchase| link_to(purchase.id, admin_purchase_path(purchase.id))}
+            #column("Status") {|order| status_tag (order.is_complete? ? "Shipped" : "Submitted"), (order.is_complete? ? :ok : :error) }
             #column("Status") {|purchase| status_tag (purchase.is_complete? ? "Purchased" : "Shipped"), (purchase.is_complete? ? :ok : :error)   }
-
             column("Status") {|purchase| status_tag (purchase.current_status), (purchase.current_color) }
-          # 
-          column("Status") {|purchase| (purchase.status)  }
+            #column("Status") {|purchase| (purchase.status)  }
             #column("Price Total") {|purchase| (number_to_currency(purchase.total)) }
             column "Price Total", :total do |purchase| 
               div :class => "total-price" do
@@ -34,10 +32,9 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Quote Requests" do
           table_for Quote.order('id desc').limit(15).each do |quote|      
             column("Quote ID#") {|quote| link_to(quote.id, admin_quote_path(quote.id))}
-          #  column("Status") {|quote| (quote.status)  }
-#           column("Status") {|quote| status_tag (quote.is_complete? ? "Priced" : "Submitted"), (quote.is_complete? ? :ok : :error) }
+          # column("Status") {|quote| (quote.status)  }
+          # column("Status") {|quote| status_tag (quote.is_complete? ? "Priced" : "Submitted"), (quote.is_complete? ? :ok : :error) }
             column("Status") {|quote| status_tag (quote.status), (quote.current_color) }
-
             column("Price Total") {|quote| number_to_currency((quote.total)) }
           # column("Customer"){|quote| link_to(quote.user.email, admin_quote_path(quote.user)) }
             column("First Name"){|quote| (quote.firstname) }

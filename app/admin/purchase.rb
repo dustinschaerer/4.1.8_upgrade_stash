@@ -63,7 +63,7 @@ ActiveAdmin.register Purchase do
       column do
         panel "Purchase ##{purchase.id} Customer Information" do   
           attributes_table_for purchase do
-            row :status
+            row("Status") {|purchase| status_tag (purchase.status), (purchase.current_color) }
             row :email
             row :firstname
             row :lastname

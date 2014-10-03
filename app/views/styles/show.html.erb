@@ -213,15 +213,12 @@
         <% elsif ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
         <div class="addmaroon">
         <% end %>
-        <% unless ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %> 
           <%= @style.name %> | <%= @style.series.count %> designs | <%= @style.colors.count %> colors
-        <% end %>
+        
         </div>
       </div>
       <div class="stylename weighty addblack bold">
-        <% unless ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %> 
           <%= @style.title %>
-        <% end %>
       </div>
     </div>
     <div class="col-xs-12 col-sm-5 hidden-xs"> 
@@ -237,15 +234,12 @@
       <% elsif ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %>
         <div class="addmaroon">
       <% end %>
-      <% unless ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %> 
           Click on a style to see all your color choices.
-      <% end %>    
         </div>
       </div>  
     </div>
   </div>
 
-  <% unless ( (params[:id] == '8') || (params[:id] == 'value-vinyl-7100') ) %> 
   <div class="entry">
     <div class="row top10">
       <div class="col-xs-12 col-sm-10">   
@@ -308,7 +302,8 @@
       </div>
     </div>
   </div>
-  <% end %>    
+
+  
   <hr />
 
   <% if ( (params[:id] == '1') || (params[:id] == 'classic-vinyl-9800') || 
