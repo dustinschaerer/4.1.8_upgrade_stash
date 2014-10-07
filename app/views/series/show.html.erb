@@ -266,10 +266,48 @@
       	<div class="style-title <%= thiscolor %>">
           Style <%= @series.name %>  | <%= thisavailable %>
       	</div>
-      <p class="top10">Colors Available:</p>  
-
     </div>
 </div>
+
+<% if (@series.style.id == 8) %>
+  <div class="row">    
+    <div class="col-xs-12"> 
+      <div class="addblack bold top10">
+        MANY SIZES AVAILABLE. LOW MINIMUMS.
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">   
+    <div class="col-sm-12 col-md-6" > 
+
+      <div class="bold top10">
+        Sizes Available With 6 Cover Minimum Order per Color:
+        <br />46” x 46” | 52” x52” | 52” x 64” | 52” x 88” | 52” x 112” | 52” round
+      </div> 
+    
+
+    </div> 
+  
+    <div class="col-sm-12 col-md-6">
+        <div class="bold top10 bottom20">
+          Sizes Available With 3 Cover Minimum Order per Color:
+          <br />88” round (with center seam)
+        </div>       
+    </div> 
+  </div>
+  <% end %>
+
+
+
+
+<div class="row">    
+    <div class="col-xs-12"> 
+      <p class="top10">Colors Available:</p>  
+    </div>
+</div>
+
+
 
 <div class="row">
   <div class="col-xs-12 col-sm-10">   
