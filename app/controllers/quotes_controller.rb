@@ -62,7 +62,7 @@ class QuotesController < ApplicationController
         session[:quoteholder_id] = nil
         QuoteNotifier.received(@quote, current_user).deliver  
         QuoteNotifier.notify_admin(@quote).deliver
-        format.html { redirect_to user_path(current_user), notice: 'Your Quote was successfully created and submitted. You should receive a confirmation email letting you know we\'ve recieved your quote right away. We will also send you a notification email as soon as we finish pricing your Quote.' }
+        format.html { redirect_to user_path(current_user), notice: %Q[Your Quote was successfully created and submitted. You should receive a confirmation email letting you know we've recieved your quote right away. We will also send you a notification email as soon as we finish pricing your Quote. <p>Don't forget to join our Mailing List for special offers and periodic newsletters. <a target="new" href="http://visitor.r20.constantcontact.com/d.jsp?llr=j4rb9sqab&amp;p=oi&amp;m=1117322790889&amp;sit=8wpamrxib&amp;f=7e954c51-d956-4ceb-b3be-2a8cf6773713" class="button btn btn-success" style="color: rgb(255, 255, 255);  text-shadow: none; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display:inline-block; vertical-align: middle;">Join our Mailing List here.</a>].html_safe }
         format.json { render action: 'show', status: :created, location: @quote }
       else
         format.html { render action: 'new' }
