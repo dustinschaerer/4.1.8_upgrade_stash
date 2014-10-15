@@ -539,6 +539,24 @@ footer {
   background-image: linear-gradient(#b42121, #5e1111); border-color: #5e1111 #5e1111 hsl(0, 69%, 17%); color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.33); -webkit-font-smoothing: antialiased; 
 }
 
+.btn-buy {
+  background-color: hsl(0, 82%, 44%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#cc1414", endColorstr="#cc1414");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#cc1414), to(#cc1414));
+  background-image: -moz-linear-gradient(top, #cc1414, #cc1414);
+  background-image: -ms-linear-gradient(top, #cc1414, #cc1414);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #cc1414), color-stop(100%, #cc1414));
+  background-image: -webkit-linear-gradient(top, #cc1414, #cc1414);
+  background-image: -o-linear-gradient(top, #cc1414, #cc1414);
+  background-image: linear-gradient(#cc1414, #cc1414);
+  border-color: #cc1414 #cc1414 hsl(0, 82%, 44%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
+  -webkit-font-smoothing: antialiased;
+}
+
+
 .underline {
   text-decoration: underline;
 }

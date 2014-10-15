@@ -163,7 +163,7 @@
       <div class="stylesub bottom20">Ready-Made Table Covers Combine Quality and Great Pricing!</div>
       <div class="styletext">
         <p>Americo's Value line of vinyl table covers is a budget-friendly alternative to buying or renting table linens for special events.  Or if you like change your decor with the season, these coevers can make yor vision a reality without spending a bundle.</p>
-        <p><strong>Low minimums. </strong> Our Value (7100 Series) Vinyl table covers are available in 7 popular sizes. Low minimum requirements range from 3 to 6 covers per color, depending on the size.</p>
+        <p><strong>Low minimums. </strong> Our Value (7100 Series) Vinyl table covers are available in 7 popular sizes. Low minimum requirements range from 2 to 4 covers per color, depending on the size.</p>
 
         <p><strong>Available by the roll, too.</strong> We sell 25-yard rolls of the Value Vinyl series, which are 54" wide. Most roll goods are in stock and ship within 1 business day.</p>
       </div>
@@ -174,51 +174,10 @@
       <p class="addgray">7000 series vinyls are 6-mil printed PVC film laminated to a 2.5 oz. per square yard non-woven polyester fabric.<br />
       <a href="/technical_specs" class="addgray underline top10">Additional specs.</a></p>
       
-      <%= image_tag('value-vinyl-chart.jpg', alt: 'Value Vinyl Order Chart', :class => "img-responsive" ) %>
-
-
-<!--      
-      <p class="addarmy larger bold top25 ">Don't Forget to order the Non-Sip Pads</p>
-
-      <table class="table table-striped top20">
-      <tr>
-        <td>Cloth Size</td>
-        <td>Minimum Order per Color:</td>
-      </tr>
-      <tr>
-        <td>46" x 46"</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>52” x52”</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>52” x 64”</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>2” x 88”</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>52” x 112”</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>52” round</td>
-        <td>3</td>
-      </tr>
-    </table>
--->
-
-   
-
+      <%= image_tag('value-vinyl-chart.png', alt: 'Value Vinyl Order Chart', :class => "img-responsive" ) %>
 
     </div>
-
     <% end %>
-
   </div>
 
   <div class="row">    
@@ -236,17 +195,12 @@
         <div class="addmaroon">
         <% end %>
           <%= @style.name %> | <%= @style.series.count %> designs | <%= @style.colors.count %> colors
-        
         </div>
       </div>
       <div class="stylename weighty addblack bold">
           <%= @style.title %>
       </div>    
-    
-      
-
     </div>
-
 
     <div class="col-xs-12 col-sm-5 hidden-xs"> 
       <div class="choices top25">
@@ -285,7 +239,7 @@
     <div class="col-sm-12 col-md-6" > 
 
       <div class="bold top10">
-        Sizes Available With 6 Cover Minimum Order per Color:
+        Sizes Available With 4 Cover Minimum Order per Color:
         <br />46” x 46” | 52” x52” | 52” x 64” | 52” x 88” | 52” x 112” | 52” round
       </div> 
     
@@ -294,14 +248,13 @@
   
     <div class="col-sm-12 col-md-6">
         <div class="bold top10 bottom20">
-          Sizes Available With 3 Cover Minimum Order per Color:
+          Sizes Available With 2 Cover Minimum Order per Color:
           <br />88” round (with center seam)
         </div>       
     </div> 
   </div>
   <% end %>
 
-<!-- finish -->
         <div class="row">
           <% @style.series.order("name").each do |swatch| %>
           <div class="col-xs-6 col-sm-3">   
@@ -362,7 +315,6 @@
       </div>
     </div>
   </div>
-
 
   <hr />
 

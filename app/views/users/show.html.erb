@@ -6,32 +6,33 @@
 
 <h3>My Swatch Order History</h3>
 <div class="table-responsive">
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered">
 		<tr>
 			<th>Order #</th>
 			<th>Items</th>
+			<th>Status</th>
+			<th>Order Date</th>
 			<th>Name</th>
 			<th>Email Address</th>
 			<th>Street Address</th>
 			<th>City</th>
 			<th>State</th>
 			<th>Zip</th>
-			<th>Country</th>
-			<th>Status</th>
 			
 		</tr>
 		<% @orders.each do |order|%>
 		<tr>
 			<td><%= order.id %></td>
-     		<td><%= link_to 'Show Order Details', order_path(order) %></td>
+     	<td><%= link_to 'Show Order Details', order_path(order) %></td>
+			<td><%= order.status %></td>
+			<td><%= order.created_at.strftime("%-m-%d-%Y") %></td>
 			<td><%= order.firstname %> <%= order.lastname %></td>
 			<td><%= order.email %></td>
 			<td><%= order.street_address %></td>
 			<td><%= order.city %></td>
 			<td><%= order.state %></td>
 			<td><%= order.zipcode %></td>
-			<td><%= order.country %></td>
-			<td><%= order.status %></td>
+				
 		</tr>
 		<% end %>
 	</table>
@@ -39,15 +40,15 @@
 
 <h3>My Quote Request History</h3>
 <div class="table-responsive">
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered">
 		<tr>
 			<th>Quote #</th>
 			<th>Show Quote</th>
 			<th>Buy Now</th>
 			<th>Status</th>
+			<th>Date Submitted</th>
 			<th>Name</th>
 			<th>Email Address</th>
-			<th>Date Submitted</th>
 			<th>Subtotal</th>
 			<th>Shipping</th>
 			<th>Sales Tax</th>
@@ -57,18 +58,18 @@
 		<tr>
 			<td><%= quote.id %></td>
 			<td><%= link_to 'Show Quote Details', quote %></td>
-	        <td><% if (quote.status == "Priced") %>
-                       <%= link_to 'Buy This Now', new_purchase_path(quote_id: quote), method: :get %>
-             	<% elsif (quote.status == "Purchased") %>
-                  Purchased  
-                <% else %>
-                Waiting on Pricing  
-                <% end %>
-	        </td>
-			<td><%= quote.status %></td>
+      <td><% if (quote.status == "Priced") %>
+              <%= link_to 'Buy This Now', new_purchase_path(quote_id: quote), :class => "btn btn-danger", method: :get %>
+         	<% elsif (quote.status == "Purchased") %>
+              Purchased  
+            <% else %>
+            Waiting on Pricing  
+            <% end %>
+      </td>
+	    <td><%= quote.status %></td>
+			<td><%= quote.created_at.strftime("%-m-%d-%Y") %></td>
 			<td><%= quote.firstname %> <%= quote.lastname %></td>
 			<td><%= quote.email %></td>
-			<td><%= quote.created_at.strftime("%-m-%d-%Y") %></td>
 			<td><%= number_to_currency(quote.subtotal) %></td>
 			<td><%= number_to_currency(quote.shipping) %></td>
 			<td><%= number_to_currency(quote.sales_tax) %></td>
@@ -80,35 +81,32 @@
 
 <h3>My Purchases</h3>
 <div class="table-responsive">
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered">
 		<tr>
 			<th>Purchase #</th>
 			<th>Show purchase</th>
 			<th>Status</th>
+			<th>Date Submitted</th>
 			<th>Name</th>
 			<th>Email Address</th>
-			<th>Date Submitted</th>
 			<th>Subtotal</th>
 			<th>Shipping</th>
 			<th>Sales Tax</th>
 			<th>Total</th>
 		</tr>	
 		<% @purchases.each do |purchase|%>
-		
 		<tr>
 			<td><%= purchase.id %></td>
 			<td><%= link_to 'Show Purchase Details', purchase %></td>
 			<td><%= purchase.status %></td>
+			<td><%= purchase.created_at.strftime("%-m-%d-%Y") %></td>
 			<td><%= purchase.pay_firstname %> <%= purchase.pay_lastname %></td>
 			<td><%= purchase.email %></td>
-			<td><%= purchase.created_at.strftime("%-m-%d-%Y") %></td>
 			<td><%= number_to_currency(purchase.subtotal) %></td>
 			<td><%= number_to_currency(purchase.shipping) %></td>
 			<td><%= number_to_currency(purchase.sales_tax) %></td>
 			<td><%= number_to_currency(purchase.total) %></td> 
 		</tr>
-		
 		<% end %>
 	</table>
-
 </div>

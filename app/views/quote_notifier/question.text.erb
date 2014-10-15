@@ -1,12 +1,10 @@
-Dear <%= @quote.firstname %> <%= @quote.lastname %>
-
-We have a question for you to review about your recent Quote Submission with Americo-Inc.com.
-
 -------------------------
 QUOTE ID# <%= @quote.id %>
 --------------------------
+
+Dear <%= @quote.firstname.capitalize %> <%= @quote.lastname.capitalize %>,
+
 <%= @quote.question %>
------------------------
  
 Reply to Question: <%= edit_quote_url(@quote) %> 
 View Quote: <%= quote_url(@quote) %> 
@@ -16,4 +14,4 @@ You can reply to this email message directly or review this Quote and your entir
 Sincerely,
 Ken
 
-http://www.americo-inc.com 
+https://www.americo-inc.com 

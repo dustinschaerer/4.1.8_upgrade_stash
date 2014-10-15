@@ -29,7 +29,7 @@
 
   # Add mailer config options for Devise
   #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.default_url_options = { :host => 'frozen-depths-2742.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'www.americo-inc.com' }
 
   # Set email delivery configuration
   config.action_mailer.delivery_method = :smtp
