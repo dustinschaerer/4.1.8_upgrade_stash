@@ -316,16 +316,10 @@
   	  <% color_array.each do |swatch| %>
   	  
   <div class="col-xs-6 col-sm-4 col-lg-3 bottom25">
-     
-<div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-remove-sign"></span> <% end %><%= swatch.series.name %>  <%= swatch.name %></strong></div>
-    
-
+    <div class="addblack"><strong><% if (swatch.notforupholstery?) %>  <span class="glyphicon glyphicon-remove-sign"></span> <% end %><%= swatch.series.name %>  <%= swatch.name %></strong></div>
     <a href="#" data-toggle="modal" data-target="#myModal<%= swatch.id %>"><%= image_tag(swatch.image_url, :class => "img-responsive imgbottompad imgborder" ) %></a>
-
-
     <div class="row">
 			<div class="col-xs-12">
-		
 				<div class="addblack">
 					<%= link_to('ORDER SWATCH', line_items_path(series_id: swatch.series.id, color_id: swatch.id), :class => "btn btn-primary btn-block btn-xs", method: :post ) %> 
 				</div>
@@ -333,19 +327,12 @@
           <%= link_to('GET QUOTE', '/request_quote', :class => "btn btn-info btn-block btn-xs top4", method: :get ) %> 
         </div>
         <div>
-       
-
-        <!-- Button trigger modal -->
-        <button class="btn btn-block btn-success btn-xs top4" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
-          VIEW LARGER
-        </button>
-</div>
-
-
+          <!-- Button trigger modal -->
+          <button class="btn btn-block btn-success btn-xs top4" data-toggle="modal" data-target="#myModal<%= swatch.id %>">
+            VIEW LARGER
+          </button>
+        </div>
 			</div>
-
-
-
 			<!-- Modal -->
 			<div class="modal fade" id="myModal<%= swatch.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
@@ -355,7 +342,6 @@
 			        <h4 class="modal-title" id="myModalLabel"><%= swatch.series.name %> - <%= swatch.name %></h4>
 			      </div>
 			      <div class="modal-body">
-			      
 			        <div class="row">
 			        	<div class="col-xs-9">
 			        		<%= image_tag(swatch.image_url, :class => "img-responsive" )   %>
@@ -365,11 +351,8 @@
 		        		    <div class="addblack bottom25"><%= swatch.series.style.name %></div>
 		        		    <div class="addblack bottom15 bold">COLOR</div>
 		        		    <div class="addblack bottom25"><%= swatch.name %></div>
-			        		
 		        		</div>
-		        		
 			        </div>
-
 			        <div class="row">
 			        	<div class="col-xs-12">
 			        		<div class="bottom15 top10"><strong><%= swatch.name %> - <%= swatch.series.name %></strong></div>
@@ -401,11 +384,8 @@
           </div> 
         </div>
       <% end %>
-     
     </div> 
   </div> 
-	  
-    
   <div class="col-sm-2 hidden-xs">   
     <div>
 	  <%= link_to('/free_swatches', :class => "no-under") do %>
@@ -417,7 +397,6 @@
 	    <%= image_tag("free-catalog.jpg", :class => "top40", alt:"Free Catalog") %>
 	  <% end %>
 	  </div>  
-
     <% unless (@series.style.id == 8) %>
 	  <div class="top40">
 	    <%= link_to('/categories/non-slip-padding', :class => "no-under onesix addarmy") do %>
@@ -425,10 +404,8 @@
   	  <% end %>
 	  </div>
     <% end %>
-
   </div>     
 </div>
-
 <div class="row">
   <div class="col-xs-12" id="covers">
     <span class="bgtext">TABLE COVER TYPES &nbsp; <a href="/how_to_measure" class="lefty">Measuring Instructions  <span class="glyphicon glyphicon-play"></span></a></span>
