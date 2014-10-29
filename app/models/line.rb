@@ -58,7 +58,7 @@ class Line < ActiveRecord::Base
 
   def is_value_two?
     if (quote_product_id == 13)
-      ((size_id == 7) || (size_id == 8))
+      ((size_id == 7) || (size_id == 8) || (size_id == 9))
     end 
   end     
 

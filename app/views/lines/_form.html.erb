@@ -68,10 +68,10 @@
 <% elsif (@qp_id == '13') %>  
   <div>
     <div>Series 7100 - Value Vinyl Ready Made Table Cloths</div>
-    <div>Available in 7 ready-made sizes and shapes. </div>
+    <div>Available in 8 ready-made sizes and shapes. </div>
     <div class="row">
       <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
-      <%= image_tag('value-vinyl-chart.png', alt: 'Value Vinyl Order Chart', :class => "img-responsive center-block top10" ) %>
+      <%= image_tag('value-vinyl-chart.jpg', alt: 'Value Vinyl Order Chart', :class => "img-responsive center-block top10" ) %>
     </div>
     </div>  
   </div> 
@@ -227,7 +227,7 @@
 
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="13">
-      <%= f.collection_select(:size_id,  Size.order("id"), :id, :dimension, {prompt: "Choose Your Size" } ) %>
+      <%= f.collection_select(:size_id,  Size.order("dimension"), :id, :dimension, {prompt: "Choose Your Size" } ) %>
     </div>  
     
     <% if (@qp_id == '6') || (@qp_id == '7') || (@qp_id == '8') || (@qp_id == '9') %>
@@ -249,8 +249,6 @@
       </div>
     </div>
   </div>
-  
-
 
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-4">
@@ -266,14 +264,8 @@
         <% end %>
 
       <% end %>
-
-
     </div>
   </div>
-    
-
-
- 
 
 <% end %>
 
@@ -281,8 +273,6 @@
   <div class="col-md-1">
   </div>
   <div class="col-md-4">
-
-
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">How to Measure Tables</h3>
@@ -292,32 +282,18 @@
         <br>
         
 <div class="list-group">
-     <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalDrapeRect"> Drape-Rectangular and Square</a>
-
- <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalDrapeRound"> Drape-Round</a>
-
-<a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFitRect"> Fitted-Rectangular and Square</a>
-
-<a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFitRound"> Fitted-Round</a>
-
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalDrapeRect"> Drape-Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalDrapeRound"> Drape-Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFitRect"> Fitted-Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFitRound"> Fitted-Round</a>
   <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFloorRect"> To The Floor - Rectangular and Square</a>
-
-<a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFloorRound"> To The Floor - Round</a>
-
-
-<a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalBooth"> Booths</a>
-
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFloorRound"> To The Floor - Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalBooth"> Booths</a>
   <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalElasticRect"> Elastic Fit -Rectangular and Square</a>
-
-<a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalElasticRound"> Elastic Fit-Round</a>
-
-
-   <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalTopperRect"> Rectangular and Square</a>
-
-
-<a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalTopperRound"> Round</a>
-
-<a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalRectRunner"> Rectangular and Square Runner</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalElasticRound"> Elastic Fit-Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalTopperRect"> Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalTopperRound"> Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalRectRunner"> Rectangular and Square Runner</a>
 </div>
 
       </div>
