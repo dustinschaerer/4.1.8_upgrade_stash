@@ -4,12 +4,10 @@ class HomePageContentTest < ActionDispatch::IntegrationTest
 
   test "home page should show collections" do 
     visit root_url
-    
-    assert has_content? 'VALUE COLLECTION', "Does not display VALUE COLLECTION"
-    assert has_content? 'CLASSIC COLLECTION', "Does not display CLASSIC COLLECTION"
-    assert has_content? 'PREMIUM COLLECTION', "Does not display PREMIUM COLLECTION"
-    assert has_content? 'DESIGNER COLLECTION', "Does not display DESIGNER COLLECTION"
-
-
+    assert has_content?('VALUE Collection'), "Does not display VALUE Collection"
+    assert has_content?('CLASSIC Collection'), "Does not display CLASSIC Collection"
+    assert has_content?('PREMIUM Collection'), "Does not display PREMIUM Collection"
+    assert has_content?('DESIGNER Collection'), "Does not display DESIGNER Collection"
   end
+  
 end

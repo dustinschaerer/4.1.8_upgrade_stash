@@ -68,12 +68,9 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     # Add purchase ref to lines
     @purchase.add_lines_from_quote(@quote)   
-    #@purchase.update_attribute(:status, "Purchased")
-
     
     if @purchase.save
       # attempt purchase
-      
       if @purchase.purchase_the_order
         # update statuses to Purchased
         @purchase.status = 'Purchased'
@@ -117,8 +114,6 @@ class PurchasesController < ApplicationController
       end
     end
   end
-
-
 
   # DELETE /purchases/1
   # DELETE /purchases/1.json
