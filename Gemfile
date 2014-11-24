@@ -53,8 +53,6 @@ group :test do
   gem 'shoulda'
 end
 
-
-
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end

@@ -187,9 +187,25 @@
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16|17">
       <div class="form-group"><label class="col-sm-3 col-md-3 control-label" for="line_color_id">Color</label><div class="col-sm-9 col-md-9">
-        <%= f.grouped_collection_select(:color_id, Series.order(:name), :colors, :name, :id, :name, {prompt: "Please Choose a Series first"}, {class: "form-control"} ) %>
-      </div></div> 
+        <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') || (@qp_id == '14')%>
+          <%= f.grouped_collection_select(:color_id,  Series.where("style_id = 1 OR style_id = 2").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
 
+        <% elsif (@qp_id == '2') || (@qp_id == '8') || (@qp_id == '11') %>
+
+          <%= f.grouped_collection_select(:series_id,  Series.where("style_id = 3").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+
+        <% elsif (@qp_id == '15') || (@qp_id == '16') %>
+
+          <%= f.grouped_collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2 OR style_id = 3").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+
+
+        <% elsif (@qp_id == '9') ||  (@qp_id == '12') %>
+          <%= f.grouped_collection_select(:series_id,  Series.where("style_id = 7").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+
+        <% elsif (@qp_id == '13') || (@qp_id == '17') %>
+          <%= f.grouped_collection_select(:series_id,  Series.where("style_id = 8").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+        <% end %>
+      </div></div> 
     </div>  
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
