@@ -1,5 +1,5 @@
 class Color < ActiveRecord::Base
-	belongs_to :series
+	belongs_to :series, counter_cache: true
 	has_many :line_items
   has_many :lines
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825164029) do
+ActiveRecord::Schema.define(version: 20141202215442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -300,14 +300,15 @@ ActiveRecord::Schema.define(version: 20140825164029) do
     t.string   "image_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "lead",        default: ""
-    t.text     "callout",     default: ""
-    t.string   "vertical",    default: "nil"
-    t.string   "horizontal",  default: "nil"
-    t.string   "side",        default: "nil"
+    t.text     "lead",         default: ""
+    t.text     "callout",      default: ""
+    t.string   "vertical",     default: "nil"
+    t.string   "horizontal",   default: "nil"
+    t.string   "side",         default: "nil"
     t.string   "swapimage"
     t.string   "smallimage"
     t.string   "slug"
+    t.integer  "colors_count"
   end
 
   add_index "series", ["slug"], name: "index_series_on_slug", using: :btree

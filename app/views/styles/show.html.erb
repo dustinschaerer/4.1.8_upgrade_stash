@@ -261,7 +261,7 @@
               <%= link_to(swatch, :class => "no-under") do %>
                 <%= image_tag(swatch.image_url, :class => "img-responsive" ) %>
                  <div class="addblack"><strong>STYLE <%= swatch.name %></strong></div>
-                 <div class="addblack bottom20 up5"><small><%= pluralize swatch.colors.count, 'Color' %>  Available</small></div>
+                 <div class="addblack bottom20 up5"><small><%= pluralize swatch.colors_count, 'Color' %>  Available</small></div>
               <% end %> 
           </div>
           <% end %>

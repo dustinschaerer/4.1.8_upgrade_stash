@@ -312,7 +312,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-10">   
     <div class="row top5">  
-  	  <% color_array = @series.colors.order("name") %>
+  	  <% color_array = @series.colors.order("name").includes(:series) %>
   	  <% color_array.each do |swatch| %>
   	  
   <div class="col-xs-6 col-sm-4 col-lg-3 bottom25">

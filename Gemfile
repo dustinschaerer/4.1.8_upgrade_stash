@@ -34,6 +34,7 @@ gem 'tilt', '1.4.1'
 gem 'asset_sync'
 gem 'active_skin'
 #gem "brakeman", :require => false
+gem 'rails_best_practices'
 
 group :development, :test do
   #gem 'sqlite3', '1.3.8'
@@ -43,6 +44,7 @@ group :development, :test do
   #gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'factory_girl_rails'
+  gem 'bullet'
 end
 
 group :test do

@@ -8,7 +8,6 @@ class Series < ActiveRecord::Base
 	has_many :line_items
 	has_many :orders, through: :line_items
 	has_many :quotes, through: :lines
-
 	before_destroy :ensure_not_referenced_by_any_line_item
 
 	validates :name, :description, :image_url, presence: true
@@ -18,22 +17,22 @@ class Series < ActiveRecord::Base
 	}
     
 	def self.latest
-    	Series.order(:updated_at).last
-  	end
+   	Series.order(:updated_at).last
+  end
 
-  	def self.distinction(id)
-    	where("id = ?", id)
-    end
+  def self.distinction(id)
+   	where("id = ?", id)
+  end
 
 	private
 
 	  def ensure_not_referenced_by_any_line_item
-        if line_items.empty?
-          return true
-        else
-          errors.add(:base, 'Line Items present')	
-          return false
-        end
-	 end
+      if line_items.empty?
+        return true
+      else
+        errors.add(:base, 'Line Items present')	
+        return false
+      end
+	  end
 
 end

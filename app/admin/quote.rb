@@ -42,8 +42,7 @@ ActiveAdmin.register Quote do
     def calculate_subtotal
       running_total = 0
       @quote.lines.each do |line|
-        one_line_price = (line.quantity * line.price)
-        running_total += one_line_price  
+        running_total += (line.quantity * line.price)
       end
       Quote.subtotal = running_total
     end
@@ -222,18 +221,4 @@ ActiveAdmin.register Quote do
     f.actions
   end
 
-
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
-  
 end
