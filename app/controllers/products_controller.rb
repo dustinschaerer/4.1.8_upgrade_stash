@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
 
   include CurrentQuoteholder
   include CurrentCart
-  #before_action :set_quoteholder
-  #before_action :set_cart
+  before_action :set_quoteholder
+  before_action :set_cart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products

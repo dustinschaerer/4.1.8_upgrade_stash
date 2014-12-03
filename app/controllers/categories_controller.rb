@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_admin_user!, :except => [:show]
   include CurrentQuoteholder
   include CurrentCart
-  #before_action :set_quoteholder
+  before_action :set_quoteholder
   before_action :set_cart
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 

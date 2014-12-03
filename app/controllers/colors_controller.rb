@@ -2,7 +2,7 @@ class ColorsController < ApplicationController
   before_action :authenticate_admin_user!
   include CurrentQuoteholder
   include CurrentCart
-  #before_action :set_quoteholder
+  before_action :set_quoteholder
   before_action :set_cart
   before_action :set_color, only: [:show, :edit, :update, :destroy]
 
