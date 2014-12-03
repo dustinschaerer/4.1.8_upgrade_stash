@@ -10,8 +10,8 @@ jQuery ->
     if options
       $('#line_color_id').html(options)
       $('#line_color_id').prepend('<option selected="selected">Please select...</option>')
-    else 
-      $('#line_color_id').empty()  
+    else
+      $('#line_color_id').empty()
 
 jQuery ->
   $('#new_line').find('.form-inputs label:first').hide();
@@ -37,7 +37,7 @@ jQuery ->
     shape_kind = $('#line_shape_id :selected').text()
     cover_kind = $('#line_cover_id :selected').text()
     console.log(shape_kind)
-    console.log(cover_kind) 
+    console.log(cover_kind)
     if (cover_kind == 'Elastic Contour')
       $("#velcro_booth").hide(500)
       console.log('cover is elastic, so hide #velcro booth')

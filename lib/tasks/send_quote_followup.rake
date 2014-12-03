@@ -1,5 +1,5 @@
-desc "send quote followup email" 
-task :send_quote_followup => :environment do 
+desc "send quote followup email"
+task :send_quote_followup => :environment do
 
 	# target date = how many days to look back at submitted quotes
 	target_date = 4.days.ago

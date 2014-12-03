@@ -8,6 +8,3 @@ Rake::Task["assets:precompile"].enhance do
   end
   puts 'my assets:precompile hook is finished!'
 end
-
-
-

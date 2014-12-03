@@ -2,8 +2,6 @@ class PurchaseTransaction < ActiveRecord::Base
   belongs_to :purchase
   serialize :params
   cattr_accessor :gateway
-  
-
 
   def response=(response)
     self.success       = response.success?

@@ -1,5 +1,5 @@
 class CoversController < ApplicationController
-  before_action :authenticate_admin_user! 
+  before_action :authenticate_admin_user!
   before_action :set_cover, only: [:show, :edit, :update, :destroy]
 
   # GET /covers

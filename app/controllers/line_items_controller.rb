@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  before_action :authenticate_admin_user!, :except => [:new, :create, :destroy] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :destroy]
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_cart
@@ -29,11 +29,11 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    
+
     color = Color.find(params[:color_id])
     series = Series.find(params[:series_id])
     #swatch = color.series_id
-    #series = Series.find(swatch)  
+    #series = Series.find(swatch)
 
     @line_item = @cart.add_swatch(series.id, color.id)
 

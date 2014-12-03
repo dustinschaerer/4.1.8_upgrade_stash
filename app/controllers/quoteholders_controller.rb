@@ -1,5 +1,5 @@
 class QuoteholdersController < ApplicationController
-  before_action :authenticate_admin_user!, :except => [:show, :destroy] 
+  before_action :authenticate_admin_user!, :except => [:show, :destroy]
 
   include CurrentCart
   include CurrentQuoteholder
@@ -7,8 +7,6 @@ class QuoteholdersController < ApplicationController
   before_action :set_quoteholder, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_quoteholder
 
- 
-  
   # GET /quoteholders
   # GET /quoteholders.json
   def index

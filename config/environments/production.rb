@@ -61,17 +61,17 @@ Americo::Application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   config.assets.precompile += %w( galleria.classic.js *.woff *.eot *.svg *.ttf  application.js application.css )
- 
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
-  
+
   config.action_mailer.delivery_method = :smtp
-   
+
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.default_url_options = { :host => 'www.americo-inc.com' }
-   
+
   # Action Mailer config setting
   config.action_mailer.smtp_settings = {
     address:    'smtp.mandrillapp.com',

@@ -2,10 +2,10 @@ module ApplicationHelper
 
   # Returns the full title on a per-page basis.
   def full_title(page_title)
-    base_title ="Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc."    
+    base_title ="Vinyl Table Covers, Upholstery and Laminated Fabric | Americo Inc."
     if page_title.empty?
       base_title
-    else  
+    else
       "#{page_title}"
     end
   end
@@ -16,7 +16,7 @@ module ApplicationHelper
   	end
   	content_tag("div", attributes, &block)
   end
-  
+
   def boolean_to_words(value)
     value ? "Yes" : "No"
   end
@@ -25,21 +25,21 @@ module ApplicationHelper
     subscriber = Subscriber.new
     raw render 'shared/subscriber_form', :subscriber => subscriber
   end
-  
+
   def full_description(page_description)
-    base_description ="Americo"    
+    base_description ="Americo"
     if page_description.empty?
       base_description
-    else  
+    else
       "#{page_description}"
     end
   end
 
   def full_keywords(page_keywords)
-    base_keywords ="Americo"    
+    base_keywords ="Americo"
     if page_keywords.empty?
       base_keywords
-    else  
+    else
       "#{base_keywords} | #{page_keywords}"
     end
   end

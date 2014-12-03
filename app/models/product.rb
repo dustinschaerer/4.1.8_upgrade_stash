@@ -1,31 +1,14 @@
 class Product < ActiveRecord::Base
-    
-    belongs_to :category
-    has_many :styles
-    has_many :series, through: :styles
-
-
-#	before_destroy :ensure_not_referenced_by_any_line_item
-	
+  belongs_to :category
+  has_many :styles
+  has_many :series, through: :styles
 	validates :title, :description, :image_url, :thumbnail_url, presence: true
 	validates :title,  uniqueness: true
 	validates :image_url, allow_blank: true, format: {
-	with: %r{\A\.(gif|jpg|png)\z}i,
-	message: 'must be a URL for GIF, JPG or PNG image.'
+    with: %r{\A\.(gif|jpg|png)\z}i,
+	  message: 'must be a URL for GIF, JPG or PNG image.'
   }
-
-#	def self.latest
-#    	Product.order(:updated_at).last
-#	end
 
 	private
 
-#	  def ensure_not_referenced_by_any_line_item
-#        if line_items.empty?
-#          return true
-#        else
-#          errors.add(:base, 'Line Items present')	
-#          return false
-#        end
-#	 end
 end

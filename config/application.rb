@@ -24,7 +24,7 @@ module Americo
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    
+
     config.assets.initialize_on_precompile = true
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.woff *.eot *.svg *.ttf application.js application.css)
@@ -39,11 +39,11 @@ module Americo
 
     config. generators do |g|
         g.test_framework :test_unit
-    end    
-    
+    end
+
     config.assets.enabled = true
     config.filter_parameters << :card_number << :card_verification
-    
+
     config.assets.paths << "#{Rails.root}/app/themes/default/"
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.assets.paths << "#{Rails.root}/vendor/assets/fonts"

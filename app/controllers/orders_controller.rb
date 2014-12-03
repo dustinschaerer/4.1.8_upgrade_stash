@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :edit] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :edit]
   include CurrentQuoteholder
   include CurrentCart
   before_action :set_quoteholder, only: [:new, :create]
@@ -25,7 +25,6 @@ class OrdersController < ApplicationController
       redirect_to store_url, notice: "Your cart is empty, you must select a sample swatch to proceed to checkout."
       return
     end
-      
     @order = Order.new
     #@order.email = current_user.email
   end
@@ -34,9 +33,9 @@ class OrdersController < ApplicationController
   def edit
      if (@order.user_id) == (current_user.id)
       # only edit this quote if it belongs to the signed in user
-    else   
+    else
       redirect_to root_url, notice: "You must sign in to edit your order."
-    end  
+    end
   end
 
   # POST /orders
@@ -73,7 +72,7 @@ class OrdersController < ApplicationController
       else
         format.html { render action: 'edit' }
  #       format.json { render json: @order.errors, status: :unprocessable_entity }
-        format.json { respond_with_bip(@order) }  
+        format.json { respond_with_bip(@order) }
       end
     end
   end

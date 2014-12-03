@@ -14,7 +14,6 @@ class SeriesController < ApplicationController
 
   # GET /series/1
   def show
-    @series = Series.friendly.find(params[:id])
   end
 
   # GET /series/new

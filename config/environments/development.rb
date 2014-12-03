@@ -33,7 +33,7 @@
 
   # Set email delivery configuration
   config.action_mailer.delivery_method = :smtp
-  
+
   # Action Mailer config setting
 #  config.action_mailer.smtp_settings = {
 #    address:    "smtp.gmail.com",
@@ -44,7 +44,7 @@
 #    password:   "oldpwd",
 #    enable_starttls_auto: true
 #  }
-  
+
   # Action Mailer config setting
   config.action_mailer.smtp_settings = {
     address:    'smtp.mandrillapp.com',
@@ -55,9 +55,9 @@
     password:   ENV['MANDRILL_APIKEY'],
     enable_starttls_auto: true
   }
-  
+
   config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test   
+    ActiveMerchant::Billing::Base.mode = :test
     Bullet.enable = true
     Bullet.alert = true
     Bullet.bullet_logger = true
@@ -65,6 +65,5 @@
     Bullet.rails_logger = true
     Bullet.add_footer = true
   end
-
 
 end
