@@ -38,7 +38,7 @@ class LinesController < ApplicationController
     @line = @quoteholder.lines.build(line_params)
     respond_to do |format|
       if @line.save
-        format.html { redirect_to @line.quoteholder, only_path: true, notice: 'Line was successfully created and added to your Quoteholder.' }
+        format.html { redirect_to @line.quoteholder, only_path: true, notice: 'Quote item was successfully created and added to your Quoteholder.' }
         format.json { render action: 'show', status: :created, location: @line }
       else
         format.html { render action: 'new', :params => { :quote_product_id => @qp_id } }

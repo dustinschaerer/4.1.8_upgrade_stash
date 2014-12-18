@@ -1,21 +1,22 @@
-
-<%= bootstrap_form_for(@purchase, action: :new, style: :horizontal, left: "col-sm-4", right: "col-sm-8") do |f| %>
-  
+<%= bootstrap_form_for(@purchase, action: :new, layout: :horizontal, label_col: "col-sm-4", control_col: "col-sm-8") do |f| %>
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-12 bottom20">      
-        <p>To purchase all the items from your submitted <strong>Quote #<%= @quote.id %></strong>, fill out the shipping and billing information below.  Our checkout is 100% secure and fully encrypted.</p>  
-        
+      <div class="col-md-12 bottom20">
+        <p>To purchase all the items from your submitted <strong>Quote #<%= @quote.id %></strong>, fill out the shipping and billing information below.  Our checkout is 100% secure and fully encrypted.</p>
+
         <%= f.alert_message "Please fix the following errors:" %>
       </div>
-      
+    </div>
+
+    <div class="row">
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Step 1: Delivery Address &amp; Details</h3>
+            <h3 class="panel-title">Step 1: Shipping Address &amp; Details</h3>
           </div>
           <div class="panel-body">
+            <p>This purchase will be shipped to:</p>
             <%= f.text_field :firstname, label: 'First Name' %>
             <%= f.text_field :lastname, label: 'Last Name' %>
             <%= f.text_field :company, placeholder: 'Company Name (Optional)' %>
@@ -25,35 +26,36 @@
             <%= f.text_field :ship_city, label: 'City', placeholder: 'City', readonly: true %>
             <%= f.text_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code', readonly: true %>
             <%= f.text_field :ship_state, label: 'State/Province', placeholder: 'State', readonly: true %>
-            <%= f.text_field :ship_country, label: 'Country', placeholder: 'Country', readonly: true %>    
-            
-            <%= f.hidden_field :user_id, size: 40, value: current_user.id, readonly: true %> 
-            <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), { prompt: 'Choose your Contact Preference '} , { label: 'Contact By' }) %>
+            <%= f.text_field :ship_country, label: 'Country', placeholder: 'Country', readonly: true %>
+
+            <%= f.hidden_field :user_id, size: 40, value: current_user.id, readonly: true %>
+            <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), prompt: 'Choose your Contact Preference ', label: 'Contact By') %>
           </div>
         </div>
-      </div>     
+      </div>
 
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title" style="display: inline;">Step 2: Payment Information</h3> 
+            <h3 class="panel-title" style="display: inline;">Step 2: Payment Address &amp; Details</h3>
           </div>
           <div class="panel-body">
-            <%= check_box_tag(:checkbox_use_same_address, value = "1", checked = false, {class: 'make_same_address', id: 'make_same_address' }) %> Check if Payment Information is the same as Shipping<br><br>
+            <div class="well">
+              <%= check_box_tag(:checkbox_use_same_address, value = "1", checked = false, {class: 'make_same_address', id: 'make_same_address' }) %> Check if Payment Information is the same as Shipping
+            </div>
             <%= f.text_field :pay_firstname, label: 'First Name', placeholder: 'First Name' %>
             <%= f.text_field :pay_lastname, label: 'Last Name', placeholder: 'Last Name' %>
-            <%= f.text_field :pay_company, placeholder: 'Company Name (Optional)', placeholder: 'Company (Optional)' %>
+            <%= f.text_field :pay_company, placeholder: 'Company Name (Optional)', label: 'Company' %>
             <%= f.text_field :pay_telephone, label: 'Telephone Number', placeholder: 'Telephone Number'   %>
-            <%= f.text_field :pay_street_address, placeholder: 'Street Address' %>
-            <%= f.text_field :pay_city, placeholder: 'City' %>
-            <%= f.text_field :pay_zipcode, placeholder: 'Zipcode' %>
-            <%= f.select :pay_country, ::COUNTRIES, { prompt: 'Select Country' }, { label: 'Country'} %>
-            <%= f.select :pay_state, ::REGIONS, { prompt: 'Select State/Province'}, { label: 'State/Province' } %>
-            
+            <%= f.text_field :pay_street_address, placeholder: 'Street Address', label: 'Street Address' %>
+            <%= f.text_field :pay_city, placeholder: 'City', label: 'City' %>
+            <%= f.text_field :pay_zipcode, placeholder: 'Zipcode', label: 'Zip Code' %>
+            <%= f.select :pay_country, ::COUNTRIES, prompt: 'Select Country', label: 'Country' %>
+            <%= f.select :pay_state, ::REGIONS, prompt: 'Select State/Province', label: 'State/Province' %>
           </div>
         </div>
-      </div>     
-    </div>     
+      </div>
+    </div>
     <%= f.hidden_field :email, value: current_user.email %>
     <%= f.hidden_field :status, value: "Submitted" %>
     <%= f.hidden_field :pay_status, value: "Pending" %>
@@ -64,13 +66,11 @@
     <%= f.hidden_field :amount, readonly: true, value: @quote.amount %>
     <%= f.hidden_field :quote_id, readonly: true, value: @quote.id %>
     <%= f.hidden_field :tax_id, readonly: true %>
-    
-     <div class="row">
-      
-      <div class="col-md-offset-6 col-md-6">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
         <table class="table table-bordered table-striped">
           <tr>
-            <th colspan="2">Order Totals:</td>
+            <th colspan="2">Order Totals:</th>
           </tr>
           <tr>
             <td>Subtotal:</td>
@@ -89,23 +89,31 @@
             <td><strong><%= number_to_currency(f.object.total, :precision => 2) %></strong></td>
           </tr>
         </table>
-      
-      </div> 
-    
-    <%= f.select :pay_type, Purchase::PAYMENT_TYPES, {}, { label: 'Payment Type' } %>
-    <%=  f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
-    <%=  f.text_field :card_number %>
-    <%=  f.text_field :card_verification, label: 'Card Verification Value (CVV)' %>
+      </div>
+    </div>
 
-    <%= f.date_select :card_expires_on, discard_day: true, :add_month_numbers => true, start_year: Date.today.year, end_year: (Date.today.year+10), prompt: { month: 'Select month', year: 'Select year' } %>
-   
-  </p>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title" style="display: inline;">Step 3: Payment Card Details</h3>
+          </div>
+          <div class="panel-body">
+            <%= f.select :pay_type, Purchase::PAYMENT_TYPES, {}, { label: 'Payment Type' } %>
+            <%=  f.select :card_type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
+            <%=  f.text_field :card_number %>
+            <%=  f.text_field :card_verification, label: 'Card Verification Value (CVV)' %>
+            <%= f.date_select :card_expires_on, discard_day: true, :add_month_numbers => true, start_year: Date.today.year, end_year: (Date.today.year+10), prompt: { month: 'Select month', year: 'Select year' } %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
     <div class="form-group">
-      <div class="col-sm-offset-4 col-sm-8">
-        <%= f.submit  'Place Order Now', :class => "btn btn-success btn-block"  %> 
+      <div class="col-md-offset-2 col-md-8">
+        <%= f.submit  'Place Order Now', :class => "btn btn-success btn-block"  %>
       </div>
     </div>
   </div>

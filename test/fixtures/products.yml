@@ -14,9 +14,19 @@ two:
   image_url: laminate-swatch-sample.png
   thumbnail_url: laminate-swatch-sample-thumb.png
 
-vinyl: 
+vinyl:
   title:         Vinyl Swatch Sample
   description:   8 x 10 Vinyl Swatch Sample
   category_id:   1
   image_url:     vinyl-swatch-sample.png
   thumbnail_url: vinyl-swatch-sample-thumb.png
+
+catalog:
+  id: 9
+  title: "Catalog"
+  description: "Americo Design Catalog"
+  image_url: "americo-design-catalog.jpg"
+  thumbnail_url: "americo-design-catalog.jpg"
+  created_at: "2014-03-07 00:22:43"
+  updated_at: "2014-03-07 00:22:43"
+  category_id: 6

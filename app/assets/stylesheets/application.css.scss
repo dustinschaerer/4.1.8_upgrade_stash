@@ -5,14 +5,14 @@
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
  *
  *= require galleria.classic
- *= require jquery.ui.all
+ *= require jquery-ui
  */
-
-
 
 /*
 @font-face {
@@ -23,11 +23,9 @@
 
 */
 /* BEGIN SIDE */
- 
 
+#galleria {
 
-#galleria { 
-  
   width:100%;
   position: relative;
   z-index: 20;
@@ -38,7 +36,7 @@
 .depot_form {
   fieldset {
     background: #eee;
-    
+
     legend {
       color: #fff;
       background: #9d261d;
@@ -65,26 +63,22 @@
   }
 }
 
-
 $grid-float-breakpoint: 992px;
-
 
 @font-face {
   font-family: 'Glyphicons Halflings';
   src: font-path('bootstrap/glyphicons-halflings-regular.eot');
   src: font-path('bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
-    font-path('bootstrap/glyphicons-halflings-regular.woff') format('woff'), 
-    font-path('bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), 
+    font-path('bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+    font-path('bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
     font-path('bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
-
 @import "bootstrap";
+@import 'rails_bootstrap_forms';
 @import "carts";
 @import "quotecarts";
-
 @import "store";
 @import "custom";
 @import "nivo-slider";
 @import "nivo-theme";
-

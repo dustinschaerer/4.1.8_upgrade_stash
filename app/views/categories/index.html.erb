@@ -1,12 +1,9 @@
 <h1>Categories</h1>
 
-<% @categories.in_groups_of(4, false).each do |group| %>  
-
+<% @categories.in_groups_of(4, false).each do |group| %>
   <div class="entry">
     <div class="row">
-
       <% group.each do |category| %>
-
         <%= link_to(category) do %>
         <div class="col-sm-3">
           <div class="well">
@@ -16,17 +13,10 @@
           </div>
         </div>
         <% end %>
-        
       <% end %>
-
     </div>
   </div>
-
 <% end %>
-
-
-
-
 <table>
   <thead>
     <tr>
@@ -38,7 +28,6 @@
       <th></th>
     </tr>
   </thead>
-
   <tbody>
    <% @categories.each do |category| %>
       <tr>
@@ -52,6 +41,5 @@
   <% end %>
   </tbody>
 </table>
-
 <br>
 <%= link_to 'New Category', new_category_path %>

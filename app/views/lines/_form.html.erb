@@ -1,4 +1,4 @@
- <div class="row">
+<div class="row">
   <div class="col-md-7">
 <% if (@qp_id == '1') %>
 
@@ -109,7 +109,7 @@
   </div>
 <% end %>
 
-<%= bootstrap_form_for(@line, :url => { :action => :create, :quote_product_id => @qp_id }, style: :horizontal, left: "col-sm-3 col-md-3", right: "col-sm-9 col-md-9") do |f| %>
+<%= bootstrap_form_for(@line, :url => { :action => :create, :quote_product_id => @qp_id }, layout: :horizontal, label_col: "col-sm-3 col-md-3", control_col: "col-sm-9 col-md-9") do |f| %>
 
   <%= f.alert_message "Please fix the following errors:" %>
 
@@ -165,27 +165,27 @@
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16|17">
         <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') || (@qp_id == '14')%>
-          <%= f.collection_select(:series_id, Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+          <%= f.collection_select(:series_id, Series.where("style_id = 1 OR style_id = 2").order("name").includes(:colors), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
 
         <% elsif (@qp_id == '2') || (@qp_id == '8') || (@qp_id == '11') %>
 
-          <%= f.collection_select(:series_id, Series.where("style_id = 3").order("name"), :id, :name, {prompt: "Please Select a Series before Selecting a Color"} ) %>
+          <%= f.collection_select(:series_id, Series.where("style_id = 3").order("name").includes(:colors), :id, :name, {prompt: "Please Select a Series before Selecting a Color"} ) %>
 
         <% elsif (@qp_id == '15') || (@qp_id == '16') %>
 
-          <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2 OR style_id = 3").order("name"), :id, :name, {prompt: "Please Select a Series before Selecting a Color"} ) %>
-
+          <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2 OR style_id = 3").order("name").includes(:colors), :id, :name, {prompt: "Please Select a Series before Selecting a Color"} ) %>
 
         <% elsif (@qp_id == '9') ||  (@qp_id == '12') %>
-          <%= f.collection_select(:series_id,  Series.where("style_id = 7").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+          <%= f.collection_select(:series_id,  Series.where("style_id = 7").order("name").includes(:colors), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
 
         <% elsif (@qp_id == '13') || (@qp_id == '17') %>
-          <%= f.collection_select(:series_id,  Series.where("style_id = 8").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+          <%= f.collection_select(:series_id,  Series.where("style_id = 8").order("name").includes(:colors), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
         <% end %>
     </div>
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16|17">
-      <div class="form-group"><label class="col-sm-3 col-md-3 control-label" for="line_color_id">Color</label><div class="col-sm-9 col-md-9">
+    <!--  <div class="form-group"><label class="col-sm-3 col-md-3 control-label" for="line_color_id">Color</label>
+        <div class="col-sm-9 col-md-9"> -->
 
         <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') || (@qp_id == '14')%>
           <%= f.grouped_collection_select(:color_id, Series.where("style_id = 1 OR style_id = 2").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
@@ -203,7 +203,9 @@
         <% elsif (@qp_id == '13') || (@qp_id == '17') %>
           <%= f.grouped_collection_select(:color_id,  Series.where("style_id = 8").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
         <% end %>
-      </div></div>
+
+<!--        </div>
+      </div> -->
     </div>
 
     <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">

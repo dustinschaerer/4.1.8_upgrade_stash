@@ -8,6 +8,15 @@ class Line < ActiveRecord::Base
   belongs_to :shape
   belongs_to :size
   belongs_to :purchase
+
+  delegate :id, :name, to: :quote_product, prefix: true
+  delegate :name, to: :series, prefix: true
+  delegate :name, :image_url, to: :color, prefix: true
+  delegate :name, :dimension, to: :size, prefix: true
+  delegate :name, to: :cover, prefix: true
+  delegate :name, to: :shape, prefix: true
+
+
   validates :quantity, presence: true, numericality: {:only_integer => true}
   validates :price, presence: true, numericality: true
   validates :quantity, presence: true, numericality: { greater_than: 0 }

@@ -16,7 +16,7 @@ class RemoveShippingProfiles < ActiveRecord::Migration
       t.string :country
 
       t.timestamps
-    end 
+    end
 
     add_index "shipping_profiles", ["user_id"], name: "index_shipping_profiles_on_user_id", using: :btree
   end

@@ -1,9 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 quote_product_one:
+  id: 1
   name: Vinyl Table Cover
   group: 1
 
 quote_product_two:
+  id: 2
   name: Laminate Table Cover
   group: 1
+
+quote_product_three:
+  id: 3
+  name: Classic Vinyl Pad
+  group: 2
+
+quote_product_thirteen:
+  id: 13
+  name: Value Vinyl
+  group: 13
+
+quote_product_seventeen:
+  id: 17
+  name: Value Vinyl Roll Goods
+  group: 7
+

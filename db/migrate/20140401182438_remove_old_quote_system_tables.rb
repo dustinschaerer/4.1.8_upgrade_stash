@@ -20,7 +20,7 @@ class RemoveOldQuoteSystemTables < ActiveRecord::Migration
       t.string :table_column
       t.references :anothertable
 
-      t.timestamps        
+      t.timestamps
     end
     add_index :tablenames, :anothertable_id
 
@@ -38,7 +38,7 @@ class RemoveOldQuoteSystemTables < ActiveRecord::Migration
 	    t.string   "name"
 	    t.string   "size"
 	    t.timestamps
-    end 
+    end
 
    	create_table "laminatecuts", force: true do |t|
 	    t.integer  "quantity"
@@ -80,7 +80,7 @@ class RemoveOldQuoteSystemTables < ActiveRecord::Migration
 	  end
 	  add_index "laminates", ["color_id"], name: "index_laminates_on_color_id", using: :btree
 	  add_index "laminates", ["series_id"], name: "index_laminates_on_series_id", using: :btree
-    
+
     create_table "nonslipcuts", force: true do |t|
 	    t.integer  "quantity"
 	    t.integer  "inches_wide"

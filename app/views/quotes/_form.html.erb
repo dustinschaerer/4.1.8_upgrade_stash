@@ -1,8 +1,6 @@
-
-  
  <% if @quote.new_record? %>
-  
-  <%= bootstrap_form_for(@quote, style: :horizontal, left: "col-sm-2 col-md-2", right: "col-sm-6 col-md-4") do |f| %>
+
+  <%= bootstrap_form_for(@quote, layout: :horizontal, label_col: "col-sm-2 col-md-2", control_col: "col-sm-6 col-md-4") do |f| %>
 
   <div class="larger top10">
     <p>Please fill out your Order and Shipping details below. We will notify you as soon as we custom price your order. You must enter your Tax ID number to qualify your quote for tax exempt status.</p>
@@ -20,23 +18,19 @@
     </div>
   <% end %>
 
- 
   <div class="form-inputs top20">
-    <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %> 
+    <%= f.text_field :email, size: 40, value: current_user.email, readonly: true %>
     <%= f.text_field :firstname, label: 'First Name', placeholder: 'First Name' %>
     <%= f.text_field :lastname, label: 'Last Name', placeholder: 'Last Name' %>
     <%= f.text_field :company, placeholder: 'Company Name (Optional)' %>
     <%= f.text_field :tax_id, label: "Tax ID Number",  placeholder: 'Enter Tax ID for Tax Exempt Orders' %>
     <%= f.text_field :telephone, label: 'Telephone Number', placeholder: 'Telephone Number'   %>
-    <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), { prompt: 'Choose your Contact Preference '} , { label: 'Contact By' }) %>
+    <%= f.select(:contactby, options_for_select(['Email', 'Telephone']), prompt: 'Choose your Contact Preference ', label: 'Contact By' ) %>
     <%= f.text_field :ship_street_address, label: 'Street Address', placeholder: 'Street Address' %>
     <%= f.text_field :ship_city, label: 'City', placeholder: 'City' %>
     <%= f.text_field :ship_zipcode, label: 'Zip Code', placeholder: 'Zip Code' %>
-    <%= f.select(:ship_country, options_for_select(['United States', 'Canada'] ), { prompt: 'Select Country' }, { label: 'Country'}) %>
-  <!--
-    <%= f.select :ship_state, Order::STATES, { prompt: 'Select State'}, { label: 'State' } %>
-  -->
-    <%= f.select :ship_state, ::REGIONS, { prompt: 'Select State/Province' }, { label: 'State/Province' } %>
+    <%= f.select(:ship_country, options_for_select(['United States', 'Canada']), prompt: 'Select Country', label: 'Country') %>
+    <%= f.select :ship_state, ::REGIONS, prompt: 'Select State/Province', label: 'State/Province' %>
     <%= f.hidden_field :email, value: current_user.email %>
     <%= f.hidden_field :subtotal, value: 0 %>
     <%= f.hidden_field :shipping, value: 0 %>
@@ -53,12 +47,10 @@
       <%= link_to 'Edit or Remove Items from Quote', @quoteholder,  class: "btn btn-default btn-large"  %>
     <% end %>
   </div>
- 
+
 <% end %>
 
  <% else %>
-
-
 
 <%= bootstrap_form_for(@quote, style: :horizontal, left: "col-xs-12 col-md-3", right: "col-xs-12 col-md-8") do |f| %>
 
@@ -69,7 +61,7 @@
   <% if @quote.question %>
     <p>Please review the questions/comments in the box below in regards to your Quote. If you'd like to reply, just add your message to the box and click "Update Comments".</p>
   <% else %>
-    <p>There have not been questions attached to this quote yet.</p> 
+    <p>There have not been questions attached to this quote yet.</p>
   <% end %>
 
 
@@ -84,13 +76,12 @@
       </ul>
     </div>
   <% end %>
-  
-  
+
   <% if @quote.question %>
   <div class="form-inputs top20">,
-    <%= f.text_area :question, label: 'Question or Comments', rows: 8,  value: @quote.question.html_safe %> 
+    <%= f.text_area :question, label: 'Question or Comments', rows: 8,  value: @quote.question.html_safe %>
   </div>
-  <% end %>  
+  <% end %>
 
   <div class="form-actions">
     <%= f.form_group do %>
