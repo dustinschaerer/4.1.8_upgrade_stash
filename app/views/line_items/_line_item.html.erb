@@ -1,32 +1,23 @@
     <% if line_item == @current_item %>
-     <div class="row text-center" id="current_item">
+     <div class="row text-center line_item_entry" id="current_item">
     <% else %>
-     <div class="row text-center">
-    <% end %>  
-      
-        
+     <div class="row text-center line_item_entry">
+    <% end %>
         <div class="col-xs-2">
-          <%= image_tag(line_item.color.image_url, :class => "cartimage img-responsive text-center") %>
+          <%= image_tag(line_item.color_image_url, :class => "cartimage img-responsive text-center") %>
         </div>
-   
         <div class="col-xs-2">
-          <%= line_item.series.name %>
+          <%= line_item.series_name %>
         </div>
-
         <div class="col-xs-2">
-          <%= line_item.color.name %>
+          <%= line_item.color_name %>
         </div>
-  
-        <div class="col-xs-1">
+        <div class="col-xs-1 quantity">
           <%= line_item.quantity %>
         </div>
-
         <div class="col-xs-3">
-          <%= button_to 'X', line_item, method: :delete, 
+          <%= button_to 'X', line_item, method: :delete,
             data: { confirm: 'Are you sure?' } %>
         </div>
-        
-
-      
     </div>
-<hr class="cartline"> 
+<hr class="cartline">

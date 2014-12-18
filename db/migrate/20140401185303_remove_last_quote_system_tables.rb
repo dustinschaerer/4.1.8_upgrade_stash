@@ -3,7 +3,7 @@ class RemoveLastQuoteSystemTables < ActiveRecord::Migration
     drop_table :items
     drop_table :vinyls
   end
-  
+
   def down
 	  create_table "items", force: true do |t|
 	    t.integer  "quotecart_id"

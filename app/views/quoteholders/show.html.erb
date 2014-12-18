@@ -1,228 +1,208 @@
 <div class="panel panel-default">
-  
+
   <div class="panel-heading">
     <h3 class="panel-title"><h3 style="display:inline;">Your Quote Cart in Progress</h3> <%= link_to "Submit Quote for Pricing Now", new_quote_path, class: "btn btn-success inline pull-right" %>
-  </div>    
+  </div>
 
   <div class="panel-body">
-         
-        <% if (@quoteholder.lines.empty?) %>
-        <div class="row">
-            <div class="col-xs-12">
-                You cart is empty!
-            </div>
+    <% if (@quoteholder.lines.empty?) %>
+      <div class="row">
+        <div class="col-xs-12">
+          Your cart is empty!
         </div>
-        <% end %>
-        
-        <div class="row">
-          
-        </div>
+      </div>
+    <% end %>
+    <div class="row">
+    </div>
 
     <% @quoteholder.lines.each do |line| %>
 
-        
-        <div class="row bottom10">
-            <div class="col-xs-12 larger">
-               Quote Product: <span class="bold"><%= line.quote_product.name.upcase if line.quote_product_id %></span>  <% if (line.quote_product.id == 3 || line.quote_product.id == 10 || line.quote_product.id == 11 || line.quote_product.id == 12 || line.quote_product.id == 17) %>
-                       - 25 yard rolls / 54" wide
-                     <% elsif (line.quote_product.id == 4) %>
-                       - 33 yard rolls
-                     <% end %>
-            </div>
+      <div class="row bottom10">
+        <div class="col-xs-12 larger">
+          Quote Product:
+          <span class="bold"><%= line.quote_product_name.upcase if line.quote_product_id %></span>  <% if (line.quote_product_id == 3 || line.quote_product_id == 10 || line.quote_product_id == 11 || line.quote_product_id == 12 || line.quote_product_id == 17) %>
+            - 25 yard rolls / 54" wide
+          <% elsif (line.quote_product_id == 4) %>
+            - 33 yard rolls
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-2">
+          <% if line.color_id %>
+            <%= image_tag(line.color_image_url, class: "img-responsive") if line.color_id %>
+          <% end %>
+
+          <% if line.finish %>
+            <strong>FINISH:</strong>
+            <%= line.finish %>
+          <% end %>
         </div>
 
-        <div class="row">
-            
-          
-            
-
-            <div class="col-xs-2">
-                <% if line.color_id %>
-                    <%= image_tag(line.color.image_url, class: "img-responsive") if line.color_id %>
-                <% end %>   
-
-                <% if line.finish %>
-                   <strong>FINISH:</strong>
-                   <%= line.finish %>
-                <% end %>     
+        <div class="col-xs-2">
+          <% if line.series_id %>
+            <div class="quotespace border-top">
+              <strong>SERIES:</strong>
+              <%= line.series_name %>
             </div>
-    
-            <div class="col-xs-2">
-                <% if line.series_id %>
-                  <div class="quotespace border-top">
-                    <strong>SERIES:</strong>
-                    <%= line.series.name %>
-                  </div>  
-                <% end %>    
+          <% end %>
 
 
-                <% if line.color_id %>
-                <div class="quotespace border-bottom">
-                    <strong>COLOR:</strong>
-                    <%= line.color.name %>
-                  </div>  
-                <% end %>
+          <% if line.color_id %>
+            <div class="quotespace border-bottom">
+                <strong>COLOR:</strong>
+                <%= line.color_name %>
+              </div>
+          <% end %>
 
 
-                <% if line.cover_id %>
-                  <div class="quotespace border-bottom    ">
-                    <strong>FINISH COVER:</strong><br>
-                    <%= line.cover.name %>
-                  </div>  
-                <% end %>
-
-                <% if line.laminate_side %>
-                   <strong>Side to Laminate:</strong><br>
-                   <%= line.laminate_side %>
-                <% end %>
+          <% if line.cover_id %>
+            <div class="quotespace border-bottom    ">
+              <strong>FINISH COVER:</strong><br>
+              <%= line.cover_name %>
             </div>
-            
+          <% end %>
 
-            <!-- If this column is Value Vinyl-->
+          <% if line.laminate_side %>
+            <strong>Side to Laminate:</strong><br>
+            <%= line.laminate_side %>
+          <% end %>
+        </div>
 
-            <% if (line.quote_product_id == 13) %>  
-              <% if line.size %>
+        <!-- If this column is Value Vinyl-->
+        <% if (line.quote_product_id == 13) %>
+          <% if line.size %>
             <div class="col-xs-3">
-                <strong>DIMENSIONS</strong><br>
-                <%= line.size.dimension %>
+              <strong>DIMENSIONS</strong><br>
+              <%= line.size_dimension %>
             </div>
-              <% end %>  
-            <% else %>  
-                        
-
-            
-              
-            <div class="col-xs-3">
-              <% if line.shape %>  
-                <div class="quotespace">
-                  <strong>TABLE SHAPE:</strong>
-                  <%= line.shape.name %>
-                </div>
-              <% end %>   
-
-              <% if line.length %>  
-                <div class="quotespace">
-                  <strong>LENGTH:</strong>
-                  <%= line.length %>"  
-                </div>
-              <% end %>   
-
-              <% if line.width %>  
-                <div class="quotespace">
-                  <strong>WIDTH:</strong>
-                  <%= line.width %>"
-                </div>
-              <% end %>  
-              
-              <% if line.height %>
-                <div class="quotespace">
-                  <strong>TABLE HEIGHT:</strong>
-                  <%= line.height %>"
-                </div>
-              <% end %>
-
-              <% if line.umbrella %>
-                <div class="quotespace">
-                  <strong>UMBRELLA?</strong>
-                  <%= boolean_to_words(line.umbrella) %>
-                </div>
-              <% end %>
-
-              <% if line.velcro %>
-                <div class="quotespace">
-                  <strong>BOOTH WITH VELCRO?</strong>
-                  <%= boolean_to_words(line.velcro) %>
-                </div>
-              <% end %>
-
-              <% if line.yards %>
-                <div class="quotespace">
-                  <strong>Yards Long:</strong>
-                  <%= line.yards %>
-                </div>
-              <% end %>
-            </div>
+          <% end %>
+        <% else %>
+          <div class="col-xs-3">
+            <% if line.shape %>
+              <div class="quotespace">
+                <strong>TABLE SHAPE:</strong>
+                <%= line.shape_name %>
+              </div>
             <% end %>
 
+            <% if line.length %>
+              <div class="quotespace">
+                <strong>LENGTH:</strong>
+                <%= line.length %>"
+              </div>
+            <% end %>
 
+            <% if line.width %>
+              <div class="quotespace">
+                <strong>WIDTH:</strong>
+                <%= line.width %>"
+              </div>
+            <% end %>
 
-            <div class="col-xs-2 text-center">
-              <% if line.quantity %>
-                <strong>QUANTITY</strong>
-                <div><%= line.quantity %></div>
-              <% end %>  
-            </div>
+            <% if line.height %>
+              <div class="quotespace">
+                <strong>TABLE HEIGHT:</strong>
+                <%= line.height %>"
+              </div>
+            <% end %>
 
-            <div class="col-xs-2 text-right">
-              <% if line.price %>
-                <strong>PRICE:</strong><br>
-                  <% if line.price == 0 %>
-                    Submit for Pricing
-                  <% else %>  
-                    <%= number_to_currency(line.price) %>
-                  <% end %> 
-                <br><br>
-                <strong>TOTAL PRICE:</strong><br>
-                  <% if line.price == 0 %>
-                    Submit for Pricing
-                  <% else %>  
-                    <%= number_to_currency(line.total_price) %>
-                  <% end %>
+            <% if line.umbrella %>
+              <div class="quotespace">
+                <strong>UMBRELLA?</strong>
+                <%= boolean_to_words(line.umbrella) %>
+              </div>
+            <% end %>
 
-              <% end %>  
-            </div>
+            <% if line.velcro %>
+              <div class="quotespace">
+                <strong>BOOTH WITH VELCRO?</strong>
+                <%= boolean_to_words(line.velcro) %>
+              </div>
+            <% end %>
 
-        </div>     
-
-        <hr>
+            <% if line.yards %>
+              <div class="quotespace">
+                <strong>Yards Long:</strong>
+                <%= line.yards %>
+              </div>
+            <% end %>
+          </div>
         <% end %>
-        
-      
-        <div class="row">
-          <div class="col-xs-2 col-xs-offset-8 text-right">
-            <strong>Sub-Total:</strong> 
-          </div>
-          <div class="col-xs-2 text-right">
-            <%= number_to_currency(@quoteholder.total_price) %>
-          </div>
-        </div>    
-        <div class="row">
-          <div class="col-xs-2 col-xs-offset-8 text-right">
-            <strong>Shipping:</strong> 
-          </div>
-          <div class="col-xs-2 text-right">
-            $0.00
-          </div>
-        </div>   
-        <div class="row">
-          <div class="col-xs-2 col-xs-offset-8 text-right">
-            <strong>Sales Tax:</strong> 
-          </div>
-          <div class="col-xs-2 text-right">
-            $0.00
-          </div>
-        </div>   
 
-        <div class="row">
-          <div class="col-xs-2 col-xs-offset-8 text-right">
-            <strong>Total:</strong> 
-          </div>
-          <div class="col-xs-2 text-right">
-            <%= number_to_currency(@quoteholder.total_price) %>
-          </div>
-        </div>   
-        
-        <hr>  
+        <div class="col-xs-2 text-center">
+          <% if line.quantity %>
+            <strong>QUANTITY</strong>
+            <div><%= line.quantity %></div>
+          <% end %>
+        </div>
 
-<div class="row">
-          <div class="col-xs-offset-1 col-xs-10"><%= link_to "Submit Quote for Pricing Now", new_quote_path, class: "btn btn-success btn-block" %></div>
-      
-</div>
-<div class="row top10">
-          <div class="col-xs-offset-1 col-xs-4"><%= link_to 'Remove All Quote Items', @quoteholder, class: "btn btn-danger btn-block", method: :delete, data: { confirm: 'Are you Sure?' } %></div>
-          <div class="col-xs-offset-2 col-xs-4"><%= link_to "Add Another Item to Quote", '/request_quote', class: "btn btn-primary btn-block" %></div>
-</div>
+        <div class="col-xs-2 text-right">
+          <% if line.price %>
+            <strong>PRICE:</strong><br>
+            <% if line.price == 0 %>
+              Submit for Pricing
+            <% else %>
+              <%= number_to_currency(line.price) %>
+            <% end %>
+            <br><br>
+            <strong>TOTAL PRICE:</strong><br>
+            <% if line.price == 0 %>
+              Submit for Pricing
+            <% else %>
+              <%= number_to_currency(line.total_price) %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <hr>
+    <% end %>
 
-<div class="row top10">
-          <div class="col-xs-12">When you are through adding items to your quote, click the "Submit Quote for Pricing Now" button to send us your quote.</div>
-</div>
+
+    <div class="row" id="subtotal">
+      <div class="col-xs-2 col-xs-offset-8 text-right">
+        <strong>Sub-Total:</strong>
+      </div>
+      <div class="col-xs-2 text-right">
+        <%= number_to_currency(@quoteholder.total_price) %>
+      </div>
+    </div>
+    <div class="row" id="shipping">
+      <div class="col-xs-2 col-xs-offset-8 text-right">
+        <strong>Shipping:</strong>
+      </div>
+      <div class="col-xs-2 text-right">
+        $0.00
+      </div>
+    </div>
+    <div class="row" id="sales_tax">
+      <div class="col-xs-2 col-xs-offset-8 text-right">
+        <strong>Sales Tax:</strong>
+      </div>
+      <div class="col-xs-2 text-right">
+        $0.00
+      </div>
+    </div>
+
+    <div class="row" id="total_price">
+      <div class="col-xs-2 col-xs-offset-8 text-right">
+        <strong>Total:</strong>
+      </div>
+      <div class="col-xs-2 text-right">
+        <%= number_to_currency(@quoteholder.total_price) %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-offset-1 col-xs-10"><%= link_to "Submit Quote for Pricing Now", new_quote_path, class: "btn btn-success btn-block" %></div>
+
+    </div>
+    <div class="row top10">
+      <div class="col-xs-offset-1 col-xs-4"><%= link_to 'Remove All Quote Items', @quoteholder, class: "btn btn-danger btn-block", method: :delete, data: { confirm: 'Are you Sure?' } %></div>
+      <div class="col-xs-offset-2 col-xs-4"><%= link_to "Add Another Item to Quote", '/request_quote', class: "btn btn-primary btn-block" %></div>
+    </div>
+
+    <div class="row top10">
+      <div class="col-xs-12">When you are through adding items to your quote, click the "Submit Quote for Pricing Now" button to send us your quote.</div>
+    </div>

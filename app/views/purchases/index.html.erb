@@ -34,10 +34,10 @@
     <% @purchases.each do |purchase| %>
       <tr>
         <td><% if purchase.user %>
-              <%= purchase.user_id%> 
+              <%= purchase.user_id%>
             <% else %>
               <%= purchase.user_id %>
-            <% end %>   
+            <% end %>
          </td>
         <td><%= purchase.firstname %></td>
         <td><%= purchase.lastname %></td>

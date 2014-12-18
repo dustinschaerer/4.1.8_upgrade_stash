@@ -49,8 +49,8 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         #send email
-        OrderNotifier.received(@order).deliver
         OrderNotifier.notify_admin(@order).deliver
+        OrderNotifier.received(@order).deliver
         format.html { redirect_to user_path(current_user), notice: %Q[Your order was successfully created. Thank You for choosing Americo! We will send you an email when your order is ready to ship.<p>Don't forget to join our Mailing List for special offers and periodic newsletters. <a target="new" href="http://visitor.r20.constantcontact.com/d.jsp?llr=j4rb9sqab&amp;p=oi&amp;m=1117322790889&amp;sit=8wpamrxib&amp;f=7e954c51-d956-4ceb-b3be-2a8cf6773713" class="button btn btn-success" style="color: rgb(255, 255, 255);  text-shadow: none; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display:inline-block; vertical-align: middle;">Join our Mailing List here.</a>].html_safe }
         format.json { render action: 'show', status: :created, location: @order }
       else

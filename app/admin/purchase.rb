@@ -46,7 +46,7 @@ ActiveAdmin.register Purchase do
     column("Amount", :total) do |amt|
       number_to_currency amt.total
     end
-    default_actions
+    actions
   end
 
   show do
@@ -67,7 +67,7 @@ ActiveAdmin.register Purchase do
         panel "User Information - Purchase ##{purchase.id}" do
           attributes_table_for purchase.user do
             row("User ID#") { purchase.user_id }
-            row("User Email") { purchase.user.email }
+            row("User Email") { purchase.user_email }
           end
         end
       end

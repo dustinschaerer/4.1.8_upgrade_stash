@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserAuthenticationStoriesTest < ActionDispatch::IntegrationTest
 
-  
+
   # fixtures :all
 
   # # A user goes to the index page. They select a product, adding it to their
@@ -14,14 +14,13 @@ class UserAuthenticationStoriesTest < ActionDispatch::IntegrationTest
   end
 
   test 'allows a user to register' do
-      visit new_user_registration_path
-      fill_in 'Email', :with => 'newuser@example.com'
-      fill_in 'Password', :with => 'userpassword'
-      fill_in 'Password Confirmation', :with => 'userpassword'
-      click_button 'Sign up'
-      assert has_content?("Logged in as newuser@example.com"), "Did not display Logged in as message"
-      assert has_content?("Welcome! You have signed up successfully."), "Did not display Signed in successfully"
-      
+    visit new_user_registration_path
+    fill_in 'Email', :with => 'newuser@example.com'
+    fill_in 'Password', :with => 'userpassword'
+    fill_in 'Password Confirmation', :with => 'userpassword'
+    click_button 'Sign up'
+    assert has_content?("Logged in as newuser@example.com"), "Did not display Logged in as message"
+    assert has_content?("Welcome! You have signed up successfully."), "Did not display Signed in successfully"
   end
 
   test "should allow a registered user to sign in" do
@@ -35,6 +34,37 @@ class UserAuthenticationStoriesTest < ActionDispatch::IntegrationTest
     assert has_content?("Signed in successfully"), "Did not display Signed in successfully loser"
   end
 
+  test "should not allow a registered user to sign in with wrong email" do
+    visit root_url
+    click_link 'main_sign_in'
+    assert_equal new_user_session_path, current_path
+    fill_in "Email", :with => "wrongaddress@example.com"
+    fill_in "Password", :with => @user.password
+    click_button "Sign in"
+    assert has_content?("Invalid email or password"), "Did not display invalide email or password message"
+    #assert has_content?("Signed in successfully"), "Did not display Signed in successfully loser"
+  end
+
+  test "should not allow a registered user to sign in with wrong password" do
+    visit root_url
+    click_link 'main_sign_in'
+    assert_equal new_user_session_path, current_path
+    fill_in "Email", :with => @user.email
+    fill_in "Password", :with => "wrongpassword"
+    click_button "Sign in"
+    assert has_content?("Invalid email or password"), "Did not display invalide email or password message"
+  end
+
+  test "should not allow a user to sign in with wrong user and password" do
+    visit root_url
+    click_link 'main_sign_in'
+    assert_equal new_user_session_path, current_path
+    fill_in "Email", :with => "wrongemail@example.com"
+    fill_in "Password", :with => "wrongpassword"
+    click_button "Sign in"
+    assert has_content?("Invalid email or password"), "Did not display invalide email or password message"
+  end
+
   # test "buying a product" do
   #   LineItem.delete_all
   #   Order.delete_all
@@ -44,23 +74,23 @@ class UserAuthenticationStoriesTest < ActionDispatch::IntegrationTest
   #   get "/series/1"
   #   assert_response :success
   #   assert_template "show"
-    
+
   #   xml_http_request :post, "/line_items?color_id=#{color_swatch.id}&series_id=#{series_swatch.id}"
-  #   assert_response :success 
-    
+  #   assert_response :success
+
   #   cart = Cart.find(session[:cart_id])
   #   assert_equal 1, cart.line_items.size
   #   assert_equal color_swatch, cart.line_items[0].color
-    
+
   #   get "/orders/new"
   #   assert_response :success
   #   assert_template "new"
-    
+
   #   post_via_redirect "/orders",
   #                     order: { name:     "Tim Smith",
   #                              email:    "tim@example.org",
-  #                              ship_street_address: "123 Way Street", 
-  #                              ship_city: "Vancouver", 
+  #                              ship_street_address: "123 Way Street",
+  #                              ship_city: "Vancouver",
   #                              ship_state: "Washington",
   #                              ship_country: "United States",
   #                              telephone: "555-555-5555" }
@@ -68,16 +98,16 @@ class UserAuthenticationStoriesTest < ActionDispatch::IntegrationTest
   #   assert_template "index"
   #   cart = Cart.find(session[:cart_id])
   #   assert_equal 0, cart.line_items.size
-    
+
   #   orders = Order.all
   #   assert_equal 1, orders.size
   #   order = orders[0]
-    
+
   #   assert_equal "Tim Smith",       order.name
   #   assert_equal "123 Way Street",  order.ship_street_address
   #   assert_equal "tim@example.org", order.email
   #   assert_equal "Vancouver",       order.ship_city
-    
+
   #   assert_equal 1, order.line_items.size
   #   line_item = order.line_items[0]
   #   assert_equal color_swatch, line_item.color

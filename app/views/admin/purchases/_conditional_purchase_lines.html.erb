@@ -16,12 +16,12 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
-          <td class="col col-dimensions"><%= line.size.name%></td>
+          <td class="col col-dimensions"><%= line.size_name%></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
         </tr>
@@ -45,11 +45,11 @@
       <tbody>
         <tr class="odd" id="">
           <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
-          <td class="col col-dimensions"><%= line.size.name%></td>
+          <td class="col col-dimensions"><%= line.size_name%></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
         </tr>
@@ -71,9 +71,9 @@
       <tbody>
         <tr class="odd" id="">
           <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
@@ -101,15 +101,15 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-length"><%= line.length %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-height"><%= line.height %></td>
-          <td class="col col-finish_cover"><%= line.cover.name %></td>
-          <td class="col col-table_shape"><%= line.shape.name %></td>
+          <td class="col col-finish_cover"><%= line.cover_name %></td>
+          <td class="col col-table_shape"><%= line.shape_name %></td>
           <td class="col col-umbrella_hole"><%= line.umbrella %></td>
           <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
@@ -138,15 +138,15 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-length"><%= line.length %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-height"><%= line.height %></td>
-          <td class="col col-finish_cover"><%= line.cover.name %></td>
-          <td class="col col-table_shape"><%= line.shape.name %></td>
+          <td class="col col-finish_cover"><%= line.cover_name %></td>
+          <td class="col col-table_shape"><%= line.shape_name %></td>
           <td class="col col-umbrella_hole"><%= line.umbrella %></td>
           <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
@@ -166,7 +166,7 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td> >
         </tr>
@@ -185,7 +185,7 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
@@ -206,7 +206,7 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
           <td class="col col-length"><%= line.length %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
@@ -230,7 +230,7 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
           <td class="col col-finish"><%= line.finish %></td>
           <td class="col col-laminate_side"><%= line.laminate_side %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
@@ -254,10 +254,10 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
         </tr>
@@ -278,9 +278,9 @@
       <tbody>
         <tr class="odd" id="">
           <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
         </tr>
@@ -301,9 +301,9 @@
       <tbody>
         <tr class="odd" id="">
           <td class="col col-quote_product_type"><%= line.quote_product_id %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input %></td
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
@@ -325,11 +325,11 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-color"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
-          <td class="col col-dimensions"><%= line.size.dimension %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-color"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-dimensions"><%= line.size_dimension %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
         </tr>
@@ -352,10 +352,10 @@
       </thead>
       <tbody>
         <tr class="odd" id="">
-          <td class="col col-quote_product_type"><%= line.quote_product.name %></td>
-          <td class="col col-series"><%= line.series.name %></td>
-          <td class="col col-color"><%= line.color.name %></td>
-          <td class="col col-swatch"><%= image_tag(line.color.image_url, :class => "invoicethumb img-responsive") %></td>
+          <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
+          <td class="col col-series"><%= line.series_name %></td>
+          <td class="col col-color"><%= line.color_name %></td>
+          <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
           <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
         </tr>

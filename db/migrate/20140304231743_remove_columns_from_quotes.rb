@@ -7,6 +7,6 @@ class RemoveColumnsFromQuotes < ActiveRecord::Migration
   		remove_column :quotes, :pay_zipcode
   		remove_column :quotes, :pay_country
 	end
-  
+
 end
 

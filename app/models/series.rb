@@ -8,6 +8,7 @@ class Series < ActiveRecord::Base
 	has_many :orders, through: :line_items
 	has_many :quotes, through: :lines
 	before_destroy :ensure_not_referenced_by_any_line_item
+  delegate :name, to: :style, prefix: true
 	validates :name, :description, :image_url, presence: true
 	validates :image_url, allow_blank: true, format: {
 		with: %r{\.(gif|jpg|png)\z}i,

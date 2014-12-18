@@ -1,11 +1,11 @@
 <% provide(:title ,'User Profile') %>
 
 
-<h1 style="display:inline;">Hello, <%= @user.email %></h1>     <%= link_to 'Change My Email Address', edit_user_registration_path %> 
+<h1 style="display:inline;">Hello, <%= @user.email %></h1>     <%= link_to 'Change My Email Address', edit_user_registration_path %>
 <p>&nbsp;</p>
 
 <h3>My Swatch Order History</h3>
-<div class="table-responsive">
+<div class="table-responsive" id="orders_table">
 	<table class="table table-bordered">
 		<tr>
 			<th>Order #</th>
@@ -18,12 +18,12 @@
 			<th>City</th>
 			<th>State</th>
 			<th>Zip</th>
-			
+
 		</tr>
 		<% @orders.each do |order|%>
 		<tr>
 			<td><%= order.id %></td>
-     	<td><%= link_to 'Show Order Details', order_path(order) %></td>
+     	<td><%= link_to 'Show Order Details', order_path(order), :class => "order_number_#{order.id}" %></td>
 			<td><%= order.status %></td>
 			<td><%= order.created_at.strftime("%-m-%d-%Y") %></td>
 			<td><%= order.firstname %> <%= order.lastname %></td>
@@ -32,14 +32,14 @@
 			<td><%= order.city %></td>
 			<td><%= order.state %></td>
 			<td><%= order.zipcode %></td>
-				
+
 		</tr>
 		<% end %>
 	</table>
 </div>
 
 <h3>My Quote Request History</h3>
-<div class="table-responsive">
+<div class="table-responsive" id="quotes_table">
 	<table class="table table-bordered">
 		<tr>
 			<th>Quote #</th>
@@ -53,7 +53,7 @@
 			<th>Shipping</th>
 			<th>Sales Tax</th>
 			<th>Total</th>
-		</tr>	
+		</tr>
 		<% @quotes.each do |quote|%>
 		<tr>
 			<td><%= quote.id %></td>
@@ -61,9 +61,9 @@
       <td><% if (quote.status == "Priced") %>
               <%= link_to 'Buy This Now', new_purchase_path(quote_id: quote), :class => "btn btn-danger", method: :get %>
          	<% elsif (quote.status == "Purchased") %>
-              Purchased  
+              Purchased
             <% else %>
-            Waiting on Pricing  
+            Waiting on Pricing
             <% end %>
       </td>
 	    <td><%= quote.status %></td>
@@ -73,14 +73,14 @@
 			<td><%= number_to_currency(quote.subtotal) %></td>
 			<td><%= number_to_currency(quote.shipping) %></td>
 			<td><%= number_to_currency(quote.sales_tax) %></td>
-			<td><%= number_to_currency(quote.total) %></td> 
+			<td><%= number_to_currency(quote.total) %></td>
 		</tr>
 		<% end %>
 	</table>
 </div>
 
 <h3>My Purchases</h3>
-<div class="table-responsive">
+<div class="table-responsive" id="purchases_table">
 	<table class="table table-bordered">
 		<tr>
 			<th>Purchase #</th>
@@ -93,7 +93,7 @@
 			<th>Shipping</th>
 			<th>Sales Tax</th>
 			<th>Total</th>
-		</tr>	
+		</tr>
 		<% @purchases.each do |purchase|%>
 		<tr>
 			<td><%= purchase.id %></td>
@@ -105,7 +105,7 @@
 			<td><%= number_to_currency(purchase.subtotal) %></td>
 			<td><%= number_to_currency(purchase.shipping) %></td>
 			<td><%= number_to_currency(purchase.sales_tax) %></td>
-			<td><%= number_to_currency(purchase.total) %></td> 
+			<td><%= number_to_currency(purchase.total) %></td>
 		</tr>
 		<% end %>
 	</table>

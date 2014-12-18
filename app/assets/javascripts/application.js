@@ -11,8 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
-//= require jquery.ui.all
+//= require jquery-ui
 //= require jquery_ujs
 //= require bootstrap
 //= require galleria-1.3.5

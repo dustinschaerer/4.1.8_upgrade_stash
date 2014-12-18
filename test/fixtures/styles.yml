@@ -16,3 +16,27 @@ style_two:
   image_url: 6125_black-mocha_vinyl-table-cover.jpg
   product_id: 1
   sort: 3
+
+style_catalog:
+  id: 9
+  title: "Free Catalog"
+  name: "Free Catalog"
+  description: "Free Catalog"
+  image_url: "americo-design-catalog.jpg"
+  created_at: "2014-03-07 00:22:43"
+  updated_at: "2014-05-12 19:46:27"
+  product_id: 9
+  sort: 1
+  slug: "free-catalog"
+
+style_eight:
+  id: 8
+  title: "Value Vinyl Table Covers or Roll Goods"
+  name: "7100 Series"
+  description: "7101 style description"
+  image_url: "7100-value-vinyls.jpg"
+  created_at: "2014-03-07 00:22:43"
+  updated_at: "2014-10-08 15:13:20"
+  product_id: 1
+  sort: 1
+  slug: "value-vinyl-7100"

@@ -40,4 +40,7 @@ bundler_stubs/
 /certs
 certs/*
 
-/public/assets/images/swatches/swatches.zip
+# Ignore Spring files
+/spring/*.pid
+
+public/assets/images/swatches/swatches.zip

@@ -6,6 +6,8 @@ class Purchase < ActiveRecord::Base
   has_one :quote
   has_many :transactions, :class_name => 'PurchaseTransaction', :dependent => :destroy
 
+  delegate :email, to: :user, prefix: true
+
   accepts_nested_attributes_for :lines
   attr_accessor :card_number, :card_verification
 

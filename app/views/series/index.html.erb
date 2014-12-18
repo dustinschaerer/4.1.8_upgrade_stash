@@ -33,7 +33,7 @@
         <td><%= link_to 'Destroy', series, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= series.id %></td>
         <td><%= series.style_id %></td>
-        <td><%= series.style.name if series.style_id %></td>
+        <td><%= series.style_name if series.style_id %></td>
         <td><%= series.name %></td>
         <td><%= series.description %></td>
         <td><%= series.slug %></td>
@@ -45,8 +45,8 @@
         <td><%= series.vertical %></td>
         <td><%= series.horizontal %></td>
         <td><%= series.side %></td>
-        
-       
+
+
       </tr>
     <% end %>
   </tbody>

@@ -85,7 +85,7 @@ ActiveAdmin.register Quote do
         number_to_currency tl.total
       end
     end
-    default_actions
+    actions
   end
 
   show do

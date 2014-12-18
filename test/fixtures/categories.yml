@@ -1,11 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
-  image_url: MyString
+  name: "Vinyl and Laminate Table Covers"
+  description: "Vinyl and Laminate table cover description."
+  image_url: "laminatetablecover.jpg"
+  slug: "vinyl-table-covers"
 
 two:
-  name: MyString
-  description: MyText
-  image_url: MyString
+  name: "Non-Slip Padding"
+  description: "Non-Slip Padding"
+  image_url: "slipknot-padding.jpg"
+  slug: "non-slip-padding"
+
+catalog:
+  id: 6
+  name: "Catalog"
+  description: "Americo Design Catalog"
+  image_url: "americo-design-catalog.jpg"
+  created_at: "2014-03-07 00:22:43"
+  updated_at: "2014-05-12 19:39:41"
+  slug: "catalog"

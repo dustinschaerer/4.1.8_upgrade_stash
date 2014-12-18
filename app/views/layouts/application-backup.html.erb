@@ -7,18 +7,11 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-
-
   <%= render 'layouts/shim' %>
 </head>
 <body>
   <div class="container-fluid">
-
   <%= render 'layouts/header' %>
-
   <div class="row-fluid">
     <div class="span12">
 
@@ -26,18 +19,11 @@
           <div id="slider" class="nivoSlider">
             <%= image_tag("walle.jpg", alt: "slider1", :data => { :thumb => 'walle.jpg' } ) %>
             <%= image_tag("up.jpg", alt: "slider2", :data => { :thumb => 'up.jpg' } ) %>
-            <!--
-            <img src="images/walle.jpg" data-thumb="images/walle.jpg" alt="" />
-            <img src="images/up.jpg" data-thumb="images/up.jpg" alt="" title="This is an example of a caption" />
-            <img src="images/walle.jpg" data-thumb="images/walle.jpg" alt="" data-transition="slideInLeft" />
-            <img src="images/up.jpg" data-thumb="images/up.jpg" alt="" title="#htmlcaption" />
-          -->
           </div>
           <div id="htmlcaption" class="nivo-html-caption">
-            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>. 
+            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
           </div>
         </div>
-
       </div>
 
 
@@ -50,8 +36,8 @@
 
 
 
-  </div>  
-   
+  </div>
+
 
 
 
@@ -70,9 +56,9 @@
           <div class="sidebar-nav-fixed" id="side">
             <% if @cart %>
               <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
-                <%= render @cart %>   
+                <%= render @cart %>
               <% end %>
-            <% end %> 
+            <% end %>
           <ul class="nav nav-list">
             <li><a href="/store">Store</a></li>
             <li><a href="/categories">Categories</a></li>
@@ -81,19 +67,19 @@
             <li><a href="/series">Series</a></li>
             <li><a href="/colors">Colors</a></li>
             <li><a href="/orders">Orders</a></li>
-            
+
             <% if user_signed_in? %>
             <li class="divider"></li>
             <li><a href="/request_a_quote">Request a Quote</a></li>
             <li><a href="/users/<%= current_user.id %>">Account Dashboard</a></li>
             <% end %>
 
-            
+
             <li class="divider"></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/help">Help</a></li>
             <li><a href="/about">About</a></li>
-            
+
             <li class="divider"></li>
             <li><%= link_to "Home",    root_path%></li>
             <li><%= link_to "About",   about_path %></li>
@@ -104,7 +90,7 @@
             <% else %>
               <li><%= link_to "Sign up", new_user_registration_path %></li>
               <li><%= link_to "Login", new_user_session_path %></li>
-              
+
             <% end %>
           </ul>
           </div>
@@ -112,32 +98,32 @@
       <div class="span8">
          <!--2nd column-->
          <div id="rightCol">
-              
-              
+
+
 
           <%= render 'layouts/messages' %>
-          
+
           <% if user_signed_in? %>
           <div class="pull-right">
             <p>Logged in as <strong><%= current_user.email %></strong>.
               <%= link_to 'My Dashboard', user_path(current_user) %>
               <%= link_to 'Edit profile', edit_user_registration_path %></p>
-          </div>  
+          </div>
           <% end %>
 
           <%= yield %>
 
-          <%= params.inspect %> 
+          <%= params.inspect %>
 
-          <%= debug params %> 
+          <%= debug params %>
 
           </div><!--/rightCol-->
       </div><!--/span8-->
     </div>
 
     <%= render 'layouts/footer' %>
-  
-  </div>  
+
+  </div>
   <script type="text/javascript">
 $(window).load(function() {
     $('#slider').nivoSlider();

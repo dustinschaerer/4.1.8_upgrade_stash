@@ -1,31 +1,31 @@
 <div class="panel panel-default">
-  
-  <div class="panel-heading">
-    <span class="panel-title"><h3>Your Shopping Cart</h3> 
-		<% unless (@cart.line_items.empty?) %>
-    	  Please review the contents of your shopping cart.
-    	<% end %>
 
-    </span>	  
-  </div>	
+  <div class="panel-heading">
+    <div class="panel-title">
+    	<h3>Your Shopping Cart</h3>
+      <% unless (@cart.line_items.empty?) %>
+        Please review the contents of your shopping cart.
+      <% end %>
+    </div>
+  </div>
 
   <div class="panel-body">
-    	 
-    	<% if (@cart.line_items.empty?) %>
-    	<div class="row">
-        	<div class="col-xs-12">
-				You cart is empty!
-	    	</div>
-    	</div>
-   	</div>	
-</div>	 	
-        <% else %>
+    <% if (@cart.line_items.empty?) %>
+    <div class="row">
+      <div class="col-xs-12">
+        Your cart is empty!
+        </div>
+      </div>
+    </div>
+</div>
+
+    <% else %>
 
 	    	<div class="row">
 	        	<div class="col-xs-2">
 					Image
 		    	</div>
-		
+
 		    	<div class="col-xs-2">
 					Style
 		    	</div>
@@ -33,7 +33,7 @@
 		    	<div class="col-xs-2">
 					Color
 		    	</div>
-		
+
 		    	<div class="col-xs-1">
 					Qty
 		    	</div>
@@ -43,18 +43,18 @@
 		    	</div>
 
 	    	</div>
-	        <hr class="cartline"> 
+	        <hr class="cartline">
 
 	        <%= render(cart.line_items) %>
-	        
-	       
 
-				</div>	
-			</div>	
+
+
+				</div>
+			</div>
 
 			<div class="btn-group">
-				  <%= link_to 'Checkout', @cart, method: :get, class: "btn btn-default", type: "button"  %>
-				  <%= link_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-default", type: "button"  %>
+				  <%= link_to 'Checkout', @cart, method: :get, class: "btn btn-default"  %>
+				  <%= link_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-default" %>
 			</div>
 
         <% end %>

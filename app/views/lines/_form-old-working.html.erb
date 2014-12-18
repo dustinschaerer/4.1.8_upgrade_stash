@@ -1,0 +1,604 @@
+<div class="row">
+  <div class="col-md-7">
+<% if (@qp_id == '1') %>
+
+  <div>
+    <div>Available for <strong>Series 9800 &amp; 6100</strong></div>
+    <div>We custom cut and sew covers to fit any table size. Cloths wider than 54" will be seamed. Give us your table size &amp; we will do the math. We require table size instead of cloth size for quoting.</div>
+    <div>We add a standard drop of 8" to all Regular Drape table covers, and add a standard drop of 6" to all Fitted (Hat Box) table covers.  Elastic Contour table covers accomodate tables up to one and half inches (1.5") thick. "To the Floor" table covers will made the same height as the table height.</div>
+  </div>
+<% elsif (@qp_id == '2') %>
+  <div>
+    <div>Available for <strong>Series 1200 &amp; 2000</strong></div>
+    <div>We custom cut and sew covers to fit any table size. Cloths wider than 54" will be seamed. Give us your table size &amp; we will do the math. We require table size instead of cloth size for quoting.</div>
+    <div>We add a standard drop of 8" to all Regular Drape table covers, and add a standard drop of 6" to all Fitted (Hat Box) table covers.  Elastic Contour table covers accomodate tables up to one and half inches (1.5") thick. "To the Floor" table covers will made the same height as the table height.</div>
+  </div>
+<% elsif (@qp_id == '3') %>
+  <div>
+    <div>Classic White Vinyl Padding</div>
+    <div>Only available by the Roll (25 yards x 54" width).</div>
+  </div>
+<% elsif (@qp_id == '4') %>
+  <div>
+    <div>Non-Slip Padding Rolls</div>
+    <div>Available by the Roll (33 yards) in either 36", 48", &amp; 72" widths.  Non-Slip Padding is also available in  <a href="/lines/new?quote_product_id=5">Custom Cut sizes</a> to accomodate any need.</div>
+  </div>
+<% elsif (@qp_id == '5') %>
+  <div>
+    <div>Non-Slip Padding Custom Cuts</div>
+    <div>Available in any Custom Cut sizes you need to accomodate any purpose. Non-Slip Padding is also available by the <a href="/lines/new?quote_product_id=4">Roll (33 yards)</a> in either 36", 48", &amp; 72" widths.  </div>
+  </div>
+<% elsif (@qp_id == '6') %>
+  <div>
+    <div>C.O.M. (Customer Own Material)</div>
+    <div>WIDTH OF GOODS ACCEPTED: 45" to 58"</div>
+    <div>We can only accept material for lamination on full width pieces rolled onto tubes, not finished items.  Please enter the toal number of yards to be laminated combined into the field below.</div>
+    <div>Choose between Matte or Gloss applied to textured or flat fabrics.</div>
+  </div>
+<% elsif (@qp_id == '7') %>
+  <div>
+    <div>Series 9800 &amp; 6100</div>
+    <div>5 yard minimum. 25 yard maximum.</div>
+  </div>
+<% elsif (@qp_id == '8') %>
+  <div>
+    <div>Styles 1200 &amp; 2000</div>
+    <div>5 Yard Minimum. 25 yard maximum.</div>
+  </div>
+<% elsif (@qp_id == '9') %>
+  <div>
+    <div>Upholstery Styles - Distinction Collection 6111 - 6126</div>
+    <div>5 yard minimum. 25 yard maximum.</div>
+  </div>
+<% elsif (@qp_id == '10') %>
+   <div>
+    <div>Series 9800 &amp; 6100</div>
+    <div>Whole roll (25 yards x 54" width)</div>
+  </div>
+<% elsif (@qp_id == '11') %>
+  <div>
+    <div>Series 1200 &amp; 2000</div>
+    <div>Whole roll (25 yards x 54" width)</div>
+  </div>
+<% elsif (@qp_id == '12') %>
+  <div>
+    <div>Upholstery Styles - Distinction Collection 6111 - 6126</div>
+    <div>Whole roll (25 yards x 54" width)</div>
+  </div>
+<% elsif (@qp_id == '13') %>
+  <div>
+    <div>Series 7100 - Value Vinyl Ready Made Table Cloths</div>
+    <div>Available in 8 ready-made sizes and shapes. </div>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+      <%= image_tag('value-vinyl-chart.jpg', alt: 'Value Vinyl Order Chart', :class => "img-responsive center-block top10" ) %>
+    </div>
+    </div>
+  </div>
+<% elsif (@qp_id == '14') %>
+  <div>
+    <div>Reversible placemats are 16.5” x 11.5” with smartly mitered corners. Both sides are the same color and pattern. Simply choose your favorite styles from our Classic or Premium vinyl collections.</div>
+    <div>Minimum order is <strong>72 pieces per color</strong>.</div>
+  </div>
+<% elsif (@qp_id == '15') %>
+  <div>
+    <div>All table runners will be precision cut and sewn with a 1/4" hem.
+      <ul>
+         <li>Standard drop for table toppers and overlays is 8”.</li>
+         <li>Standard drop for table runners is 8”.</li>
+         <li>Table runners come in 3 widths: 12”, 16” and 24”.”</li>
+         <li>Runners are sewn with squared edges and are not reversible.</li>
+      </ul>
+    </div>
+  </div>
+<% elsif (@qp_id == '16') %>
+  <div>
+    <div>All table toppers will be precision cut and sewn with a 1/4" hem.
+      <ul>
+        <li>Standard drop for table toppers and overlays is 8”.</li>
+        <li>Standard drop for table runners is 8”.</li>
+        <li>Table runners come in 3 widths: 12”, 16” and 24”.”</li>
+        <li>Runners are sewn with squared edges and are not reversible.</li>
+      </ul>
+    </div>
+  </div>
+<% elsif (@qp_id == '17') %>
+  <div>
+    <div>Series 7100</div>
+    <div>Whole roll (25 yards x 54" width)</div>
+  </div>
+<% end %>
+
+<%= bootstrap_form_for(@line, :url => { :action => :create, :quote_product_id => @qp_id }, layout: :horizontal, label_col: "col-sm-3 col-md-3", control_col: "col-sm-9 col-md-9") do |f| %>
+
+  <%= f.alert_message "Please fix the following errors:" %>
+
+
+  <div class="form-inputs">
+    <%= f.collection_select :quote_product_id, QuoteProduct.all.order("name"), :id, :name, { selected: @qp_id, label: false  } %>
+
+    <% if (@qp_id == '1') || (@qp_id == '2') || (@qp_id == '16') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|16">
+      <%= f.collection_select :shape_id, Shape.all.order("id"), :id, :name, { prompt: "Please Choose" }   %>
+    </div>
+
+    <% elsif (@qp_id == '15') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="15">
+      <%= f.collection_select :shape_id, Shape.where("id = 2 or id = 3").order("id"), :id, :name, { prompt: "Please Choose" }   %>
+    </div>
+    <% end %>
+
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
+      <%= f.collection_select :cover_id, Cover.all.order("id"), :id, :name, { prompt: "Please Choose" } %>
+    </div>
+
+    <% if (@qp_id == '4') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="4">
+      <%= f.select(:width, [[36, 36], [48, 48], [72, 72]], { prompt: "Please Choose"} )  %>
+    </div>
+
+    <% elsif (@qp_id == '15') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="15">
+      <%= f.select(:width, [['12"', 12], ['16"', 16], ['24"', 24]], { prompt: "Please Choose"} )  %>
+    </div>
+
+    <% else %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|5|6|16">
+      <%= f.number_field :width, placeholder: "Width (In Inches)" %>
+    </div>
+    <% end %>
+
+    <% if (@qp_id == '5') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="5">
+      <%= f.number_field :length, placeholder: "Length (In Inches)" %>
+    </div>
+    <% elsif (@qp_id == '1') || (@qp_id == '2') || (@qp_id == '15') || (@qp_id == '16')%>
+    <div class="js-dependent-fields" data-select-id="line_shape_id" data-option-value="2">
+      <%= f.number_field :length, placeholder: "Length (In Inches)" %>
+    </div>
+    <% end %>
+
+
+    <div class="js-dependent-fields" data-select-id="line_cover_id" data-option-value="4|5">
+      <%= f.number_field :height, placeholder: "Height (In Inches)" %>
+    </div>
+
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16|17">
+        <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') || (@qp_id == '14')%>
+          <%= f.collection_select(:series_id, Series.where("style_id = 1 OR style_id = 2").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+
+        <% elsif (@qp_id == '2') || (@qp_id == '8') || (@qp_id == '11') %>
+
+          <%= f.collection_select(:series_id, Series.where("style_id = 3").order("name"), :id, :name, {prompt: "Please Select a Series before Selecting a Color"} ) %>
+
+        <% elsif (@qp_id == '15') || (@qp_id == '16') %>
+
+          <%= f.collection_select(:series_id,  Series.where("style_id = 1 OR style_id = 2 OR style_id = 3").order("name"), :id, :name, {prompt: "Please Select a Series before Selecting a Color"} ) %>
+
+        <% elsif (@qp_id == '9') ||  (@qp_id == '12') %>
+          <%= f.collection_select(:series_id,  Series.where("style_id = 7").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+
+        <% elsif (@qp_id == '13') || (@qp_id == '17') %>
+          <%= f.collection_select(:series_id,  Series.where("style_id = 8").order("name"), :id, :name, {prompt: "Please  Select a Series before Selecting a Color"} ) %>
+        <% end %>
+    </div>
+
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2|7|8|9|10|11|12|13|14|15|16|17">
+      <div class="form-group"><label class="col-sm-3 col-md-3 control-label" for="line_color_id">Color</label>
+        <div class="col-sm-9 col-md-9">
+
+        <% if (@qp_id == '1') || (@qp_id == '7') || (@qp_id == '10') || (@qp_id == '14')%>
+          <%= f.grouped_collection_select(:color_id, Series.where("style_id = 1 OR style_id = 2").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+
+        <% elsif (@qp_id == '2') || (@qp_id == '8') || (@qp_id == '11') %>
+          <%= f.grouped_collection_select(:color_id, Series.where("style_id = 3").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+
+        <% elsif (@qp_id == '15') || (@qp_id == '16') %>
+
+          <%= f.grouped_collection_select(:color_id,  Series.where("style_id = 1 OR style_id = 2 OR style_id = 3").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+
+        <% elsif (@qp_id == '9') ||  (@qp_id == '12') %>
+          <%= f.grouped_collection_select(:color_id,  Series.where("style_id = 7").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+
+        <% elsif (@qp_id == '13') || (@qp_id == '17') %>
+          <%= f.grouped_collection_select(:color_id,  Series.where("style_id = 8").order("name"), :colors, :name, :id, :name, {prompt: "Please Select a Series above first"}, {class: "form-control"} ) %>
+        <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="1|2">
+      <%= f.form_group :umbrella, label: { text: "Umbrella Hole?" } do %>
+        <%= f.check_box :umbrella, label: "Check only to add umbrealla hole in center." do %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% if (@qp_id == '1') || (@qp_id == '2') %>
+    <div class="" data-select-id="line_cover_id" data-option-value="" id="velcro_booth">
+      <%= f.form_group :velcro, label: { text: "Booth with Velcro?" } do %>
+        <%= f.check_box :velcro, label: "Check only if table is attached to the wall" do %>
+        <% end %>
+        <a href="#" data-toggle="modal" data-target="#modalBooth">Open Diagram for Help</a>
+      <% end %>
+    </div>
+    <% end %>
+
+    <% if (@qp_id == '6') %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="6">
+      <%= f.number_field :yards, label: "Total Yards", placeholder: "Total Yards Long (in Yards)" %>
+    </div>
+
+    <%= f.select(:finish,  ['Matte', 'Gloss'], {prompt: "Please  Select a Finish"} ) %>
+    <%= f.select(:laminate_side,  ['Face Side', 'Back Side'], {prompt: "Select Side to Laminate"} ) %>
+
+    <% else %>
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="7|8|9">
+      <%= f.number_field :yards, label: "Total Yards", placeholder: "Total Yards Long (in Yards)" %>
+    </div>
+    <% end %>
+
+    <div class="js-dependent-fields" data-select-id="line_quote_product_id" data-option-value="13">
+      <%= f.collection_select(:size_id,  Size.order("dimension"), :id, :dimension, {prompt: "Choose Your Size" } ) %>
+    </div>
+
+    <% if (@qp_id == '6') || (@qp_id == '7') || (@qp_id == '8') || (@qp_id == '9') %>
+      <%= f.hidden_field :quantity, placeholder: "Enter Quantity", value: "1" %>
+    <% elsif (@qp_id == '4') || (@qp_id == '10') || (@qp_id == '11') || (@qp_id == '12') || (@qp_id == '17') %>
+      <%= f.number_field :quantity, placeholder: "Enter Desired Number of Rolls" %>
+    <% else %>
+      <%= f.number_field :quantity, placeholder: "Enter Quantity" %>
+    <% end %>
+
+    <%= f.hidden_field :price, value: "0" %>
+
+  </div>
+
+  <div class="form-actions">
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= f.submit 'Add Product to Quote Now', :class => "btn btn-success btn-block"  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-4">
+      <%= link_to '/request_quote',  class: "btn btn-danger btn-block" do %>
+      <span class="glyphicon glyphicon-arrow-left"></span>  Go Back
+      <% end %>
+    </div>
+    <div class="col-sm-offset-1 col-sm-4">
+      <% unless @quoteholder.lines.empty? %>
+
+        <%= link_to @quoteholder, class: "btn btn-info  btn-block", method: :get do %>
+        Review my Quote <span class="glyphicon glyphicon-arrow-right"></span>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">How to Measure Tables</h3>
+      </div>
+      <div class="panel-body">
+        <div>For a quick reminder on how to measure for different table styles and accessories, choose from a table cover style below. For complete instructions, visit our <%= link_to 'measuring page', '/how_to_measure' %>.</div>
+        <br>
+
+<div class="list-group">
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalDrapeRect"> Drape-Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalDrapeRound"> Drape-Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFitRect"> Fitted-Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFitRound"> Fitted-Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFloorRect"> To The Floor - Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalFloorRound"> To The Floor - Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalBooth"> Booths</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalElasticRect"> Elastic Fit -Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalElasticRound"> Elastic Fit-Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalTopperRect"> Rectangular and Square</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalTopperRound"> Round</a>
+  <a href="#" class="addblack list-group-item" data-toggle="modal" data-target="#modalRectRunner"> Rectangular and Square Runner</a>
+</div>
+
+      </div>
+    </div>
+
+     <!-- image_tag('how-to-measure.jpg', :class=> "img-responsive") -->
+
+  </div>
+</div>
+
+
+
+<div class="border-top">
+      <div id="covers">
+        <div><span class="bgtext">TABLE COVER TYPES &nbsp; <a href="/how_to_measure" class="lefty">Measuring Instructions  <span class="glyphicon glyphicon-play"></span></a></span>   </div><%= image_tag('vertical-illustrations.png', :class => "img-responsive bgimg") %></div>
+    </div>
+
+
+
+
+
+<!-- MODAL WINDOWS -->
+        <!-- modalDrapeRect -->
+        <div class="modal fade" id="modalDrapeRect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Drape-Rectangular and Square</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <%= image_tag('rectangle-square_drape.jpg', :class => "img-responsive") %>
+                    <ul>
+                      <li>Measure the width of the table, then the length in inches (examples: 24” x 42” or 24” x 24”) Specify optional umbrella holes.</li>
+                      <li>We add an 8” drop to all draped covers</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- modalDrapeRound -->
+        <div class="modal fade" id="modalDrapeRound" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Drape-Round</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('round_drape.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>For round tables, measure from side to side across the middle of the table. (example: 30”) Specify optional umbrella holes.</li>
+                  <li>We add an 8” drop to all draped covers</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- modalFitRect -->
+        <div class="modal fade" id="modalFitRect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Fitted-Rectangular and Square</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('rectangle-square_fitted.jpg', :class => "img-responsive") %>
+                <ul>
+                <li>Measure the width of the table, then the length in inches (examples: 24” x 42” or 24” x 24”) Specify optional umbrella holes.</li>
+                <li>We add an 6” drop to all fitted covers</li>
+              </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- modalFitRound -->
+        <div class="modal fade" id="modalFitRound" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Fitted-Round</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('round_fitted.png', :class => "img-responsive") %>
+
+                <ul>
+                  <li>For round tables, measure from side to side across the middle of the table. (example: 30”) Specify optional umbrella holes.</li>
+                  <li>We add an 6” drop to all fitted covers</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- modalFloorRect -->
+        <div class="modal fade" id="modalFloorRect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">To The Floor - Rectangular and Square</a></h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('rectangle-square_to-floor.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>For covers that drape to the floor, measure taple top and measure from the top of table to the floor. Specify optional umbrella holes.</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- modalFloorRound -->
+        <div class="modal fade" id="modalFloorRound" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">To The Floor - Round</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('round_to-floor.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>For covers that drape to the floor, measure taple top and measure from the top of table to the floor. Specify optional umbrella holes.</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- modalBooth -->
+        <div class="modal fade" id="modalBooth" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Booth with Velcro </h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('booth-drape.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>For booths attached to wall measure the width of the table, then the length in inches from wall examples: 24” x 42”)</li>
+                  <li>Specify optional umbrella holes or Velcro</li>
+                  <li>We add an 8” drop (3 sides) to all booth covers</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- modalElasticRect -->
+        <div class="modal fade" id="modalElasticRect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Elastic Fit Rectangle and Square</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('rectangle-square_elastic-fit.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>For covers that drape to the floor, measure taple top and measure from the top of table to the floor. Specify optional umbrella holes.</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- modalElasticRound -->
+        <div class="modal fade" id="modalElasticRound" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Elastic Fit Round</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('round_elastic-fit.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>Measure the width of the table, then the length in inches (examples: 24” x 42” or 24” x 24”) Specify optional umbrella holes</li>
+                  <li>These cloths are made to accommodate a table thinkness of up to 1 1/2”</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- modalTopperRect-->
+        <div class="modal fade" id="modalTopperRect" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Table Toppers Rectangular and Square</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('rectangle-square_topper-overlay.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>Measure the width of the table, then the length in inches (examples: 24” x 42” or 24” x 24”)</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- modalTopperRound -->
+        <div class="modal fade" id="modalTopperRound" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Table Toppers Round</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('round_topper-overlay.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>For round tables, measure from side to side across the middle of the table. (example: 30”)</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- modalRectRunner -->
+        <div class="modal fade" id="modalRectRunner" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <%= image_tag('rectangle-square_runner.jpg', :class => "img-responsive") %>
+                <ul>
+                  <li>Measure the length of the table.</li>
+                  <li>Determine how wide you want the runner to be—12”, 16” or 24”.</li>
+                  <li>add an 8” drop to all table runners</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>

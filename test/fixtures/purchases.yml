@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-purchases_one:
+purchase_one:
   user_id: 1
   firstname: Tim
   lastname: Smith
@@ -27,9 +27,9 @@ purchases_one:
   pay_telephone: 555-555-5555
   status: Purchased
   state: pending
-  card_type: 
+  card_type:
   card_expires_on:
-  ip_address: 
+  ip_address:
   email: tim@example.org
   quote_id: 1
   tax_id: nil

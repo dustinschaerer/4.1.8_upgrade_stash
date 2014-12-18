@@ -15,7 +15,7 @@
   <% end %>
 
   <div class="form-inputs">
-   
+
     <div class="row">
       <div class="col-xs-12 col-lg-8">
         <div class="field">
@@ -38,10 +38,10 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-sm-12 col-md-4 js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Quote">
-        
+
         <%= f.label :quote_id, :label => "Quote Number" %>
         <%= f.number_field :quote_id%>
       </div>
@@ -58,7 +58,7 @@
         <%= f.text_field :name %>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-xs-12 col-lg-8">
         <%= f.label :message %>
@@ -71,7 +71,7 @@
         <%= f.text_field :phone %>
       </div>
     </div>
-    
+
   </div>
 
   <div class="form-actions">
@@ -81,15 +81,15 @@
     Send Message <i class="icon-ok icon-white"></i>
   <% end %>
     </div>
-    
+
   </div>
 <% end %>
 
 </div>
 
-    <%= 
-    # f.button :submit, : => "Send Message", :class => "btn btn-lg btn-danger btn-block" 
-    %> 
+    <%=
+    # f.button :submit, : => "Send Message", :class => "btn btn-lg btn-danger btn-block"
+    %>
 </div>
 
 

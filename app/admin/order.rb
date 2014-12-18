@@ -24,7 +24,7 @@ ActiveAdmin.register Order do
     column("Country", :country, :sortable => :country)
     column("Date Created", :created_at)
     column("Date Modified", :updated_at)
-    default_actions
+    actions
   end
 
   show do
