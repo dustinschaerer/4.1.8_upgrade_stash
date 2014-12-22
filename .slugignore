@@ -1,8 +1,8 @@
 *.psd
 *.pdf
 *.zip
-test/
-spec/
+test
+spec
 log/development.log
 tmp
 public/assets/swatches/swatches.zip
