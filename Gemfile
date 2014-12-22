@@ -38,8 +38,6 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'tilt', '1.4.1'
 gem 'asset_sync'
 gem 'active_skin'
-gem "brakeman", :require => false
-gem 'rails_best_practices'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -60,6 +58,8 @@ group :development, :test do
   gem 'childprocess', '0.3.6'
   gem 'factory_girl_rails'
   gem 'bullet'
+  gem "brakeman", :require => false
+  gem 'rails_best_practices'
 end
 
 group :test do
