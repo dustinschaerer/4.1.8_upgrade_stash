@@ -17,6 +17,14 @@ GIT
       sass-rails
 
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: 072e60b700bef718907ac6f3c43897fd43fef559
+  specs:
+    best_in_place (3.0.2)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
+
+GIT
   remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
   revision: 8e1fc7dd1cab1f6d664d7ebce8c498fd39c533f9
   specs:
@@ -73,9 +81,6 @@ GEM
       unf
     awesome_print (1.2.0)
     bcrypt (3.1.9)
-    best_in_place (3.0.2)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     bourbon (3.2.3)
@@ -389,7 +394,7 @@ DEPENDENCIES
   activeadmin!
   activemerchant
   asset_sync
-  best_in_place (~> 3.0.1)
+  best_in_place!
   bootstrap-sass (~> 3.1.1)
   bootstrap_form!
   brakeman
