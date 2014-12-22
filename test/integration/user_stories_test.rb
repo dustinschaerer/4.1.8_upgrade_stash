@@ -8,8 +8,6 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     @user = FactoryGirl.create(:user)
     @emails = ActionMailer::Base.deliveries
     @emails.clear
-
-
   end
 
   # # A user goes to the index page. They select a product, adding it to their
