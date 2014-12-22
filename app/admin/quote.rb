@@ -116,7 +116,7 @@ ActiveAdmin.register Quote do
             row :lastname
             row :company
             row :tax_id do |tid|
-              best_in_place tid, :tax_id, :as => :input
+              best_in_place tid, :tax_id, :type => :input
             end
             row :telephone
             row :ship_street_address
@@ -128,10 +128,10 @@ ActiveAdmin.register Quote do
               number_to_currency sb.subtotal
             end
             row :shipping do |i|
-              best_in_place i, :shipping, :as => :input, :display_with => :number_to_currency
+              best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
             end
             row :sales_tax  do |st|
-              best_in_place st, :sales_tax, :as => :input, :display_with => :number_to_currency
+              best_in_place st, :sales_tax, :type => :input, :display_with => :number_to_currency
             end
             row :total do |ttl|
               number_to_currency ttl.total
@@ -144,7 +144,7 @@ ActiveAdmin.register Quote do
         panel "Questions for the Customer" do
           attributes_table_for quote do
             row :question do |qq|
-              best_in_place qq, :question, :as => :textarea, :display_with => :simple_format
+              best_in_place qq, :question, :type => :textarea, :display_with => :simple_format
             end
             h3 { button_to "Email Question Response History to Customer Now", "/admin/quotes/#{quote.id}/send_question_email", :method => :post }
           end
