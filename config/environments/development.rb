@@ -1,4 +1,4 @@
- Americo::Application.configure do
+Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -19,7 +19,7 @@
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
-  # Raise an error on page load if there are pending migrations
+  # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
   # Debug mode disables concatenation and preprocessing of assets.
@@ -33,7 +33,7 @@
 
   # Set email delivery configuration
   config.action_mailer.delivery_method = :smtp
-  
+
   # Action Mailer config setting
 #  config.action_mailer.smtp_settings = {
 #    address:    "smtp.gmail.com",
@@ -44,7 +44,7 @@
 #    password:   "oldpwd",
 #    enable_starttls_auto: true
 #  }
-  
+
   # Action Mailer config setting
   config.action_mailer.smtp_settings = {
     address:    'smtp.mandrillapp.com',
@@ -55,9 +55,9 @@
     password:   ENV['MANDRILL_APIKEY'],
     enable_starttls_auto: true
   }
-  
+
   config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test   
+    ActiveMerchant::Billing::Base.mode = :test
     Bullet.enable = true
     Bullet.alert = true
     Bullet.bullet_logger = true
@@ -66,5 +66,12 @@
     Bullet.add_footer = true
   end
 
+   # Adds additional error checking when serving assets at runtime.
+   # Checks for improperly declared sprockets dependencies.
+   # Raises helpful error messages.
+   config.assets.raise_runtime_errors = true
+
+   # Raises error for missing translations
+   # config.action_view.raise_on_missing_translations = true
 
 end

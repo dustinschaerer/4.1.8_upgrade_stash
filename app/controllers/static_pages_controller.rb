@@ -3,7 +3,6 @@ class StaticPagesController < ApplicationController
   include CurrentQuoteholder
   before_action :set_cart
   before_action :set_quoteholder
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def home
   	@subscriber = Subscriber.new
@@ -19,9 +18,6 @@ class StaticPagesController < ApplicationController
   end
 
   def cleaning_instructions
-  end
-
-  def contact
   end
 
   def credit_application
@@ -45,21 +41,18 @@ class StaticPagesController < ApplicationController
   def photo_gallery
   end
 
-  def quote_system
+  def request_catalog
   end
 
-  def request_catalog
-  end  
-  
   def request_quote
   end
 
   def roll_goods
   end
-    
+
   def satisfied_customers
-  end 
-    
+  end
+
   def sitemap
   end
 
@@ -68,10 +61,10 @@ class StaticPagesController < ApplicationController
 
   def technical_specs
   end
-  
+
   def terms_and_conditions
   end
-  
+
   def tradeshows
-  end  
+  end
 end

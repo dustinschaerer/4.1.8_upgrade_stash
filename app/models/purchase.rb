@@ -2,54 +2,50 @@ class Purchase < ActiveRecord::Base
   PAYMENT_TYPES = [ "Credit Card" ]
 
   belongs_to :user
-  has_many :lines 
+  has_many :lines
   has_one :quote
   has_many :transactions, :class_name => 'PurchaseTransaction', :dependent => :destroy
-  
+
+  delegate :email, to: :user, prefix: true
+
   accepts_nested_attributes_for :lines
   attr_accessor :card_number, :card_verification
-  
+
   validates :card_expires_on, presence: true
   validates :user_id, :firstname, :lastname, :telephone, :contactby, :pay_type, presence: true
   validates :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, presence: true
   validates :pay_firstname, :pay_lastname, :pay_telephone, presence: true
   validates :pay_street_address, :pay_city, :pay_state, :pay_zipcode, :pay_country, presence: true
-  validates :pay_type, :pay_status, :status, presence: true
+  validates :pay_type, :pay_status, :status, :subtotal, :shipping, :total, presence: true
   validates :card_number, :card_verification, presence: true, on: :create
   validates :pay_state, inclusion: ::STATES_AND_PROVINCES
   validates :pay_country, inclusion: ::COUNTRIES
-
   validate :validate_card, on: :create, if: :is_ready?
-  
-  #validates :state, inclusion: ::PROVINCES, if: :is_usa?
-  #validates :state, inclusion: ::PROVINCES, if: :is_canada?
 
   def is_usa?
-    (pay_country == 'United States') 
+    (pay_country == 'United States')
   end
 
   def is_canada?
-    (pay_country == 'Canada') 
+    (pay_country == 'Canada')
   end
-  
+
   def is_ready?
-    if card_expires_on.blank? 
+    if card_expires_on.blank?
       false
     else
-      true 
-    end  
-  end 
+      true
+    end
+  end
 
   def add_lines_from_quote(quote)
     #find each line in the quote
     @quote = Quote.find(quote.id)
     @quote.lines.each do |thisline|
-     # Don't do this, it would remove the quote_id from line 
-     # thisline.quote_id = nil
-        lines << thisline 
+      lines << thisline
     end
   end
-  
+
   def purchase_the_order
     gateway = ActiveMerchant::Billing::ElavonGateway.new(
       :login     => ENV['MVM_LOGIN_ID'],
@@ -65,21 +61,21 @@ class Purchase < ActiveRecord::Base
   def purchase_options
     { }
   end
-  
+
   def self.amount
     (self.total*100).round
   end
-  
+
   def is_complete?
     if (self.status == "Shipped")
       true
-    end 
+    end
   end
 
   def current_status
     if (self.status == "Submitted")
       return "Purchased"
-    else  
+    else
       return self.status
     end
   end
@@ -97,7 +93,7 @@ class Purchase < ActiveRecord::Base
       return :error
     end
   end
-  
+
   def set_amount(total)
     self.amount = (total*100).round
   end
@@ -106,17 +102,17 @@ class Purchase < ActiveRecord::Base
     calculate_subtotal
     calculate_sales_tax
     calculate_total
-  end  
-  
+  end
+
   def update_quote_status(quote)
     quote.status = "Purchased"
     quote.save!
   end
-  
+
   def validate_card
       unless credit_card.valid?
         credit_card.errors.each do |attr, messages|
-          # Map to the model properties, assuming you used the 
+          # Map to the model properties, assuming you used the
           # setup from the Railscast
           if attr =~ /month|year/
             attr = 'card_expires_on'
@@ -135,11 +131,11 @@ class Purchase < ActiveRecord::Base
         end
       end
     end
-    
+
     def credit_card
       @credit_card ||= ActiveMerchant::Billing::CreditCard.new(
-               # :type               => card_type, 
-                :brand              => card_type, 
+               # :type               => card_type,
+                :brand              => card_type,
                 :first_name         => pay_firstname,
                 :last_name          => pay_lastname,
                 :number             => card_number,
@@ -148,8 +144,7 @@ class Purchase < ActiveRecord::Base
                 :verification_value => card_verification
       )
     end
-         
+
   private
-    
 
 end

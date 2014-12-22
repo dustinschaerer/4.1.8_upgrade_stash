@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-    <%= #f.label :series_id 
+    <%= #f.label :series_id
     %><br>
-    <%= # f.collection_select(:series_id, @series, :id, :name) 
+    <%= # f.collection_select(:series_id, @series, :id, :name)
     %>
 
-  <%= f.association :series, collection: Series.order('name') %> 
+  <%= f.association :series, collection: Series.order('name') %>
 
   <div class="field">
     <%= f.label :name %><br>
@@ -31,25 +31,25 @@
   <div class="field">
     <%= f.input :notforupholstery, :as => :boolean %>
   </div>
-      
-  <%= 
-  #f.input :tag_list 
+
+  <%=
+  #f.input :tag_list
   %>
-      <%=# f.input :tag_list, :as => :check_boxes, multiple: true, label_html: { class: 'color-checkbox' }, :collection => ActsAsTaggableOn::Tag.all.map(&:name)  
+      <%=# f.input :tag_list, :as => :check_boxes, multiple: true, label_html: { class: 'color-checkbox' }, :collection => ActsAsTaggableOn::Tag.all.map(&:name)
       %>
-  
-    <%= #f.check_box :tag_list, { :multiple => true }, 'Any', nil 
+
+    <%= #f.check_box :tag_list, { :multiple => true }, 'Any', nil
     %>
-    <%= #f.check_box :tag_list, { :multiple => true }, 'Black', nil 
+    <%= #f.check_box :tag_list, { :multiple => true }, 'Black', nil
     %>
-    <%= #f.check_box :tag_list, { :multiple => true }, 'Blue', nil 
+    <%= #f.check_box :tag_list, { :multiple => true }, 'Blue', nil
     %>
-    <%= #f.check_box :tag_list, { :multiple => true }, 'Brown', nil 
+    <%= #f.check_box :tag_list, { :multiple => true }, 'Brown', nil
     %>
-      <%= 
-    # f.select :tag_list, options_for_select(["Any", "Black", "Blue", "Brown", "Burgundy", "Cream", "Gold", "Green", "Grey", "Multi", "Orange", "Peach", "Pink", "Purple", "Red", "Salmon", "Tan", "Turquoise", "White", "Yellow" ]), {}, {:multiple => true, :class => "", :style => "width:250px;height:350px;" } 
+      <%=
+    # f.select :tag_list, options_for_select(["Any", "Black", "Blue", "Brown", "Burgundy", "Cream", "Gold", "Green", "Grey", "Multi", "Orange", "Peach", "Pink", "Purple", "Red", "Salmon", "Tan", "Turquoise", "White", "Yellow" ]), {}, {:multiple => true, :class => "", :style => "width:250px;height:350px;" }
     %>
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>

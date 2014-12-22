@@ -1,6 +1,6 @@
 class QuotesController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :edit, :update] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :edit, :update]
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_quoteholder
@@ -17,14 +17,13 @@ class QuotesController < ApplicationController
   # GET /quotes/1
   # GET /quotes/1.json
   def show
-    # make sure users only see their own quotes 
+    # make sure users only see their own quotes
     # look up the user attached to quote
     if (@quote.user_id) == (current_user.id)
       # only show this quote if it belongs to the signed in user
-    else   
+    else
       redirect_to root_url, notice: "The quote you tried to access does not belong to you."
-    end   
-
+    end
   end
 
   # GET /quotes/new
@@ -40,9 +39,9 @@ class QuotesController < ApplicationController
   def edit
      if (@quote.user_id) == (current_user.id)
       # only edit this quote if it belongs to the signed in user
-    else   
+    else
       redirect_to root_url, notice: "You must sign in to edit your quote."
-    end  
+    end
   end
 
   # POST /quotes
@@ -60,7 +59,7 @@ class QuotesController < ApplicationController
       if @quote.save
         Quoteholder.destroy(session[:quoteholder_id])
         session[:quoteholder_id] = nil
-        QuoteNotifier.received(@quote, current_user).deliver  
+        QuoteNotifier.received(@quote, current_user).deliver
         QuoteNotifier.notify_admin(@quote).deliver
         format.html { redirect_to user_path(current_user), notice: %Q[Your Quote was successfully created and submitted. You should receive a confirmation email letting you know we've recieved your quote right away. We will also send you a notification email as soon as we finish pricing your Quote. <p>Don't forget to join our Mailing List for special offers and periodic newsletters. <a target="new" href="http://visitor.r20.constantcontact.com/d.jsp?llr=j4rb9sqab&amp;p=oi&amp;m=1117322790889&amp;sit=8wpamrxib&amp;f=7e954c51-d956-4ceb-b3be-2a8cf6773713" class="button btn btn-success" style="color: rgb(255, 255, 255);  text-shadow: none; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; display:inline-block; vertical-align: middle;">Join our Mailing List here.</a>].html_safe }
         format.json { render action: 'show', status: :created, location: @quote }
@@ -97,10 +96,6 @@ class QuotesController < ApplicationController
     end
   end
 
-
-
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quote
@@ -109,7 +104,7 @@ class QuotesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quote_params
-      params.require(:quote).permit(:user_id, :firstname, :lastname, :company, :email, :status, :telephone, :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :id, :tax_id, :question, 
+      params.require(:quote).permit(:user_id, :firstname, :lastname, :company, :email, :status, :telephone, :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :id, :tax_id, :question,
         lines_attributes: [:id, :price, :quantity])
     end
 end

@@ -1,16 +1,21 @@
-#---
-# Excerpted from "Agile Web Development with Rails",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
-# Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
-#---
+
 require 'test_helper'
 
 class OrderTest < ActiveSupport::TestCase
-  
-  
+
+  should have_many :line_items
+  should belong_to :user
+  should accept_nested_attributes_for :line_items
+  should validate_presence_of(:user_id)
+  should validate_presence_of(:firstname)
+  should validate_presence_of(:lastname)
+  should validate_presence_of(:street_address)
+  should validate_presence_of(:city)
+  should validate_presence_of(:state)
+  should validate_presence_of(:zipcode)
+  should validate_presence_of(:country)
+  should validate_presence_of(:email)
+
    test "order attributes must not be empty" do
      order = Order.new
      assert order.invalid?, "Invalid order"
@@ -32,7 +37,7 @@ class OrderTest < ActiveSupport::TestCase
   #                          thumbnail_url: "fred-thumb.gif" )
   #
   #   assert order.valid?, "fred.gif should be valid"
-  #  end     
+  #  end
 
   # test "the truth" do
   #   assert true

@@ -3,7 +3,7 @@
 <footer>
 
   <div class="row footer">
-    
+
     <div class="col-sm-3 col-md-3 ">
       <ul>
         <li class="dark"><strong>OUR PRODUCTS</strong></li>
@@ -26,7 +26,7 @@
         <% if user_signed_in? %>
         <li><%= link_to "Place an Order", "/users/#{current_user.id}", class: "top-link" %></li>
         <% end %>
-        <li><%= link_to "Measuring Instructions",   "/how_to_measure" %></li>        
+        <li><%= link_to "Measuring Instructions",   "/how_to_measure" %></li>
       </ul>
     </div>
     <div class="col-sm-3 col-md-3">
@@ -46,11 +46,11 @@
         <li><%= link_to "Satisfied Customers", "/satisfied_customers" %></li>
         <li><%= link_to "Technical Specs", "/technical_specs" %></li>
         <li><%= link_to "Privacy Policy", "/privacy_policy" %></li>
-        <li><%= link_to "Sitemap", "/sitemap" %></li> 
-        
+        <li><%= link_to "Sitemap", "/sitemap" %></li>
+
       </ul>
     </div>
-   
+
   </div>
   <div class="row footer">
     <div class="col-xs-12">
@@ -61,5 +61,5 @@
       </ul>
     </div>
   </div>
-  
+</footer>
 

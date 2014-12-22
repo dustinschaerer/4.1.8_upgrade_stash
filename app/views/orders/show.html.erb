@@ -1,29 +1,24 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-
-  <% if @order.question %> 
+  <% if @order.question %>
     <div class="col-xs-12 col-md-2">
-  <% else %>        
-    <div class="col-xs-12">      
+  <% else %>
+    <div class="col-xs-12">
   <% end %>
       <p>
         <%= link_to user_path(current_user), class: "btn btn-primary btn-med" do %>
-        <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+        <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard
       <% end %>
       </p>
     </div>
-  
-  <% if @order.question %> 
+  <% if @order.question %>
     <div class="col-xs-12 col-md-offset-1 col-md-8">
       <div class="panel panel-danger">
-      
         <div class="panel-heading">
-               
               <strong>Please review these Questions or Comments regarding your quote: </strong>
         </div>
-
         <div class="panel-body">
-          <%= simple_format(@order.question) %> 
+          <%= simple_format(@order.question) %>
           <%= button_to 'Click to add a Reply', edit_order_path(@order.id), class: "btn btn-success pull-right", method: :get %>
         </div>
       </div>
@@ -33,28 +28,23 @@
 
 <div class="row">
   <div class="col-xs-12">
-
     <div class="panel panel-info">
-      
       <div class="panel-heading">
         <div class="row">
-          <div class="col-sm-12 col-md-12">     
+          <div class="col-sm-12 col-md-12">
             SWATCH ORDER #<%= @order.id %>
           </div>
-        </div>  
+        </div>
       </div>
-
       <div class="panel-body">
         <div class="row">
-
           <div class="col-sm-4 col-md-4">
             <p>CUSTOMER DETAILS</p>
             <p><strong><%= @order.company %></strong>
             <br><%= @order.firstname %><%= @order.lastname %>
             <br><%= @order.street_address %>
-            <br><%= @order.city %>, <%= @order.state %>  <%= @order.zipcode %> 
+            <br><%= @order.city %>, <%= @order.state %>  <%= @order.zipcode %>
             <br><%= @order.country %>
-      
           </div>
           <div class="col-sm-4 col-md-4 pull-right">
              <p><strong>Order Date:</strong> <%= @order.created_at.strftime("%B %d, %Y") %></p>
@@ -62,40 +52,34 @@
              <p><strong>Customer Phone:</strong> <%= @order.telephone %></p>
              <p><strong>Email:</strong> <%= @order.email %></p>
           </div>
- 
         </div>
         <hr>
         <div class="row">
-          <div class="col-xs-4 col-md-2 col-md-offset-1">     
+          <div class="col-xs-4 col-md-2 col-md-offset-1">
             Swatch
           </div>
-          <div class="col-xs-4">     
+          <div class="col-xs-4">
             Series
-          </div>  
-          <div class="col-xs-4">     
+          </div>
+          <div class="col-xs-4">
             Color
-          </div>  
-        </div>  
-        <hr>
-        <% @order.line_items.each do |li| %>
-        
-        <div class="row">
-          <div class="col-xs-4 col-md-2 col-md-offset-1"><%= image_tag(li.color.image_url, class: "img-responsive") %></div>
-          <div class="col-xs-4 "><%= li.series.name %></div>
-          <div class="col-xs-4"><%= li.color.name %></div>
+          </div>
         </div>
         <hr>
+        <% @order.line_items.each do |li| %>
+          <div class="row">
+            <div class="col-xs-4 col-md-2 col-md-offset-1"><%= image_tag(li.color.image_url, class: "img-responsive") %></div>
+            <div class="col-xs-4 "><%= li.series.name %></div>
+            <div class="col-xs-4"><%= li.color.name %></div>
+          </div>
+          <hr>
         <% end %>
-
-        </div>  
-
+        </div>
       </div>
-    
     </div>
-
   </div>
 </div>
 
 <%= link_to user_path(current_user), :class => "btn btn-primary btn-med"  do %>
-  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard   
+  <i class="glyphicon glyphicon-circle-arrow-left"></i> Back to My Dashboard
 <% end %>

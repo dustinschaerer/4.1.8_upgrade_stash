@@ -1,10 +1,9 @@
 class CartsController < ApplicationController
-  before_action :authenticate_admin_user!, :except => [:show, :destroy] 
   include CurrentCart
+  include CurrentQuoteholder
+  before_action :authenticate_admin_user!, :except => [:show, :destroy]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
-  include CurrentQuoteholder
-  before_action :set_quoteholder
 
   # GET /carts
   # GET /carts.json
@@ -16,15 +15,9 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
     if ( (params[:id].to_s) == (session[:cart_id].to_s) )
-    
-    else   
+    else
       redirect_to root_url, notice: "You tried to access an invalid cart."
-    end   
-   
-    #if (@cart.id == session[:cart_id])
-    #   @cart
-    # @cart.destroy 
-    # session[:cart_id] = nil
+    end
   end
 
   # GET /carts/new
@@ -69,24 +62,23 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
-    # if URI path name includes carts, redirect root_url with message    
+    # if URI path name includes carts, redirect root_url with message
     path_string = URI(request.referer).path
     if (URI(request.referer).path).include? "carts"
       respond_to do |format|
         format.html { redirect_to root_url, notice: "Your cart is now empty." }
-        format.js 
+        format.js
         format.json { head :no_content }
-      end    
+      end
     else
       respond_to do |format|
         format.html { redirect_to :back, notice: "Your cart is now empty." }
-        format.js 
+        format.js
         format.json { head :no_content }
       end
-    end  
+    end
   end
 
   private
@@ -95,13 +87,12 @@ class CartsController < ApplicationController
       @cart = Cart.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
       params[:cart]
     end
 
     def invalid_cart
-      logger.error "Attempt to access invalid cart #{params[:id]}"  
+      logger.error "Attempt to access invalid cart #{params[:id]}"
       redirect_to root_url, notice: 'Invalid cart.'
     end
 end

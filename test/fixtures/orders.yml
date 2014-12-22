@@ -1,7 +1,7 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-orders_one:
+order_one:
   user_id: 1
   firstname: Tim
   lastname:  Smith
@@ -15,7 +15,7 @@ orders_one:
   zipcode: 95555
   company: NetworkGeeks
 
-orders_two:
+order_two:
   user_id: 1
   firstname: Timothy
   lastname:  Smith

@@ -1,5 +1,5 @@
-desc "send order followup email" 
-task :send_order_followup => :environment do 
+desc "send order followup email"
+task :send_order_followup => :environment do
 
 	# target date = how many days to look back at submitted orders
 	target_date = 11.days.ago

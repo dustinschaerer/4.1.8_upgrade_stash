@@ -1,28 +1,27 @@
 ActiveAdmin.register Quote do
   menu :priority => 5
-  actions :all 
+  actions :all
 
-  permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at, :question, 
+  permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at, :question,
    lines_attributes: [ :id, :price, :quantity]
-  
+
   before_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
   after_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
-  
-  
+
+
   member_action :send_priced_email, :method => :post do
     # Do some work here...
     @quote = Quote.find(params[:id])
     @current_user_id = @quote.user_id
     @current_user = User.find(@current_user_id)
     QuoteNotifier.priced(@quote, @current_user).deliver
-  
     #update status to "Priced"
     @quote.status = "Priced"
     if @quote.save!
-      redirect_to admin_quotes_path, :notice => "Priced Email message sent to customer."    
+      redirect_to admin_quotes_path, :notice => "Priced Email message sent to customer."
     else
       render :back, :notice => "ERROR: Could not update Quote Status to Priced."
-    end  
+    end
   end
 
   member_action :send_question_email, :method => :post do
@@ -30,15 +29,13 @@ ActiveAdmin.register Quote do
     @current_user_id = @quote.user_id
     @current_user = User.find(@current_user_id)
     if QuoteNotifier.question(@quote, @current_user).deliver
-      redirect_to admin_quotes_path, :notice => "Question or Comment Email message has been successfully sent to customer."    
+      redirect_to admin_quotes_path, :notice => "Question or Comment Email message has been successfully sent to customer."
     else
       render :back, :notice => "ERROR: Could not deliver email message."
-    end  
+    end
   end
 
-
   controller do
-    
     def calculate_subtotal
       running_total = 0
       @quote.lines.each do |line|
@@ -50,14 +47,14 @@ ActiveAdmin.register Quote do
     def calculate_sales_tax
       if self.tax_id.blank?
         if (self.ship_state == 'Arkansas')
-          tax_rate = 0.0975 
+          tax_rate = 0.0975
         elsif (self.ship_state == 'Minnesota')
-          tax_rate = 0.06875 
+          tax_rate = 0.06875
         elsif (self.ship_state == 'New Jersey')
-          tax_rate = 0.07 
+          tax_rate = 0.07
         end
       else
-        tax_rate = 0  
+        tax_rate = 0
       end
       self.sales_tax = (self.subtotal * tax_rate).truncate(2)
     end
@@ -72,51 +69,43 @@ ActiveAdmin.register Quote do
       @quote.calculate_sales_tax
       @quote.calculate_total
       @quote.save!
-    end      
-
+    end
   end
 
-  index do 
+  index do
     column("Quote ID#", :sortable => :id) {|quote| link_to "##{quote.id} ", admin_quote_path(quote) }
-#   column("Quote Status") { |quote| status_tag(quote.status) }
-
     column("Status") {|quote| status_tag (quote.status), (quote.current_color) }
-
     column("Customer", :user, :sortable => :user_id)
     column("City", :ship_city, :sortable => :city)
     column("State", :ship_state, :sortable => :state)
     column("Date Created", :created_at)
     column("Date Modified", :updated_at)
-    
     column("Price Total", :total)  do |tl|
       div :class => "total-price" do
         number_to_currency tl.total
-      end  
-    end  
-    default_actions
+      end
+    end
+    actions
   end
 
   show do
-
     panel "Quote Details" do
       div do
        render "conditional_lines"
       end
-      
     end
-
     div :class => "recalculatebtn" do
       h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
-      h3 { button_to "Pricing Complete - Send EMail to Notify Customer Now", "/admin/quotes/#{quote.id}/send_priced_email", :method => :post }                                                                    
-    end 
+      h3 { button_to "Pricing Complete - Send EMail to Notify Customer Now", "/admin/quotes/#{quote.id}/send_priced_email", :method => :post }
+    end
 
-    columns do 
+    columns do
       column do
-        panel "Quote ##{quote.id}  - Customer Information" do  
+        panel "Quote ##{quote.id}  - Customer Information" do
           attributes_table_for quote do
             #row :status
             row("Status") {|quote| status_tag (quote.status), (quote.current_color) }
-          end  
+          end
           attributes_table_for quote.user do
             row("User") { auto_link quote.user }
             row :email
@@ -127,32 +116,30 @@ ActiveAdmin.register Quote do
             row :company
             row :tax_id do |tid|
               best_in_place tid, :tax_id, :type => :input
-            end  
+            end
             row :telephone
             row :ship_street_address
             row :ship_city
             row :ship_state
             row :ship_zipcode
-            row :ship_country 
+            row :ship_country
             row :subtotal do |sb|
               number_to_currency sb.subtotal
-            end  
+            end
             row :shipping do |i|
               best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
-            end  
+            end
             row :sales_tax  do |st|
               best_in_place st, :sales_tax, :type => :input, :display_with => :number_to_currency
-            end  
+            end
             row :total do |ttl|
               number_to_currency ttl.total
             end
             h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
-          end 
-        end  
-      end # end column
-      
+          end
+        end
+      end
       column do
-
         panel "Questions for the Customer" do
           attributes_table_for quote do
             row :question do |qq|
@@ -161,7 +148,6 @@ ActiveAdmin.register Quote do
             h3 { button_to "Email Question Response History to Customer Now", "/admin/quotes/#{quote.id}/send_question_email", :method => :post }
           end
         end
-
         panel "Quote History" do
           attributes_table_for quote do
             row :created_at
@@ -169,9 +155,9 @@ ActiveAdmin.register Quote do
           end
         end
         active_admin_comments
-      end # end column
-    end # end columns
-  end # end show
+      end
+    end
+  end
 
   form do |f|
     f.actions
@@ -184,7 +170,7 @@ ActiveAdmin.register Quote do
       f.input :question
       f.input :firstname
       f.input :lastname
-      f.input :company 
+      f.input :company
       f.input :telephone
       f.input :ship_street_address
       f.input :ship_city
@@ -195,7 +181,6 @@ ActiveAdmin.register Quote do
     f.inputs 'Items in Quote' do
       f.has_many :lines, :allow_destroy => true,  :new_record => false do |linef|
         linef.input :quote_product_id, :label => 'Quote Product', :as => :select, :collection => QuoteProduct.all.order("id"), :input_html => { disabled: true }
-
         linef.input :length, :label => "Length (in Inches)", size: 5
         linef.input :width, :label => "Width (in Inches)", size: 5
         linef.input :height, :label => "Height (in Inches)", size: 5
@@ -206,19 +191,16 @@ ActiveAdmin.register Quote do
         linef.input :quantity
         linef.input :price do |p|
           number_to_currency p.price
-        end   
-      end  
+        end
+      end
     end
 
-    f.inputs 'Totals' do  
+    f.inputs 'Totals' do
       f.input :subtotal, :input_html => { disabled: true }
       f.input :sales_tax, :input_html => { disabled: true }
       f.input :shipping
       f.input :total, :input_html => { disabled: true }
-      
     end
-    
     f.actions
   end
-
 end

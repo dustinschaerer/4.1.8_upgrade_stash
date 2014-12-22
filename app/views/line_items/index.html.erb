@@ -16,8 +16,8 @@
   <tbody>
     <% @line_items.each do |line_item| %>
       <tr>
-        <td><%= line_item.series.name if line_item.series %></td>
-        <td><%= line_item.color.name if line_item.color %></td>
+        <td><%= line_item.series_name if line_item.series %></td>
+        <td><%= line_item.color_name if line_item.color %></td>
         <td><%= line_item.cart.id if line_item.cart %></td>
         <td><%= line_item.order.id if line_item.order %></td>
         <td><%= link_to 'Show', line_item %></td>

@@ -2,19 +2,17 @@ class Order < ActiveRecord::Base
 
 	has_many :line_items, dependent: :destroy
 	belongs_to :user
-    
   accepts_nested_attributes_for :line_items
-
 	validates :firstname, :lastname, :street_address, :city, :zipcode, :state, :country, :email, :user_id, :status, presence: true
   validates :state, inclusion: ::STATES, if: :is_usa?
   validates :state, inclusion: ::PROVINCES, if: :is_canada?
 
   def is_usa?
-    (country == 'United States') 
+    (country == 'United States')
   end
 
   def is_canada?
-    (country == 'Canada') 
+    (country == 'Canada')
   end
 
 	def add_line_items_from_cart(cart)
@@ -27,7 +25,7 @@ class Order < ActiveRecord::Base
   def is_complete?
     if (self.status == "Shipped")
      	true
-    end	
+    end
   end
 
   def current_color

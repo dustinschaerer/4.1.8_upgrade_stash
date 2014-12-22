@@ -1,5 +1,6 @@
-Americo::Application.routes.draw do
+Rails.application.routes.draw do
 
+  # The priority is based upon order of creation: first created -> highest priority.
   authenticated :user do
     root :to => 'static_pages#home', :as => "authenticated_root"
   end
@@ -9,7 +10,7 @@ Americo::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
+
   resources :users, only: [:show, :edit, :update]
   resources :quoteholders
   resources :lines
@@ -25,11 +26,10 @@ Americo::Application.routes.draw do
   resources :colors
   resources :orders
   resources :messages
-  resources :subscribers  
-  resources :quotecarts  
+  resources :subscribers
+  resources :quotecarts
   resources :quotes
   resources :purchases, :only => [:new, :create, :show, :update]
-
   get "store/index"
   resources :products do
     get :who_bought, on: :member
@@ -37,42 +37,39 @@ Americo::Application.routes.draw do
   resources :series do
     get :who_bought, on: :member
   end
-  
   resources :colors do
     get :who_bought, on: :member
   end
-  
   get "users/new"
+  get 'users/:id' => 'users#show'
+  get 'contact'   => 'messages#new'
+  #match '/store',     to: 'static_pages#home',    via: 'get'
+  get 'store' => 'static_pages#home'
+  get 'signup'    => 'users#new'
+  get 'help'      => 'static_pages#help'
+  get 'about'     => 'static_pages#about'
+  get 'americlear_laminations_sample'   => 'static_pages#americlear_laminations_sample'
+  get 'cleaning_instructions'   => 'static_pages#cleaning_instructions'
+  get 'credit_application'   => 'static_pages#credit_application'
+  get 'frequently_asked_questions'  => 'static_pages#frequently_asked_questions'
+  get 'gallery' => 'static_pages#gallery'
+  get 'free_swatches' => 'static_pages#free_swatches'
+  get 'how_to_measure'   => 'static_pages#how_to_measure'
+  get 'how_to_order'   => 'static_pages#how_to_order'
+  get 'markets'   => 'static_pages#markets'
+  get 'photo_gallery' => 'static_pages#photo_gallery'
+  get 'place_an_order'   => 'static_pages#place_an_order'
+  get 'privacy_policy'   => 'static_pages#privacy_policy'
+  get 'request_catalog'   => 'static_pages#request_catalog'
+  get 'request_quote'   => 'static_pages#request_quote'
+  get 'roll_goods'   => 'static_pages#roll_goods'
+  get 'satisfied_customers'   => 'static_pages#satisfied_customers'
+  get 'sitemap'   => 'static_pages#sitemap'
+  get 'table_cover_gallery' => 'static_pages#table_cover_gallery'
+  get 'technical_specs'   => 'static_pages#technical_specs'
+  get 'terms_and_conditions'   => 'static_pages#terms_and_conditions'
+  get 'tradeshows' => 'static_pages#tradeshows'
 
-  match '/users/:id', to: 'users#show',           via: 'get' 
-  match '/contact',   to: 'messages#new',         via: 'get'
-  match '/store',     to: 'static_pages#home',    via: 'get'
-  match '/signup',    to: 'users#new',            via: 'get'
-  match '/help',      to: 'static_pages#help',    via: 'get'
-  match '/about',     to: 'static_pages#about',   via: 'get'
- # match '/contact',   to: 'static_pages#contact', via: 'get'
-  match '/americlear_laminations_sample',   to: 'static_pages#americlear_laminations_sample', via: 'get'
-  match '/cleaning_instructions',   to: 'static_pages#cleaning_instructions', via: 'get'
-  match '/credit_application',   to: 'static_pages#credit_application', via: 'get'
-  match '/frequently_asked_questions',  to: 'static_pages#frequently_asked_questions',   via: 'get'
-  match '/gallery', to: 'static_pages#gallery', via: 'get'
-  match '/free_swatches', to: 'static_pages#free_swatches', via: 'get'
-  match '/how_to_measure',   to: 'static_pages#how_to_measure', via: 'get'
-  match '/how_to_order',   to: 'static_pages#how_to_order', via: 'get'
-  match '/markets',   to: 'static_pages#markets', via: 'get'
-  match '/photo_gallery', to: 'static_pages#photo_gallery', via: 'get'
-  match '/place_an_order',   to: 'static_pages#place_an_order', via: 'get'
-  match '/privacy_policy',   to: 'static_pages#privacy_policy', via: 'get'
-  match '/request_catalog',   to: 'static_pages#request_catalog', via: 'get'
-  match '/request_quote',   to: 'static_pages#request_quote', via: 'get'
-  match '/roll_goods',   to: 'static_pages#roll_goods', via: 'get'
-  match '/satisfied_customers',   to: 'static_pages#satisfied_customers', via: 'get'
-  match '/sitemap',   to: 'static_pages#sitemap', via: 'get'
-  match '/table_cover_gallery', to: 'static_pages#table_cover_gallery', via: 'get'
-  match '/technical_specs',   to: 'static_pages#technical_specs', via: 'get'
-  match '/terms_and_conditions',   to: 'static_pages#terms_and_conditions', via: 'get'
-  match '/tradeshows', to: 'static_pages#tradeshows', via: 'get'
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

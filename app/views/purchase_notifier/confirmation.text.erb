@@ -5,7 +5,7 @@ Purchase ID #<%= @purchase.id %>
 Your purchase at americo-inc.com is complete!  This is a confirmation email to let you know that your payment for <%= number_to_currency(@purchase.total) %> was successful. We'll send you another email when your order has been shipped.
 
 --------------------------------
-<%= render @purchase.lines %> 
+<%= render @purchase.lines %>
 --------------------------------
 Subtotal:  <%= number_to_currency(@purchase.subtotal) %>
 Shipping:  <%= number_to_currency(@purchase.shipping) %>
@@ -16,4 +16,4 @@ Total:     <%= number_to_currency(@purchase.total) %>
 
 You can sign in and review your purchase history anytime.  <%= user_url(@current_user) %>
 
-Thank you for choosing Americo Inc. 
+Thank you for choosing Americo Inc.

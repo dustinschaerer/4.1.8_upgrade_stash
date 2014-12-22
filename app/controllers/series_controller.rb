@@ -9,12 +9,11 @@ class SeriesController < ApplicationController
   # GET /series
   def index
    # @series = Series.where("style_id = '7'").order("name")
-   @series = Series.all.order(:id)
+   @series = Series.all.order(:id).includes(:style)
   end
 
   # GET /series/1
   def show
-    @series = Series.friendly.find(params[:id])
   end
 
   # GET /series/new

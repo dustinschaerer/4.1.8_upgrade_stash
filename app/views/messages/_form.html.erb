@@ -16,11 +16,11 @@
 
   <div class="form-inputs">
     <%= f.select :reason, Message::CONTACT_REASONS, prompt: "Please select a Reason for Contacting Us", :input_html => { :id => "message_reason" } %>
-  
-    <div class="js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Order">    
+
+    <div class="js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Order">
       <%= f.number_field :order_id, :label => "Order Number" %>
     </div>
-  
+
    <div class="js-dependent-fields" data-select-id="message_reason" data-option-value="Question about a Previous Quote">
       <%= f.number_field :quote_id%>
     </div>
@@ -28,13 +28,13 @@
     <%= f.email_field :email %>
     <%= f.text_field :name %>
     <%= f.text_area :message, rows: 7, cols: 70 %>
-    <%= f.telephone_field :phone %>  
+    <%= f.telephone_field :phone %>
   </div>
 
   <div class="form-actions">
     <%= f.form_group do %>
       <%= f.submit "Send Message", class: "btn btn-med btn-success" %>
-    <% end %>  
+    <% end %>
   </div>
 <% end %>
 

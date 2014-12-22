@@ -1,9 +1,9 @@
 class PurchasesController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :update] 
+  before_action :authenticate_admin_user!, :except => [:new, :create, :show, :update]
   include CurrentQuote
   include CurrentCart
-  before_action :set_cart
+  #before_action :set_cart
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, unless: :current_admin_user
 
@@ -11,12 +11,12 @@ class PurchasesController < ApplicationController
   # GET /purchases/1.json
   def show
   end
-    
+
   # GET /purchases/new
   def new
     @purchase = Purchase.new
     #if we just came here from the user show
-    if (params[:quote_id]) 
+    if (params[:quote_id])
       @quote = Quote.find(params[:quote_id])
     # else we came from validation failing on this page
     else
@@ -45,7 +45,6 @@ class PurchasesController < ApplicationController
 
    # GET /purcashes/1/edit
   def edit
-    
   end
 
   # POST /purchases
@@ -53,12 +52,12 @@ class PurchasesController < ApplicationController
   def create
 
     if (params[:checkbox_use_same_address] == true)
-      @purchase.pay_firstname = @purchase.firstname 
-      @purchase.pay_lastname = @purchase.lastname 
-      @purchase.pay_company = @purchase.company 
+      @purchase.pay_firstname = @purchase.firstname
+      @purchase.pay_lastname = @purchase.lastname
+      @purchase.pay_company = @purchase.company
       @purchase.pay_telephone = @purchase.telephone
-      @purchase.pay_street_address = @purchase.ship_street_address 
-      @purchase.pay_city = @purchase.ship_city 
+      @purchase.pay_street_address = @purchase.ship_street_address
+      @purchase.pay_city = @purchase.ship_city
       @purchase.pay_zipcode = @purchase.ship_zipcode
       @purchase.pay_state = @purchase.ship_state
       @purchase.pay_country = @purchase.ship_country
@@ -67,8 +66,8 @@ class PurchasesController < ApplicationController
     @quote = Quote.find(purchase_params[:quote_id])
     @purchase = Purchase.new(purchase_params)
     # Add purchase ref to lines
-    @purchase.add_lines_from_quote(@quote)   
-    
+    @purchase.add_lines_from_quote(@quote)
+
     if @purchase.save
       # attempt purchase
       if @purchase.purchase_the_order
@@ -77,15 +76,15 @@ class PurchasesController < ApplicationController
         @purchase.save
         @quote.status = 'Purchased'
         @quote.save
-        # send purchase notification email 
+        # send purchase notification email
         PurchaseNotifier.confirmation(@purchase, current_user).deliver
         PurchaseNotifier.notify_admin(@purchase).deliver
-        
+
         respond_to do |format|
           format.html { redirect_to @purchase, notice: 'PURCHASE COMPLETED! We will send a confirmation email about your purchase and another email once your order has shipped. Check your account Dashboard to see your Purchase, Quote, and free Swatch Order Histories.'  }
           format.json { render action: 'show', status: :created, location: @purchase }
-        end          
-      else  
+        end
+      else
         @purchase.destroy
         respond_to do |format|
           #maybe render template here instead with a return link to purchase
@@ -94,10 +93,10 @@ class PurchasesController < ApplicationController
         end
       end
     else
-      respond_to do |format|  
+      respond_to do |format|
         format.html { render action: 'new', notice: 'Purchase could not be completed. See errors for details.' }
         format.json { render json: @purchase.errors, status: :unprocessable_entity }
-      end  
+      end
     end
   end
 
@@ -115,8 +114,6 @@ class PurchasesController < ApplicationController
     end
   end
 
-  # DELETE /purchases/1
-  # DELETE /purchases/1.json
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -126,13 +123,13 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:user_id, :firstname, :lastname, :telephone, 
-        :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, 
-        :ship_country, :pay_firstname, :pay_lastname, :pay_company, :pay_telephone, 
-        :pay_status, :status, :pay_street_address, :pay_city, :pay_state, :pay_zipcode, 
-        :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type, 
-        :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number, 
-        :card_verification, :month, :year, :email, :quote_id, :tax_id, :question, 
-        quotes_attributes: [:status, :id]) 
+      params.require(:purchase).permit(:user_id, :firstname, :lastname, :telephone,
+        :contactby, :ship_street_address, :ship_city, :ship_state, :ship_zipcode,
+        :ship_country, :pay_firstname, :pay_lastname, :pay_company, :pay_telephone,
+        :pay_status, :status, :pay_street_address, :pay_city, :pay_state, :pay_zipcode,
+        :pay_country, :subtotal, :shipping, :sales_tax, :total, :pay_type, :card_type,
+        :card_expires_on, :state, :ip_address, :amount, :user, :company, :card_number,
+        :card_verification, :month, :year, :email, :quote_id, :tax_id, :question,
+        quotes_attributes: [:status, :id])
     end
 end

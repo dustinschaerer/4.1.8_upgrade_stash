@@ -1,2 +1,5 @@
-rvm use ruby-2.0.0-p353
-rvm gemset use americo-depot-gemset-402
+# rvm use ruby-2.0.0-p353
+# rvm gemset use americo-depot-gemset-402
+
+rvm use ruby-2.1.5
+rvm gemset use rails4.1
