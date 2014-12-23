@@ -41,7 +41,8 @@ ActiveAdmin.register Quote do
       @quote.lines.each do |line|
         running_total += (line.quantity * line.price)
       end
-      Quote.subtotal = running_total
+      #Quote.subtotal = running_total
+      @quote.subtotal = running_total
     end
 
     def calculate_sales_tax
