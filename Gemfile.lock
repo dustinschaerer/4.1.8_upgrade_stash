@@ -17,18 +17,18 @@ GIT
       sass-rails
 
 GIT
-  remote: git://github.com/bernat/best_in_place.git
-  revision: 072e60b700bef718907ac6f3c43897fd43fef559
-  specs:
-    best_in_place (3.0.2)
-      actionpack (>= 3.2)
-      railties (>= 3.2)
-
-GIT
   remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
   revision: 8e1fc7dd1cab1f6d664d7ebce8c498fd39c533f9
   specs:
     bootstrap_form (2.2.0)
+
+GIT
+  remote: git://github.com/eiriklied/best_in_place.git
+  revision: 7435a8a66b442658ba14bc7ade50a67de6d56abb
+  specs:
+    best_in_place (2.1.0)
+      jquery-rails
+      rails (~> 4.1.0)
 
 GEM
   remote: https://rubygems.org/
