@@ -44,7 +44,7 @@
           <%=
           #best_in_place line, :price, :type => :input, :display_with => lambda{ |v| number_to_currency(v) }
           %>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input %></td>
         </tr>
 
       </tbody>
@@ -89,7 +89,7 @@
           <td class="col col-umbrella_hole"><%= line.umbrella %></td>
           <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
        </tr>
       </tbody>
     </table>
@@ -107,7 +107,7 @@
         <tr class="odd" id="">
           <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
       </tbody>
     </table>
@@ -130,7 +130,7 @@
           <td class="col col-quote_product_type"><%= line.quote_product_name %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
 
       </tbody>
@@ -155,7 +155,7 @@
           <td class="col col-length"><%= line.length %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
       </tbody>
     </table>
@@ -183,7 +183,7 @@
           <td class="col col-yards_long"><%= line.yards %></td>
           <td class="col col-width"><%= line.width %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
       </tbody>
     </table>
@@ -213,7 +213,7 @@
           <td class="col col-yards_long"><%= line.yards %></td>
           <td class="col col-dimensions"><%= line.size.name%></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
       </tbody>
     </table>
@@ -240,7 +240,7 @@
           <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
       </tbody>
     </table>
@@ -268,7 +268,7 @@
           <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-yards_long"><%= line.yards %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
       </tbody>
     </table>
@@ -296,7 +296,7 @@
           <td class="col col-color"><%= line.color_name %></td>
           <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
 
       </tbody>
@@ -324,7 +324,7 @@
           <td class="col col-color"><%= line.color_name %></td>
           <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
 
       </tbody>
@@ -352,7 +352,7 @@
           <td class="col col-color"><%= line.color_name %></td>
           <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
 
       </tbody>
@@ -383,7 +383,7 @@
           <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-dimensions"><%= line.size_dimension %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => :number_to_currency %></td>
         </tr>
       </tbody>
     </table>
@@ -409,7 +409,7 @@
           <td class="col col-color"><%= line.color_name %></td>
           <td class="col col-swatch"><%= image_tag(line.color_image_url, :class => "invoicethumb img-responsive") %></td>
           <td class="col col-quantity"><%= line.quantity %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :type => :input, :display_with => :number_to_currency %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input %></td>
         </tr>
       </tbody>
     </table>

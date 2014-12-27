@@ -70,7 +70,10 @@ ActiveAdmin.register Quote do
       @quote.calculate_sales_tax
       @quote.calculate_total
       #@quote.update(subtotal: "#{self.subtotal}", shipping: "#{self.shipping}", sales_tax: "#{self.sales_tax}", total: "#{self.total}")
-      @quote.save!
+      if @quote.save!
+      else
+        render :back, :notice => "ERROR: Could not save updated value"
+      end
     end
   end
 
@@ -129,6 +132,7 @@ ActiveAdmin.register Quote do
               number_to_currency sb.subtotal
             end
             row :shipping do |i|
+              #best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
               best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
             end
             row :sales_tax  do |st|
