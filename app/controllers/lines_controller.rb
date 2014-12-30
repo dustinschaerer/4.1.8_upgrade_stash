@@ -5,7 +5,7 @@ class LinesController < ApplicationController
   include CurrentQuoteholder
   before_action :set_quoteholder
   before_action :set_cart
-  before_action :set_line, only: [:show, :edit, :update, :destroy]
+  before_action :set_line, only: [:show, :edit, :destroy]
 
 
   # GET /lines
