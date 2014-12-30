@@ -5,8 +5,8 @@ ActiveAdmin.register Quote do
   permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at, :question,
    lines_attributes: [ :id, :price, :quantity]
 
-  before_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
-  after_filter :recalculate_totals, only: [:show, :edit, :update, :destroy]
+  before_filter :recalculate_totals, only: [:show, :edit, :update]
+  #after_filter :recalculate_totals, only: [:show]
 
 
   member_action :send_priced_email, :method => :post do
@@ -69,9 +69,10 @@ ActiveAdmin.register Quote do
       @quote.calculate_subtotal
       @quote.calculate_sales_tax
       @quote.calculate_total
-      #@quote.update(subtotal: "#{self.subtotal}", shipping: "#{self.shipping}", sales_tax: "#{self.sales_tax}", total: "#{self.total}")
       if @quote.save!
+        logger.debug "THE TOALS FOR QUOTE #{@quote.id} have been recalculated and successfully saved."
       else
+        logger.debug "NOT SAVED. The totals for Quote #{@quote.id} have been recalculated, but not successfully saved."
         render :back, :notice => "ERROR: Could not save updated value"
       end
     end
@@ -120,7 +121,7 @@ ActiveAdmin.register Quote do
             row :lastname
             row :company
             row :tax_id do |tid|
-              best_in_place tid, :tax_id, :type => :input
+              best_in_place tid, :tax_id, :as => :input
             end
             row :telephone
             row :ship_street_address
@@ -132,11 +133,10 @@ ActiveAdmin.register Quote do
               number_to_currency sb.subtotal
             end
             row :shipping do |i|
-              #best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
-              best_in_place i, :shipping, :type => :input, :display_with => :number_to_currency
+              best_in_place i, :shipping, :as => :input, :display_with => :number_to_currency
             end
             row :sales_tax  do |st|
-              best_in_place st, :sales_tax, :type => :input, :display_with => :number_to_currency
+              best_in_place st, :sales_tax, :as => :input, :display_with => :number_to_currency
             end
             row :total do |ttl|
               number_to_currency ttl.total
@@ -149,7 +149,7 @@ ActiveAdmin.register Quote do
         panel "Questions for the Customer" do
           attributes_table_for quote do
             row :question do |qq|
-              best_in_place qq, :question, :type => :textarea, :display_with => :simple_format
+              best_in_place qq, :question, :as => :textarea, :display_with => :simple_format
             end
             h3 { button_to "Email Question Response History to Customer Now", "/admin/quotes/#{quote.id}/send_question_email", :method => :post }
           end

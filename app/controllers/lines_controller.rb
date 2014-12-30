@@ -53,10 +53,12 @@ class LinesController < ApplicationController
     respond_to do |format|
       if @line.update(line_params)
         format.html { redirect_to @line, notice: 'Line was successfully updated.' }
-        format.json { head :no_content }
+        #format.json { head :no_content }
+        format.json { respond_with_bip(@line) }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @line.errors, status: :unprocessable_entity }
+        #format.json { render json: @line.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@line) }
       end
     end
   end

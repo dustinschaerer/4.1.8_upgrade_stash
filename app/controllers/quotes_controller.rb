@@ -76,12 +76,12 @@ class QuotesController < ApplicationController
     respond_to do |format|
       if @quote.update(quote_params)
         format.html { redirect_to quote_path(@quote), notice: 'Quote was successfully updated.' }
-        format.json { head :no_content }
-        #format.json { respond_with_bip(@quote) }
+        #format.json { head :no_content }
+        format.json { respond_with_bip(@quote) }
       else
         format.html { render action: 'edit' }
         #format.json { render json: @quote.errors, status: :unprocessable_entity }
-        #format.json { respond_with_bip(@quote) }
+        format.json { respond_with_bip(@quote) }
       end
     end
   end
