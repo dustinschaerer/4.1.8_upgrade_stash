@@ -6,10 +6,12 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+#Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module Americo
   class Application < Rails::Application
@@ -37,7 +39,7 @@ module Americo
 
     config.filter_parameters += [:password, :password_confirmation]
 
-    config. generators do |g|
+    config.generators do |g|
         g.test_framework :test_unit
     end
 
