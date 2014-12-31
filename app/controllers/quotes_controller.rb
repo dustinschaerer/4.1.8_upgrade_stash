@@ -1,4 +1,4 @@
-class QuotesController < ApplicationController
+class QuotesController < InheritedResources::Base
 
   before_action :authenticate_admin_user!, :except => [:new, :create, :show, :edit, :update]
   include CurrentCart
@@ -76,10 +76,12 @@ class QuotesController < ApplicationController
     respond_to do |format|
       if @quote.update(quote_params)
         format.html { redirect_to quote_path(@quote), notice: 'Quote was successfully updated.' }
-        format.json { respond_with_bip(@quote) }
+        #format.json { respond_with_bip(@quote) }
+        format.json { render json: @quote }
       else
         format.html { render action: 'edit' }
-        format.json { respond_with_bip(@quote) }
+        #format.json { respond_with_bip(@quote) }
+        format.json { render json: @quote }
       end
     end
   end

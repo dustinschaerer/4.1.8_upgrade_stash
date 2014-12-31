@@ -1,6 +1,6 @@
 class LinesController < ApplicationController
 
-  before_action :authenticate_admin_user!, :except => [:new, :create, :destroy]
+  before_action :authenticate_admin_user!, :except => [:new, :create, :update, :destroy]
   include CurrentCart
   include CurrentQuoteholder
   before_action :set_quoteholder

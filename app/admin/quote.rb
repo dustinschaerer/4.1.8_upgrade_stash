@@ -5,9 +5,24 @@ ActiveAdmin.register Quote do
   permit_params :user_id, :firstname, :lastname, :company, :ship_street_address, :ship_city, :ship_state, :ship_zipcode, :ship_country, :telephone, :email, :status, :shipping, :sales_tax, :subtotal, :total, :created_at, :updated_at, :question,
    lines_attributes: [ :id, :price, :quantity]
 
-  before_filter :recalculate_totals, only: [:show, :edit, :update]
+  #before_filter :recalculate_totals, only: [:show, :edit, :update]
   #after_filter :recalculate_totals, only: [:show]
+  member_action :recalculate, :method => :post do
+    #def recalculate_totals
+      @quote = Quote.find(params[:id])
+      @quote.calculate_subtotal
+      @quote.calculate_sales_tax
+      @quote.calculate_total
+      if @quote.save!
+        logger.debug "THE TOALS FOR QUOTE #{@quote.id} have been recalculated and successfully saved."
+        redirect_to :back, :notice => "Totals have been recalculated."
 
+      else
+        logger.debug "NOT SAVED. The totals for Quote #{@quote.id} have been recalculated, but not successfully saved."
+        render :back, :notice => "ERROR: Could not save updated quote"
+      end
+    #end
+  end
 
   member_action :send_priced_email, :method => :post do
     # Do some work here...
@@ -63,18 +78,7 @@ ActiveAdmin.register Quote do
       self.total = (self.subtotal + self.shipping + self.sales_tax)
     end
 
-    def recalculate_totals
-      @quote = Quote.find(params[:id])
-      @quote.calculate_subtotal
-      @quote.calculate_sales_tax
-      @quote.calculate_total
-      if @quote.save!
-        logger.debug "THE TOALS FOR QUOTE #{@quote.id} have been recalculated and successfully saved."
-      else
-        logger.debug "NOT SAVED. The totals for Quote #{@quote.id} have been recalculated, but not successfully saved."
-        render :back, :notice => "ERROR: Could not save updated value"
-      end
-    end
+
   end
 
   index do
@@ -100,7 +104,8 @@ ActiveAdmin.register Quote do
       end
     end
     div :class => "recalculatebtn" do
-      h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
+      #h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
+      h3 { button_to "Recalculate Totals and Pricing on this Quote Now", "/admin/quotes/#{quote.id}/recalculate", :method => :post }
       h3 { button_to "Pricing Complete - Send EMail to Notify Customer Now", "/admin/quotes/#{quote.id}/send_priced_email", :method => :post }
     end
 
@@ -140,7 +145,8 @@ ActiveAdmin.register Quote do
             row :total do |ttl|
               number_to_currency ttl.total
             end
-            h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
+            #h3 { link_to "Recalculate Totals and Pricing on this Quote Now", [:admin, quote] }
+            h3 { button_to "Recalculate Totals and Pricing on this Quote Now", "/admin/quotes/#{quote.id}/recalculate", :method => :post }
           end
         end
       end
