@@ -38,7 +38,7 @@
           <td class="col col-umbrella_hole"><%= line.umbrella %></td>
           <td class="col col-for_booth_with_velcro"><%= line.velcro %></td>
           <td class="col col-quantity"><%= best_in_place line, :quantity, :as => :input %></td>
-          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => lambda{ |v| number_to_currency(v) } %></td>
+          <td class="col col-price"><%= best_in_place line, :price, :as => :input, :display_with => lambda{ |v| number_to_currency(v) }, :url => line %></td>
         </tr>
 
       </tbody>

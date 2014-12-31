@@ -41,7 +41,6 @@ ActiveAdmin.register Quote do
       @quote.lines.each do |line|
         running_total += (line.quantity * line.price)
       end
-      #Quote.subtotal = running_total
       @quote.subtotal = running_total
     end
 
@@ -133,10 +132,10 @@ ActiveAdmin.register Quote do
               number_to_currency sb.subtotal
             end
             row :shipping do |i|
-              best_in_place i, :shipping, :as => :input, :display_with => :number_to_currency
+              best_in_place i, :shipping, :as => :input, :display_with => :number_to_currency, :url => [:admin, i]
             end
             row :sales_tax  do |st|
-              best_in_place st, :sales_tax, :as => :input, :display_with => :number_to_currency
+              best_in_place st, :sales_tax, :as => :input, :display_with => :number_to_currency, :url => [:admin, st]
             end
             row :total do |ttl|
               number_to_currency ttl.total
