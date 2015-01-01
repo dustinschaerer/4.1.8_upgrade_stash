@@ -33,8 +33,12 @@ gem 'underscore-rails'
 gem 'dependent-fields-rails'
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 #gem "best_in_place", github: 'eiriklied/best_in_place'
-gem "best_in_place", github: 'bernat/best_in_place'
+#gem "best_in_place", github: 'bernat/best_in_place'
 #gem 'best_in_place', '~> 3.0.1'
+
+gem "best_in_place", '3.0.2', path: 'vendor/best_in_place-3.0.2'
+
+
 gem 'activemerchant'
 gem 'figaro'
 gem 'passenger'
