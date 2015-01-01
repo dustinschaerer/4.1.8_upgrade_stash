@@ -10,6 +10,8 @@ gem 'rails', '4.1.8'
 gem "sass-rails", "~> 4.0.3"
 #gem 'bootstrap-sass', '~>3.0.3.0'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
+
 gem 'devise'
 #gem 'activeadmin', github: 'activeadmin'
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'master'
@@ -31,13 +33,11 @@ gem 'jbuilder', '1.0.2'
 #gem 'country-select'
 gem 'underscore-rails'
 gem 'dependent-fields-rails'
-gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 #gem "best_in_place", github: 'eiriklied/best_in_place'
 #gem "best_in_place", github: 'bernat/best_in_place'
 #gem 'best_in_place', '~> 3.0.1'
 
 gem "best_in_place", '3.0.2', path: 'vendor/best_in_place-3.0.2'
-
 
 gem 'activemerchant'
 gem 'figaro'
